@@ -11,7 +11,7 @@ dependencies:
     - bootstrap
 id: views_block__user_member_of_org_view_block_2
 theme: bootstrap
-region: sidebar_second
+region: sidebar_first
 weight: 0
 provider: null
 plugin: 'views_block:user_member_of_org_view-block_2'
