@@ -1,0 +1,11 @@
+uuid: baa80131-6e33-4e41-9dc3-0a33c293f149
+langcode: en
+status: true
+dependencies: {  }
+id: organization_group
+label: 'Organization group'
+description: ''
+creator_membership: true
+creator_wizard: true
+creator_roles:
+  - organization_group-admin

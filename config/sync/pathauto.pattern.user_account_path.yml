@@ -1,0 +1,14 @@
+uuid: 9ce6b992-d953-48dd-80b3-8be2ce508082
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user_account_path
+label: 'User Account Path'
+type: 'canonical_entities:user'
+pattern: '[user:account-name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

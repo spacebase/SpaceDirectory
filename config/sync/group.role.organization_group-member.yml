@@ -1,0 +1,20 @@
+uuid: 378a5af9-c20f-4db4-8913-0235af736232
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.organization_group
+id: organization_group-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: organization_group
+permissions_ui: true
+permissions:
+  0: 'view group'
+  1: 'update own group_membership content'
+  2: 'leave group'
+  3: 'view group_membership content'
+  4: 'access group_node overview'
+  10: 'view group_node:organization entity'

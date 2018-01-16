@@ -1,0 +1,35 @@
+uuid: 0e647f2b-dbb9-488d-9098-64ed488c2b12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_headquarters_location
+    - group.type.organization_group
+  module:
+    - address
+id: group.organization_group.field_headquarters_location
+field_name: field_headquarters_location
+entity_type: group
+bundle: organization_group
+label: 'Headquarters Location'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_countries: {  }
+  fields:
+    administrativeArea: administrativeArea
+    locality: locality
+    dependentLocality: dependentLocality
+    postalCode: postalCode
+    sortingCode: sortingCode
+    addressLine1: addressLine1
+    addressLine2: addressLine2
+    organization: organization
+    givenName: givenName
+    additionalName: additionalName
+    familyName: familyName
+  langcode_override: ''
+field_type: address

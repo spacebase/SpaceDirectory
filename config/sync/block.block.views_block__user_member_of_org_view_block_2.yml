@@ -1,0 +1,31 @@
+uuid: 5f1f8278-fd37-4298-86af-c30a1f56a5c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.user_member_of_org_view
+  module:
+    - system
+    - views
+  theme:
+    - bootstrap
+id: views_block__user_member_of_org_view_block_2
+theme: bootstrap
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:user_member_of_org_view-block_2'
+settings:
+  id: 'views_block:user_member_of_org_view-block_2'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: "/user/*\r\n*/spacebase-users-search-page/*"
+    negate: false
+    context_mapping: {  }

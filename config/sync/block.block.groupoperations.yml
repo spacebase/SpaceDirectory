@@ -1,0 +1,30 @@
+uuid: 7045844e-47cd-41c1-91bf-4bb14b7aaa07
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - group
+  theme:
+    - bootstrap
+id: groupoperations
+theme: bootstrap
+region: sidebar_first
+weight: -7
+provider: null
+plugin: group_operations
+settings:
+  id: group_operations
+  label: 'Group operations'
+  provider: group
+  label_display: '0'
+  context_mapping:
+    group: '@group.group_route_context:group'
+visibility:
+  'entity_bundle:group':
+    id: 'entity_bundle:group'
+    bundles:
+      organization_group: organization_group
+    negate: false
+    context_mapping:
+      group: '@group.group_route_context:group'

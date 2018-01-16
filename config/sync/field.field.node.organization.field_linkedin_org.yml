@@ -1,0 +1,23 @@
+uuid: ae3f9de8-15c4-4d05-93fd-42b610f2384c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_linkedin_org
+    - node.type.organization
+  module:
+    - link
+id: node.organization.field_linkedin_org
+field_name: field_linkedin_org
+entity_type: node
+bundle: organization
+label: LinkedIn
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

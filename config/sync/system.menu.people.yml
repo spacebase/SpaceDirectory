@@ -1,0 +1,8 @@
+uuid: 9a7aaa9e-ef2d-4484-8a17-16e615016145
+langcode: en
+status: true
+dependencies: {  }
+id: people
+label: People
+description: ''
+locked: false

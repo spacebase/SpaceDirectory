@@ -1,0 +1,25 @@
+uuid: 4b879745-f544-4181-88c6-adf316b997d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.organization_group
+id: organization_group-admin
+label: Admin
+weight: 100
+internal: false
+audience: member
+group_type: organization_group
+permissions_ui: true
+permissions:
+  0: 'access content overview'
+  1: 'administer group'
+  2: 'delete group'
+  3: 'edit group'
+  4: 'view group'
+  5: 'administer members'
+  6: 'update own group_membership content'
+  7: 'leave group'
+  8: 'view group_membership content'
+  9: 'access group_node overview'
+  20: 'view group_node:organization entity'

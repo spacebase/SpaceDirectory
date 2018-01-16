@@ -1,0 +1,22 @@
+uuid: 1a85bd58-7794-456a-91b1-55bda63e5e81
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: organization_name_path
+label: 'Organization Name Path'
+type: 'canonical_entities:node'
+pattern: '[node:field_name_org]'
+selection_criteria:
+  41979008-2ebd-4433-b592-e3d26490daec:
+    id: node_type
+    bundles:
+      organization: organization
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 41979008-2ebd-4433-b592-e3d26490daec
+selection_logic: and
+weight: -5
+relationships: {  }

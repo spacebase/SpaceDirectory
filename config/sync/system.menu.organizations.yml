@@ -1,0 +1,8 @@
+uuid: 7e1b8a0f-74c9-4186-97ad-5f8803600b77
+langcode: en
+status: true
+dependencies: {  }
+id: organizations
+label: Organizations
+description: ''
+locked: false

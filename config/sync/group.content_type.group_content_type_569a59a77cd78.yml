@@ -1,0 +1,17 @@
+uuid: a03b4648-5cce-4ba2-99c7-9d20420290c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.organization_group
+  module:
+    - user
+id: group_content_type_569a59a77cd78
+label: 'Organization group: Group membership'
+description: 'Adds users to groups as members.'
+group_type: organization_group
+content_plugin: group_membership
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: true

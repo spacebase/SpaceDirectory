@@ -1,0 +1,30 @@
+uuid: 2a495085-0b24-4b65-bbfa-bb3d3209d15b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.view_spacebase_user
+  module:
+    - system
+    - views
+  theme:
+    - bootstrap
+id: views_block__view_spacebase_user_block_1
+theme: bootstrap
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:view_spacebase_user-block_1'
+settings:
+  id: 'views_block:view_spacebase_user-block_1'
+  label: 'Spacebase Users'
+  provider: views
+  label_display: visible
+  views_label: 'Spacebase Users'
+  items_per_page: '5'
+visibility:
+  request_path:
+    id: request_path
+    pages: /view---spacebase-user
+    negate: false
+    context_mapping: {  }

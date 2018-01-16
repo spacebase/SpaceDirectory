@@ -1,0 +1,11 @@
+uuid: 00ccf989-baf4-4af0-8539-97dcd8e71be7
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+id: btn_add_organization
+title: 'Add Organization'
+content:
+  value: "<div class=\"btn\"><a href=\"/group/add/organization_group\">Add Group</a></div>\r\n"
+  format: full_html
