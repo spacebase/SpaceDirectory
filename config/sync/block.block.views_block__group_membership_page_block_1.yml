@@ -12,7 +12,7 @@ dependencies:
 id: views_block__group_membership_page_block_1
 theme: bootstrap
 region: sidebar_first
-weight: 0
+weight: -8
 provider: null
 plugin: 'views_block:group_membership_page-block_1'
 settings:

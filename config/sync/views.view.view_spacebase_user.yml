@@ -177,7 +177,7 @@ display:
             operator: ''
           group: 1
       sorts: {  }
-      title: 'View - Spacebase User'
+      title: People
       header: {  }
       footer: {  }
       empty: {  }
@@ -192,10 +192,10 @@ display:
         - url.query_args
         - user.roles
       tags: {  }
-  block_1:
-    display_plugin: block
-    id: block_1
-    display_title: Block
+  people_page:
+    display_plugin: page
+    id: people_page
+    display_title: 'People Page'
     position: 2
     display_options:
       display_extenders: {  }
@@ -557,7 +557,6 @@ display:
           hide_alter_empty: true
           display_name: 1
           plugin_id: country_code
-      block_description: 'Block View - Spacebase User'
       style:
         type: table
         options:
@@ -633,6 +632,17 @@ display:
             field_home_location_user_country_code: field_home_location_user_country_code
           separator: ''
           hide_empty: false
+      path: people
+      menu:
+        type: normal
+        title: People
+        description: ''
+        expanded: false
+        parent: ''
+        weight: -49
+        context: '0'
+        menu_name: main
+      display_description: ''
     cache_metadata:
       max-age: 0
       contexts:
@@ -645,39 +655,3 @@ display:
         - 'config:field.storage.user.field_last_name_user'
         - 'config:field.storage.user.field_tagline_user'
         - 'config:field.storage.user.user_picture'
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: view---spacebase-user
-      menu:
-        type: normal
-        title: People
-        description: ''
-        expanded: true
-        parent: ''
-        weight: -49
-        context: '0'
-        menu_name: main
-        enabled: true
-      access:
-        type: role
-        options:
-          role:
-            anonymous: anonymous
-            authenticated: authenticated
-            administrator: administrator
-            spacebase_user: spacebase_user
-      defaults:
-        access: false
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url.query_args
-        - user.roles
-      tags: {  }
