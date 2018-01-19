@@ -1,0 +1,23 @@
+uuid: b75e93de-04fc-4a96-b330-6b23c774b0a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.spacebase_users_search_page
+  module:
+    - views
+  theme:
+    - spacebase
+id: spacebase_exposedform_spacebase_users_search_page
+theme: spacebase
+region: sidebar_second
+weight: -7
+provider: null
+plugin: 'views_exposed_filter_block:spacebase_users_search_page-spacebase_users_search_page'
+settings:
+  id: 'views_exposed_filter_block:spacebase_users_search_page-spacebase_users_search_page'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility: {  }

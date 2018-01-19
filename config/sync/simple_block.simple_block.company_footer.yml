@@ -1,0 +1,11 @@
+uuid: 609c6105-2587-4ebe-b7f1-bcd34fa6611e
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+id: company_footer
+title: 'Company Info'
+content:
+  value: "<div><a href=\"/\"><img alt=\"SpaceBase logo\" data-entity-type=\"file\" data-entity-uuid=\"289dab67-30b1-46ff-865b-231891a66480\" src=\"/sites/default/files/inline-images/logo.png\" /></a></div>\r\n\r\n<p>Address St Suite 123<br />\r\nCity, ETC 1234ABC</p>\r\n"
+  format: full_html

@@ -1,0 +1,12 @@
+enabled_fonts:
+  - 'http://www.google.com/webfonts/family?family=Montserrat&subset=latin#200'
+  - 'http://www.google.com/webfonts/family?family=Montserrat&subset=latin#200italic'
+  - 'http://www.google.com/webfonts/family?family=Montserrat&subset=latin#300'
+  - 'http://www.google.com/webfonts/family?family=Montserrat&subset=latin#300italic'
+  - 'http://www.google.com/webfonts/family?family=Montserrat&subset=latin#500'
+  - 'http://www.google.com/webfonts/family?family=Montserrat&subset=latin#500italic'
+  - 'http://www.google.com/webfonts/family?family=Montserrat&subset=latin#700'
+  - 'http://www.google.com/webfonts/family?family=Montserrat&subset=latin#700italic'
+load_all_enabled_fonts: 1
+_core:
+  default_config_hash: r8uAx4mTBwCkgDFbdKCmhjgbb91BQ4HbWSYRKrlowMY

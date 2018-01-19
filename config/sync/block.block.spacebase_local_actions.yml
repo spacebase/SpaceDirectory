@@ -1,0 +1,20 @@
+uuid: 2933419c-830a-4f2d-a10c-1be71d47db93
+langcode: en
+status: true
+dependencies:
+  theme:
+    - spacebase
+_core:
+  default_config_hash: ffxthelqQF8xcr4GTG4HlaNNsluiHftN0pujmQpW0bQ
+id: spacebase_local_actions
+theme: spacebase
+region: header
+weight: -4
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }
