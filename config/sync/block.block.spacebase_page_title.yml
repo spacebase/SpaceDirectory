@@ -1,0 +1,20 @@
+uuid: fcb5e03b-f727-4ffe-8d4d-303d0284abea
+langcode: en
+status: true
+dependencies:
+  theme:
+    - spacebase
+_core:
+  default_config_hash: 1TQP4b3ZnlzvIH9bj6cpCz_SyUHdJjLQkZnHpikjjhw
+id: spacebase_page_title
+theme: spacebase
+region: header
+weight: -6
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

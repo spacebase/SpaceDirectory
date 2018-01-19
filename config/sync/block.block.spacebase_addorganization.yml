@@ -1,0 +1,30 @@
+uuid: 9ed45d67-0d9a-497d-a0e0-f3d05a97089e
+langcode: en
+status: true
+dependencies:
+  config:
+    - simple_block.simple_block.btn_add_organization
+  module:
+    - simple_block
+    - user
+  theme:
+    - spacebase
+id: spacebase_addorganization
+theme: spacebase
+region: header
+weight: -9
+provider: null
+plugin: 'simple_block:btn_add_organization'
+settings:
+  id: 'simple_block:btn_add_organization'
+  label: 'Add Organization'
+  provider: simple_block
+  label_display: '0'
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      spacebase_user: spacebase_user
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

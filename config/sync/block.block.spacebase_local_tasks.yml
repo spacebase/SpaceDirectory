@@ -1,0 +1,22 @@
+uuid: 03f2bc71-b5b7-47a7-b571-8328b77ebccb
+langcode: en
+status: true
+dependencies:
+  theme:
+    - spacebase
+_core:
+  default_config_hash: qHdtze2DZ2mFfaJadxjZz6epm92_SN9SAFY4yJGl8Fo
+id: spacebase_local_tasks
+theme: spacebase
+region: header
+weight: -5
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

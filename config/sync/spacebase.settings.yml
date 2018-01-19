@@ -1,0 +1,23 @@
+cdn_provider: ''
+_core:
+  default_config_hash: _5qrDuRmWmRVjW00si3U1s1NrgrocA4N653EYGRfgEE
+favicon:
+  mimetype: image/vnd.microsoft.icon
+  path: ''
+  url: 'http://space-base.lndo.site/themes/custom/spacebase/favicon.ico'
+  use_default: true
+schemas:
+  bootstrap: 8000
+  spacebase: 8000
+navbar_position: fixed-top
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+logo:
+  path: themes/custom/spacebase/logo.png
+  url: ''
+  use_default: false
+navbar_inverse: 1
+table: ''
