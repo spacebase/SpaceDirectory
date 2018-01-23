@@ -26,3 +26,4 @@ regions:
 libraries:
   - 'spacebase/global-styling'
   - 'spacebase/bootstrap-scripts'
+  - 'spacebase/parallax'
