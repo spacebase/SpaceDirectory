@@ -1,0 +1,36 @@
+uuid: 4f145358-c759-4cee-9b2d-d97c496562ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.call_to_action_row
+    - field.field.block_content.call_to_action_row.body
+    - field.field.block_content.call_to_action_row.field_button
+  module:
+    - link
+    - text
+id: block_content.call_to_action_row.default
+targetEntityType: block_content
+bundle: call_to_action_row
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_button:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden: {  }

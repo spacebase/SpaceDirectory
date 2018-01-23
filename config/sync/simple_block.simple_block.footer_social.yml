@@ -1,0 +1,11 @@
+uuid: f86ff00a-0af0-4d3d-bd6e-29665218bbb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.raw_html
+id: footer_social
+title: 'Social Links'
+content:
+  value: "<a href=\"http://instagram.com/\" target=\"_blank\"><i class=\"fab fa-instagram\"></i></a>\r\n<a href=\"http://facebook.com/\" target=\"_blank\"><i class=\"fab fa-facebook\"></i></a>\r\n<a href=\"http://twitter.com/\" target=\"_blank\"><i class=\"fab fa-twitter\"></i></a>\r\n<a href=\"http://youtube.com/\" target=\"_blank\"><i class=\"fab fa-youtube\"></i></a>\r\n<a href=\"http://linkedin.com/\" target=\"_blank\"><i class=\"fab fa-linkedin\"></i></a>"
+  format: raw_html

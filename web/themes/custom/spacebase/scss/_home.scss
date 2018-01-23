@@ -1,0 +1,49 @@
+.call-to-action-row{
+  background: $brand-primary;
+  color: #fff;
+  padding: 35px;
+  text-align: center;
+  font-size: 18px;
+  a{
+    color: #fff;
+    text-decoration: underline;
+  }
+  .field--name-field-button{
+    a{
+      display: block;
+      font-size: 22px;
+      background: $brand-secondary;
+      border-radius: 2px;
+      margin: 0 auto 20px;
+      max-width: 300px;
+      padding: 25px 0;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      &:hover,&:active,&:focus{
+        text-decoration: none;
+        background: lighten($brand-secondary,5%);
+      }
+    }
+  }
+}
+.intro-text{
+  font-size: 20px;
+  line-height: 1.8em;
+  padding: 85px 0;
+}
+.partners{
+  padding: 70px 30px 120px;
+  background: #000 url(../images/partners-bg.jpg) center center;
+  background-size: cover;
+  h2.block-title{
+    font-size: 36px;
+    text-transform: uppercase;
+    margin: 0 0 60px;
+    color: #fff;
+  }
+  .partner{
+    display: inline-block;
+    margin: 15px 40px;
+  }
+}

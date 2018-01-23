@@ -1,0 +1,42 @@
+uuid: f73483e7-5e14-45cb-8122-e0c58ec8d75f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.partner.field_partner_logo
+    - field.field.node.partner.field_partner_url
+    - node.type.partner
+  module:
+    - image
+    - link
+    - user
+id: node.partner.default
+targetEntityType: node
+bundle: partner
+mode: default
+content:
+  field_partner_logo:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_partner_url:
+    weight: 103
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }
