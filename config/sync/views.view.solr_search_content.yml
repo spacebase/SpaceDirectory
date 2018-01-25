@@ -1,6 +1,6 @@
 uuid: 9420c975-80f0-4769-8a1c-93ca0d806b90
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - search_api.index.default_solr_index
