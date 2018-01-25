@@ -16,7 +16,7 @@ solrsearch:
     configuration:
         cores:
             maincore:
-                conf_dir: !archive "solr-conf/6.x"
+                conf_dir: !archive "solr-conf"
         endpoints:
             main:
                 core: maincore
