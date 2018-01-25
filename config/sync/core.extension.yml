@@ -42,6 +42,8 @@ module:
   rdf: 0
   search_api: 0
   search_api_solr: 0
+  search_api_db: 0
+  search_api_db_defaults: 0
   shortcut: 0
   simple_block: 0
   system: 0
