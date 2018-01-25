@@ -1,9 +1,18 @@
 name: space-base
 recipe: drupal8
+proxy:
+  solrserver:
+    - solr.space-base.lndo.site:8983
 services:
   appserver:
     build:
       - "curl -sS https://platform.sh/cli/installer | php"
+  solrserver:
+    type: solr:6.6
+    portforward: true
+    core: drupal
+    config:
+      conf: .platform/solr-conf
 tooling:
   platform:
     service: appserver

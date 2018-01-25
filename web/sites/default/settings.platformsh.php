@@ -36,6 +36,16 @@ if (getenv('PLATFORM_RELATIONSHIPS')) {
       }
     }
   }
+
+  if (!empty($relationships['solr'][0])) {
+    $solr_server_name = 'default_solr_server';
+    $solr = $relationships['solr'][0];
+    $core = substr($solr['path'], 5) ? : 'collection1';
+    $config['search_api.server.' . $solr_server_name]['backend_config']['connector_config']['core'] = $core;
+    $config['search_api.server.' . $solr_server_name]['backend_config']['connector_config']['path'] = '/solr';
+    $config['search_api.server.' . $solr_server_name]['backend_config']['connector_config']['host'] = $solr['host'];
+    $config['search_api.server.' . $solr_server_name]['backend_config']['connector_config']['port'] = $solr['port'];
+  }
 }
 
 if (getenv('PLATFORM_APP_DIR')) {
