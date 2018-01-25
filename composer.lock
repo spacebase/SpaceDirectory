@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "42cb505c3bff937d5b89e12b1553aaa6",
+    "content-hash": "b1ce7053e01de7468b5fcb3948031bca",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2265,17 +2265,11 @@
         },
         {
             "name": "drupal/fontyourface",
-            "version": "3.1.0",
+            "version": "dev-3.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/fontyourface",
-                "reference": "8.x-3.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/fontyourface-8.x-3.1.zip",
-                "reference": "8.x-3.1",
-                "shasum": "c5e02349327e4962dc15901ad442a887326b5b73"
+                "reference": "e17ece1"
             },
             "require": {
                 "drupal/core": "8.*"
@@ -2286,11 +2280,11 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.1",
-                    "datestamp": "1490223783",
+                    "version": "8.x-3.1+13-dev",
+                    "datestamp": "1502825043",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -2323,8 +2317,9 @@
             ],
             "support": {
                 "source": "http://cgit.drupalcode.org/fontyourface",
-                "issues": "http://drupal.org/project/issues/fontyourface"
-            }
+                "issues": "https://drupal.org/project/issues/fontyourface"
+            },
+            "time": "2017-10-30 20:18:49"
         },
         {
             "name": "drupal/group",
@@ -2366,7 +2361,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/group"
             },
-            "time": "2017-12-19T15:44:02+00:00"
+            "time": "2017-12-19 15:44:02"
         },
         {
             "name": "drupal/migrate_plus",
@@ -2621,7 +2616,7 @@
                 "issues": "https://drupal.org/project/issues/og",
                 "irc": "irc://irc.freenode.org/drupal-og"
             },
-            "time": "2017-11-26T08:33:55+00:00"
+            "time": "2017-11-26 08:33:55"
         },
         {
             "name": "drupal/pathauto",
@@ -7544,7 +7539,8 @@
     "stability-flags": {
         "drupal/group": 20,
         "drupal/og": 20,
-        "drupal/simple_block": 10
+        "drupal/simple_block": 10,
+        "drupal/fontyourface": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
