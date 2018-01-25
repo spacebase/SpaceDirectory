@@ -37,7 +37,9 @@
         "rvtraveller/qs-composer-installer": "^1.1",
         "webflo/drupal-core-strict": "^8",
         "drupal/migrate_plus": "^2.0",
-        "drupal/migrate_tools": "^2.0"
+        "drupal/migrate_tools": "^2.0",
+        "drupal/search_api_solr": "^1.2",
+        "drupal/facets": "^1.0@beta"
 
     },
     "require-dev": {

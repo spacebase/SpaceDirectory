@@ -16,6 +16,8 @@ module:
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
+  facets: 0
+  facets_summary: 0
   field: 0
   field_ui: 0
   file: 0
@@ -38,8 +40,7 @@ module:
   quickedit: 0
   rdf: 0
   search_api: 0
-  search_api_db: 0
-  search_api_db_defaults: 0
+  search_api_solr: 0
   shortcut: 0
   simple_block: 0
   system: 0

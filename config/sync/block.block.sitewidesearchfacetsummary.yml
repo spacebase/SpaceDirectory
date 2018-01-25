@@ -1,0 +1,28 @@
+uuid: 231cee7e-f439-41e7-935e-0c96be8eb7bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets_summary.facets_summary.sitewide_search_facet_summary
+  module:
+    - facets_summary
+    - system
+  theme:
+    - bootstrap
+id: sitewidesearchfacetsummary
+theme: bootstrap
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'facets_summary_block:sitewide_search_facet_summary'
+settings:
+  id: 'facets_summary_block:sitewide_search_facet_summary'
+  label: 'Sitewide Search Facet Summary'
+  provider: facets_summary
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: search
+    negate: false
+    context_mapping: {  }
