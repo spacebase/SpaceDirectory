@@ -123,8 +123,6 @@ if (getenv('PLATFORM_TREE_ID') && empty($settings['deployment_identifier'])) {
   $settings['deployment_identifier'] = getenv('PLATFORM_TREE_ID');
 }
 
-print_r($config['mailgun.settings']);
-
 $config['mailgun.settings']['working_domain'] = 'sandbox35e5e50d73a0477cbe0bf547f77ccb50.mailgun.org';
 if (getenv('PLATFORM_BRANCH') == 'master') {
   $config['mailgun.settings']['working_domain'] = 'beta.spacebase.co';
