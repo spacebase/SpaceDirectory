@@ -29,6 +29,8 @@ module:
   history: 0
   image: 0
   link: 0
+  mailgun: 0
+  mailsystem: 0
   menu_ui: 0
   migrate: 0
   migrate_plus: 0
@@ -41,9 +43,9 @@ module:
   quickedit: 0
   rdf: 0
   search_api: 0
-  search_api_solr: 0
   search_api_db: 0
   search_api_db_defaults: 0
+  search_api_solr: 0
   shortcut: 0
   simple_block: 0
   system: 0
