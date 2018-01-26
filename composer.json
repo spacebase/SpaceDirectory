@@ -42,7 +42,9 @@
         "drupal/fontawesome": "^2.0",
         "drupal/fontyourface": "dev-3.x#e17ece1",
         "drupal/search_api_solr": "^1.2",
-        "drupal/facets": "^1.0@beta"
+        "drupal/facets": "^1.0@beta",
+        "drupal/mailsystem": "^4.1",
+        "drupal/mailgun": "^1.0@beta"
     },
     "require-dev": {
         "behat/mink": "~1.7",
