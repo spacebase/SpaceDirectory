@@ -17,3 +17,10 @@ bootstrap-scripts:
     bootstrap/assets/javascripts/bootstrap/scrollspy.js: {}
     bootstrap/assets/javascripts/bootstrap/tab.js: {}
     bootstrap/assets/javascripts/bootstrap/transition.js: {}
+
+parallax:
+  version: 1.x
+  js:
+    js/parallax.js: {}
+  dependencies:
+    - core/jquery

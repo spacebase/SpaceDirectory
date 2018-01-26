@@ -1,0 +1,11 @@
+uuid: 42610263-3030-427a-b193-663798fa14ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+id: introduction
+title: 'Introduction Text'
+content:
+  value: "<p>Mauris volutpat purus metus, vel viverra ipsum pulvinar eget. Quisque efficitur at magna eget pharetra. Nulla facilisi. Aliquam suscipit quam et nisl venenatis, sit amet maximus velit vestibulum. Vivamus ante arcu, maximus sit amet imperdiet et, commodo in velit. Nunc at ipsum justo.&nbsp;</p>\r\n"
+  format: basic_html

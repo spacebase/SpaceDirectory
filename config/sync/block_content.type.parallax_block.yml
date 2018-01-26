@@ -1,0 +1,8 @@
+uuid: f150ff1f-6750-4be2-9a9f-da99067e1805
+langcode: en
+status: true
+dependencies: {  }
+id: parallax_block
+label: 'Parallax block'
+revision: 0
+description: ''

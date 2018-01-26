@@ -10,8 +10,8 @@ dependencies:
     - spacebase
 id: companyinfo
 theme: spacebase
-region: footer_top_3
-weight: 0
+region: footer_top_4
+weight: -9
 provider: null
 plugin: 'simple_block:company_footer'
 settings:

@@ -10,4 +10,18 @@
   color: $text-light;
   font-size: 14px;
   margin: 0;
+  line-height: 30px;
+  .social-links{
+    @media screen and (min-width: 768px) {
+      float: right;
+      a:last-child{
+        margin-right: 0;
+      }
+    }
+    a{
+      color: $text-light;
+      font-size: 30px;
+      margin: 0 10px;
+    }
+  }
 }
