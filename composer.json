@@ -96,6 +96,11 @@
             "drush/contrib/{$name}": [
                 "type:drupal-drush"
             ]
+        },
+        "patches": {
+          "drupal/block_type_templates": {
+            "Template order specificity wrong": "https://www.drupal.org/files/issues/block_type_templates-fix_specificity-2924207.patch"
+          }
         }
     },
     "replace": {
