@@ -24,3 +24,7 @@ parallax:
     js/parallax.js: {}
   dependencies:
     - core/jquery
+    
+global-scripts:
+  js:
+    js/custom.js: {}
