@@ -15,5 +15,72 @@
       }
     }
   }
+  .navbar-toggle{
+    border-radius: 2px;
+    border-color: transparent;
+    margin-top: 20px;
+  }
+  .logo{
+    max-width: 65%;
+  }
 }
 
+
+//Mobile menu styling
+
+@media screen and (max-width: 767px) {
+  body{
+    transition: all 0.5s ease;
+  }
+  .parallax-mirror{
+    transition: left 0.5s ease, right 0.5s ease;
+  }
+  .body-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    display: none;
+    transition: left 0.5s ease;
+  }
+  .navbar{
+    transition: left 0.5s ease, right 0.5s ease;
+  }
+  .navbar-collapse{
+    background: darken($grey-dark,5%);
+    box-shadow: inset 2px 4px 6px rgba(0,0,0,0.7);
+    position: fixed;
+    display: block !important;
+    top: 0;
+    right: -240px;
+    width: 240px;
+    height: 100vh !important;
+    margin: 0 !important;
+    max-height: 100vh !important;
+    z-index: 1000;
+    transition: right 0.5s ease;
+  }
+  body.nav-open{
+    .navbar-collapse.open{
+      right: 0;
+      transition: right 0.5s ease;
+    }
+
+    .body-overlay{
+      left: -240px;
+      transition: left 0.5s ease;
+    }
+    .parallax-mirror{
+      left: -240px !important;
+      right: 240px;
+    }
+    .navbar{
+      left: -240px !important;
+      right: 240px;
+    }
+    margin-left: -240px;
+    margin-right: 240px;
+  }
+}

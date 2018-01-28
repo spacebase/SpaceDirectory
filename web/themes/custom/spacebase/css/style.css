@@ -6408,7 +6408,62 @@ h4 {
     .navbar.navbar-inverse .navbar-nav {
       padding: 15px 0;
       float: right; } }
+  .navbar .navbar-toggle {
+    border-radius: 2px;
+    border-color: transparent;
+    margin-top: 20px; }
+  .navbar .logo {
+    max-width: 65%; }
 
+@media screen and (max-width: 767px) {
+  body {
+    transition: all 0.5s ease; }
+
+  .parallax-mirror {
+    transition: left 0.5s ease, right 0.5s ease; }
+
+  .body-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    display: none;
+    transition: left 0.5s ease; }
+
+  .navbar {
+    transition: left 0.5s ease, right 0.5s ease; }
+
+  .navbar-collapse {
+    background: #1f2023;
+    box-shadow: inset 2px 4px 6px rgba(0, 0, 0, 0.7);
+    position: fixed;
+    display: block !important;
+    top: 0;
+    right: -240px;
+    width: 240px;
+    height: 100vh !important;
+    margin: 0 !important;
+    max-height: 100vh !important;
+    z-index: 1000;
+    transition: right 0.5s ease; }
+
+  body.nav-open {
+    margin-left: -240px;
+    margin-right: 240px; }
+    body.nav-open .navbar-collapse.open {
+      right: 0;
+      transition: right 0.5s ease; }
+    body.nav-open .body-overlay {
+      left: -240px;
+      transition: left 0.5s ease; }
+    body.nav-open .parallax-mirror {
+      left: -240px !important;
+      right: 240px; }
+    body.nav-open .navbar {
+      left: -240px !important;
+      right: 240px; } }
 .footer-top {
   background: #333439;
   color: #76777f;
@@ -6421,15 +6476,17 @@ h4 {
   font-size: 14px;
   margin: 0;
   line-height: 30px; }
-  @media screen and (min-width: 768px) {
-    .footer .social-links {
-      float: right; }
-      .footer .social-links a:last-child {
-        margin-right: 0; } }
-  .footer .social-links a {
-    color: #76777f;
-    font-size: 30px;
-    margin: 0 10px; }
+  .footer .social-links {
+    z-index: 1; }
+    @media screen and (min-width: 768px) {
+      .footer .social-links {
+        float: right; }
+        .footer .social-links a:last-child {
+          margin-right: 0; } }
+    .footer .social-links a {
+      color: #76777f;
+      font-size: 30px;
+      margin: 0 10px; }
 
 .parallax-window {
   background-color: transparent;

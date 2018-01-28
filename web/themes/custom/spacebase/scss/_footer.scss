@@ -12,6 +12,7 @@
   margin: 0;
   line-height: 30px;
   .social-links{
+    z-index: 1;
     @media screen and (min-width: 768px) {
       float: right;
       a:last-child{
