@@ -26,6 +26,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/user/*\r\n*/spacebase-users-search-page/*"
+    pages: '*/spacebase-users-search-page/*'
     negate: false
     context_mapping: {  }

@@ -18,3 +18,4 @@ content:
     region: content
 hidden:
   field_partner_logo: true
+  field_partner_url: true

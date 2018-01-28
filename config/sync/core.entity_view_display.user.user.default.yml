@@ -12,7 +12,7 @@ dependencies:
     - field.field.user.user.field_tagline_user
     - field.field.user.user.field_website_user
     - field.field.user.user.user_picture
-    - image.style.thumbnail
+    - image.style.profile_photo
   module:
     - address
     - image
@@ -28,21 +28,21 @@ mode: default
 content:
   field_bio_user:
     weight: 5
-    label: inline
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_email_user:
     weight: 8
-    label: inline
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_first_name_user:
     weight: 2
-    label: inline
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -50,14 +50,14 @@ content:
     region: content
   field_home_location_user:
     weight: 7
-    label: inline
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
   field_last_name_user:
     weight: 3
-    label: inline
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -65,7 +65,7 @@ content:
     region: content
   field_linkedin_user:
     weight: 6
-    label: inline
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -73,18 +73,18 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    type: link_separate
     region: content
   field_tagline_user:
     weight: 4
-    label: inline
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_website_user:
     weight: 9
-    label: inline
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -92,7 +92,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    type: link_separate
     region: content
   member_for:
     weight: 1
@@ -104,8 +104,8 @@ content:
     weight: 0
     region: content
     settings:
-      image_style: thumbnail
-      image_link: content
+      image_style: profile_photo
+      image_link: ''
     third_party_settings: {  }
     label: hidden
 hidden: {  }
