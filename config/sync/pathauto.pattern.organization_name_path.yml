@@ -7,16 +7,16 @@ dependencies:
 id: organization_name_path
 label: 'Organization Name Path'
 type: 'canonical_entities:node'
-pattern: '[node:field_name_org]'
+pattern: 'org/[node:field_name_org]'
 selection_criteria:
-  41979008-2ebd-4433-b592-e3d26490daec:
+  a4c8f348-06c4-464e-b0e6-f55ef1e4f349:
     id: node_type
     bundles:
       organization: organization
     negate: false
     context_mapping:
       node: node
-    uuid: 41979008-2ebd-4433-b592-e3d26490daec
+    uuid: a4c8f348-06c4-464e-b0e6-f55ef1e4f349
 selection_logic: and
 weight: -5
 relationships: {  }

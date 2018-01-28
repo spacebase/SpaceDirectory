@@ -4,6 +4,9 @@
   clear: both;
   .profile-photo{
     img{
+      height: 200px;
+      width: 200px;
+      background: $text;
       border-radius: 50%;
       box-shadow: 0 2px 8px rgba(0,0,0,0.7);
       display: block;
@@ -16,11 +19,15 @@
   }
   .position{
     font-size: 18px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
   .location{
     font-size: 16px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+  }
+  .website{
+    font-size: 16px;
+    margin-bottom: 30px; 
   }
   .btn-linkedin{
     background: $brand-primary;
@@ -43,18 +50,19 @@
     }
   }
   .user-quote{
-    padding: 0 0 0 80px;
+    display: table;
+    padding: 0 0 10px 80px;
     color: $text-light;
     font-style: italic;
     font-size: 20px;
     position: relative;
     @media screen and (min-width: 768px) {
       margin: -100px 0 0;
-      height: 100px;
+      min-height: 100px;
     }
-    span{
-      display: inline-block;
-      @include vertical-align();
+    span.text{
+      display: table-cell;
+      vertical-align: middle;
     }
     .quote-icon{
       color: $grey-accent;
@@ -67,7 +75,125 @@
       width: 80px;
     }
   }
-  .bio{
+  .bio, .description{
     margin-bottom: 50px;
+  }
+  .links{
+    border-radius: 2px;
+    background: $line;
+    padding: 30px;
+    list-style: none;
+    margin: 0;
+    li.link{
+      margin: 0 0 10px;
+      padding: 10px;
+      a{
+        color: $text;
+        vertical-align: middle;
+        line-height: 40px;
+        i{
+          color: $link-blue;
+          font-size: 40px;
+          line-height: 40px;
+          vertical-align: top;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+.org-list,
+.user-list{
+  
+  .result{
+    border-bottom: 2px solid $line;
+    padding: 15px 0;
+    .profile-thumb{
+      margin-right: 35px;
+      img{
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+      }
+    }
+    .profile-text{
+      margin-left: 115px;
+      h2{
+        font-size: 18px;
+        margin: 0 0 5px;
+        padding-top: 10px;
+        a{
+          font-size: 20px;
+          font-weight: bold;
+          color: $brand-primary;
+          margin-right: 10px;
+        }
+      }
+      .quote{
+        font-style: italic;
+        font-size: 18px;
+        color: $text-light;
+        margin: 0 0 10px;
+      }
+      .location{
+        display: inline-block;
+        margin: 0 20px 0 0;
+        font-size: 13px;
+        color: $text-light;
+      }
+    }
+  }
+}
+
+.member-list{
+  h2{
+    .count{
+      background: $brand-primary;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 4px 10px;
+      height: 26px;
+      line-height: 18px;
+      border-radius: 13px;
+      display: inline-block;
+      margin-left: 15px;
+      text-align: center;
+      min-width: 40px;
+      vertical-align: top;
+    }
+  }
+  .result{
+    border-bottom: 1px solid $line;
+    padding: 5px 0;
+    .profile-icon{
+      margin-right: 15px;
+      float: left;
+      img{
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+      }
+    }
+    .profile-name{
+      margin-left: 55px;
+      h3{
+        font-size: 14px;
+        margin: 0;
+        line-height: 1.3em;
+        font-weight: bold;
+        a{
+          color: $brand-primary;
+        }
+      }
+      .location{
+        font-size: 13px;
+        color: $text-light;
+        margin-bottom: 0;
+      }
+    }
   }
 }

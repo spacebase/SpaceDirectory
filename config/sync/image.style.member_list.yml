@@ -1,0 +1,14 @@
+uuid: 697e3484-19f5-4fbd-8dfe-28673fa613c3
+langcode: en
+status: true
+dependencies: {  }
+name: member_list
+label: 'Member List'
+effects:
+  66675d26-b781-4310-a494-cce55b1af669:
+    uuid: 66675d26-b781-4310-a494-cce55b1af669
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 40
+      height: 40

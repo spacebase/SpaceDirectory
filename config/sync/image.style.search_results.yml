@@ -1,0 +1,14 @@
+uuid: 1d199ec6-50a2-4cde-aa06-5f8904e7e3f7
+langcode: en
+status: true
+dependencies: {  }
+name: search_results
+label: 'Search Results'
+effects:
+  25683076-b095-4fdb-901b-4ad5f83e5585:
+    uuid: 25683076-b095-4fdb-901b-4ad5f83e5585
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 80
+      height: 80

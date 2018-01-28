@@ -95,16 +95,18 @@
 {# Main #}
 {% block main %}
   <div role="main" class="main-container {{ container }} js-quickedit-main-content">
+    
+    {# Header #}
+    {% if page.header %}
     <div class="row">
-
-      {# Header #}
-      {% if page.header %}
-        {% block header %}
-          <div class="col-sm-12" role="heading">
-            {{ page.header }}
-          </div>
-        {% endblock %}
-      {% endif %}
+      {% block header %}
+        <div class="col-sm-12" role="heading">
+          {{ page.header }}
+        </div>
+      {% endblock %}
+    </div>
+    {% endif %}
+    <div class="row">
 
       {# Sidebar First #}
       {% if page.sidebar_first %}
@@ -124,7 +126,7 @@
           page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
         ]
       %}
-      <section{{ content_attributes.addClass(content_classes) }}>
+      <section{{ content_attributes.addClass(content_classes).addClass('box') }}>
 
         {# Highlighted #}
         {% if page.highlighted %}

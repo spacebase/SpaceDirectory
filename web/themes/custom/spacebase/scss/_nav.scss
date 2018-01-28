@@ -25,6 +25,64 @@
   }
 }
 
+.block-views-blockuser-nav-block-1{
+  float: right;
+  color: #fff;
+  a{
+    color: #fff;
+  }
+  .user-nav{
+    padding: 10px 0;
+    position: relative;
+    width: 40px;
+    .nav-link{
+      line-height: 40px;
+      img{
+        border-radius: 50%;
+        margin-left: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.6); 
+      }
+    }
+    .user-dropdown{
+      display: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 85px;
+      right: 50%;
+      width: 140px;
+      margin-right: -85px;
+      background: $grey-dark;
+      border-radius: 3px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.6); 
+      padding: 10px;
+      list-style: none;
+      z-index: 99;
+      &:before{
+        content: '';
+        position: absolute;
+        top: -9px;
+        left: 50%;
+        margin-left: -10px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 10px 10px 10px;
+        border-color: transparent transparent $grey-dark transparent;
+      }
+      li{
+        margin: 0;
+        padding: 0;
+        a{
+          display: block;
+          padding: 10px;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
 
 //Mobile menu styling
 

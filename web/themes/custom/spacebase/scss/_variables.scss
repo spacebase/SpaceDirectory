@@ -6,6 +6,8 @@ $grey-dark:       #2b2c30;
 $grey-accent:     #aeb5bd;
 $text:            #3f4147;
 $text-light:      #76777f;
+$line:            #f0f0f0;
+$link-blue:       #4e62a0;
 
 @mixin vertical-align($position: relative) {
   position: $position;
