@@ -1,9 +1,9 @@
-uuid: b7aa374c-6928-4a4b-8954-5ded126838df
+uuid: cd356f5b-7717-4f0a-9a29-4b12409d1da5
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:parallax_block:9f9103ba-9e52-43e5-99dc-181e50f95907'
+    - 'block_content:parallax_block:317b0ea6-d569-409d-af15-f0eff23c0aea'
   module:
     - block_content
     - system
@@ -14,9 +14,9 @@ theme: spacebase
 region: content
 weight: -10
 provider: null
-plugin: 'block_content:9f9103ba-9e52-43e5-99dc-181e50f95907'
+plugin: 'block_content:317b0ea6-d569-409d-af15-f0eff23c0aea'
 settings:
-  id: 'block_content:9f9103ba-9e52-43e5-99dc-181e50f95907'
+  id: 'block_content:317b0ea6-d569-409d-af15-f0eff23c0aea'
   label: 'Home Page Welcome'
   provider: block_content
   label_display: '0'

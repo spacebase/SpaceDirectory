@@ -1,9 +1,9 @@
-uuid: 160fa5d1-ca34-4e97-9ea6-6d9b0bb8dd32
+uuid: f2a48712-3932-4c27-bbec-68185e47ba6c
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:call_to_action_row:98bb1342-e3fc-4732-85b4-8e70a67c46f3'
+    - 'block_content:call_to_action_row:fe604a33-62d5-4d83-bc01-c13f5a3f9da0'
   module:
     - block_content
     - system
@@ -14,9 +14,9 @@ theme: spacebase
 region: content
 weight: -9
 provider: null
-plugin: 'block_content:98bb1342-e3fc-4732-85b4-8e70a67c46f3'
+plugin: 'block_content:fe604a33-62d5-4d83-bc01-c13f5a3f9da0'
 settings:
-  id: 'block_content:98bb1342-e3fc-4732-85b4-8e70a67c46f3'
+  id: 'block_content:fe604a33-62d5-4d83-bc01-c13f5a3f9da0'
   label: 'Join Us Row'
   provider: block_content
   label_display: '0'

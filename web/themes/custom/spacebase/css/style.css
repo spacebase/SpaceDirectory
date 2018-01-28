@@ -6370,6 +6370,34 @@ body.navbar-is-fixed-top {
 .main-container {
   padding-top: 80px; }
 
+.btn {
+  border-radius: 2px; }
+
+h1 {
+  font-size: 32px;
+  margin: 0 0 1em; }
+
+h2 {
+  font-size: 26px;
+  margin: 0 0 1em; }
+
+h3 {
+  font-size: 22px;
+  margin: 0 0 1em; }
+
+h4 {
+  font-size: 20px;
+  margin: 0 0 1em; }
+
+.box {
+  padding: 35px;
+  background: #fff;
+  margin-bottom: 35px;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
+  .box h2 {
+    margin: 0 0 30px; }
+
 .navbar {
   background: rgba(0, 0, 0, 0.8);
   border: none; }
@@ -6458,3 +6486,69 @@ body.navbar-is-fixed-top {
   .partners .partner {
     display: inline-block;
     margin: 15px 40px; }
+
+.profile {
+  padding-top: 170px;
+  clear: both; }
+  .profile .profile-photo img {
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    display: block;
+    margin: -135px auto 35px; }
+  .profile h1 {
+    font-size: 30px;
+    margin-bottom: 20px; }
+  .profile .position {
+    font-size: 18px;
+    margin-bottom: 30px; }
+  .profile .location {
+    font-size: 16px;
+    margin-bottom: 30px; }
+  .profile .btn-linkedin {
+    background: #325ce6;
+    color: #fff;
+    display: block;
+    line-height: 30px;
+    vertical-align: middle; }
+    .profile .btn-linkedin .icon {
+      font-size: 30px;
+      height: 30px;
+      margin-right: 15px;
+      vertical-align: middle; }
+    .profile .btn-linkedin .text {
+      position: relative;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      vertical-align: middle; }
+      .profile .btn-linkedin .text i.fas {
+        margin-left: 5px; }
+  .profile .user-quote {
+    padding: 0 0 0 80px;
+    color: #76777f;
+    font-style: italic;
+    font-size: 20px;
+    position: relative; }
+    @media screen and (min-width: 768px) {
+      .profile .user-quote {
+        margin: -100px 0 0;
+        height: 100px; } }
+    .profile .user-quote span {
+      display: inline-block;
+      position: relative;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%); }
+    .profile .user-quote .quote-icon {
+      color: #aeb5bd;
+      display: block;
+      position: absolute;
+      left: 0;
+      font-size: 44px;
+      height: 100px;
+      line-height: 100px;
+      width: 80px; }
+  .profile .bio {
+    margin-bottom: 50px; }
