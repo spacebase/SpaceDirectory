@@ -27,3 +27,4 @@ libraries:
   - 'spacebase/global-styling'
   - 'spacebase/bootstrap-scripts'
   - 'spacebase/parallax'
+  - 'spacebase/global-scripts'

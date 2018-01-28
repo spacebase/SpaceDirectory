@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% if content %}
+  
+  <div class="row profile">
+    <aside class="col-sm-4">
+      <div class="box">
+        
+        <div class="profile-photo">
+        {{ content.user_picture }}
+        </div>
+        
+        
+        <h1>{{ content.field_first_name_user.0 }} {{ content.field_last_name_user.0 }}</h1>
+        <h2 class="position">Position/Title Field</h2>
+        <div class="location">{{ content.field_home_location_user.0.locality['#value'] }}, {{ content.field_home_location_user.0.administrative_area['#value'] }}, {{ content.field_home_location_user.0.country['#value'] }}</div>
+        <div>
+          <a href="{{ content.field_linkedin_user[0]['#url'] }}" target="_blank" class="btn btn-secondary btn-linkedin"><span class="icon"><i class="fab fa-linkedin"></i></span> <span class="text">LinkedIn <i class="fas fa-external-link-alt"></i></span></a>
+        </div>
+        
+        
+      </div>
+    </aside>
+    <article{{ attributes.addClass('col-sm-8') }}>
+      <div class="user-quote">
+        <span class="quote-icon">
+          <i class="fas fa-quote-left"></i>
+        </span>
+        <span>{{ content.field_tagline_user[0] }}</span>
+      </div>
+      <div class="box">
+        <h2>Bio</h2>
+        <div class="bio">
+        {{ content.field_bio_user[0] }}
+        </div>
+        
+        <h2>My Organizations</h2>
+        {{ drupal_view('user_member_of_org_view', 'block_2') }}
+        
+      </div>
+    </article>
+  </div>
+  
+  
+{% endif %}
