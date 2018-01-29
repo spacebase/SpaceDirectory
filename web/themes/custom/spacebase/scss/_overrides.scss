@@ -72,6 +72,8 @@ p:last-child,
 body{
   background: $grey-bg;
   color: $text;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
 }
 
 body.navbar-is-fixed-top{
@@ -86,9 +88,12 @@ body.navbar-is-fixed-top{
 .btn{
   border-radius: 2px;
   font-size: 23px;
-  border: none;
+  border: 1px solid transparent;
   font-weight: 300;
   padding: 15px;
+  &:active,&:focus,&:hover{
+    border-color: transparent;
+  }
 }
 
 .btn-block{
@@ -98,15 +103,29 @@ body.navbar-is-fixed-top{
 .btn-primary{
   background-color: $brand-secondary;
   &:active,&:focus,&:hover{
-    background-color: lighten($brand-secondary,5%);
+    background-color: lighten($brand-secondary,5%) !important;
   }
 }
 
 .btn-secondary{
   background-color: $brand-primary;
   &:active,&:focus,&:hover{
-    background-color: lighten($brand-primary,5%);
+    background-color: lighten($brand-primary,5%) !important;
   }
+}
+
+.btn-blank{
+  background-color: transparent;
+  border: 1px solid rgba(255,255,255,0.6);
+  &:active,&:focus,&:hover{
+    background-color: rgba(255,255,255,0.2) !important;
+    border: 1px solid rgba(255,255,255,0.8);
+  }
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
 }
 
 h1{

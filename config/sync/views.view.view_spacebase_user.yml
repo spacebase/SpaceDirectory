@@ -197,7 +197,7 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      css_class: 'box user-list'
+      css_class: user-list
     cache_metadata:
       max-age: -1
       contexts:
