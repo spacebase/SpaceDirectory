@@ -1,0 +1,29 @@
+uuid: 213e2224-2fb7-4ac2-bc7f-2db39645b077
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.sitewide_search
+  module:
+    - system
+    - views
+  theme:
+    - spacebase
+id: sitewide_search_page_form
+theme: spacebase
+region: topbar
+weight: -12
+provider: null
+plugin: 'views_exposed_filter_block:sitewide_search-search_page'
+settings:
+  id: 'views_exposed_filter_block:sitewide_search-search_page'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /search
+    negate: false
+    context_mapping: {  }

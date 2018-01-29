@@ -1,8 +1,8 @@
 country:
-  default: ''
+  default: NZ
 first_day: 0
 timezone:
-  default: UTC
+  default: Pacific/Auckland
   user:
     configurable: true
     warn: false

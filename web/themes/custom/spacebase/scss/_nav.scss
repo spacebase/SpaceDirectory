@@ -122,6 +122,21 @@
   }
 }
 
+.top-bar{
+  background: $brand-primary;
+  padding: 8px 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10;
+  top: 80px;
+}
+
+body.toolbar-tray-open .top-bar{
+  top: 160px;
+}
+
 
 //Mobile menu styling
 

@@ -20,6 +20,10 @@
           }
         }
       });
+      
+      window.FontAwesomeConfig = {
+        searchPseudoElements: true
+      }
     
      
       $('.navbar-collapse').on('show.bs.collapse', function () {

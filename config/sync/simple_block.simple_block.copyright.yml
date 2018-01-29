@@ -7,5 +7,5 @@ dependencies:
 id: copyright
 title: Copyright
 content:
-  value: "<p>Copyright © 2018. All Rights Reserved.</p>\r\n"
+  value: "<p>Copyright © 2018 SpaceBase Limited. All Rights Reserved.</p>\r\n"
   format: basic_html
