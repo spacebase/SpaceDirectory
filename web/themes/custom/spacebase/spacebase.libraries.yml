@@ -28,3 +28,8 @@ parallax:
 global-scripts:
   js:
     js/custom.js: {}
+    
+fonts:
+  css:
+    theme:
+      'https://fonts.googleapis.com/css?family=Montserrat:100,200,300,500,700': { type: external, minified: true }
