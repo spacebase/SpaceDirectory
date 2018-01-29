@@ -36,9 +36,14 @@
         $(".navbar-toggle").click();
       });
       
+      $('.nav-link').on(clickTap, function (e) {
+        e.stopPropagation();
+        $('.user-dropdown').fadeToggle(300);
+      });
       
-      
-      
+      $(document).click(function(e){
+        $('.user-dropdown').fadeOut(300);
+      });
       
     }
   };

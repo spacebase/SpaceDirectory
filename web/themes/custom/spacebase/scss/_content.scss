@@ -7,4 +7,12 @@
   h2{
     margin: 0 0 30px;
   }
+  &.login{
+    max-width: 400px;
+    margin: 35px auto 35px;
+  }
+  &.register{
+    max-width: 600px;
+    margin: 35px auto 35px;
+  }
 }

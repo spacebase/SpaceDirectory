@@ -9,6 +9,7 @@ dependencies:
     - field.field.user.user.field_home_location_user
     - field.field.user.user.field_last_name_user
     - field.field.user.user.field_linkedin_user
+    - field.field.user.user.field_position
     - field.field.user.user.field_tagline_user
     - field.field.user.user.field_website_user
     - field.field.user.user.user_picture
@@ -74,6 +75,14 @@ content:
       target: ''
     third_party_settings: {  }
     type: link_separate
+    region: content
+  field_position:
+    weight: 10
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_tagline_user:
     weight: 4

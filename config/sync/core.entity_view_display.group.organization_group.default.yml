@@ -9,6 +9,7 @@ dependencies:
     - field.field.group.organization_group.field_linkedin
     - field.field.group.organization_group.field_website
     - group.type.organization_group
+    - image.style.profile_photo
   module:
     - address
     - image
@@ -20,31 +21,31 @@ bundle: organization_group
 mode: default
 content:
   field_description:
-    weight: -4
-    label: above
+    weight: 2
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_headquarters_location:
-    weight: -3
-    label: above
+    weight: 3
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
   field_image:
-    weight: -2
-    label: above
+    weight: 0
+    label: hidden
     settings:
-      image_style: ''
+      image_style: profile_photo
       image_link: ''
     third_party_settings: {  }
     type: image
     region: content
   field_linkedin:
-    weight: -1
-    label: above
+    weight: 4
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -55,8 +56,8 @@ content:
     type: link
     region: content
   field_website:
-    weight: 1
-    label: above
+    weight: 5
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -69,7 +70,7 @@ content:
   label:
     label: hidden
     type: string
-    weight: -5
+    weight: 1
     region: content
     settings:
       link_to_entity: false

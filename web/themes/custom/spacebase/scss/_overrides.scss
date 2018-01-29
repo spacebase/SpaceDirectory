@@ -79,11 +79,34 @@ body.navbar-is-fixed-top{
 }
 
 .main-container{
-  padding-top: 80px;
+  padding-top: 100px;
+  min-height: 60vh;
 }
 
 .btn{
   border-radius: 2px;
+  font-size: 23px;
+  border: none;
+  font-weight: 300;
+  padding: 15px;
+}
+
+.btn-block{
+  display: block;
+}
+
+.btn-primary{
+  background-color: $brand-secondary;
+  &:active,&:focus,&:hover{
+    background-color: lighten($brand-secondary,5%);
+  }
+}
+
+.btn-secondary{
+  background-color: $brand-primary;
+  &:active,&:focus,&:hover{
+    background-color: lighten($brand-primary,5%);
+  }
 }
 
 h1{
