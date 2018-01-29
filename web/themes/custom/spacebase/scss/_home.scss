@@ -3,6 +3,14 @@
   padding: 20vh 0 20vh;
   text-align: center;
   color: #fff;
+  font-size: 30px;
+  a{
+    color: #fff;
+    font-weight: bold;
+    &:hover,&:focus, &:active{
+      color: #fff;
+    }
+  }
 }
 .home-welcome{
   min-height: 80vh;

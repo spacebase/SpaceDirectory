@@ -28,3 +28,4 @@ libraries:
   - 'spacebase/bootstrap-scripts'
   - 'spacebase/parallax'
   - 'spacebase/global-scripts'
+  - 'spacebase/fonts'

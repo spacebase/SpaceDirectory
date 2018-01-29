@@ -199,7 +199,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"user-nav\">\n<div class=\"nav-link\">{{ user_picture }}</div>\n<ul class=\"user-dropdown\">\n<li><a href=\"/u/{{ name }}\">Profile</a></li>\n<li><a href=\"/user/{{ uid }}/edit\">Account</a></li>\n<li><a href=\"/user/logout\">Log out</a></li>\n</ul>"
+            text: "<div class=\"user-nav\">\n<div class=\"nav-link\">{{ user_picture }} <span class=\"username\">{{ name }}</span> <i class=\"fas fa-chevron-down\"></i></div>\n<ul class=\"user-dropdown\">\n<li><a href=\"/u/{{ name }}\">Profile</a></li>\n<li><a href=\"/user/{{ uid }}/edit\">Account</a></li>\n<li><a href=\"/user/logout\">Log out</a></li>\n</ul>"
             make_link: false
             path: ''
             absolute: false
