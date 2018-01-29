@@ -1,25 +1,25 @@
-uuid: f2a48712-3932-4c27-bbec-68185e47ba6c
+uuid: 4acbb58d-ecc6-4c5d-a0c9-e445ef5a0776
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:call_to_action_row:fe604a33-62d5-4d83-bc01-c13f5a3f9da0'
+    - 'block_content:parallax_block:bb05a880-d1b2-464b-932b-df74094939fc'
   module:
     - block_content
     - system
   theme:
     - spacebase
-id: joinusrow
+id: nzspacechallenge
 theme: spacebase
 region: content
-weight: -10
+weight: -9
 provider: null
-plugin: 'block_content:fe604a33-62d5-4d83-bc01-c13f5a3f9da0'
+plugin: 'block_content:bb05a880-d1b2-464b-932b-df74094939fc'
 settings:
-  id: 'block_content:fe604a33-62d5-4d83-bc01-c13f5a3f9da0'
-  label: 'Join Us Row'
+  id: 'block_content:bb05a880-d1b2-464b-932b-df74094939fc'
+  label: 'NZ Space Challenge'
   provider: block_content
-  label_display: '0'
+  label_display: visible
   status: true
   info: ''
   view_mode: full
