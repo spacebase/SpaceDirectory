@@ -5,7 +5,7 @@ dependencies:
   config:
     - filter.format.basic_html
 id: introduction
-title: 'Introduction Text'
+title: 'About SpaceBase'
 content:
-  value: "<p>Mauris volutpat purus metus, vel viverra ipsum pulvinar eget. Quisque efficitur at magna eget pharetra. Nulla facilisi. Aliquam suscipit quam et nisl venenatis, sit amet maximus velit vestibulum. Vivamus ante arcu, maximus sit amet imperdiet et, commodo in velit. Nunc at ipsum justo.&nbsp;</p>\r\n"
+  value: "<p>About SpaceBase</p>\r\n\r\n<p>SpaceBase is co-creating a global Space Ecosystem to serve entrepreneurs in emerging space industries - starting in New Zealand.</p>\r\n\r\n<p>Our goal is to provide access to training, networking, technical services, and investment opportunities where they are needed most.</p>\r\n\r\n<p>SpaceBase was founded in 2016 by <a href=\"https://stories.ehf.org/ehf-fellow-emeline-paat-dahlstrom-3b4548fc4f20\">Emeline Paat-Dahlstrom</a> and <a href=\"https://stories.ehf.org/ehf-fellow-eric-dahlstrom-fcd977e44aff\">Eric Dahlstrom</a>.&nbsp; In 2017, <a href=\"https://stories.ehf.org/ehf-fellow-rich-bodo-e9d6cd65c791\">Rich Bodo</a> signed on, and the team joined the first cohort of the <a href=\"https://www.ehf.org/about-us\">Edmund Hillary Fellowship</a>.</p>\r\n\r\n<p>More to come...</p>\r\n"
   format: basic_html
