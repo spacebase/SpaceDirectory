@@ -8,6 +8,7 @@ dependencies:
     - field.field.group.organization_group.field_image
     - field.field.group.organization_group.field_industry_segment
     - field.field.group.organization_group.field_linkedin
+    - field.field.group.organization_group.field_resources
     - field.field.group.organization_group.field_website
     - group.type.organization_group
     - image.style.profile_photo
@@ -55,6 +56,18 @@ content:
   field_linkedin:
     weight: 4
     label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_resources:
+    weight: 7
+    label: above
     settings:
       trim_length: 80
       url_only: false
