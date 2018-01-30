@@ -10,7 +10,6 @@
         {{ content.field_image }}
         </div>
         
-        
         <h1>{{ label }}</h1>
         <h2 class="segment">
           {{ content.field_industry_segment[0] }}{% for key, value in content.field_industry_segment %}{% if key > 0 %}, {{ content.field_industry_segment[key] }}{% endif %}
@@ -19,7 +18,7 @@
         <div class="location">{{ content.field_headquarters_location.0.locality['#value'] }}, {{ content.field_headquarters_location.0.administrative_area['#value'] }}, {{ content.field_headquarters_location.0.country['#value'] }}</div>
         <div>
         </div>
-        <a href="#" class="btn btn-primary btn-block">Join to Chat</a>
+        <a href="/group//join" class="btn btn-primary btn-block">Join</a>
         
       </div>
       <div class="box">
@@ -29,7 +28,7 @@
     </aside>
     <article{{ attributes.addClass('col-sm-8') }}>
       <div class="box">
-        <h2>Description</h2>
+        <h2>Description </h2>
         <div class="description">
         {{ content.field_description }}
         </div>
