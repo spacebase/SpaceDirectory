@@ -6743,7 +6743,12 @@ body.toolbar-tray-open .top-bar {
     margin: -135px auto 35px; }
   .profile h1 {
     font-size: 30px;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    font-weight: 500; }
+  .profile h2.segment {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 30px; }
   .profile .position {
     font-size: 18px;
     margin-bottom: 40px; }
@@ -6818,6 +6823,9 @@ body.toolbar-tray-open .top-bar {
           vertical-align: top;
           margin-right: 10px; }
 
+.org-list .view-header,
+.user-list .view-header {
+  padding: 10px 0 20px; }
 .org-list .result,
 .user-list .result {
   border-bottom: 2px solid #f0f0f0;
@@ -6838,14 +6846,17 @@ body.toolbar-tray-open .top-bar {
     .user-list .result .profile-text h2 {
       font-size: 18px;
       margin: 0 0 5px;
-      padding-top: 10px; }
+      padding-top: 10px;
+      font-weight: 500; }
       .org-list .result .profile-text h2 a,
       .user-list .result .profile-text h2 a {
         font-size: 20px;
         font-weight: bold;
         color: #325ce6;
         margin-right: 10px; }
+    .org-list .result .profile-text .segment,
     .org-list .result .profile-text .quote,
+    .user-list .result .profile-text .segment,
     .user-list .result .profile-text .quote {
       font-style: italic;
       font-size: 18px;
@@ -6856,7 +6867,8 @@ body.toolbar-tray-open .top-bar {
       display: inline-block;
       margin: 0 20px 0 0;
       font-size: 13px;
-      color: #76777f; }
+      color: #76777f;
+      font-weight: 500; }
 
 .member-list h2 .count {
   background: #325ce6;
