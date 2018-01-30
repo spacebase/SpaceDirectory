@@ -1,0 +1,24 @@
+uuid: 88985a81-1540-4971-96a3-e51fd597edda
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-menu-1
+  module:
+    - system
+  theme:
+    - spacebase
+id: footermenu1
+theme: spacebase
+region: footer_top_1
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-menu-1'
+settings:
+  id: 'system_menu_block:footer-menu-1'
+  label: Organizations
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

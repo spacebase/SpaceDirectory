@@ -10,6 +10,14 @@ effects:
     id: image_scale
     weight: 1
     data:
-      width: 110
+      width: 150
       height: null
       upscale: true
+  1c57d781-0071-4533-8c42-3e2fb6ac547b:
+    uuid: 1c57d781-0071-4533-8c42-3e2fb6ac547b
+    id: image_scale
+    weight: 2
+    data:
+      width: null
+      height: 110
+      upscale: false

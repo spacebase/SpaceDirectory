@@ -6404,7 +6404,7 @@ body.navbar-is-fixed-top {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 100; }
+  font-weight: 500; }
 
 h1 {
   font-size: 32px;
@@ -6615,10 +6615,14 @@ body.toolbar-tray-open .top-bar {
   .footer-top a {
     color: #76777f; }
   .footer-top h2 {
-    font-size: 16px; }
-  .footer-top ul.menu li a:active, .footer-top ul.menu li a:focus, .footer-top ul.menu li a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #ababb0; }
+    font-size: 16px;
+    font-weight: 500;
+    color: #909198; }
+  .footer-top ul.menu li a {
+    font-weight: 300; }
+    .footer-top ul.menu li a:active, .footer-top ul.menu li a:focus, .footer-top ul.menu li a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ababb0; }
 
 .footer {
   background: #2b2c30;
@@ -6721,7 +6725,8 @@ body.toolbar-tray-open .top-bar {
   color: #fff;
   padding: 35px;
   text-align: center;
-  font-size: 18px; }
+  font-size: 14px;
+  font-weight: 500; }
   .call-to-action-row a {
     color: #fff;
     text-decoration: underline; }
@@ -6837,14 +6842,14 @@ body.toolbar-tray-open .top-bar {
     padding: 30px;
     list-style: none;
     margin: 0; }
-    .profile .links li.link {
+    .profile .links li {
       margin: 0 0 10px;
       padding: 10px; }
-      .profile .links li.link a {
+      .profile .links li a {
         color: #3f4147;
         vertical-align: middle;
         line-height: 40px; }
-        .profile .links li.link a i {
+        .profile .links li a i {
           color: #4e62a0;
           font-size: 40px;
           line-height: 40px;

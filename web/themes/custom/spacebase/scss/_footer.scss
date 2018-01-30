@@ -8,10 +8,13 @@
   }
   h2{
     font-size: 16px;
+    font-weight: 500;
+    color: lighten($text-light,10%);
   }
   ul.menu{
     li{
       a{
+        font-weight: 300;
        &:active,&:focus,&:hover{
          background: rgba(255,255,255,0.1);
          color: lighten($text-light,20%);
