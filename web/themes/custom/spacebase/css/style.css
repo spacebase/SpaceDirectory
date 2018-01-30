@@ -6664,7 +6664,8 @@ body.toolbar-tray-open .top-bar {
     margin: 0 auto 30px; }
     .home-welcome .views-exposed-form .form-item {
       width: 75%;
-      float: left; }
+      float: left;
+      margin: 0; }
       .home-welcome .views-exposed-form .form-item .form-text {
         width: 100%;
         height: 68px;
@@ -6673,13 +6674,40 @@ body.toolbar-tray-open .top-bar {
         box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.6);
         font-size: 22px; }
     .home-welcome .views-exposed-form .form-actions {
-      width: 25%; }
+      width: 25%;
+      float: left; }
       .home-welcome .views-exposed-form .form-actions .button {
         width: 100%;
         height: 68px;
         border-radius: 0 3px 3px 0;
         background: #3bba50;
-        font-size: 22px; }
+        font-size: 22px;
+        position: relative;
+        text-indent: -9999px; }
+        .home-welcome .views-exposed-form .form-actions .button:before {
+          display: block;
+          font-family: 'Font Awesome\ 5 Free';
+          content: '\f002';
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-font-smoothing: antialiased;
+          display: inline-block;
+          font-weight: 900;
+          font-style: normal;
+          font-variant: normal;
+          text-rendering: auto;
+          line-height: 1;
+          font-size: 36px;
+          float: left;
+          line-height: 68px;
+          height: 68px;
+          width: 40px;
+          color: #fff;
+          text-indent: 0;
+          text-align: center;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          margin-left: -20px; }
         .home-welcome .views-exposed-form .form-actions .button:active, .home-welcome .views-exposed-form .form-actions .button:focus, .home-welcome .views-exposed-form .form-actions .button:hover {
           background: #49c55e; }
   .home-welcome h1 {
@@ -6914,26 +6942,8 @@ body.toolbar-tray-open .top-bar {
   border-radius: 4px;
   max-width: 98%;
   width: 500px; }
-  .top-bar .views-exposed-form:before {
-    display: block;
-    font-family: 'Font Awesome\ 5 Free';
-    content: '\f002';
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    display: inline-block;
-    font-weight: 900;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    line-height: 1;
-    font-size: 24px;
-    float: left;
-    line-height: 42px;
-    height: 42px;
-    width: 10%;
-    color: #fff; }
   .top-bar .views-exposed-form form {
-    width: 90%; }
+    width: 100%; }
     .top-bar .views-exposed-form form .form-item {
       display: inline-block;
       float: left;
@@ -6956,7 +6966,33 @@ body.toolbar-tray-open .top-bar {
         border-radius: 0 3px 3px 0;
         background: #3bba50;
         font-size: 16px;
-        padding: 5px; }
+        padding: 5px;
+        text-indent: -9999px;
+        position: relative; }
+        .top-bar .views-exposed-form form .form-actions .button:before {
+          display: block;
+          font-family: 'Font Awesome\ 5 Free';
+          content: '\f002';
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-font-smoothing: antialiased;
+          display: inline-block;
+          font-weight: 900;
+          font-style: normal;
+          font-variant: normal;
+          text-rendering: auto;
+          line-height: 1;
+          font-size: 24px;
+          float: left;
+          line-height: 42px;
+          height: 42px;
+          width: 30px;
+          color: #fff;
+          text-align: center;
+          text-indent: 0;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          margin-left: -15px; }
         .top-bar .views-exposed-form form .form-actions .button:active, .top-bar .views-exposed-form form .form-actions .button:focus, .top-bar .views-exposed-form form .form-actions .button:hover {
           background: #49c55e; }
 

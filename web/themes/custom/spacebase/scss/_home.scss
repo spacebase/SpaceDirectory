@@ -24,6 +24,7 @@
     .form-item{
       width: 75%;
       float: left;
+      margin: 0;
       .form-text{
         width: 100%;
         height: 68px;
@@ -35,12 +36,40 @@
     }
     .form-actions{
       width: 25%;
+      float: left;
       .button{
         width: 100%;
         height: 68px;
         border-radius: 0 3px 3px 0;
         background: $brand-secondary;
         font-size: 22px;
+        position: relative;
+        text-indent: -9999px;
+        &:before{
+          display: block;
+          font-family: 'Font Awesome\ 5 Free';
+          content: '\f002';
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-font-smoothing: antialiased;
+          display: inline-block;
+          font-weight: 900;
+          font-style: normal;
+          font-variant: normal;
+          text-rendering: auto;
+          line-height: 1;
+          font-size: 36px;
+          float: left;
+          line-height: 68px;
+          height: 68px;
+          width: 40px;
+          color: #fff;
+          text-indent: 0;
+          text-align: center;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          margin-left: -20px;
+        }
         &:active,&:focus,&:hover{
           background: lighten($brand-secondary,5%);
         }

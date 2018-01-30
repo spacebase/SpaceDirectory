@@ -4,27 +4,8 @@
     border-radius: 4px;
     max-width: 98%;
     width: 500px;
-    &:before{
-      display: block;
-      font-family: 'Font Awesome\ 5 Free';
-      content: '\f002';
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-font-smoothing: antialiased;
-      display: inline-block;
-      font-weight: 900;
-      font-style: normal;
-      font-variant: normal;
-      text-rendering: auto;
-      line-height: 1;
-      font-size: 24px;
-      float: left;
-      line-height: 42px;
-      height: 42px;
-      width: 10%;
-      color: #fff;
-    }
     form{
-      width: 90%;
+      width: 100%;
       .form-item{
         display: inline-block;
         float: left;
@@ -50,6 +31,33 @@
           background: $brand-secondary;
           font-size: 16px;
           padding: 5px;
+          text-indent: -9999px;
+          position: relative;
+          &:before{
+            display: block;
+            font-family: 'Font Awesome\ 5 Free';
+            content: '\f002';
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            display: inline-block;
+            font-weight: 900;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;
+            font-size: 24px;
+            float: left;
+            line-height: 42px;
+            height: 42px;
+            width: 30px;
+            color: #fff;
+            text-align: center;
+            text-indent: 0;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -15px;
+          }
           &:active,&:focus,&:hover{
             background: lighten($brand-secondary,5%);
           }
