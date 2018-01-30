@@ -12,7 +12,7 @@ audience: outsider
 group_type: organization_group
 permissions_ui: true
 permissions:
-  0: 'view group'
-  1: 'join group'
-  2: 'access group_node overview'
-  6: 'view group_node:organization entity'
+  - 'view group'
+  - 'join group'
+  - 'access group_node overview'
+  - 'view group_node:organization entity'
