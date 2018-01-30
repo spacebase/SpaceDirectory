@@ -42,6 +42,11 @@
         </ul>
         
       </div>
+      {% if content.field_resources[0] %}
+        <div class="box">
+          {{ content.field_resources }}
+        </div>
+      {% endif %}
     </article>
   </div>
 
