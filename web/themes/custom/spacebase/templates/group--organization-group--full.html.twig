@@ -39,12 +39,13 @@
             <div class="field--label">Resources</div>            
             <table>
               <tr><th>Description</th><th>URL</th></tr>
-              <tr>  
               {% for key,item in content.field_resources if key|first != '#' %}    
-                <td>{{ item['#title'] }}</td>
-                <td>{{ item['#url'].uri }}</td>
+                <tr>
+                  <td>{{ item['#title'] }}</td>
+                  <td>{{ item['#url'].uri }}</td>
+                </tr>
               {% endfor %}
-            </tr></table>
+            </table>
           </div>
         {% endif %}
        
