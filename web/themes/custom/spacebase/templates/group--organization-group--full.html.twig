@@ -33,7 +33,21 @@
         <div class="description">
         {{ content.field_description }}
         </div>
-        
+ 
+        {% if content.field_resources[0] %}
+          <div class="box">
+            <div class="field--label">Resources</div>            
+            <table>
+              <tr><th>Description</th><th>URL</th></tr>
+              <tr>  
+              {% for key,item in content.field_resources if key|first != '#' %}    
+                <td>{{ item['#title'] }}</td>
+                <td>{{ item['#url'].uri }}</td>
+              {% endfor %}
+            </tr></table>
+          </div>
+        {% endif %}
+       
         <ul class="links">
           
           <li class="link"><a href="{{ content.field_linkedin[0]['#url'] }}" target="_blank"><span class="icon"><i class="fab fa-linkedin"></i></span> <span class="text">{{ content.field_linkedin[0]['#url'] }} </span></a></li>
@@ -42,11 +56,6 @@
         </ul>
         
       </div>
-      {% if content.field_resources[0] %}
-        <div class="box">
-          {{ content.field_resources }}
-        </div>
-      {% endif %}
     </article>
   </div>
 
