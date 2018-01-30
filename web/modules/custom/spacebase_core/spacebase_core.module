@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains spacebase_core.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function spacebase_core_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the spacebase_core module.
+    case 'help.page.spacebase_core':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Core custom functionality for spacebase website') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter() on behalf of spacebase_core.module.
+ */
+function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'views_exposed_form') {
+    $form['keywords']['#attributes']['placeholder'] = 'Search';
+  }
+}
