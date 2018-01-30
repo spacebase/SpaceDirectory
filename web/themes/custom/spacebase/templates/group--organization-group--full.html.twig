@@ -42,7 +42,7 @@
               {% for key,item in content.field_resources if key|first != '#' %}    
                 <tr>
                   <td>{{ item['#title'] }}</td>
-                  <td>{{ item['#url'].uri }}</td>
+                  <td>{{ link(item['#url'].uri, item['#url'].uri) }}</td>
                 </tr>
               {% endfor %}
             </table>

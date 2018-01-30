@@ -1,7 +1,17 @@
 uuid: 5feb8fd5-92aa-45cc-98a3-cc392af0d079
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - footer-menu-1
+      - footer-menu-2
+      - footer-menu-3
+      - main
+    parent: 'main:'
 _core:
   default_config_hash: KuyA4NHPXcmKAjRtwa0vQc2ZcyrUJy6IlS2TAyMNRbc
 name: 'Basic page'
