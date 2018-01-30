@@ -1,0 +1,9 @@
+uuid: 8c6c3d85-f0c4-49a5-be4d-bafbfeb15224
+langcode: en
+status: true
+dependencies: {  }
+name: 'Industry Segment'
+vid: industry_segment
+description: ''
+hierarchy: 0
+weight: 0
