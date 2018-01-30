@@ -1,0 +1,29 @@
+uuid: a624424f-a1f7-46e4-99ac-032106aeae94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_industry_segment
+    - group.type.organization_group
+    - taxonomy.vocabulary.industry_segment
+id: group.organization_group.field_industry_segment
+field_name: field_industry_segment
+entity_type: group
+bundle: organization_group
+label: 'Industry Segment'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      industry_segment: industry_segment
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

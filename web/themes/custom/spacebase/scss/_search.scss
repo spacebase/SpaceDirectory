@@ -1,0 +1,66 @@
+.top-bar{
+  .views-exposed-form{
+    padding: 0;
+    border-radius: 4px;
+    max-width: 98%;
+    width: 500px;
+    &:before{
+      display: block;
+      font-family: 'Font Awesome\ 5 Free';
+      content: '\f002';
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      font-weight: 900;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      line-height: 1;
+      font-size: 24px;
+      float: left;
+      line-height: 42px;
+      height: 42px;
+      width: 10%;
+      color: #fff;
+    }
+    form{
+      width: 90%;
+      .form-item{
+        display: inline-block;
+        float: left;
+        width: 68%;
+        margin: 0;
+        .form-text{
+          width: 100%;
+          height: 42px;
+          border: none;
+          border-radius: 3px 0 0 3px;
+          box-shadow: inset 2px 2px 6px rgba(0,0,0,0.6);
+          font-size: 16px;
+        }
+      }
+      .form-actions{
+        width: 20%;
+        display: inline-block;
+        margin: 0;
+        .button{
+          width: 100%;
+          height: 42px;
+          border-radius: 0 3px 3px 0;
+          background: $brand-secondary;
+          font-size: 16px;
+          padding: 5px;
+          &:active,&:focus,&:hover{
+            background: lighten($brand-secondary,5%);
+          }
+        }
+      }
+    }
+  }
+}
+
+body.path-search{
+  .main-container{
+    padding-top: 160px;
+  }
+}

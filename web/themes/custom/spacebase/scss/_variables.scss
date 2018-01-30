@@ -9,6 +9,8 @@ $text-light:      #76777f;
 $line:            #f0f0f0;
 $link-blue:       #4e62a0;
 
+$link-color:      $link-blue;
+
 @mixin vertical-align($position: relative) {
   position: $position;
   top: 50%;

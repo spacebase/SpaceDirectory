@@ -5,11 +5,11 @@ dependencies: {  }
 name: partner_logo
 label: 'Partner Logo'
 effects:
-  9490712e-179a-42d9-a708-0dbcc6f7fc17:
-    uuid: 9490712e-179a-42d9-a708-0dbcc6f7fc17
+  0fef9f39-2d74-43fa-8663-89782dabecde:
+    uuid: 0fef9f39-2d74-43fa-8663-89782dabecde
     id: image_scale
     weight: 1
     data:
       width: 110
       height: null
-      upscale: false
+      upscale: true

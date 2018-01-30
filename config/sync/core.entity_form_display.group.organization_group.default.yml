@@ -6,6 +6,7 @@ dependencies:
     - field.field.group.organization_group.field_description
     - field.field.group.organization_group.field_headquarters_location
     - field.field.group.organization_group.field_image
+    - field.field.group.organization_group.field_industry_segment
     - field.field.group.organization_group.field_linkedin
     - field.field.group.organization_group.field_website
     - group.type.organization_group
@@ -43,6 +44,12 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_industry_segment:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_linkedin:
     weight: 4

@@ -1094,10 +1094,10 @@ textarea {
   line-height: inherit; }
 
 a {
-  color: #325ce6;
+  color: #4e62a0;
   text-decoration: none; }
   a:hover, a:focus {
-    color: #163bb5;
+    color: #35436d;
     text-decoration: underline; }
   a:focus {
     outline: 5px auto -webkit-focus-ring-color;
@@ -3095,7 +3095,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
     background-color: #fff; }
 
 .btn-link {
-  color: #325ce6;
+  color: #4e62a0;
   font-weight: normal;
   border-radius: 0; }
   .btn-link, .btn-link:active, .btn-link.active, .btn-link[disabled], fieldset[disabled] .btn-link {
@@ -3105,7 +3105,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
   .btn-link, .btn-link:hover, .btn-link:focus, .btn-link:active {
     border-color: transparent; }
   .btn-link:hover, .btn-link:focus {
-    color: #163bb5;
+    color: #35436d;
     text-decoration: underline;
     background-color: transparent; }
   .btn-link[disabled]:hover, .btn-link[disabled]:focus, fieldset[disabled] .btn-link:hover, fieldset[disabled] .btn-link:focus {
@@ -3594,7 +3594,7 @@ tbody.collapse.in {
         cursor: not-allowed; }
   .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
     background-color: #eeeeee;
-    border-color: #325ce6; }
+    border-color: #4e62a0; }
   .nav .nav-divider {
     height: 1px;
     margin: 9px 0;
@@ -4108,7 +4108,7 @@ tbody.collapse.in {
       padding: 6px 12px;
       line-height: 1.428571429;
       text-decoration: none;
-      color: #325ce6;
+      color: #4e62a0;
       background-color: #fff;
       border: 1px solid #ddd;
       margin-left: -1px; }
@@ -4125,7 +4125,7 @@ tbody.collapse.in {
   .pagination > li > span:hover,
   .pagination > li > span:focus {
     z-index: 2;
-    color: #163bb5;
+    color: #35436d;
     background-color: #eeeeee;
     border-color: #ddd; }
   .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus,
@@ -4287,7 +4287,7 @@ a.label:hover, a.label:focus {
     top: 0;
     padding: 1px 5px; }
   .list-group-item.active > .badge, .nav-pills > .active > a > .badge {
-    color: #325ce6;
+    color: #4e62a0;
     background-color: #fff; }
   .list-group-item > .badge {
     float: right; }
@@ -4358,7 +4358,7 @@ a.badge:hover, a.badge:focus {
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #325ce6; }
+  border-color: #4e62a0; }
 
 .alert {
   padding: 15px;
@@ -6422,6 +6422,21 @@ h4 {
   font-size: 20px;
   margin: 0 0 1em; }
 
+.form-control {
+  border-radius: 3px;
+  padding: 10px 15px;
+  height: 44px;
+  background: whitesmoke;
+  border: 2px solid #f0f0f0;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.4), 0 1px 4px rgba(0, 0, 0, 0.2); }
+  .form-control:focus {
+    border-color: #83d891;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.4), 0 1px 4px rgba(59, 186, 80, 0.2); }
+
+label {
+  font-weight: 300;
+  font-size: 18px; }
+
 .box {
   padding: 35px;
   background: #fff;
@@ -6530,6 +6545,19 @@ h4 {
           padding: 10px;
           font-size: 13px; }
 
+.top-bar {
+  background: #325ce6;
+  padding: 8px 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10;
+  top: 80px; }
+
+body.toolbar-tray-open .top-bar {
+  top: 160px; }
+
 @media screen and (max-width: 767px) {
   body {
     transition: all 0.5s ease; }
@@ -6582,7 +6610,15 @@ h4 {
 .footer-top {
   background: #333439;
   color: #76777f;
-  padding: 40px 0 50px; }
+  padding: 40px 0 50px;
+  font-size: 14px; }
+  .footer-top a {
+    color: #76777f; }
+  .footer-top h2 {
+    font-size: 16px; }
+  .footer-top ul.menu li a:active, .footer-top ul.menu li a:focus, .footer-top ul.menu li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ababb0; }
 
 .footer {
   background: #2b2c30;
@@ -6602,6 +6638,8 @@ h4 {
       color: #76777f;
       font-size: 30px;
       margin: 0 10px; }
+      .footer .social-links a:active, .footer .social-links a:focus, .footer .social-links a:hover {
+        color: #ababb0; }
 
 .parallax-window {
   background-color: transparent;
@@ -6617,6 +6655,33 @@ h4 {
 
 .home-welcome {
   min-height: 80vh; }
+  .home-welcome .views-exposed-form {
+    max-width: 490px;
+    padding: 8px;
+    background: #325ce6;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+    margin: 0 auto 30px; }
+    .home-welcome .views-exposed-form .form-item {
+      width: 75%;
+      float: left; }
+      .home-welcome .views-exposed-form .form-item .form-text {
+        width: 100%;
+        height: 68px;
+        border: none;
+        border-radius: 3px 0 0 3px;
+        box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.6);
+        font-size: 22px; }
+    .home-welcome .views-exposed-form .form-actions {
+      width: 25%; }
+      .home-welcome .views-exposed-form .form-actions .button {
+        width: 100%;
+        height: 68px;
+        border-radius: 0 3px 3px 0;
+        background: #3bba50;
+        font-size: 22px; }
+        .home-welcome .views-exposed-form .form-actions .button:active, .home-welcome .views-exposed-form .form-actions .button:focus, .home-welcome .views-exposed-form .form-actions .button:hover {
+          background: #49c55e; }
   .home-welcome h1 {
     margin: 80px 0 30px;
     font-size: 40px; }
@@ -6678,7 +6743,12 @@ h4 {
     margin: -135px auto 35px; }
   .profile h1 {
     font-size: 30px;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    font-weight: 500; }
+  .profile h2.segment {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 30px; }
   .profile .position {
     font-size: 18px;
     margin-bottom: 40px; }
@@ -6753,6 +6823,9 @@ h4 {
           vertical-align: top;
           margin-right: 10px; }
 
+.org-list .view-header,
+.user-list .view-header {
+  padding: 10px 0 20px; }
 .org-list .result,
 .user-list .result {
   border-bottom: 2px solid #f0f0f0;
@@ -6773,14 +6846,17 @@ h4 {
     .user-list .result .profile-text h2 {
       font-size: 18px;
       margin: 0 0 5px;
-      padding-top: 10px; }
+      padding-top: 10px;
+      font-weight: 500; }
       .org-list .result .profile-text h2 a,
       .user-list .result .profile-text h2 a {
         font-size: 20px;
         font-weight: bold;
         color: #325ce6;
         margin-right: 10px; }
+    .org-list .result .profile-text .segment,
     .org-list .result .profile-text .quote,
+    .user-list .result .profile-text .segment,
     .user-list .result .profile-text .quote {
       font-style: italic;
       font-size: 18px;
@@ -6791,7 +6867,8 @@ h4 {
       display: inline-block;
       margin: 0 20px 0 0;
       font-size: 13px;
-      color: #76777f; }
+      color: #76777f;
+      font-weight: 500; }
 
 .member-list h2 .count {
   background: #325ce6;
@@ -6831,3 +6908,57 @@ h4 {
       font-size: 13px;
       color: #76777f;
       margin-bottom: 0; }
+
+.top-bar .views-exposed-form {
+  padding: 0;
+  border-radius: 4px;
+  max-width: 98%;
+  width: 500px; }
+  .top-bar .views-exposed-form:before {
+    display: block;
+    font-family: 'Font Awesome\ 5 Free';
+    content: '\f002';
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-weight: 900;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    font-size: 24px;
+    float: left;
+    line-height: 42px;
+    height: 42px;
+    width: 10%;
+    color: #fff; }
+  .top-bar .views-exposed-form form {
+    width: 90%; }
+    .top-bar .views-exposed-form form .form-item {
+      display: inline-block;
+      float: left;
+      width: 68%;
+      margin: 0; }
+      .top-bar .views-exposed-form form .form-item .form-text {
+        width: 100%;
+        height: 42px;
+        border: none;
+        border-radius: 3px 0 0 3px;
+        box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.6);
+        font-size: 16px; }
+    .top-bar .views-exposed-form form .form-actions {
+      width: 20%;
+      display: inline-block;
+      margin: 0; }
+      .top-bar .views-exposed-form form .form-actions .button {
+        width: 100%;
+        height: 42px;
+        border-radius: 0 3px 3px 0;
+        background: #3bba50;
+        font-size: 16px;
+        padding: 5px; }
+        .top-bar .views-exposed-form form .form-actions .button:active, .top-bar .views-exposed-form form .form-actions .button:focus, .top-bar .views-exposed-form form .form-actions .button:hover {
+          background: #49c55e; }
+
+body.path-search .main-container {
+  padding-top: 160px; }
