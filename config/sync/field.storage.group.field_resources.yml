@@ -1,0 +1,19 @@
+uuid: 5d9846be-51d0-4d42-82e1-e66dcd0d2653
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+    - link
+id: group.field_resources
+field_name: field_resources
+entity_type: group
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
