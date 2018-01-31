@@ -61,6 +61,7 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
+  views_block_filter_block: 0
   views_ui: 0
   fontyourface: 1
   menu_link_content: 1
