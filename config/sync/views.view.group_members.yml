@@ -724,9 +724,9 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: span
           element_class: ''
-          element_label_type: ''
+          element_label_type: span
           element_label_class: ''
           element_label_colon: true
           element_wrapper_type: ''
@@ -747,7 +747,7 @@ display:
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
-          multi_type: ul
+          multi_type: separator
           separator: ', '
           field_api_classes: false
           plugin_id: field

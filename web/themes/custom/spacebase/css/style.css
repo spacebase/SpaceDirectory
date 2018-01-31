@@ -6382,9 +6382,15 @@ body.navbar-is-fixed-top {
   padding: 10px 15px; }
   .btn:active, .btn:focus, .btn:hover {
     border-color: transparent; }
+  .btn i {
+    margin-right: 5px; }
 
 .btn-block {
   display: block; }
+
+.btn-small {
+  padding: 4px 10px;
+  font-size: 16px; }
 
 .btn-primary {
   background-color: #3bba50; }
@@ -6404,6 +6410,14 @@ body.navbar-is-fixed-top {
   .btn-blank:active, .btn-blank:focus, .btn-blank:hover {
     background-color: rgba(255, 255, 255, 0.2) !important;
     border: 1px solid rgba(255, 255, 255, 0.8); }
+
+.btn-gray {
+  background-color: #bcc2c8;
+  border: 1px solid transparent;
+  color: #fff; }
+  .btn-gray:active, .btn-gray:focus, .btn-gray:hover {
+    background-color: #cacfd4;
+    border: 1px solid transparent; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
@@ -6880,7 +6894,8 @@ body.toolbar-tray-open .top-bar {
 .org-list .result,
 .user-list .result {
   border-bottom: 2px solid #f0f0f0;
-  padding: 15px 0; }
+  padding: 15px 140px 15px 0;
+  position: relative; }
   .org-list .result .profile-thumb,
   .user-list .result .profile-thumb {
     margin-right: 35px; }
@@ -6905,6 +6920,13 @@ body.toolbar-tray-open .top-bar {
         font-weight: bold;
         color: #325ce6;
         margin-right: 10px; }
+      .org-list .result .profile-text h2 .badge,
+      .user-list .result .profile-text h2 .badge {
+        font-size: 10px;
+        vertical-align: middle;
+        border-radius: 10px;
+        padding: 4px 15px;
+        background: #325ce6; }
     .org-list .result .profile-text .segment,
     .org-list .result .profile-text .quote,
     .user-list .result .profile-text .segment,
@@ -6920,6 +6942,34 @@ body.toolbar-tray-open .top-bar {
       font-size: 13px;
       color: #76777f;
       font-weight: 500; }
+  .org-list .result .membership-status,
+  .user-list .result .membership-status {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -16px; }
+  .org-list .result .text-success,
+  .user-list .result .text-success {
+    font-size: 18px;
+    padding: 5px 0;
+    font-weight: bold;
+    color: #3bba50; }
+    .org-list .result .text-success i,
+    .user-list .result .text-success i {
+      margin-right: 5px; }
+  .org-list .result .btn-group.dropdown,
+  .user-list .result .btn-group.dropdown {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -16px; }
+
+.org-list-footer {
+  padding: 25px 0 0;
+  font-size: 14px;
+  font-weight: 300; }
+  .org-list-footer a {
+    font-weight: bold; }
 
 .member-list h2 .count {
   background: #325ce6;
@@ -7021,3 +7071,20 @@ body.toolbar-tray-open .top-bar {
 
 body.path-search .main-container {
   padding-top: 160px; }
+
+.search-filters {
+  text-align: right;
+  margin-bottom: 15px; }
+  .search-filters a {
+    padding: 5px 10px;
+    margin-left: 10px;
+    display: inline-block;
+    font-weight: 500; }
+
+.see-all {
+  padding-top: 25px; }
+  .see-all .btn {
+    background: #f0f0f0;
+    color: #3f4147; }
+    .see-all .btn:active, .see-all .btn:focus, .see-all .btn:hover {
+      background: #e3e3e3; }

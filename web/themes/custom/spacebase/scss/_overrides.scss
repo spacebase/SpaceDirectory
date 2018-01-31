@@ -95,10 +95,18 @@ body.navbar-is-fixed-top{
   &:active,&:focus,&:hover{
     border-color: transparent;
   }
+  i{
+    margin-right: 5px;
+  }
 }
 
 .btn-block{
   display: block;
+}
+
+.btn-small{
+  padding: 4px 10px;
+  font-size: 16px;
 }
 
 .btn-primary{
@@ -123,6 +131,16 @@ body.navbar-is-fixed-top{
   &:active,&:focus,&:hover{
     background-color: rgba(255,255,255,0.2) !important;
     border: 1px solid rgba(255,255,255,0.8);
+  }
+}
+
+.btn-gray{
+  background-color: lighten($grey-accent,5%);
+  border: 1px solid transparent;
+  color: #fff;
+  &:active,&:focus,&:hover{
+    background-color: lighten($grey-accent,10%);
+    border: 1px solid transparent;
   }
 }
 

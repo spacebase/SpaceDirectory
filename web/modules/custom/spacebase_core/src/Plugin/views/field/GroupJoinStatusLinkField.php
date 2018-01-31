@@ -59,19 +59,19 @@ class GroupJoinStatusLinkField extends FieldPluginBase {
       $membership = $entity->getMember($account);
       if (!$membership) {
         return [
-         '#markup' => '<a href="/group/' . $entity->id() . '/join" class="btn btn-success">join</a>',
+         '#markup' => '<a href="/group/' . $entity->id() . '/join" class="btn btn-success btn-small"><i class="fas fa-plus-circle"></i> join</a>',
         ];
       }
       else {
         $roles = $membership->getRoles();
         if (isset($roles['organization_group-verified']) || isset($roles['organization_group-admin'])) {
           return [
-            '#markup' => '<span class="text-success">member</span>',
+            '#markup' => '<span class="text-success"><i class="fas fa-check"></i> member</span>',
           ];
         }
         else {
           return [
-            '#markup' => '<span class="label label-default">join requested</span>',
+            '#markup' => '<span class="btn btn-gray btn-small"><i class="far fa-clock"></i> join requested</span>',
           ];
         }
       }
