@@ -12,12 +12,14 @@
         
         <h1>{{ label }}</h1>
         <h2 class="segment">
-          {{ content.field_industry_segment[0] }}{% for key, value in content.field_industry_segment %}{% if key > 0 %}, {{ content.field_industry_segment[key] }}{% endif %}
+          {{ content.field_industry_segment[0]['#title'] }}{% for key, value in content.field_industry_segment %}{% if key > 0 %}, {{ content.field_industry_segment[key]['#title'] }}{% endif %}
           {% endfor %}
         </h2>
         <div class="location">{{ content.field_headquarters_location.0.locality['#value'] }}, {{ content.field_headquarters_location.0.administrative_area['#value'] }}, {{ content.field_headquarters_location.0.country['#value'] }}</div>
-        <div>
-        </div>
+        
+        <p>
+       <a href="{{ content.field_linkedin[0]['#url'] }}" target="_blank" class="btn btn-blank"><span class="icon"><i class="fab fa-linkedin"></i></span> <span class="text">LinkedIn </span></a> <a href="{{ content.field_website[0]['#url'] }}" target="_blank" class="btn btn-blank"><span class="icon"><i class="fas fa-globe"></i></span> <span class="text">Website </span></a></p>
+        </ul>
         <a href="/group//join" class="btn btn-primary btn-block">Join</a>
         
       </div>
@@ -34,26 +36,17 @@
         </div>
  
         {% if content.field_resources[0] %}
-          <div class="box">
-            <div class="field--label">Resources</div>            
-            <table>
-              <tr><th>Description</th><th>URL</th></tr>
+          
+          <div class="links">
+              <h3>Resources</h3>
+              <ul>
               {% for key,item in content.field_resources if key|first != '#' %}    
-                <tr>
-                  <td>{{ item['#title'] }}</td>
-                  <td>{{ link(item['#url'].uri, item['#url'].uri) }}</td>
-                </tr>
+                <li class="link"><strong>{{ link(item['#title'], item['#url'].uri) }}</strong><br>
+                <span class="smalltext">({{ link(item['#url'].uri, item['#url'].uri) }})</span></li>
               {% endfor %}
-            </table>
+              </ul>
           </div>
         {% endif %}
-       
-        <ul class="links">
-          
-          <li class="link"><a href="{{ content.field_linkedin[0]['#url'] }}" target="_blank"><span class="icon"><i class="fab fa-linkedin"></i></span> <span class="text">{{ content.field_linkedin[0]['#url'] }} </span></a></li>
-          
-          <li class="link"><a href="{{ content.field_website[0]['#url'] }}" target="_blank"><span class="icon"><i class="fas fa-globe"></i></span> <span class="text">{{ content.field_website[0]['#url'] }} </span></a></li>
-        </ul>
         
       </div>
     </article>
