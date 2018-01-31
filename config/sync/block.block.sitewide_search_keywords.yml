@@ -1,4 +1,4 @@
-uuid: 213e2224-2fb7-4ac2-bc7f-2db39645b077
+uuid: 436ef7b5-f7e0-4514-846c-d09309df1e40
 langcode: en
 status: true
 dependencies:
@@ -9,17 +9,17 @@ dependencies:
     - views
   theme:
     - spacebase
-id: sitewide_search_page_form
+id: sitewide_search_keywords
 theme: spacebase
 region: topbar
-weight: -12
+weight: 0
 provider: null
-plugin: 'views_exposed_filter_block:sitewide_search-search_page'
+plugin: 'views_exposed_filter_block:sitewide_search-search'
 settings:
-  id: 'views_exposed_filter_block:sitewide_search-search_page'
+  id: 'views_exposed_filter_block:sitewide_search-search'
   label: ''
   provider: views
-  label_display: '0'
+  label_display: visible
   views_label: ''
 visibility:
   request_path:

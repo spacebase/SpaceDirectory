@@ -10,7 +10,7 @@ field_name: field_organization_role
 entity_type: group_content
 bundle: group_content_type_569a59a77cd78
 label: 'Organization Role'
-description: ''
+description: 'Say something about your primary activity in this organization, or your title.'
 required: false
 translatable: false
 default_value: {  }

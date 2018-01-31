@@ -1,0 +1,21 @@
+uuid: 44ed9165-a556-49d4-b385-288f7beb93a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.side_by_side
+    - field.storage.block_content.field_text_right
+  module:
+    - text
+id: block_content.side_by_side.field_text_right
+field_name: field_text_right
+entity_type: block_content
+bundle: side_by_side
+label: 'Text Right'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

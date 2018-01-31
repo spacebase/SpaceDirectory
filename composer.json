@@ -48,7 +48,9 @@
         "drupal/twig_tweak": "^2.0",
         "drupal/block_type_templates": "^1.0",
         "drupal/menu_link_attributes": "^1.0",
-        "drupal/taxonomy_import": "^1.0"
+        "drupal/taxonomy_import": "^1.0",
+        "drupal/devel": "^1.2",
+        "drupal/views_block_filter_block": "1.x-dev"
     },
     "require-dev": {
         "behat/mink": "~1.7",

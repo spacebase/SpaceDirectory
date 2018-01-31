@@ -1,0 +1,8 @@
+uuid: efe0f98c-05e7-4994-8073-ed7994af60b1
+langcode: en
+status: true
+dependencies: {  }
+id: side_by_side
+label: 'Side by side'
+revision: 0
+description: 'Two column section'

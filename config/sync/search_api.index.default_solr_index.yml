@@ -206,6 +206,12 @@ field_settings:
     dependencies:
       config:
         - field.storage.group.field_headquarters_location
+  group_name:
+    label: 'Group Name'
+    datasource_id: 'entity:group'
+    property_path: label
+    type: text
+    boost: !!float 8
   user_bio:
     label: Bio
     datasource_id: 'entity:user'
@@ -241,7 +247,8 @@ field_settings:
     label: 'First Name'
     datasource_id: 'entity:user'
     property_path: field_first_name_user
-    type: string
+    type: text
+    boost: !!float 3
     dependencies:
       config:
         - field.storage.user.field_first_name_user
@@ -257,7 +264,8 @@ field_settings:
     label: 'Last Name'
     datasource_id: 'entity:user'
     property_path: field_last_name_user
-    type: string
+    type: text
+    boost: !!float 3
     dependencies:
       config:
         - field.storage.user.field_last_name_user
