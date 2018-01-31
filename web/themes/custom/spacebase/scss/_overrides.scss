@@ -87,10 +87,10 @@ body.navbar-is-fixed-top{
 
 .btn{
   border-radius: 2px;
-  font-size: 23px;
+  font-size: 18px;
   border: 1px solid transparent;
   font-weight: 300;
-  padding: 15px;
+  padding: 10px 15px;
   &:active,&:focus,&:hover{
     border-color: transparent;
   }
@@ -164,4 +164,13 @@ h4{
 label{
   font-weight: 300;
   font-size: 18px;
+}
+
+.local-actions{
+  float: right;
+  margin: 0 0 20px;
+  .btn{
+    padding: 5px 10px;
+    font-size: 16px;
+  }
 }
