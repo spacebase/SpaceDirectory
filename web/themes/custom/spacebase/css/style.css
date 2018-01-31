@@ -6364,7 +6364,8 @@ body {
   background: #e2e1e1;
   color: #3f4147;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 200; }
+  font-weight: 200;
+  font-size: 16px; }
 
 body.navbar-is-fixed-top {
   margin-top: 0; }
@@ -6375,10 +6376,10 @@ body.navbar-is-fixed-top {
 
 .btn {
   border-radius: 2px;
-  font-size: 23px;
+  font-size: 18px;
   border: 1px solid transparent;
   font-weight: 300;
-  padding: 15px; }
+  padding: 10px 15px; }
   .btn:active, .btn:focus, .btn:hover {
     border-color: transparent; }
 
@@ -6391,9 +6392,11 @@ body.navbar-is-fixed-top {
     background-color: #49c55e !important; }
 
 .btn-secondary {
-  background-color: #325ce6; }
+  background-color: #325ce6;
+  color: #fff; }
   .btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover {
-    background-color: #496ee9 !important; }
+    background-color: #496ee9 !important;
+    color: #fff; }
 
 .btn-blank {
   background-color: transparent;
@@ -6437,6 +6440,13 @@ label {
   font-weight: 300;
   font-size: 18px; }
 
+.local-actions {
+  float: right;
+  margin: 0 0 20px; }
+  .local-actions .btn {
+    padding: 5px 10px;
+    font-size: 16px; }
+
 .box {
   padding: 35px;
   background: #fff;
@@ -6462,6 +6472,10 @@ label {
     .navbar.navbar-inverse .navbar-nav {
       padding: 15px 0;
       float: right; } }
+  .navbar.navbar-inverse .navbar-nav > .active > a.btn-primary {
+    background: #3bba50; }
+  .navbar.navbar-inverse .navbar-nav > .active > a.btn-blank {
+    background: black; }
   .navbar .btn {
     font-size: 14px;
     padding: 10px 15px; }
@@ -6839,22 +6853,26 @@ body.toolbar-tray-open .top-bar {
   .profile .links {
     border-radius: 2px;
     background: #f0f0f0;
-    padding: 30px;
-    list-style: none;
-    margin: 0; }
-    .profile .links li {
-      margin: 0 0 10px;
-      padding: 10px; }
-      .profile .links li a {
-        color: #3f4147;
-        vertical-align: middle;
-        line-height: 40px; }
-        .profile .links li a i {
+    padding: 30px; }
+    .profile .links ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      column-count: 2;
+      column-gap: 2em; }
+      .profile .links ul li {
+        margin: 0 0 15px;
+        padding: 0;
+        font-size: 16px; }
+        .profile .links ul li a {
           color: #4e62a0;
-          font-size: 40px;
-          line-height: 40px;
-          vertical-align: top;
-          margin-right: 10px; }
+          vertical-align: middle; }
+        .profile .links ul li .smalltext {
+          font-size: 13px;
+          font-weight: 300;
+          word-wrap: break-word; }
+          .profile .links ul li .smalltext a {
+            color: #3f4147; }
 
 .org-list .view-header,
 .user-list .view-header {

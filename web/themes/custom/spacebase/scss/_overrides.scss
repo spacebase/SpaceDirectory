@@ -74,6 +74,7 @@ body{
   color: $text;
   font-family: 'Montserrat', sans-serif;
   font-weight: 200;
+  font-size: 16px;
 }
 
 body.navbar-is-fixed-top{
@@ -87,10 +88,10 @@ body.navbar-is-fixed-top{
 
 .btn{
   border-radius: 2px;
-  font-size: 23px;
+  font-size: 18px;
   border: 1px solid transparent;
   font-weight: 300;
-  padding: 15px;
+  padding: 10px 15px;
   &:active,&:focus,&:hover{
     border-color: transparent;
   }
@@ -109,8 +110,10 @@ body.navbar-is-fixed-top{
 
 .btn-secondary{
   background-color: $brand-primary;
+  color: #fff;
   &:active,&:focus,&:hover{
     background-color: lighten($brand-primary,5%) !important;
+    color: #fff;
   }
 }
 
@@ -164,4 +167,13 @@ h4{
 label{
   font-weight: 300;
   font-size: 18px;
+}
+
+.local-actions{
+  float: right;
+  margin: 0 0 20px;
+  .btn{
+    padding: 5px 10px;
+    font-size: 16px;
+  }
 }

@@ -13,6 +13,12 @@
         padding: 15px 0;
         float: right;
       }
+      > .active > a.btn-primary{
+        background: $brand-secondary;
+      }
+      > .active > a.btn-blank{
+        background: black;
+      }
     }
   }
   .btn{
