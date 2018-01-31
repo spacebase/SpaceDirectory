@@ -51,22 +51,22 @@ group_join_status_link_field
 #}
 
 {% if fields['search_api_datasource'].raw == 'entity:group' %}
+
+    <div class="membership-status">
+        {{ fields['group_join_status_link_field'].content }}
+    </div>
     <div class="pull-left profile-thumb">
         {{ fields['group_image'].content }}
     </div>
 
     <div class="profile-text">
-        <h2>{{ fields['label'].content }} <span class="label label-primary">{{ fields['group_member_count_field'].content }} members</span></h2>
+        <h2>{{ fields['label'].content }} <span class="badge count">{{ fields['group_member_count_field'].content }} members</span></h2>
         <div class="quote">
             {{ fields['field_industry_segment'].content }}
         </div>
         <div class="location">
             {{ fields['group_location_locality'].content }}
         </div>
-    </div>
-
-    <div class="pull-right">
-        {{ fields['group_join_status_link_field'].content }}
     </div>
 {% elseif fields['search_api_datasource'].raw == 'entity:user' %}
 
