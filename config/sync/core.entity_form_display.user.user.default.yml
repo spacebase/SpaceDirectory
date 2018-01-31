@@ -33,13 +33,8 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  contact:
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_bio_user:
-    weight: 10
+    weight: 7
     settings:
       rows: 9
       summary_rows: 3
@@ -48,7 +43,7 @@ content:
     type: text_textarea_with_summary
     region: content
   field_email_user:
-    weight: 13
+    weight: 1
     settings:
       size: 60
       placeholder: ''
@@ -56,7 +51,7 @@ content:
     type: email_default
     region: content
   field_first_name_user:
-    weight: 5
+    weight: 2
     settings:
       size: 60
       placeholder: ''
@@ -71,7 +66,7 @@ content:
     type: address_default
     region: content
   field_last_name_user:
-    weight: 6
+    weight: 3
     settings:
       size: 60
       placeholder: ''
@@ -79,7 +74,7 @@ content:
     type: string_textfield
     region: content
   field_linkedin_user:
-    weight: 11
+    weight: 8
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -87,7 +82,7 @@ content:
     type: link_default
     region: content
   field_position:
-    weight: 7
+    weight: 4
     settings:
       size: 60
       placeholder: ''
@@ -95,7 +90,7 @@ content:
     type: string_textfield
     region: content
   field_tagline_user:
-    weight: 9
+    weight: 6
     settings:
       size: 60
       placeholder: ''
@@ -103,26 +98,21 @@ content:
     type: text_textfield
     region: content
   field_website_user:
-    weight: 14
+    weight: 9
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
     region: content
-  language:
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   path:
     type: path
-    weight: 4
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   timezone:
-    weight: 3
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -132,6 +122,8 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    weight: 8
+    weight: 5
     region: content
-hidden: {  }
+hidden:
+  contact: true
+  language: true

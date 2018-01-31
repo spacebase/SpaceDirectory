@@ -6375,10 +6375,10 @@ body.navbar-is-fixed-top {
 
 .btn {
   border-radius: 2px;
-  font-size: 23px;
+  font-size: 18px;
   border: 1px solid transparent;
   font-weight: 300;
-  padding: 15px; }
+  padding: 10px 15px; }
   .btn:active, .btn:focus, .btn:hover {
     border-color: transparent; }
 
@@ -6437,6 +6437,13 @@ label {
   font-weight: 300;
   font-size: 18px; }
 
+.local-actions {
+  float: right;
+  margin: 0 0 20px; }
+  .local-actions .btn {
+    padding: 5px 10px;
+    font-size: 16px; }
+
 .box {
   padding: 35px;
   background: #fff;
@@ -6462,6 +6469,10 @@ label {
     .navbar.navbar-inverse .navbar-nav {
       padding: 15px 0;
       float: right; } }
+  .navbar.navbar-inverse .navbar-nav > .active > a.btn-primary {
+    background: #3bba50; }
+  .navbar.navbar-inverse .navbar-nav > .active > a.btn-blank {
+    background: black; }
   .navbar .btn {
     font-size: 14px;
     padding: 10px 15px; }
