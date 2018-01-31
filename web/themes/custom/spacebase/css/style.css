@@ -6370,6 +6370,10 @@ body {
 body.navbar-is-fixed-top {
   margin-top: 0; }
 
+.region-content img {
+  max-width: 100%;
+  height: auto; }
+
 .main-container {
   padding-top: 100px;
   min-height: 60vh; }
@@ -6747,6 +6751,14 @@ body.toolbar-tray-open .top-bar {
     font-size: 40px; }
   .home-welcome p {
     font-size: 22px; }
+
+.side-by-side {
+  padding: 75px 0 50px; }
+  .side-by-side.about {
+    background: url(../images/logo-corner-bg.png) left bottom no-repeat; }
+  .side-by-side .field--name-field-text-left,
+  .side-by-side .field--name-field-text-right {
+    padding-bottom: 25px; }
 
 .call-to-action-row {
   background: #325ce6;

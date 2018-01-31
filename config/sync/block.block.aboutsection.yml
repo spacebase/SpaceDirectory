@@ -1,0 +1,31 @@
+uuid: 3d02e241-c47c-4683-9a28-0d72afb27235
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:side_by_side:81c4656f-e228-44da-ac40-820391446d79'
+  module:
+    - block_content
+    - system
+  theme:
+    - spacebase
+id: aboutsection
+theme: spacebase
+region: content
+weight: -9
+provider: null
+plugin: 'block_content:81c4656f-e228-44da-ac40-820391446d79'
+settings:
+  id: 'block_content:81c4656f-e228-44da-ac40-820391446d79'
+  label: 'About Section'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

@@ -81,6 +81,13 @@ body.navbar-is-fixed-top{
   margin-top: 0;
 }
 
+.region-content{
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 .main-container{
   padding-top: 100px;
   min-height: 60vh;
