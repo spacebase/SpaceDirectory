@@ -20,8 +20,13 @@
         <p>
        <a href="{{ content.field_linkedin[0]['#url'] }}" target="_blank" class="btn btn-blank"><span class="icon"><i class="fab fa-linkedin"></i></span> <span class="text">LinkedIn </span></a> <a href="{{ content.field_website[0]['#url'] }}" target="_blank" class="btn btn-blank"><span class="icon"><i class="fas fa-globe"></i></span> <span class="text">Website </span></a></p>
         </ul>
-        <a href="/group//join" class="btn btn-primary btn-block">Join</a>
-        
+        {#<a href="/group//join" class="btn btn-primary btn-block">Join</a>#}
+        <span class="btn-block">
+        {{ drupal_region('groupmgt')}}
+        {% if logged_in == false %}
+          <a href="/user/register" class="btn btn-primary"">Join SpaceBase</a>  
+        {% endif %}
+        </span>
       </div>
       <div class="box">
         {{ drupal_view('group_members', 'block_1') }}
