@@ -29,7 +29,21 @@ use Drupal\Core\Form\FormStateInterface;
  * Implements hook_form_alter() on behalf of spacebase_core.module.
  */
 function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if ($form_id == 'views_exposed_form') {
+  if ($form['#id'] == 'views-exposed-form-sitewide-search-search') {
     $form['keywords']['#attributes']['placeholder'] = 'Search';
   }
+}
+
+function spacebase_core_theme($existing, $type, $theme, $path) {
+  return [
+    'sb_search_page' => [
+      'variables' => [
+        'keywords' => '',
+        'orgs' => '',
+        'org_count' => '',
+        'people' => '',
+        'people_count' => '',
+      ],
+    ],
+  ];
 }

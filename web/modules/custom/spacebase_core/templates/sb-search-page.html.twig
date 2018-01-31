@@ -1,0 +1,47 @@
+
+<div class="row">
+    <div class="col-md-9">
+        {% if keywords %}
+        Search results for <strong>{{ keywords }}</strong>
+        {% endif %}
+    </div>
+
+    <div class="col-md-3">
+        <a href="/search">All</a>
+        <a href="/search/organizations">Organizations</a>
+        <a href="/search/people">People</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="group box">
+            <h1>Organizations</h1>
+            {{  orgs }}
+
+            {% if org_count == 0 %}
+                <p>There are no organizations in the directory whos names contain "<strong>{{ keywords }}</strong>". Try another search or browse <a href="/search/organizations">all organizations</a>.</p>
+            {% endif %}
+
+            <div class="org-list-footer">
+                Don't see the organization you're looking for? <a href="/group/add/organization_group">Create your organization > </a>
+            </div>
+
+            {% if org_count > 3 %}
+                <a href="/search/organizations" class="btn">See All <span class="badge">{{ org_count }}</span></a>
+            {% endif %}
+        </div>
+        <div class="group box">
+            <h1>People</h1>
+            {{  people }}
+
+            {% if people_count == 0 %}
+                <p>There are no people in the directory whos names contain "<strong>{{ keywords }}</strong>". Try another search or browse <a href="/search/people">all people</a>.</p>
+            {% endif %}
+
+            {% if people_count > 3 %}
+                <a href="/search/people" class="btn">See All <span class="badge">{{ people_count }}</span></a>
+            {% endif %}
+        </div>
+    </div>
+</div>

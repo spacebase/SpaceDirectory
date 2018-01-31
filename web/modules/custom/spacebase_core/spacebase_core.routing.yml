@@ -1,0 +1,8 @@
+
+spacebase_core.search_controller_search:
+  path: '/search'
+  defaults:
+    _controller: '\Drupal\spacebase_core\Controller\SearchController::search'
+    _title: 'Search'
+  requirements:
+    _permission: 'access content'
