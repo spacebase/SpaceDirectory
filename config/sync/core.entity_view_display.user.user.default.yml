@@ -74,7 +74,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    type: link_separate
     region: content
   field_position:
     weight: 10
@@ -101,7 +101,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    type: link_separate
     region: content
   member_for:
     weight: 1

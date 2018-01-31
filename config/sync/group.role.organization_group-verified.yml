@@ -1,25 +1,19 @@
-uuid: 4b879745-f544-4181-88c6-adf316b997d9
+uuid: f4bb0563-dd02-40ab-8786-c49b753db387
 langcode: en
 status: true
 dependencies:
   config:
     - group.type.organization_group
-id: organization_group-admin
-label: Admin
+id: organization_group-verified
+label: Verified
 weight: -10
 internal: false
 audience: member
 group_type: organization_group
 permissions_ui: true
 permissions:
-  - 'access content overview'
-  - 'administer group'
-  - 'delete group'
-  - 'edit group'
   - 'view group'
-  - 'administer members'
   - 'update own group_membership content'
   - 'leave group'
   - 'view group_membership content'
   - 'access group_node overview'
-  - 'view group_node:organization entity'

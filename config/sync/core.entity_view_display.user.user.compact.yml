@@ -4,15 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
-    - field.field.user.user.field_bio_user
-    - field.field.user.user.field_email_user
-    - field.field.user.user.field_first_name_user
-    - field.field.user.user.field_home_location_user
-    - field.field.user.user.field_last_name_user
-    - field.field.user.user.field_linkedin_user
-    - field.field.user.user.field_position
-    - field.field.user.user.field_tagline_user
-    - field.field.user.user.field_website_user
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -35,13 +26,4 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
-  field_bio_user: true
-  field_email_user: true
-  field_first_name_user: true
-  field_home_location_user: true
-  field_last_name_user: true
-  field_linkedin_user: true
-  field_position: true
-  field_tagline_user: true
-  field_website_user: true
   member_for: true
