@@ -1,0 +1,204 @@
+<?php
+
+/**
+ * @file
+ * Contains email_group_administrators.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function email_group_administrators_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the email_group_administrators module.
+    case 'help.page.email_group_administrators':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Administrative activities for group owners, starting with a daily email if they have a pending members.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().    
+ *
+ * Probably delete this
+ */
+function email_group_administrators_theme() {
+  return [
+    'email_group_administrators' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
+/**
+ *
+ * */
+/**
+ * Implements hook_cron().
+ *
+ * We implement hook_cron() to do "background" processing. It gets called every
+ * time the Drupal cron runs. We then decide what has to happen in response.
+ *
+ * In this example, we log a message after the time given in the state value
+ * 'cron_example.next_execution'. Then we update that variable to a time in the
+ * future.
+ */
+function email_group_administrators_cron() {
+  // We access our configuration.
+  \Drupal::logger('cron_example')->notice('cron_example prepped to run');
+  $cron_config = \Drupal::configFactory()->getEditable('cron_example.settings');
+  // Default to an hourly interval. Of course, cron has to be running at least
+  // hourly for this to work.
+  $interval = $cron_config->get('interval');
+  $interval = !empty($interval) ? $interval : 3; /*  3600; */
+  $interval = 3; // 3 seconds - testing
+
+  // Run this, for now, daily. @ToDo ... more often during testing!
+  // = keep a time for the next run in the site state.
+  $next_execution = \Drupal::state()->get('cron_example.next_execution');
+  $next_execution = !empty($next_execution) ? $next_execution : 0;
+  \Drupal::logger('cron_example')->notice($next_execution);
+  // 	1517381493 ... fist time it ran added an hour :-(
+  \Drupal::logger('cron_example')->notice(REQUEST_TIME); 
+  //  15173798333 
+  if (REQUEST_TIME +3600 >= $next_execution) {
+    // This is a silly example of a cron job.
+    // It just makes it obvious that the job has run without
+    // making any changes to your database.
+    \Drupal::logger('cron_example')->notice('cron_example ran');
+   email_who_what();
+    if (\Drupal::state()->get('cron_example_show_status_message')) {
+      drupal_set_message(t('cron_example executed at %time', ['%time' => date_iso8601(REQUEST_TIME)]));
+      \Drupal::state()->set('cron_example_show_status_message', FALSE);
+    }
+    \Drupal::state()->set('cron_example.next_execution', REQUEST_TIME + $interval);
+  } else {
+    \Drupal::logger('cron_example')->notice('cron_example skipped');
+  }
+}
+
+function email_who_what() {
+  $storage = \Drupal::entityTypeManager()->getStorage('group');
+  // All the groups. Note: if more group types, might tune this.
+  foreach ($storage->loadMultiple() as $group) {
+    \Drupal::logger('email_group_administrators')->notice('Group id being checked: ' . $group->id());
+    // Get the owner... @ToDo, maybe all the admins, maybe one?
+
+    
+    $adminIds = [];  
+    $pendingIds = [];
+    $done = array();
+
+    foreach ($group->getMembers() as $membership ) {
+      // @ToDo, switch to case, and figure out blocked !!!  
+      // every member of a group. Get their roles.
+      // Look for both admins, and member-only users
+      $uid = $membership->getUser()->id();
+      print "Group member<br/>";
+      foreach ($membership->getRoles() as $rid => $role) {
+        print "UID is " . $uid . " and rid is "  . $rid . '</br>';
+        \Drupal::logger('email_group_administrators')->notice("UID is " . $uid . " and rid is "  . $rid);
+        if ($rid == 'organization_group-admin') {
+          $adminIds[] = $uid;
+          \Drupal::logger('email_group_administrators')->notice("Set adminIds for " . $uid);
+          \Drupal::logger('email_group_administrators')->notice($adminIds[0]);
+          $done[$uid] = true;
+        }
+        elseif ($rid == 'organization_group-member') {
+          $pendingIds[] = $uid;
+        }
+        elseif ($rid == 'organization_group-verfied') { 
+                               // make this verified, and what else?
+          $done[$uid] = true;
+        }  
+      }
+    }        // For this group, are there pending members?
+    $pending = 0; 
+    foreach ($pendingIds as $uid) {
+      if(!isset($done[$uid])) {
+        $pending++;
+        //\Drupal::logger('email_group_administrators')->notice("UID undefined is " . $uid);
+      }
+    }
+
+    if ($pending > 0 ) {
+
+      foreach ($adminIds as $admin) {
+        print $admin;
+      }
+      print_r($adminIds);
+      print($adminIds[0]);
+      
+
+
+      \Drupal::logger('email_group_administrators')->notice("FIRING");
+      print_r($adminIds);
+      foreach ($adminIds as $admin) {
+        \Drupal::logger('email_group_administrators')->notice("FIRING for ");
+        \Drupal::logger('email_group_administrators')->notice("Tell admin " . $admin . " they have " . $pending . " new members!!!!"); 
+        email_group_administrators($admin, $group); // aggregate @ToDo  
+      }
+    }      
+  }
+}
+
+
+function email_group_administrators($admin, $group) {
+  $mailManager = \Drupal::service('plugin.manager.mail');
+  $options = [
+    //'langcode' => $message['langcode'],
+  ];
+  $from = \Drupal::config('system.site')->get('mail');
+  $message['subject'] = t('E-mail sent from @site-name', [
+    '@site-name' => $from,
+  ], $options);
+
+  // Note that the message body is an array, not a string.
+  print "Admin should be a uid " . $admin;
+  $account =  \Drupal\user\Entity\User::load($admin);
+  $to = $account->getEmail();
+
+  $langcode = $account->getPreferredLangcode();
+
+  // Compress emails for multiple groups. @ToDo
+  $body = 'Your Organization at SpaceBase has pending members. Please accept or reject them at "<a href="http://space-base.lndo.site/group/' . 
+    $group->id() . '/members">Group Membership</a>';
+
+
+  // Is this step required:
+  // Because this is NO IT ISNT just user-entered text, 
+  // we do not need to translate it.
+  // Since user-entered text may have unintentional HTML entities in it like
+  // '<' or '>', we need to make sure these entities are properly escaped,
+  // as the body will later be transformed from HTML to text, meaning
+  // that a normal use of '<' will result in truncation of the message.
+  $message['body'][] = t($body);
+    //SafeMarkup::checkPlain($message);
+
+
+  $module = 'email_group_administrators';
+  $key = 'cron_email_group_administrators';
+  // change these
+   $params['message'] = t($body); //entity->get('body')->value;
+   $params['node_title'] = 'Admin email';//  $entity->label();
+   $send = true;
+   $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+   if ($result['result'] !== true) {
+     \Drupal::logger('email_group_administrators')->notice('email_group_administrators ran');
+     drupal_set_message(t('There was a problem sending your message and it was not sent.'), 'error');
+   }
+   else {
+     drupal_set_message(t('Your message has been sent.'));
+     \Drupal::logger('email_group_administrators')->notice('email_group_administrators FAILED'); 
+   }
+}
+
+
+
+
