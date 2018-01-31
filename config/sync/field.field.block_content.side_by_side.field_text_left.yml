@@ -1,0 +1,21 @@
+uuid: 890d524e-9412-4a14-a134-274fab301048
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.side_by_side
+    - field.storage.block_content.field_text_left
+  module:
+    - text
+id: block_content.side_by_side.field_text_left
+field_name: field_text_left
+entity_type: block_content
+bundle: side_by_side
+label: 'Text Left'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,30 @@
+uuid: f90321e3-a1d7-4fd9-81cb-8f25878acab5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.side_by_side
+    - field.field.block_content.side_by_side.field_text_left
+    - field.field.block_content.side_by_side.field_text_right
+  module:
+    - text
+id: block_content.side_by_side.default
+targetEntityType: block_content
+bundle: side_by_side
+mode: default
+content:
+  field_text_left:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_text_right:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

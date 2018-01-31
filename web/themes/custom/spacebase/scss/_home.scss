@@ -84,6 +84,16 @@
     font-size: 22px;
   }
 }
+.side-by-side{
+  padding: 75px 0 50px;
+  &.about{
+    background: url(../images/logo-corner-bg.png) left bottom no-repeat;
+  }
+  .field--name-field-text-left,
+  .field--name-field-text-right{
+    padding-bottom: 25px;
+  }
+}
 .call-to-action-row{
   background: $brand-primary;
   color: #fff;
