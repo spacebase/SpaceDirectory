@@ -6465,6 +6465,53 @@ label {
     padding: 5px 10px;
     font-size: 16px; }
 
+.nav-tabs {
+  padding: 3px;
+  background: #fff;
+  margin: 0 -15px 10px;
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
+  .nav-tabs li {
+    margin-right: 4px; }
+    .nav-tabs li a {
+      border: none;
+      background: none;
+      border-radius: 2px;
+      padding: 5px 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #6f727d; }
+      .nav-tabs li a:hover {
+        border: none;
+        background: #f0f0f0; }
+    .nav-tabs li.active a {
+      background: #f0f0f0;
+      border: none;
+      border-radius: 2px;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+      color: #3f4147; }
+      .nav-tabs li.active a:hover {
+        border: none;
+        background: #f0f0f0; }
+
+form .panel {
+  border: none;
+  box-shadow: none; }
+  form .panel .panel-heading {
+    padding: 10px 0;
+    background: none;
+    border-bottom: 2px solid #f0f0f0; }
+    form .panel .panel-heading .panel-title {
+      font-weight: 500;
+      font-size: 20px; }
+  form .panel .panel-body {
+    padding: 15px 0 50px; }
+form .table > thead > tr > th {
+  border-bottom: 2px solid #f0f0f0;
+  font-weight: 500;
+  font-size: 20px; }
+
 .box {
   padding: 35px;
   background: #fff;
@@ -6485,7 +6532,8 @@ label {
   border: none; }
   .navbar.navbar-inverse .navbar-nav > li > a {
     color: #fff;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent; }
   @media screen and (min-width: 768px) {
     .navbar.navbar-inverse .navbar-nav {
       padding: 15px 0;
@@ -6494,6 +6542,9 @@ label {
     background: #3bba50; }
   .navbar.navbar-inverse .navbar-nav > .active > a.btn-blank {
     background: black; }
+  .navbar.navbar-inverse .navbar-nav .active > a, .navbar.navbar-inverse .navbar-nav .active > a:hover, .navbar.navbar-inverse .navbar-nav .active > a:focus {
+    background: none;
+    border-bottom-color: #76777f; }
   .navbar .btn {
     font-size: 14px;
     padding: 10px 15px; }
@@ -6870,6 +6921,7 @@ body.toolbar-tray-open .top-bar {
       display: block;
       position: absolute;
       left: 0;
+      top: 0;
       font-size: 44px;
       height: 100px;
       line-height: 100px;
