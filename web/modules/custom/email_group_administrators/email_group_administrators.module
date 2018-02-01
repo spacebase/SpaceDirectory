@@ -50,40 +50,30 @@ function email_group_administrators_theme() {
  * future.
  */
 function email_group_administrators_cron() {
-  // We access our configuration.
   \Drupal::logger('cron_example')->notice('cron_example prepped to run');
-  $cron_config = \Drupal::configFactory()->getEditable('cron_example.settings');
-  // Default to an hourly interval. Of course, cron has to be running at least
-  // hourly for this to work.
-  $interval = $cron_config->get('interval');
-  $interval = !empty($interval) ? $interval : 3; /*  3600; */
-  $interval = 3; // 3 seconds - testing
 
-  // Run this, for now, daily. @ToDo ... more often during testing!
-  // = keep a time for the next run in the site state.
+  //## Access config to keep emails under control
+  // Access our configuration.
+    $cron_config = \Drupal::configFactory()->getEditable('cron_example.settings');
+  // Default to an hourly min time between emails. 
+  $interval = $cron_config->get('interval');
+  $interval = !empty($interval) ? $interval : 3; /*  3600; is hourly */
+  $interval = 3; // 3 seconds - testing @ToDo
+
   $next_execution = \Drupal::state()->get('cron_example.next_execution');
   $next_execution = !empty($next_execution) ? $next_execution : 0;
-  \Drupal::logger('cron_example')->notice($next_execution);
+  //\Drupal::logger('cron_example')->notice($next_execution);
   // 	1517381493 ... fist time it ran added an hour :-(
-  \Drupal::logger('cron_example')->notice(REQUEST_TIME); 
+  //\Drupal::logger('cron_example')->notice(REQUEST_TIME); 
   //  15173798333 
-  if (REQUEST_TIME +3600 >= $next_execution) {
-    // This is a silly example of a cron job.
-    // It just makes it obvious that the job has run without
-    // making any changes to your database.
-    \Drupal::logger('cron_example')->notice('cron_example ran');
-   email_who_what();
-    if (\Drupal::state()->get('cron_example_show_status_message')) {
-      drupal_set_message(t('cron_example executed at %time', ['%time' => date_iso8601(REQUEST_TIME)]));
-      \Drupal::state()->set('cron_example_show_status_message', FALSE);
-    }
+  if (REQUEST_TIME >= $next_execution) {
+    // Send emails and set the min time before we might send more.
+    _email_who_what();
     \Drupal::state()->set('cron_example.next_execution', REQUEST_TIME + $interval);
-  } else {
-    \Drupal::logger('cron_example')->notice('cron_example skipped');
   }
 }
 
-function email_who_what() {
+function _email_who_what() {
   $storage = \Drupal::entityTypeManager()->getStorage('group');
   // All the groups. Note: if more group types, might tune this.
   foreach ($storage->loadMultiple() as $group) {
@@ -154,7 +144,7 @@ function email_group_administrators($admin, $group) {
   $options = [
     //'langcode' => $message['langcode'],
   ];
-  $from = \Drupal::config('system.site')->get('mail');
+  $from = 'stephencataldo@gmail.com'; // \Drupal::config('system.site')->get('mail');
   $message['subject'] = t('E-mail sent from @site-name', [
     '@site-name' => $from,
   ], $options);
@@ -162,7 +152,7 @@ function email_group_administrators($admin, $group) {
   // Note that the message body is an array, not a string.
   print "Admin should be a uid " . $admin;
   $account =  \Drupal\user\Entity\User::load($admin);
-  $to = $account->getEmail();
+  $to = 'stephencataldo@gmail.com'; // $account->getEmail();
 
   $langcode = $account->getPreferredLangcode();
 
@@ -181,24 +171,45 @@ function email_group_administrators($admin, $group) {
   $message['body'][] = t($body);
     //SafeMarkup::checkPlain($message);
 
-
-  $module = 'email_group_administrators';
-  $key = 'cron_email_group_administrators';
+  // A module name to invoke hook_mail() on.
+  // Required? Can we just set everything up here?
+  $module = 'email_group_administrators'; 
+   $key = 'email_group_administrators';
   // change these
    $params['message'] = t($body); //entity->get('body')->value;
    $params['node_title'] = 'Admin email';//  $entity->label();
    $send = true;
-   $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+   \Drupal::logger('email_group_administrators')->notice('mail about to send -----');
+   //$result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+    $result = $mailManager->mail($module, $key, 'stephencataldo@gmail.com', $langcode, $params, NULL, $send);
+
+      // example_mail() will be called based on the first
+      // MailManagerInterface->mail() parameter.
+  $result = \Drupal::service('plugin.manager.mail')->mail($module, 'notice', 'stephencataldo@gmail.com', $langcode, $params);
+
+
+
+
+
    if ($result['result'] !== true) {
-     \Drupal::logger('email_group_administrators')->notice('email_group_administrators ran');
-     drupal_set_message(t('There was a problem sending your message and it was not sent.'), 'error');
+     \Drupal::logger('email_group_administrators')->notice('email_group_administrators ran and FAILED');
+     drupal_set_message(t('There was a problem sending your message and it was not sent.' . print_r($result)), 'error');
    }
    else {
      drupal_set_message(t('Your message has been sent.'));
-     \Drupal::logger('email_group_administrators')->notice('email_group_administrators FAILED'); 
+     \Drupal::logger('email_group_administrators')->notice('email_group_administrators seems to have succeeded?'); 
    }
 }
 
+/**
+ * Implements hook_mail().
+ */
+function email_group_administrators_mail($key, &$message, $params) {
+      $message['subject'] = t('Test');
+      $message['body'][] = 'Hello World!';
+      //   $message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($body);
 
+       \Drupal::logger('email_group_administrators')->notice('email_group_administrators hook hooked? *******************8');
+}
 
 
