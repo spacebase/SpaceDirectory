@@ -2,11 +2,8 @@ uuid: 436ef7b5-f7e0-4514-846c-d09309df1e40
 langcode: en
 status: true
 dependencies:
-  config:
-    - views.view.sitewide_search
   module:
     - system
-    - views
   theme:
     - spacebase
 id: sitewide_search_keywords

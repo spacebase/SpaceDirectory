@@ -2,10 +2,7 @@ uuid: 3d02e241-c47c-4683-9a28-0d72afb27235
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:side_by_side:81c4656f-e228-44da-ac40-820391446d79'
   module:
-    - block_content
     - system
   theme:
     - spacebase
