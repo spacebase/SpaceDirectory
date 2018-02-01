@@ -75,6 +75,7 @@
       display: block;
       position: absolute;
       left: 0;
+      top: 0;
       font-size: 44px;
       height: 100px;
       line-height: 100px;
@@ -122,7 +123,8 @@
   }
   .result{
     border-bottom: 2px solid $line;
-    padding: 15px 0;
+    padding: 15px 140px 15px 0;
+    position: relative;
     .profile-thumb{
       margin-right: 35px;
       img{
@@ -145,6 +147,13 @@
           color: $brand-primary;
           margin-right: 10px;
         }
+        .badge{
+          font-size: 10px;
+          vertical-align: middle;
+          border-radius: 10px;
+          padding: 4px 15px;
+          background: $brand-primary;
+        }
       }
       .segment,
       .quote{
@@ -161,6 +170,77 @@
         font-weight: 500; 
       }
     }
+    .membership-status{
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -16px;
+    }
+    .text-success{
+      font-size: 18px;
+      padding: 5px 0;
+      font-weight: bold;
+      color: $brand-secondary;
+      i{
+        margin-right: 5px;
+      }
+    }
+    .btn-group.dropdown{
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -16px;
+    }
+    @media screen and (max-width: 767px) {
+      padding: 15px 0 55px 0;
+      .profile-thumb{
+        margin-right: 15px;
+        img{
+          width: 40px;
+          height: 40px;
+        }
+      }
+      .profile-text{
+        margin-left: 55px;
+        h2{
+          padding-top: 0;
+          font-size: 14px;
+          a{
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+          }
+        }
+      }
+      .membership-status{
+        right: auto;
+        bottom: 10px;
+        top: auto;
+        left: 0;
+        margin-top: 0;
+        width: 100%;
+        text-align: center;
+        .btn{
+          display:block;
+        }
+      }
+      .btn-group.dropdown{
+        right: auto;
+        left: 0;
+        top: auto;
+        bottom: 10px;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.org-list-footer{
+  padding: 25px 0 0;
+  font-size: 14px;
+  font-weight: 300;
+  a{
+    font-weight: bold;
   }
 }
 

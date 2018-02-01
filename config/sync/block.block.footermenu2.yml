@@ -11,7 +11,7 @@ dependencies:
 id: footermenu2
 theme: spacebase
 region: footer_top_2
-weight: 0
+weight: -14
 provider: null
 plugin: 'system_menu_block:footer-menu-2'
 settings:

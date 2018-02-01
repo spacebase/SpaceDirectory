@@ -72,3 +72,25 @@ body.path-search{
     padding-top: 160px;
   }
 }
+
+.search-filters{
+  text-align: right;
+  margin-bottom: 15px;
+  a{
+    padding: 5px 10px;
+    margin-left: 10px;
+    display: inline-block;
+    font-weight: 500;
+  }
+}
+
+.see-all{
+  padding-top: 25px;
+  .btn{
+    background: $line;
+    color: $text;
+    &:active,&:focus,&:hover{
+      background: darken($line,5%);
+    }
+  }
+}
