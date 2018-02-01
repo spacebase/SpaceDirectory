@@ -6706,6 +6706,9 @@ body.toolbar-tray-open .top-bar {
     .footer-top ul.menu li a:active, .footer-top ul.menu li a:focus, .footer-top ul.menu li a:hover {
       background: rgba(255, 255, 255, 0.1);
       color: #ababb0; }
+  @media screen and (max-width: 767px) {
+    .footer-top ul.menu {
+      margin-bottom: 25px; } }
 
 .footer {
   background: #2b2c30;
@@ -7027,6 +7030,48 @@ body.toolbar-tray-open .top-bar {
     right: 0;
     top: 50%;
     margin-top: -16px; }
+  @media screen and (max-width: 767px) {
+    .org-list .result,
+    .user-list .result {
+      padding: 15px 0 55px 0; }
+      .org-list .result .profile-thumb,
+      .user-list .result .profile-thumb {
+        margin-right: 15px; }
+        .org-list .result .profile-thumb img,
+        .user-list .result .profile-thumb img {
+          width: 40px;
+          height: 40px; }
+      .org-list .result .profile-text,
+      .user-list .result .profile-text {
+        margin-left: 55px; }
+        .org-list .result .profile-text h2,
+        .user-list .result .profile-text h2 {
+          padding-top: 0;
+          font-size: 14px; }
+          .org-list .result .profile-text h2 a,
+          .user-list .result .profile-text h2 a {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px; }
+      .org-list .result .membership-status,
+      .user-list .result .membership-status {
+        right: auto;
+        bottom: 10px;
+        top: auto;
+        left: 0;
+        margin-top: 0;
+        width: 100%;
+        text-align: center; }
+        .org-list .result .membership-status .btn,
+        .user-list .result .membership-status .btn {
+          display: block; }
+      .org-list .result .btn-group.dropdown,
+      .user-list .result .btn-group.dropdown {
+        right: auto;
+        left: 0;
+        top: auto;
+        bottom: 10px;
+        margin-top: 0; } }
 
 .org-list-footer {
   padding: 25px 0 0;
