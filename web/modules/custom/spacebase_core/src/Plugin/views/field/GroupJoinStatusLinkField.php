@@ -56,6 +56,11 @@ class GroupJoinStatusLinkField extends FieldPluginBase {
     $entity = $values->_object->getValue();
     if ($entity->getEntityTypeId() == "group") {
       $account = \Drupal::currentUser();
+      if ( !$account->isAuthenticated() ) {
+        return [ 
+          '#markup' => '<a href="/user/register" class="btn btn-primary btn    -small"><i class="fas fa-plus-circle"></i>join spacebase</a>',
+        ];
+      }  
       $membership = $entity->getMember($account);
       if (!$membership) {
         return [
