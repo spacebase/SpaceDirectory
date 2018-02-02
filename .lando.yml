@@ -1,6 +1,8 @@
 name: space-base
 recipe: drupal8
 proxy:
+  mailhog:
+    - mail.lemp.lndo.site
   solrserver:
     - solr.space-base.lndo.site:8983
 services:
@@ -13,6 +15,11 @@ services:
     core: drupal
     config:
       conf: .platform/solr-conf
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver    
+    portforward: 1026    
 tooling:
   platform:
     service: appserver
