@@ -50,15 +50,13 @@ function email_group_administrators_theme() {
  * future.
  */
 function email_group_administrators_cron() {
-  \Drupal::logger('cron_example')->notice('cron_example prepped to run');
-
   //## Access config to keep emails under control
   // Access our configuration.
     $cron_config = \Drupal::configFactory()->getEditable('cron_example.settings');
   // Default to an hourly min time between emails. 
   $interval = $cron_config->get('interval');
   $interval = !empty($interval) ? $interval : 3; /*  3600; is hourly */
-  $interval = 3; // 3 seconds - testing @ToDo
+  $interval = 3600 * 8; // 3 seconds - testing @ToDo
 
   $next_execution = \Drupal::state()->get('cron_example.next_execution');
   $next_execution = !empty($next_execution) ? $next_execution : 0;
@@ -72,6 +70,7 @@ function email_group_administrators_cron() {
 function _email_who_what() {
   $storage = \Drupal::entityTypeManager()->getStorage('group');
   // All the groups. Note: if more group types, might tune this.
+  $messages = array(); // messages per admin
   foreach ($storage->loadMultiple() as $group) {
     \Drupal::logger('email_group_administrators')->notice('Group id being checked: ' . $group->id());
     // Get the owner... @ToDo, maybe all the admins, maybe one?
@@ -80,6 +79,7 @@ function _email_who_what() {
     $adminIds = [];  
     $pendingIds = [];
     $done = array();
+
 
     foreach ($group->getMembers() as $membership ) {
       // @ToDo, switch to case, and figure out blocked !!!  
@@ -104,7 +104,9 @@ function _email_who_what() {
           $done[$uid] = true;
         }  
       }
-    }        // For this group, are there pending members?
+    }        
+    
+    // For this group, are there pending members?
     $pending = 0; 
     foreach ($pendingIds as $uid) {
       if(!isset($done[$uid])) {
@@ -112,76 +114,56 @@ function _email_who_what() {
         //\Drupal::logger('email_group_administrators')->notice("UID undefined is " . $uid);
       }
     }
-
-    if ($pending > 0 ) {
-
-      foreach ($adminIds as $admin) {
-        print $admin;
-      }
-      print_r($adminIds);
-      print($adminIds[0]);
-      
-
-
+  
+    // Replace this step, instead gather   
+        if ($pending > 0 ) {
       \Drupal::logger('email_group_administrators')->notice("FIRING");
       print_r($adminIds);
       foreach ($adminIds as $admin) {
-        \Drupal::logger('email_group_administrators')->notice("FIRING for ");
+        $msg = "<br/>" . $pending . " pending members at " . \Drupal::request()->getSchemeAndHttpHost() . "/group/" . $group->id() . "/applicants\n";
+        $messages[$admin] .= $msg;
         \Drupal::logger('email_group_administrators')->notice("Tell admin " . $admin . " they have " . $pending . " new members!!!!"); 
-        email_group_administrators($admin, $group); // aggregate @ToDo  
       }
     }      
+  } // All the groups
+
+  //@ToDo  t() tags
+   $module = 'email_group_administrators'; 
+   $key = 'email_group_administrators';
+ 
+  foreach ($messages as $admin => $msg) {
+    \Drupal::logger('email_group_administrators')->notice("Send an email to " . $admin);
+    $account =  \Drupal\user\Entity\User::load($admin);
+    $email = $account->getEmail();
+    $langcode = $account->getPreferredLangcode();
+    $params = array();
+    $params['message'] = "<p>You have pending members to accept or reject at SpaceBase:</p>\n\n" . $msg;
+    $params['subject'] = "Pending members at SpaceBase";
+
+    $result = \Drupal::service('plugin.manager.mail')->mail($module, 'notice', 'stephencataldo@gmail.com', $langcode, $params);
   }
 }
 
 
-function email_group_administrators($admin, $group) {
+function NOT_IN_USE_email_group_administrators($admin, $group) {
   $mailManager = \Drupal::service('plugin.manager.mail');
-  $options = [
-    //'langcode' => $message['langcode'],
-  ];
   $from = 'stephencataldo@gmail.com'; // \Drupal::config('system.site')->get('mail');
-  $message['subject'] = t('E-mail sent from @site-name', [
+
+/*  $message['subject'] = t('E-mail sent from @site-name', [
     '@site-name' => $from,
   ], $options);
-
+ */
   // Note that the message body is an array, not a string.
-  print "Admin should be a uid " . $admin;
-  $account =  \Drupal\user\Entity\User::load($admin);
-  $to = 'stephencataldo@gmail.com'; // $account->getEmail();
-
-  $langcode = $account->getPreferredLangcode();
-
-  // Compress emails for multiple groups. @ToDo
-  $body = 'Your Organization at SpaceBase has pending members. Please accept or reject them at "<a href="http://space-base.lndo.site/group/' . 
-    $group->id() . '/members">Group Membership</a>';
-
-
-  // Is this step required:
-  // Because this is NO IT ISNT just user-entered text, 
-  // we do not need to translate it.
-  // Since user-entered text may have unintentional HTML entities in it like
-  // '<' or '>', we need to make sure these entities are properly escaped,
-  // as the body will later be transformed from HTML to text, meaning
-  // that a normal use of '<' will result in truncation of the message.
-  $message['body'][] = t($body);
-    //SafeMarkup::checkPlain($message);
-
-  // A module name to invoke hook_mail() on.
-  // Required? Can we just set everything up here?
-  $module = 'email_group_administrators'; 
-   $key = 'email_group_administrators';
   // change these
-   $params['message'] = t($body); //entity->get('body')->value;
    $params['node_title'] = 'Admin email';//  $entity->label();
    $send = true;
    \Drupal::logger('email_group_administrators')->notice('mail about to send -----');
-   //$result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
-    $result = $mailManager->mail($module, $key, 'stephencataldo@gmail.com', $langcode, $params, NULL, $send);
+   //commented out was this all running at once?    
+   $result = $mailManager->mail($module, $key, 'stephencataldo@gmail.com', $langcode, $params, NULL, $send);
 
       // example_mail() will be called based on the first
       // MailManagerInterface->mail() parameter.
-  $result = \Drupal::service('plugin.manager.mail')->mail($module, 'notice', 'stephencataldo@gmail.com', $langcode, $params);
+   // $result = \Drupal::service('plugin.manager.mail')->mail($module, 'notice', 'stephencataldo@gmail.com', $langcode, $params);
 
 
 
@@ -201,11 +183,11 @@ function email_group_administrators($admin, $group) {
  * Implements hook_mail().
  */
 function email_group_administrators_mail($key, &$message, $params) {
-      $message['subject'] = t('Test');
-      $message['body'][] = 'Hello World!';
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
       //   $message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($body);
 
-       \Drupal::logger('email_group_administrators')->notice('email_group_administrators hook hooked? *******************8');
+       \Drupal::logger('email_group_administrators')->notice('email_group_administrators hook was hooked');
 }
 
 
