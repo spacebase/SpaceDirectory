@@ -114,6 +114,56 @@
       }
     }
   }
+  .block-group-operations{
+    .btn-group{
+      background: none;
+      padding: 15px 0 0;
+      display: block;
+      .btn{
+        background: $brand-secondary;
+        color: #fff;
+        display: block;
+        float: none;
+        width: 100%;
+        &:active,&:focus,&:hover{
+          background:lighten($brand-secondary,10%);
+        }
+      }
+      &.anonymous{
+        .btn{
+          background-color: $brand-secondary;
+          border: 1px solid transparent;
+          color: #fff;
+          &:active,&:focus,&:hover{
+            background-color: lighten($brand-secondary,10%);
+            color: #fff;
+          }
+        }
+      }
+      &.pending{
+        .btn{
+          background-color: lighten($grey-accent,5%);
+          border: 1px solid transparent;
+          color: #fff;
+          &:active,&:focus,&:hover{
+            background-color: lighten($grey-accent,5%);
+            color: #fff;
+          }
+        }
+      }
+      &.verified{
+        .btn{
+          background-color: $brand-primary;
+          border: 1px solid transparent;
+          color: #fff;
+          &:active,&:focus,&:hover{
+            background-color: lighten($brand-primary,10%);
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
 }
 
 .org-list,
