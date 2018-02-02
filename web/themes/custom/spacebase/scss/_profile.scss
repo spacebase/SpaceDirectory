@@ -114,6 +114,23 @@
       }
     }
   }
+  .block-group-operations{
+    .btn-group{
+      background: none;
+      padding: 15px 0 0;
+      display: block;
+      .btn{
+        background: $brand-secondary;
+        color: #fff;
+        display: block;
+        float: none;
+        width: 100%;
+        &:active,&:focus,&:hover{
+          background:lighten($brand-secondary,10%);
+        }
+      }
+    }
+  }
 }
 
 .org-list,

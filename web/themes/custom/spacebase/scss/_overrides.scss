@@ -81,6 +81,21 @@ body.navbar-is-fixed-top{
   margin-top: 0;
 }
 
+.container{
+  max-width: 100%;
+}
+
+.alert{
+  margin: 20px -15px 25px;
+  border: 2px solid;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  font-weight: 500;
+  .close{
+    opacity: 0.6;
+  }
+}
+
 .region-content{
   img{
     max-width: 100%;
