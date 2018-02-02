@@ -62,10 +62,6 @@ function email_group_administrators_cron() {
 
   $next_execution = \Drupal::state()->get('cron_example.next_execution');
   $next_execution = !empty($next_execution) ? $next_execution : 0;
-  //\Drupal::logger('cron_example')->notice($next_execution);
-  // 	1517381493 ... fist time it ran added an hour :-(
-  //\Drupal::logger('cron_example')->notice(REQUEST_TIME); 
-  //  15173798333 
   if (REQUEST_TIME >= $next_execution) {
     // Send emails and set the min time before we might send more.
     _email_who_what();
