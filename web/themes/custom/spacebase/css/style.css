@@ -6433,7 +6433,8 @@ body.navbar-is-fixed-top {
   color: #fff; }
   .btn-gray:active, .btn-gray:focus, .btn-gray:hover {
     background-color: #cacfd4;
-    border: 1px solid transparent; }
+    border: 1px solid transparent;
+    color: #fff; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
@@ -6985,6 +6986,27 @@ body.toolbar-tray-open .top-bar {
       width: 100%; }
       .profile .block-group-operations .btn-group .btn:active, .profile .block-group-operations .btn-group .btn:focus, .profile .block-group-operations .btn-group .btn:hover {
         background: #5dcb6f; }
+    .profile .block-group-operations .btn-group.anonymous .btn {
+      background-color: #3bba50;
+      border: 1px solid transparent;
+      color: #fff; }
+      .profile .block-group-operations .btn-group.anonymous .btn:active, .profile .block-group-operations .btn-group.anonymous .btn:focus, .profile .block-group-operations .btn-group.anonymous .btn:hover {
+        background-color: #5dcb6f;
+        color: #fff; }
+    .profile .block-group-operations .btn-group.pending .btn {
+      background-color: #bcc2c8;
+      border: 1px solid transparent;
+      color: #fff; }
+      .profile .block-group-operations .btn-group.pending .btn:active, .profile .block-group-operations .btn-group.pending .btn:focus, .profile .block-group-operations .btn-group.pending .btn:hover {
+        background-color: #bcc2c8;
+        color: #fff; }
+    .profile .block-group-operations .btn-group.verified .btn {
+      background-color: #325ce6;
+      border: 1px solid transparent;
+      color: #fff; }
+      .profile .block-group-operations .btn-group.verified .btn:active, .profile .block-group-operations .btn-group.verified .btn:focus, .profile .block-group-operations .btn-group.verified .btn:hover {
+        background-color: #5f80ec;
+        color: #fff; }
 
 .org-list .view-header,
 .user-list .view-header {

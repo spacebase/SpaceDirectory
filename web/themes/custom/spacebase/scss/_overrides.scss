@@ -163,6 +163,7 @@ body.navbar-is-fixed-top{
   &:active,&:focus,&:hover{
     background-color: lighten($grey-accent,10%);
     border: 1px solid transparent;
+    color: #fff;
   }
 }
 
