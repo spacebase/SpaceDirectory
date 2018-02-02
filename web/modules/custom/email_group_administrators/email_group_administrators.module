@@ -16,25 +16,13 @@ function email_group_administrators_help($route_name, RouteMatchInterface $route
     case 'help.page.email_group_administrators':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Administrative activities for group owners, starting with a daily email if they have a pending members.') . '</p>';
+      $output .= '<p>' . t('Administrative activities for group owners. So far: a daily email if they have a pending members.') . '</p>';
       return $output;
 
     default:
   }
 }
 
-/**
- * Implements hook_theme().    
- *
- * Probably delete this
- */
-function email_group_administrators_theme() {
-  return [
-    'email_group_administrators' => [
-      'render element' => 'children',
-    ],
-  ];
-}
 
 /**
  *
@@ -42,65 +30,54 @@ function email_group_administrators_theme() {
 /**
  * Implements hook_cron().
  *
- * We implement hook_cron() to do "background" processing. It gets called every
- * time the Drupal cron runs. We then decide what has to happen in response.
- *
- * In this example, we log a message after the time given in the state value
- * 'cron_example.next_execution'. Then we update that variable to a time in the
- * future.
+ * Send emails a maximum of once every 24 hours (easily changed below)
+ * Might want to set this to midnight ... in the timezone of the server?
+ * Not clear what the ideal use case is, 4:50 pm might make more sense?
  */
 function email_group_administrators_cron() {
-  //## Access config to keep emails under control
-  // Access our configuration.
+  //## Access config to send only occassionally, to keep emails under control
     $cron_config = \Drupal::configFactory()->getEditable('cron_example.settings');
   // Default to an hourly min time between emails. 
   $interval = $cron_config->get('interval');
   $interval = !empty($interval) ? $interval : 3; /*  3600; is hourly */
-  $interval = 3600 * 8; // 3 seconds - testing @ToDo
+  $interval = 3600 * 24 * 0; // 3 seconds - testing @ToDo
 
   $next_execution = \Drupal::state()->get('cron_example.next_execution');
   $next_execution = !empty($next_execution) ? $next_execution : 0;
   if (REQUEST_TIME >= $next_execution) {
     // Send emails and set the min time before we might send more.
     _email_who_what();
-    \Drupal::state()->set('cron_example.next_execution', REQUEST_TIME + $interval);
   }
 }
 
 function _email_who_what() {
+  // Get all the groups. 
   $storage = \Drupal::entityTypeManager()->getStorage('group');
-  // All the groups. Note: if more group types, might tune this.
-  $messages = array(); // messages per admin
+  $messages = array(); // messages per admin, by uid
   foreach ($storage->loadMultiple() as $group) {
-    \Drupal::logger('email_group_administrators')->notice('Group id being checked: ' . $group->id());
-    // Get the owner... @ToDo, maybe all the admins, maybe one?
-
     
     $adminIds = [];  
     $pendingIds = [];
     $done = array();
 
-
     foreach ($group->getMembers() as $membership ) {
-      // @ToDo, switch to case, and figure out blocked !!!  
-      // every member of a group. Get their roles.
-      // Look for both admins, and member-only users
+      // For every member of this group,
+      // collect $adminIds
+      // And how many members lack another role
+      //  (blocked and verified are both not-pending)
       $uid = $membership->getUser()->id();
-      print "Group member<br/>";
       foreach ($membership->getRoles() as $rid => $role) {
-        print "UID is " . $uid . " and rid is "  . $rid . '</br>';
-        \Drupal::logger('email_group_administrators')->notice("UID is " . $uid . " and rid is "  . $rid);
+        //\Drupal::logger('email_group_administrators')->notice("UID is " . $uid . " and rid is "  . $rid);
         if ($rid == 'organization_group-admin') {
           $adminIds[] = $uid;
-          \Drupal::logger('email_group_administrators')->notice("Set adminIds for " . $uid);
-          \Drupal::logger('email_group_administrators')->notice($adminIds[0]);
           $done[$uid] = true;
         }
         elseif ($rid == 'organization_group-member') {
+          // This may collect false-positives, removed below
           $pendingIds[] = $uid;
         }
-        elseif ($rid == 'organization_group-verfied') { 
-                               // make this verified, and what else?
+        elseif ($rid == 'organization_group-verified' || $rid == 'organization_group-blocked') { 
+          // make this verified, and what else?
           $done[$uid] = true;
         }  
       }
@@ -111,72 +88,39 @@ function _email_who_what() {
     foreach ($pendingIds as $uid) {
       if(!isset($done[$uid])) {
         $pending++;
-        //\Drupal::logger('email_group_administrators')->notice("UID undefined is " . $uid);
+        \Drupal::logger('email_group_administrators')->notice("UID undefined is " . $uid);
       }
     }
   
-    // Replace this step, instead gather   
-        if ($pending > 0 ) {
+    // If there are pending members, add them to the $messages going to each admin
+    if ($pending > 0 ) {
       \Drupal::logger('email_group_administrators')->notice("FIRING");
       print_r($adminIds);
       foreach ($adminIds as $admin) {
         $msg = "<br/>" . $pending . " pending members at " . \Drupal::request()->getSchemeAndHttpHost() . "/group/" . $group->id() . "/applicants\n";
         $messages[$admin] .= $msg;
-        \Drupal::logger('email_group_administrators')->notice("Tell admin " . $admin . " they have " . $pending . " new members!!!!"); 
       }
     }      
-  } // All the groups
+  } // \All the groups
 
-  //@ToDo  t() tags
-   $module = 'email_group_administrators'; 
-   $key = 'email_group_administrators';
+  /** Send each admin all their $msg's. **/
+  //@ToDo  t() tags, add group names instead of just ids and then make safe
+  $module = 'email_group_administrators'; 
+  $key = 'email_group_administrators';
  
   foreach ($messages as $admin => $msg) {
-    \Drupal::logger('email_group_administrators')->notice("Send an email to " . $admin);
+    //\Drupal::logger('email_group_administrators')->notice("Send an email to " . $admin);
     $account =  \Drupal\user\Entity\User::load($admin);
     $email = $account->getEmail();
     $langcode = $account->getPreferredLangcode();
     $params = array();
-    $params['message'] = "<p>You have pending members to accept or reject at SpaceBase:</p>\n\n" . $msg;
+    $params['message'] = t("<p>You have pending members to accept or reject at SpaceBase:</p>\n\n") 
+                         . t("<p>You can edit each member to be <em>verified</em> and they will be able to participate. You can also block them or make them an admin of your group.</p>")
+                         . $msg;
     $params['subject'] = "Pending members at SpaceBase";
 
     $result = \Drupal::service('plugin.manager.mail')->mail($module, 'notice', 'stephencataldo@gmail.com', $langcode, $params);
   }
-}
-
-
-function NOT_IN_USE_email_group_administrators($admin, $group) {
-  $mailManager = \Drupal::service('plugin.manager.mail');
-  $from = 'stephencataldo@gmail.com'; // \Drupal::config('system.site')->get('mail');
-
-/*  $message['subject'] = t('E-mail sent from @site-name', [
-    '@site-name' => $from,
-  ], $options);
- */
-  // Note that the message body is an array, not a string.
-  // change these
-   $params['node_title'] = 'Admin email';//  $entity->label();
-   $send = true;
-   \Drupal::logger('email_group_administrators')->notice('mail about to send -----');
-   //commented out was this all running at once?    
-   $result = $mailManager->mail($module, $key, 'stephencataldo@gmail.com', $langcode, $params, NULL, $send);
-
-      // example_mail() will be called based on the first
-      // MailManagerInterface->mail() parameter.
-   // $result = \Drupal::service('plugin.manager.mail')->mail($module, 'notice', 'stephencataldo@gmail.com', $langcode, $params);
-
-
-
-
-
-   if ($result['result'] !== true) {
-     \Drupal::logger('email_group_administrators')->notice('email_group_administrators ran and FAILED');
-     drupal_set_message(t('There was a problem sending your message and it was not sent.' . print_r($result)), 'error');
-   }
-   else {
-     drupal_set_message(t('Your message has been sent.'));
-     \Drupal::logger('email_group_administrators')->notice('email_group_administrators seems to have succeeded?'); 
-   }
 }
 
 /**
