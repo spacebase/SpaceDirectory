@@ -40,7 +40,7 @@ function email_group_administrators_cron() {
   // Default to an hourly min time between emails. 
   $interval = $cron_config->get('interval');
   $interval = !empty($interval) ? $interval : 3; /*  3600; is hourly */
-  $interval = 3600 * 24 * 0; // 3 seconds - testing @ToDo
+  $interval = 3600 * 24; // 3 seconds - testing @ToDo
 
   $next_execution = \Drupal::state()->get('cron_example.next_execution');
   $next_execution = !empty($next_execution) ? $next_execution : 0;
