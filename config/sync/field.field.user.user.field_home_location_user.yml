@@ -23,13 +23,13 @@ settings:
     administrativeArea: administrativeArea
     locality: locality
     dependentLocality: dependentLocality
-    postalCode: postalCode
     sortingCode: sortingCode
     addressLine1: addressLine1
     addressLine2: addressLine2
-    givenName: givenName
-    additionalName: additionalName
-    familyName: familyName
+    postalCode: '0'
     organization: '0'
+    givenName: '0'
+    additionalName: '0'
+    familyName: '0'
   langcode_override: ''
 field_type: address
