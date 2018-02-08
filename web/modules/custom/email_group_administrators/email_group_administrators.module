@@ -1,0 +1,140 @@
+<?php
+
+/**
+ * @file
+ * Contains email_group_administrators.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function email_group_administrators_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the email_group_administrators module.
+    case 'help.page.email_group_administrators':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Administrative activities for group owners. So far: a daily email if they have a pending members.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ *
+ * */
+/**
+ * Implements hook_cron().
+ *
+ * Send emails a maximum of once every 24 hours (easily changed below)
+ * Might want to set this to midnight ... in the timezone of the server?
+ * Not clear what the ideal use case is, 4:50 pm might make more sense?
+ */
+function email_group_administrators_cron() {
+  //## Access config to send only occassionally, to keep emails under control
+  $cron_config = \Drupal::configFactory()->getEditable('email_group_administrators.settings');
+  // Default to an hourly min time between emails. 
+  $interval = $cron_config->get('interval');
+  $interval = !empty($interval) ? $interval : 3600 * 24; 
+      /*  3600; is hourly */
+  \Drupal::logger('email_group_administrators')->notice('Interval is ' . $interval);
+
+
+  $next_execution = \Drupal::state()->get('email_group_administrators.next_execution');
+  $next_execution = !empty($next_execution) ? $next_execution : 0;
+  if (REQUEST_TIME >= $next_execution) {
+    //\Drupal::logger('email_group_administrators')->notice('REQUEST TIME > ' . $next_execution);
+    \Drupal::state()->set('email_group_administrators.next_execution', REQUEST_TIME + $interval);
+
+    // Send emails and set the min time before we might send more.
+    _email_who_what();
+  }
+}
+
+function _email_who_what() {
+  // Get all the groups. 
+  $storage = \Drupal::entityTypeManager()->getStorage('group');
+  $messages = array(); // messages per admin, by uid
+  foreach ($storage->loadMultiple() as $group) {
+    
+    $adminIds = [];  
+    $pendingIds = [];
+    $done = array();
+
+    foreach ($group->getMembers() as $membership ) {
+      // For every member of this group,
+      // collect $adminIds
+      // And how many members lack another role
+      //  (blocked and verified are both not-pending)
+      $uid = $membership->getUser()->id();
+      foreach ($membership->getRoles() as $rid => $role) {
+        //\Drupal::logger('email_group_administrators')->notice("UID is " . $uid . " and rid is "  . $rid);
+        if ($rid == 'organization_group-admin') {
+          $adminIds[] = $uid;
+          $done[$uid] = true;
+        }
+        elseif ($rid == 'organization_group-member') {
+          // This may collect false-positives, removed below
+          $pendingIds[] = $uid;
+        }
+        elseif ($rid == 'organization_group-verified' || $rid == 'organization_group-blocked') { 
+          // make this verified, and what else?
+          $done[$uid] = true;
+        }  
+      }
+    }        
+    
+    // For this group, are there pending members?
+    $pending = 0; 
+    foreach ($pendingIds as $uid) {
+      if(!isset($done[$uid])) {
+        $pending++;
+        \Drupal::logger('email_group_administrators')->notice("UID of pending user: " . $uid);
+      }
+    }
+  
+    // If there are pending members, add them to the $messages going to each admin
+    if ($pending > 0 ) {
+      \Drupal::logger('email_group_administrators')->notice("Sending emails for pending users");
+      print_r($adminIds);
+      foreach ($adminIds as $admin) {
+        $msg = "<br/>" . $pending . " pending members at " . \Drupal::request()->getSchemeAndHttpHost() . "/group/" . $group->id() . "/applicants\n";
+        $messages[$admin] .= $msg;
+      }
+    }      
+  } // \All the groups
+
+  /** Send each admin all their $msg's. **/
+  //@ToDo  t() tags, add group names instead of just ids and then make safe
+  $module = 'email_group_administrators'; 
+  $key = 'email_group_administrators';
+ 
+  foreach ($messages as $admin => $msg) {
+    //\Drupal::logger('email_group_administrators')->notice("Send an email to " . $admin);
+    $account =  \Drupal\user\Entity\User::load($admin);
+    $email = $account->getEmail();
+    $langcode = $account->getPreferredLangcode();
+    $params = array();
+    $params['message'] = t("<p>You have pending members to accept or reject at SpaceBase:</p>\n\n") 
+                         . t("<p>You can edit each member to be <em>verified</em> and they will be able to participate. You can also block them or make them an admin of your group.</p>")
+                         . $msg;
+    $params['subject'] = "Pending members at SpaceBase";
+
+    $result = \Drupal::service('plugin.manager.mail')->mail($module, 'notice', 'stephencataldo@gmail.com', $langcode, $params);
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function email_group_administrators_mail($key, &$message, $params) {
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
+      //   $message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($body);
+}
+
+

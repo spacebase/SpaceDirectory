@@ -12,7 +12,7 @@ dependencies:
 id: spacebase_views_block__user_member_of_org_view_block_2
 theme: spacebase
 region: sidebar_first
-weight: 0
+weight: -13
 provider: null
 plugin: 'views_block:user_member_of_org_view-block_2'
 settings:

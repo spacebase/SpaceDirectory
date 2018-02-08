@@ -114,6 +114,56 @@
       }
     }
   }
+  .block-group-operations{
+    .btn-group{
+      background: none;
+      padding: 15px 0 0;
+      display: block;
+      .btn{
+        background: $brand-secondary;
+        color: #fff;
+        display: block;
+        float: none;
+        width: 100%;
+        &:active,&:focus,&:hover{
+          background:lighten($brand-secondary,10%);
+        }
+      }
+      &.anonymous{
+        .btn{
+          background-color: $brand-secondary;
+          border: 1px solid transparent;
+          color: #fff;
+          &:active,&:focus,&:hover{
+            background-color: lighten($brand-secondary,10%);
+            color: #fff;
+          }
+        }
+      }
+      &.pending{
+        .btn{
+          background-color: lighten($grey-accent,5%);
+          border: 1px solid transparent;
+          color: #fff;
+          &:active,&:focus,&:hover{
+            background-color: lighten($grey-accent,5%);
+            color: #fff;
+          }
+        }
+      }
+      &.verified{
+        .btn{
+          background-color: $brand-primary;
+          border: 1px solid transparent;
+          color: #fff;
+          &:active,&:focus,&:hover{
+            background-color: lighten($brand-primary,10%);
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
 }
 
 .org-list,
@@ -190,6 +240,47 @@
       right: 0;
       top: 50%;
       margin-top: -16px;
+    }
+    @media screen and (max-width: 767px) {
+      padding: 15px 0 55px 0;
+      .profile-thumb{
+        margin-right: 15px;
+        img{
+          width: 40px;
+          height: 40px;
+        }
+      }
+      .profile-text{
+        margin-left: 55px;
+        h2{
+          padding-top: 0;
+          font-size: 14px;
+          a{
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+          }
+        }
+      }
+      .membership-status{
+        right: auto;
+        bottom: 10px;
+        top: auto;
+        left: 0;
+        margin-top: 0;
+        width: 100%;
+        text-align: center;
+        .btn{
+          display:block;
+        }
+      }
+      .btn-group.dropdown{
+        right: auto;
+        left: 0;
+        top: auto;
+        bottom: 10px;
+        margin-top: 0;
+      }
     }
   }
 }

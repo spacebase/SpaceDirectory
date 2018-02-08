@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c352f872d59f71e31734ec2b7a5d292c",
+    "content-hash": "3ca61f6216ca9abe94a07d616f5eb869",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2579,7 +2579,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/group",
-                "reference": "19495976aa76c52bcac96461e1b8af4a883eff6d"
+                "reference": "d334f90703f36a811a466deefafa04a37fc86622"
             },
             "require": {
                 "drupal/core": "*"
@@ -2590,8 +2590,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-rc1+11-dev",
-                    "datestamp": "1513697584",
+                    "version": "8.x-1.0-rc2+0-dev",
+                    "datestamp": "1517836680",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -2613,7 +2613,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/group"
             },
-            "time": "2017-12-19T15:44:02+00:00"
+            "time": "2018-02-05T13:15:40+00:00"
         },
         {
             "name": "drupal/mailgun",
@@ -2795,33 +2795,37 @@
         },
         {
             "name": "drupal/migrate_plus",
-            "version": "2.0.0-beta2",
+            "version": "4.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/migrate_plus",
-                "reference": "8.x-2.0-beta2"
+                "reference": "8.x-4.0-beta2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/migrate_plus-8.x-2.0-beta2.zip",
-                "reference": "8.x-2.0-beta2",
-                "shasum": "0b29113a3c00c7ab3ba73e811da3450edca4c0bb"
+                "url": "https://ftp.drupal.org/files/projects/migrate_plus-8.x-4.0-beta2.zip",
+                "reference": "8.x-4.0-beta2",
+                "shasum": "af0f129b516fb62a58458f6e4c717310cda17986"
             },
             "require": {
-                "drupal/core": "^8.1"
+                "drupal/core": "^8.3"
             },
             "require-dev": {
                 "drupal/migrate_example_advanced_setup": "*",
                 "drupal/migrate_example_setup": "*"
             },
+            "suggest": {
+                "ext-soap": "*",
+                "sainsburys/guzzle-oauth2-plugin": "3.0 required for the OAuth2 authentication plugin"
+            },
             "type": "drupal-module",
             "extra": {
                 "branch-alias": {
-                    "dev-2.x": "2.x-dev"
+                    "dev-4.x": "4.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-beta2",
-                    "datestamp": "1476307439",
+                    "version": "8.x-4.0-beta2",
+                    "datestamp": "1513088288",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -2850,6 +2854,56 @@
                 "issues": "https://www.drupal.org/project/issues/migrate_plus",
                 "irc": "irc://irc.freenode.org/drupal-migrate"
             }
+        },
+        {
+            "name": "drupal/migrate_process_extra",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/migrate_process_extra",
+                "reference": "db221fdace1c0fdde611d806ddd4683aec9449ff"
+            },
+            "require": {
+                "commerceguys/addressing": "~1.0",
+                "commerceguys/intl": "~0.7",
+                "drupal/core": "~8.0",
+                "drupal/migrate_tools": "*",
+                "giggsey/libphonenumber-for-php": "^8.5"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1498593242",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "colorfield",
+                    "homepage": "https://www.drupal.org/user/2295486"
+                }
+            ],
+            "description": "Provides a collection of Migrate process plugins that are not part of the core or Migrate Plus process plugins.",
+            "homepage": "https://www.drupal.org/project/migrate_process_extra",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/migrate_process_extra",
+                "issues": "https://www.drupal.org/project/issues/migrate_process_extra"
+            },
+            "time": "2017-06-27T19:49:37+00:00"
         },
         {
             "name": "drupal/migrate_source_csv",
@@ -2911,30 +2965,33 @@
         },
         {
             "name": "drupal/migrate_tools",
-            "version": "2.0.0-beta1",
+            "version": "4.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/migrate_tools",
-                "reference": "8.x-2.0-beta1"
+                "reference": "8.x-4.0-beta2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/migrate_tools-8.x-2.0-beta1.zip",
-                "reference": "8.x-2.0-beta1",
-                "shasum": "bf823a9d08d08b99d5ea1469729b30f9969ef519"
+                "url": "https://ftp.drupal.org/files/projects/migrate_tools-8.x-4.0-beta2.zip",
+                "reference": "8.x-4.0-beta2",
+                "shasum": "8d7442253e100078e28f18fff062e3431153c0b2"
             },
             "require": {
-                "drupal/core": "^8.1",
+                "drupal/core": "^8.3",
                 "drupal/migrate_plus": "*"
+            },
+            "require-dev": {
+                "drupal/coder": "^8"
             },
             "type": "drupal-module",
             "extra": {
                 "branch-alias": {
-                    "dev-2.x": "2.x-dev"
+                    "dev-4.x": "4.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-beta1",
-                    "datestamp": "1476313439",
+                    "version": "8.x-4.0-beta2",
+                    "datestamp": "1511790485",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -2971,7 +3028,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/og",
-                "reference": "4ef717368875f78204f6ff14bcd27b448f099404"
+                "reference": "ae99712a9adce6794709c0e42832d392dd8c1789"
             },
             "require": {
                 "drupal/core": "*"
@@ -2986,7 +3043,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.x-dev",
-                    "datestamp": "1509546784",
+                    "datestamp": "1511685485",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -3046,7 +3103,7 @@
                 "issues": "https://drupal.org/project/issues/og",
                 "irc": "irc://irc.freenode.org/drupal-og"
             },
-            "time": "2017-11-26T08:33:55+00:00"
+            "time": "2018-01-31T16:22:58+00:00"
         },
         {
             "name": "drupal/pathauto",
@@ -3533,24 +3590,23 @@
         },
         {
             "name": "drush/drush",
-            "version": "8.1.15",
+            "version": "8.1.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "f78b619806a9bc7c3d167fa425e8757eb046bb87"
+                "reference": "bbaff2dc725a5f3eb22006c5de3dc92a2de54b08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/f78b619806a9bc7c3d167fa425e8757eb046bb87",
-                "reference": "f78b619806a9bc7c3d167fa425e8757eb046bb87",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/bbaff2dc725a5f3eb22006c5de3dc92a2de54b08",
+                "reference": "bbaff2dc725a5f3eb22006c5de3dc92a2de54b08",
                 "shasum": ""
             },
             "require": {
-                "consolidation/annotated-command": "~2",
+                "consolidation/annotated-command": "^2.8.1",
                 "consolidation/output-formatters": "~3",
-                "pear/console_table": "~1.3.0",
+                "pear/console_table": "~1.3.1",
                 "php": ">=5.4.5",
-                "phpdocumentor/reflection-docblock": "^2.0",
                 "psr/log": "~1.0",
                 "psy/psysh": "~0.6",
                 "symfony/console": "~2.7|^3",
@@ -3593,7 +3649,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -3639,7 +3695,7 @@
             ],
             "description": "Drush is a command line shell and scripting interface for Drupal, a veritable Swiss Army knife designed to make life easier for those of us who spend some of our working hours hacking away at the command prompt.",
             "homepage": "http://www.drush.org",
-            "time": "2017-10-10T02:05:46+00:00"
+            "time": "2018-02-06T21:18:48+00:00"
         },
         {
             "name": "easyrdf/easyrdf",
@@ -3795,6 +3851,123 @@
                 "orm"
             ],
             "time": "2017-03-07T22:26:54+00:00"
+        },
+        {
+            "name": "giggsey/libphonenumber-for-php",
+            "version": "8.8.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/giggsey/libphonenumber-for-php.git",
+                "reference": "919d24a13ff772b6af07d0f3ffefe8963cfb635c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/919d24a13ff772b6af07d0f3ffefe8963cfb635c",
+                "reference": "919d24a13ff772b6af07d0f3ffefe8963cfb635c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "giggsey/locale": "^1.2",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "pear/pear-core-minimal": "^1.9",
+                "pear/pear_exception": "^1.0",
+                "pear/versioncontrol_git": "^0.5",
+                "phing/phing": "^2.7",
+                "phpunit/phpunit": "^4.8|^5.0",
+                "satooshi/php-coveralls": "^1.0",
+                "symfony/console": "^2.8|^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "libphonenumber\\": "src/"
+                },
+                "exclude-from-classmap": [
+                    "/src/data/",
+                    "/src/carrier/data/",
+                    "/src/geocoding/data/",
+                    "/src/timezone/data/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Joshua Gigg",
+                    "email": "giggsey@gmail.com",
+                    "homepage": "https://giggsey.com/"
+                }
+            ],
+            "description": "PHP Port of Google's libphonenumber",
+            "homepage": "https://github.com/giggsey/libphonenumber-for-php",
+            "keywords": [
+                "geocoding",
+                "geolocation",
+                "libphonenumber",
+                "mobile",
+                "phonenumber",
+                "validation"
+            ],
+            "time": "2018-02-07T11:27:18+00:00"
+        },
+        {
+            "name": "giggsey/locale",
+            "version": "1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/giggsey/Locale.git",
+                "reference": "e351a72ad6af6b41b690efdeffe1138fe5cc8b9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/giggsey/Locale/zipball/e351a72ad6af6b41b690efdeffe1138fe5cc8b9c",
+                "reference": "e351a72ad6af6b41b690efdeffe1138fe5cc8b9c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "pear/pear-core-minimal": "^1.9",
+                "pear/pear_exception": "^1.0",
+                "pear/versioncontrol_git": "^0.5",
+                "phing/phing": "~2.7",
+                "phpunit/phpunit": "^4.8|^5.0",
+                "satooshi/php-coveralls": "^1.0",
+                "symfony/console": "^2.8|^3.0",
+                "symfony/filesystem": "^2.8|^3.0",
+                "symfony/finder": "^2.8|^3.0",
+                "symfony/process": "^2.8|^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Giggsey\\Locale\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joshua Gigg",
+                    "email": "giggsey@gmail.com",
+                    "homepage": "http://giggsey.com/"
+                }
+            ],
+            "description": "Locale functions required by libphonenumber-for-php",
+            "time": "2017-11-01T21:34:27+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -4103,16 +4276,16 @@
         },
         {
             "name": "mailgun/mailgun-php",
-            "version": "v2.4.0",
+            "version": "2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mailgun/mailgun-php.git",
-                "reference": "20783215042b181b0dec92c9e01947b93cb5d085"
+                "reference": "ef3dc6b8bf78b1f760da16b6860c4072c798d286"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mailgun/mailgun-php/zipball/20783215042b181b0dec92c9e01947b93cb5d085",
-                "reference": "20783215042b181b0dec92c9e01947b93cb5d085",
+                "url": "https://api.github.com/repos/mailgun/mailgun-php/zipball/ef3dc6b8bf78b1f760da16b6860c4072c798d286",
+                "reference": "ef3dc6b8bf78b1f760da16b6860c4072c798d286",
                 "shasum": ""
             },
             "require": {
@@ -4146,7 +4319,7 @@
                 }
             ],
             "description": "The Mailgun SDK provides methods for all API functions.",
-            "time": "2017-12-07T21:05:43+00:00"
+            "time": "2018-02-01T22:58:55+00:00"
         },
         {
             "name": "masterminds/html5",
@@ -4486,16 +4659,16 @@
         },
         {
             "name": "php-http/discovery",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "7b50ab4d6c9fdaa1ed53ae310c955900af6e3372"
+                "reference": "9a6cb24de552bfe1aa9d7d1569e2d49c5b169a33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/7b50ab4d6c9fdaa1ed53ae310c955900af6e3372",
-                "reference": "7b50ab4d6c9fdaa1ed53ae310c955900af6e3372",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/9a6cb24de552bfe1aa9d7d1569e2d49c5b169a33",
+                "reference": "9a6cb24de552bfe1aa9d7d1569e2d49c5b169a33",
                 "shasum": ""
             },
             "require": {
@@ -4544,7 +4717,7 @@
                 "message",
                 "psr7"
             ],
-            "time": "2017-08-03T10:12:53+00:00"
+            "time": "2018-02-06T10:55:24+00:00"
         },
         {
             "name": "php-http/httplug",
@@ -4830,55 +5003,6 @@
                 "promise"
             ],
             "time": "2016-01-26T13:27:02+00:00"
-        },
-        {
-            "name": "phpdocumentor/reflection-docblock",
-            "version": "2.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "e6a969a640b00d8daa3c66518b0405fb41ae0c4b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/e6a969a640b00d8daa3c66518b0405fb41ae0c4b",
-                "reference": "e6a969a640b00d8daa3c66518b0405fb41ae0c4b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "suggest": {
-                "dflydev/markdown": "~1.0",
-                "erusev/parsedown": "~1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "phpDocumentor": [
-                        "src/"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mike van Riel",
-                    "email": "mike.vanriel@naenius.com"
-                }
-            ],
-            "time": "2016-01-25T08:17:30+00:00"
         },
         {
             "name": "psr/cache",
@@ -6264,16 +6388,16 @@
         },
         {
             "name": "symfony/polyfill-iconv",
-            "version": "v1.6.0",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-iconv.git",
-                "reference": "7a84ccdb8c953ee274c96dd6bde778d873fc824a"
+                "reference": "bd515d8f392730c833bc1ba993a4f598da64fa5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-iconv/zipball/7a84ccdb8c953ee274c96dd6bde778d873fc824a",
-                "reference": "7a84ccdb8c953ee274c96dd6bde778d873fc824a",
+                "url": "https://api.github.com/repos/symfony/polyfill-iconv/zipball/bd515d8f392730c833bc1ba993a4f598da64fa5b",
+                "reference": "bd515d8f392730c833bc1ba993a4f598da64fa5b",
                 "shasum": ""
             },
             "require": {
@@ -6285,7 +6409,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
@@ -6319,20 +6443,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-10-11T12:05:26+00:00"
+            "time": "2018-01-30T19:27:44+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.6.0",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296"
+                "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296",
-                "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/78be803ce01e55d3491c1397cf1c64beb9c1b63b",
+                "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b",
                 "shasum": ""
             },
             "require": {
@@ -6344,7 +6468,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
@@ -6378,7 +6502,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-10-11T12:05:26+00:00"
+            "time": "2018-01-30T19:27:44+00:00"
         },
         {
             "name": "symfony/process",
@@ -7817,6 +7941,158 @@
             "time": "2017-08-01T08:02:14+00:00"
         },
         {
+            "name": "phpdocumentor/reflection-common",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpDocumentor/ReflectionCommon.git",
+                "reference": "21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
+                "reference": "21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "phpDocumentor\\Reflection\\": [
+                        "src"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jaap van Otterdijk",
+                    "email": "opensource@ijaap.nl"
+                }
+            ],
+            "description": "Common reflection classes used by phpdocumentor to reflect the code structure",
+            "homepage": "http://www.phpdoc.org",
+            "keywords": [
+                "FQSEN",
+                "phpDocumentor",
+                "phpdoc",
+                "reflection",
+                "static analysis"
+            ],
+            "time": "2017-09-11T18:02:19+00:00"
+        },
+        {
+            "name": "phpdocumentor/reflection-docblock",
+            "version": "4.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/94fd0001232e47129dd3504189fa1c7225010d08",
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0",
+                "phpdocumentor/reflection-common": "^1.0.0",
+                "phpdocumentor/type-resolver": "^0.4.0",
+                "webmozart/assert": "^1.0"
+            },
+            "require-dev": {
+                "doctrine/instantiator": "~1.0.5",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^6.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "phpDocumentor\\Reflection\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike van Riel",
+                    "email": "me@mikevanriel.com"
+                }
+            ],
+            "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
+            "time": "2017-11-30T07:14:17+00:00"
+        },
+        {
+            "name": "phpdocumentor/type-resolver",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpDocumentor/TypeResolver.git",
+                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/9c977708995954784726e25d0cd1dddf4e65b0f7",
+                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5 || ^7.0",
+                "phpdocumentor/reflection-common": "^1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "^5.2||^4.8.24"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "phpDocumentor\\Reflection\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike van Riel",
+                    "email": "me@mikevanriel.com"
+                }
+            ],
+            "time": "2017-07-14T14:27:02+00:00"
+        },
+        {
             "name": "phpspec/prophecy",
             "version": "1.7.3",
             "source": {
@@ -8694,7 +8970,8 @@
         "drupal/fontyourface": 20,
         "drupal/facets": 10,
         "drupal/mailgun": 10,
-        "drupal/views_block_filter_block": 20
+        "drupal/views_block_filter_block": 20,
+        "drupal/migrate_process_extra": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

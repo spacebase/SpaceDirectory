@@ -18,6 +18,7 @@ module:
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
+  email_group_administrators: 0
   facets: 0
   facets_summary: 0
   field: 0

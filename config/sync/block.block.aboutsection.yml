@@ -1,11 +1,10 @@
-uuid: 3d02e241-c47c-4683-9a28-0d72afb27235
+uuid: e9628de2-a7fc-403e-922c-d76299a059c2
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:side_by_side:81c4656f-e228-44da-ac40-820391446d79'
+    - 'block_content:side_by_side:d3adafa4-4939-4e34-ab8b-17bb7a9428e3'
   module:
-    - block_content
     - system
   theme:
     - spacebase
@@ -14,9 +13,9 @@ theme: spacebase
 region: content
 weight: -9
 provider: null
-plugin: 'block_content:81c4656f-e228-44da-ac40-820391446d79'
+plugin: 'block_content:d3adafa4-4939-4e34-ab8b-17bb7a9428e3'
 settings:
-  id: 'block_content:81c4656f-e228-44da-ac40-820391446d79'
+  id: 'block_content:d3adafa4-4939-4e34-ab8b-17bb7a9428e3'
   label: 'About Section'
   provider: block_content
   label_display: '0'

@@ -7,5 +7,5 @@ dependencies:
 id: copyright
 title: Copyright
 content:
-  value: "<p>Copyright © 2018 SpaceBase Limited. All Rights Reserved.</p>\r\n"
+  value: "<p>Copyright © 2018 SpaceBase Limited. All Rights Reserved.&nbsp; Images courtesy of NASA, Kieran Fanning and Simon Moffatt</span></p>\r\n"
   format: basic_html
