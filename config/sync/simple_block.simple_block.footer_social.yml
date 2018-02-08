@@ -7,5 +7,5 @@ dependencies:
 id: footer_social
 title: 'Social Links'
 content:
-  value: "<a href=\"http://instagram.com/\" target=\"_blank\"><i class=\"fab fa-instagram\"></i></a>\r\n<a href=\"http://facebook.com/\" target=\"_blank\"><i class=\"fab fa-facebook\"></i></a>\r\n<a href=\"http://twitter.com/\" target=\"_blank\"><i class=\"fab fa-twitter\"></i></a>\r\n<a href=\"http://youtube.com/\" target=\"_blank\"><i class=\"fab fa-youtube\"></i></a>\r\n<a href=\"http://linkedin.com/\" target=\"_blank\"><i class=\"fab fa-linkedin\"></i></a>"
+  value: "<a href=\"https://www.facebook.com/groups/SpaceBaseNZ/\" target=\"_blank\"><i class=\"fab fa-facebook\"></i></a>\r\n<a href=\"https://twitter.com/SpaceBaseNZ\" target=\"_blank\"><i class=\"fab fa-twitter\"></i></a>\r\n<a href=\"https://www.youtube.com/channel/UCU7P6XYXBtQxgUXNwqlnXTg\" target=\"_blank\"><i class=\"fab fa-youtube\"></i></a>\r\n<a href=\"https://www.linkedin.com/company/spacebase-nz/\" target=\"_blank\"><i class=\"fab fa-linkedin\"></i></a>"
   format: raw_html

@@ -12,7 +12,7 @@ dependencies:
 id: nzspacechallenge
 theme: spacebase
 region: content
-weight: -9
+weight: -12
 provider: null
 plugin: 'block_content:bb05a880-d1b2-464b-932b-df74094939fc'
 settings:
