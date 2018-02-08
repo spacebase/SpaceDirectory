@@ -1,6 +1,6 @@
 uuid: a826468a-917e-486c-8c13-766ba8291c1b
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.group.field_image
@@ -19,8 +19,8 @@ dependencies:
 id: user_member_of_org_view
 label: 'User - Member of Org view'
 module: views
-description: ''
-tag: ''
+description: 'Error-ridden: a view of every (user & associated group) that you are a member of, firing blanks if that member is an adm'
+tag: group
 base_table: users_field_data
 base_field: uid
 core: 8.x
