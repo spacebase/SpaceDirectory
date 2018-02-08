@@ -36,15 +36,20 @@ function email_group_administrators_help($route_name, RouteMatchInterface $route
  */
 function email_group_administrators_cron() {
   //## Access config to send only occassionally, to keep emails under control
-    $cron_config = \Drupal::configFactory()->getEditable('cron_example.settings');
+  $cron_config = \Drupal::configFactory()->getEditable('email_group_administrators.settings');
   // Default to an hourly min time between emails. 
   $interval = $cron_config->get('interval');
-  $interval = !empty($interval) ? $interval : 3; /*  3600; is hourly */
-  $interval = 3600 * 24; // 3 seconds - testing @ToDo
+  $interval = !empty($interval) ? $interval : 3600 * 24; 
+      /*  3600; is hourly */
+  \Drupal::logger('email_group_administrators')->notice('Interval is ' . $interval);
 
-  $next_execution = \Drupal::state()->get('cron_example.next_execution');
+
+  $next_execution = \Drupal::state()->get('email_group_administrators.next_execution');
   $next_execution = !empty($next_execution) ? $next_execution : 0;
   if (REQUEST_TIME >= $next_execution) {
+    //\Drupal::logger('email_group_administrators')->notice('REQUEST TIME > ' . $next_execution);
+    \Drupal::state()->set('email_group_administrators.next_execution', REQUEST_TIME + $interval);
+
     // Send emails and set the min time before we might send more.
     _email_who_what();
   }
@@ -88,13 +93,13 @@ function _email_who_what() {
     foreach ($pendingIds as $uid) {
       if(!isset($done[$uid])) {
         $pending++;
-        \Drupal::logger('email_group_administrators')->notice("UID undefined is " . $uid);
+        \Drupal::logger('email_group_administrators')->notice("UID of pending user: " . $uid);
       }
     }
   
     // If there are pending members, add them to the $messages going to each admin
     if ($pending > 0 ) {
-      \Drupal::logger('email_group_administrators')->notice("FIRING");
+      \Drupal::logger('email_group_administrators')->notice("Sending emails for pending users");
       print_r($adminIds);
       foreach ($adminIds as $admin) {
         $msg = "<br/>" . $pending . " pending members at " . \Drupal::request()->getSchemeAndHttpHost() . "/group/" . $group->id() . "/applicants\n";
@@ -130,8 +135,6 @@ function email_group_administrators_mail($key, &$message, $params) {
       $message['subject'] = $params['subject'];
       $message['body'][] = $params['message'];
       //   $message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($body);
-
-       \Drupal::logger('email_group_administrators')->notice('email_group_administrators hook was hooked');
 }
 
 
