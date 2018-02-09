@@ -24,15 +24,25 @@ function spacebase_core_help($route_name, RouteMatchInterface $route_match) {
 }
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 
 /**
  * Implements hook_form_alter() on behalf of spacebase_core.module.
  */
 function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if ($form['#id'] == 'views-exposed-form-sitewide-search-search') {
+  if ($form_id == 'user_register_form') {
+    $form['actions']['submit']['#submit'][] = 'spacebase_core_user_registration_submit';
+  }
+  else if ($form['#id'] == 'views-exposed-form-sitewide-search-search') {
     $form['keywords']['#attributes']['placeholder'] = 'Search';
     $form['#action'] = '/search';
   }
+}
+
+function spacebase_core_user_registration_submit(&$form, FormStateInterface $form_state) {
+  drupal_set_message("An email will be sent to you with instructions to verify your email address and complete the sign-up process.");
+  $url = url::fromUserInput("/user/login");
+  $form_state->setRedirectUrl($url);
 }
 
 function spacebase_core_theme($existing, $type, $theme, $path) {
