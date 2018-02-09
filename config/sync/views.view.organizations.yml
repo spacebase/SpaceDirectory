@@ -293,6 +293,7 @@ display:
     display_options:
       display_extenders: {  }
       path: orgs
+      enabled: false
     cache_metadata:
       max-age: 0
       contexts:

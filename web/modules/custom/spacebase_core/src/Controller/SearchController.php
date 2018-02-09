@@ -9,45 +9,56 @@ use Drupal\Core\Controller\ControllerBase;
  */
 class SearchController extends ControllerBase {
 
-  /**
-   * Search.
-   *
-   * @return string
-   *   Return Hello string.
-   */
   public function search() {
-
     $return = [
-      '#theme' => 'sb_search_page',
-      '#keywords' => $_GET['keywords'] ?: '',
-    ];
+      '#fullpage' => FALSE,
+    ] + $this->searchReturn();
 
-    // @TODO I'm not a huge fan of this since its running the query twice.
-    $return['#org_count'] = $this->searchResults(['entity:group'], TRUE);
-    $return['#orgs'] = $this->searchResults(['entity:group']);
-    $return['#people_count'] = $this->searchResults(['entity:user'], TRUE);
-    $return['#people'] = $this->searchResults(['entity:user']);
+    $view = $this->searchResults(['entity:group'], 0);
+    $return['#org_count'] = count($view->result);
+    $view->result = array_slice($view->result, 0, 3);
+    $return['#orgs'] = $view->render();
+
+    $view = $this->searchResults(['entity:user'], 0);
+    $return['#people_count'] = count($view->result);
+    $view->result = array_slice($view->result, 0, 3);
+    $return['#people'] = $view->render();
+
     return $return;
   }
 
-  private function searchResults($args, $count = FALSE) {
+  public function searchPeople() {
+    $return = $this->searchReturn();
+    $view = $this->searchResults(['entity:user'], 10);
+    $return['#people_count'] = count($view->result);
+    $return['#people'] = $view->render();
+    return $return;
+  }
+
+  public function searchOrganizations() {
+    $return = $this->searchReturn();
+    $view = $this->searchResults(['entity:group'], 10);
+    $return['#org_count'] = count($view->result);
+    $return['#orgs'] = $view->render();
+    return $return;
+  }
+
+  private function searchReturn() {
+    return [
+      '#theme' => 'sb_search_page',
+      '#keywords' => $_GET['keywords'] ?: '',
+      '#fullpage' => TRUE,
+    ];
+  }
+
+  private function searchResults($args, $items_per_page = 3, $count = FALSE, $pager = FALSE) {
     $view = \Drupal\views\Views::getView('sitewide_search');
     $view->setDisplay('search');
     $view->setArguments($args);
-
-    $view->setItemsPerPage(3);
-    if ($count) {
-      $view->setItemsPerPage(0);
-    }
-
+    $view->setItemsPerPage($items_per_page);
     $view->preExecute();
     $view->execute();
-
-    if ($count) {
-      return count($view->result);
-    }
-
-    return $view->render();
+    return $view;
   }
 
 }
