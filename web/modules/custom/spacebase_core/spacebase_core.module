@@ -39,6 +39,7 @@ function spacebase_core_theme($existing, $type, $theme, $path) {
     'sb_search_page' => [
       'variables' => [
         'keywords' => '',
+        'fullpage' => '',
         'orgs' => '',
         'org_count' => '',
         'people' => '',
