@@ -9,6 +9,7 @@ dependencies:
     - field.storage.user.user_picture
     - image.style.member_list
     - image.style.search_results
+    - user.role.authenticated
   module:
     - address
     - group
@@ -34,7 +35,7 @@ display:
       access:
         type: group_permission
         options:
-          group_permission: 'administer members'
+          group_permission: 'view group_membership content'
       cache:
         type: tag
         options: {  }
@@ -850,6 +851,7 @@ display:
         row: false
         group_by: false
         css_class: false
+        access: false
       arguments:
         gid:
           id: gid
@@ -1256,15 +1258,20 @@ display:
           default_field_elements: true
       group_by: false
       css_class: member-list
+      access:
+        type: role
+        options:
+          role:
+            authenticated: authenticated
     cache_metadata:
       max-age: -1
       contexts:
-        - group_membership.roles.permissions
         - 'languages:language_content'
         - 'languages:language_interface'
         - route
         - url
         - url.query_args
+        - user.roles
       tags:
         - 'config:field.storage.user.field_first_name_user'
         - 'config:field.storage.user.field_last_name_user'
@@ -1287,6 +1294,12 @@ display:
         context: '0'
         menu_name: main
         enabled: true
+      access:
+        type: group_permission
+        options:
+          group_permission: 'administer members'
+      defaults:
+        access: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -1333,6 +1346,7 @@ display:
         empty: false
         filters: false
         filter_groups: false
+        access: false
       filters:
         group_roles_target_id:
           id: group_roles_target_id
@@ -1374,6 +1388,10 @@ display:
         operator: AND
         groups:
           1: AND
+      access:
+        type: group_permission
+        options:
+          group_permission: 'administer members'
     cache_metadata:
       max-age: -1
       contexts:
