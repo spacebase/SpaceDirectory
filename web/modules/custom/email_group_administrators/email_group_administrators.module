@@ -35,19 +35,22 @@ function email_group_administrators_help($route_name, RouteMatchInterface $route
  * Not clear what the ideal use case is, 4:50 pm might make more sense?
  */
 function email_group_administrators_cron() {
+  $testing = true; // ignore interval, send email every cron.
+
   //## Access config to send only occassionally, to keep emails under control
   $cron_config = \Drupal::configFactory()->getEditable('email_group_administrators.settings');
   // Default to an hourly min time between emails. 
   $interval = $cron_config->get('interval');
   $interval = !empty($interval) ? $interval : 3600 * 24; 
       /*  3600; is hourly */
-  \Drupal::logger('email_group_administrators')->notice('Interval is ' . $interval);
-
-
+  
   $next_execution = \Drupal::state()->get('email_group_administrators.next_execution');
   $next_execution = !empty($next_execution) ? $next_execution : 0;
-  if (REQUEST_TIME >= $next_execution) {
-    //\Drupal::logger('email_group_administrators')->notice('REQUEST TIME > ' . $next_execution);
+  \Drupal::logger('email_group_administrators')->notice('Request time is ' . REQUEST_TIME . ' and next execution can happen at ' . $next_execution . ',  after an interval of ' . $interval . ' seconds.');
+
+
+  if ($testing || REQUEST_TIME >= $next_execution) {
+    //\Drupal::logger('email_group_administrators')->notice('Send reminder emails to admins. REQUEST TIME > ' . $next_execution);
     \Drupal::state()->set('email_group_administrators.next_execution', REQUEST_TIME + $interval);
 
     // Send emails and set the min time before we might send more.
@@ -73,13 +76,15 @@ function _email_who_what() {
       $uid = $membership->getUser()->id();
       foreach ($membership->getRoles() as $rid => $role) {
         //\Drupal::logger('email_group_administrators')->notice("UID is " . $uid . " and rid is "  . $rid);
-        if ($rid == 'organization_group-admin') {
+        if ($rid == 'organization_group-admin' || $rid == 'organization_group-owner' ) {
           $adminIds[] = $uid;
           $done[$uid] = true;
         }
         elseif ($rid == 'organization_group-member') {
           // This may collect false-positives, removed below
           $pendingIds[] = $uid;
+          print $uid . " is pending for " . $group->id() . "\n";
+
         }
         elseif ($rid == 'organization_group-verified' || $rid == 'organization_group-blocked') { 
           // make this verified, and what else?
@@ -98,11 +103,24 @@ function _email_who_what() {
     }
   
     // If there are pending members, add them to the $messages going to each admin
+    // Note: cron depends on configuration to know the real websites
+    // url. Also, the emails right now are plain-text. So Drupal's rules
+    // for regular sits just get in the way. Should look at a newsletter
+    // module to see how they fix this when we have time!
     if ($pending > 0 ) {
       \Drupal::logger('email_group_administrators')->notice("Sending emails for pending users");
-      print_r($adminIds);
       foreach ($adminIds as $admin) {
-        $msg = "<br/>" . $pending . " pending members at " . \Drupal::request()->getSchemeAndHttpHost() . "/group/" . $group->id() . "/applicants\n";
+        /* works on local and all dev env's, produduces http://default
+         * on live!
+         $msg = "<br/>" . $pending . " pending members at " . \Drupal::request()->getSchemeAndHttpHost() . "/group/" . $group->id() . "/applicants\n";
+         */
+        // Printing to text, Url function just complicates.
+        // Also: $base_path. not needed.
+        global $base_url;
+        print "is base_url visible with this style of cron run: " . $base_url;
+        $msg = "<br/>" . $pending . " pending members for " . $group->label() . " at " . $base_url . "/group/" . $group->id() . "/applicants\n";
+
+
         $messages[$admin] .= $msg;
       }
     }      
@@ -119,8 +137,9 @@ function _email_who_what() {
     $email = $account->getEmail();
     $langcode = $account->getPreferredLangcode();
     $params = array();
-    $params['message'] = t("<p>You have pending members to accept or reject at SpaceBase:</p>\n\n") 
-                         . t("<p>You can edit each member to be <em>verified</em> and they will be able to participate. You can also block them or make them an admin of your group.</p>")
+    $params['message'] = $account->getUsername() . ', '
+      . t("<p>You have pending members to accept or reject at SpaceBase:</p>\n\n") 
+      . t("<p>You can edit each applicant to be <em>verified</em> and then they will be able to participate. When editing, you also have the option to block them, or to make them an admin of your group.</p>")
                          . $msg;
     $params['subject'] = "Pending members at SpaceBase";
 
