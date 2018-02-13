@@ -54,7 +54,7 @@ function email_group_administrators_cron() {
   
   $hour = date('H'); // hour, 24 hour format  
   // If at least $interval seconds have gone by, and it's before noon:
-  if ( 1 || REQUEST_TIME >= $next_execution && $hour < 12 ) {
+  if ( REQUEST_TIME >= $next_execution && $hour < 12 ) {
     //\Drupal::logger('email_group_administrators')->notice('Send reminder emails to admins. REQUEST TIME > ' . $next_execution);
     \Drupal::state()->set('email_group_administrators.next_execution', REQUEST_TIME + $interval);
 
