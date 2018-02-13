@@ -105,6 +105,9 @@
         "patches": {
           "drupal/block_type_templates": {
             "Template order specificity wrong": "https://www.drupal.org/files/issues/block_type_templates-fix_specificity-2924207.patch"
+          },
+          "drupal/group": {
+            "Fix: Group creators get duplicate entries": "https://www.drupal.org/files/issues/duplicate-members-on-group-create-fixed-2923297-3.patch"
           }
         }
     },
