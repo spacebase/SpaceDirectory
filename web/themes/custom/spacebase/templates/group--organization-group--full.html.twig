@@ -39,11 +39,20 @@
         <div class="description">
         {{ content.field_description }}
         </div>
- 
+
+        <h3>Organization Resources</h3>
+        {# turn exposed filters into tabs. Note that 
+           Better Exposed Filters module might do that;
+           a lot of overhead for this one thing.
+           Should use either BEF or put the filters in the views
+           block not here. (feel free to erase this note)
+         #}
+        {{ drupal_view('organization_resources', 'block_1') }}
+
         {% if content.field_resources[0] %}
           
           <div class="links">
-              <h3>Resources</h3>
+              <h3>First Style Resources</h3>
               <ul>
               {% for key,item in content.field_resources if key|first != '#' %}    
                 <li class="link"><strong>{{ link(item['#title'], item['#url'].uri) }}</strong><br>
