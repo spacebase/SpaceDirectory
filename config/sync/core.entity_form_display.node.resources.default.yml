@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.resources.field_important
+    - field.field.node.resources.field_label
     - field.field.node.resources.field_resource_link
     - field.field.node.resources.field_tab
     - node.type.resources
@@ -13,6 +15,22 @@ targetEntityType: node
 bundle: resources
 mode: default
 content:
+  field_important:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_label:
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_resource_link:
     type: link_default
     weight: 1
@@ -22,7 +40,7 @@ content:
       placeholder_title: (optional)
     third_party_settings: {  }
   field_tab:
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -31,7 +49,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 3
+    weight: 4
     region: content
     third_party_settings: {  }
   title:

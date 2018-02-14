@@ -41,26 +41,46 @@
         </div>
 
         <h3>Organization Resources</h3>
-        {# turn exposed filters into tabs. Note that 
-           Better Exposed Filters module might do that;
-           a lot of overhead for this one thing.
-           Should use either BEF or put the filters in the views
-           block not here. (feel free to erase this note)
+        {# 
+          Need to make this dynamically pull in all terms in the vocabulary instead of static 
          #}
-        {{ drupal_view('organization_resources', 'block_1') }}
-
-        {% if content.field_resources[0] %}
+         
+         {% set terms = { 
+            1: 'Files', 
+            2: 'Reports', 
+            3: 'Communication',
+            4: 'Wiki',
+            5: 'Code'   
+            } 
+          %}
           
-          <div class="links">
-              <h3>First Style Resources</h3>
-              <ul>
-              {% for key,item in content.field_resources if key|first != '#' %}    
-                <li class="link"><strong>{{ link(item['#title'], item['#url'].uri) }}</strong><br>
-                <span class="smalltext">({{ link(item['#url'].uri, item['#url'].uri) }})</span></li>
-              {% endfor %}
-              </ul>
-          </div>
-        {% endif %}
+          
+    <div class="resources" role="tabpanel" data-example-id="togglable-tabs">
+      <ul id="resourceTab" class="nav nav-tabs nav-tabs-responsive content-tabs" role="tablist">
+          
+        {% for key, value in terms %}
+          
+        <li role="presentation"{% if key == 1 %} class="active"{% endif %}{% if key == 2 %} class="next"{% endif %}>
+          <a href="#{{ value }}" id="{{ value }}-tab" role="tab" data-toggle="tab" aria-controls="{{ value }}" aria-expanded="true">
+            <span class="text">{{ value }}</span>
+          </a>
+        </li>
+        
+        {% endfor %}
+      </ul>
+      <div id="myTabContent" class="tab-content">
+        {% for key, value in terms %}
+        <div role="tabpanel" class="tab-pane fade{% if key == 1 %} in active{% endif %}" id="{{ value }}" aria-labelledby="{{ value }}-tab">
+          
+          {{ drupal_view('organization_resources', 'block_1', value) }}
+          
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+          
+          
+          
         
       </div>
     </article>

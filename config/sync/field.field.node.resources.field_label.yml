@@ -1,0 +1,29 @@
+uuid: 49f4a7fc-c619-455c-99e0-57ee977cf766
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_label
+    - node.type.resources
+    - taxonomy.vocabulary.resource_label
+id: node.resources.field_label
+field_name: field_label
+entity_type: node
+bundle: resources
+label: Label
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      resource_label: resource_label
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

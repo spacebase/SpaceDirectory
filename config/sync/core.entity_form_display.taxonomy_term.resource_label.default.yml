@@ -1,0 +1,22 @@
+uuid: 834374d6-351b-4de5-b5a6-c60c876aaf95
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.resource_label
+id: taxonomy_term.resource_label.default
+targetEntityType: taxonomy_term
+bundle: resource_label
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true

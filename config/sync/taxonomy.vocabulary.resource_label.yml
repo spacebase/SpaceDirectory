@@ -1,0 +1,9 @@
+uuid: 2f6b5dfd-f909-4ed0-9747-94594ce3ad09
+langcode: en
+status: true
+dependencies: {  }
+name: 'Resource Label'
+vid: resource_label
+description: ''
+hierarchy: 0
+weight: 0
