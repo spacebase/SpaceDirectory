@@ -6695,6 +6695,9 @@ body.toolbar-tray-open .top-bar {
     z-index: 1000;
     transition: right 0.5s ease; }
 
+  .top-bar {
+    transition: left 0.5s ease, right 0.5s ease; }
+
   body.nav-open {
     margin-left: -240px;
     margin-right: 240px; }
@@ -6708,6 +6711,9 @@ body.toolbar-tray-open .top-bar {
       left: -240px !important;
       right: 240px; }
     body.nav-open .navbar {
+      left: -240px !important;
+      right: 240px; }
+    body.nav-open .top-bar {
       left: -240px !important;
       right: 240px; } }
 .footer-top {
@@ -6881,7 +6887,7 @@ body.toolbar-tray-open .top-bar {
   padding-top: 170px;
   clear: both; }
   .profile .profile-photo img {
-    height: 200px;
+    height: auto;
     width: 200px;
     background: #3f4147;
     border-radius: 50%;
@@ -7007,6 +7013,9 @@ body.toolbar-tray-open .top-bar {
       .profile .block-group-operations .btn-group.verified .btn:active, .profile .block-group-operations .btn-group.verified .btn:focus, .profile .block-group-operations .btn-group.verified .btn:hover {
         background-color: #5f80ec;
         color: #fff; }
+  @media screen and (max-width: 767px) {
+    .profile .col-sm-4.pull-right {
+      float: none !important; } }
 
 .org-list .view-header,
 .user-list .view-header {
@@ -7028,6 +7037,10 @@ body.toolbar-tray-open .top-bar {
   .org-list .result .profile-text,
   .user-list .result .profile-text {
     margin-left: 115px; }
+    @media screen and (max-width: 767px) {
+      .org-list .result .profile-text,
+      .user-list .result .profile-text {
+        margin-bottom: 10px; } }
     .org-list .result .profile-text h2,
     .user-list .result .profile-text h2 {
       font-size: 18px;
@@ -7055,6 +7068,12 @@ body.toolbar-tray-open .top-bar {
       font-size: 18px;
       color: #76777f;
       margin: 0 0 10px; }
+      @media screen and (max-width: 767px) {
+        .org-list .result .profile-text .segment,
+        .org-list .result .profile-text .quote,
+        .user-list .result .profile-text .segment,
+        .user-list .result .profile-text .quote {
+          font-size: 13px; } }
     .org-list .result .profile-text .location,
     .user-list .result .profile-text .location {
       display: inline-block;
@@ -7315,9 +7334,13 @@ body.path-search .main-container {
  * 15 May 2015
  */
 @media screen and (max-width: 479px) {
+  .resources ul.content-tabs li a {
+    font-size: 13px; }
+
   .nav-tabs-responsive > li {
     display: none;
-    width: 23%; }
+    width: 23%;
+    margin: 0; }
     .nav-tabs-responsive > li > a {
       max-width: 100%;
       overflow: hidden;
