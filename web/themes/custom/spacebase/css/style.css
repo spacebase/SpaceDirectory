@@ -6525,6 +6525,33 @@ form .table > thead > tr > th {
   font-weight: 500;
   font-size: 20px; }
 
+.pagination > li > a, .pagination > li > span {
+  display: inline-block;
+  width: 36px;
+  border-radius: 18px;
+  font-weight: bold;
+  border: none;
+  color: #76777f; }
+  .pagination > li > a:active, .pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:active, .pagination > li > span:focus, .pagination > li > span:hover {
+    background: #f0f0f0;
+    color: #3f4147; }
+.pagination > li:first-child a {
+  border-bottom-left-radius: 18px;
+  border-top-left-radius: 18px; }
+.pagination > li:last-child a {
+  border-bottom-right-radius: 18px;
+  border-top-right-radius: 18px; }
+.pagination > li.pager__item--first a, .pagination > li.pager__item--previous a, .pagination > li.pager__item--next a, .pagination > li.pager__item--last a {
+  width: auto; }
+.pagination .active a, .pagination .active span {
+  border-color: transparent;
+  background-color: #325ce6;
+  color: #fff; }
+  .pagination .active a:active, .pagination .active a:focus, .pagination .active a:hover, .pagination .active span:active, .pagination .active span:focus, .pagination .active span:hover {
+    border-color: transparent;
+    background-color: #325ce6;
+    color: #fff; }
+
 .box {
   padding: 35px;
   background: #fff;
