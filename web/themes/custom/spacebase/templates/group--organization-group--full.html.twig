@@ -1,3 +1,13 @@
+{# New variables (Mike: erase this note if you want...)
+ *
+ *  Three variables set in preprocess to provide links:
+ *  group_create_resources, group_join_, group_link
+ *
+ *   if group_create_resources.show
+ *     link('Add Resource', group_create_resources.url,
+ *       'class':...
+ #}
+
 <div class="container">
     
     
@@ -20,11 +30,16 @@
         <p>
        <a href="{{ content.field_linkedin[0]['#url'] }}" target="_blank" class="btn btn-blank"><span class="icon"><i class="fab fa-linkedin"></i></span> <span class="text">LinkedIn </span></a> <a href="{{ content.field_website[0]['#url'] }}" target="_blank" class="btn btn-blank"><span class="icon"><i class="fas fa-globe"></i></span> <span class="text">Website </span></a></p>
         </ul>
-        {#<a href="/group//join" class="btn btn-primary btn-block">Join</a>#}
         <span class="btn-block">
-        {{ drupal_region('groupmgt')}}
+        {# drupal_region('groupmgt')#}
         {% if logged_in == false %}
-          <a href="/user/register" class="btn btn-primary btn-block">Join SpaceBase</a>  
+          <a href="/user/register" class="btn btn-primary btn-block">Join SpaceBase</a>
+        {% elseif group_leave.show %}
+            {{ link('Leave organization', group_leave.url,
+                { 'class':['btn-xs', 'button', 'btn', 'btn-success']} ) }}
+        {% elseif group_join.show %}
+            {{ link('Join organization', group_join.url,
+                { 'class':['btn-xs', 'button', 'btn', 'btn-success']} ) }}
         {% endif %}
         </span>
       </div>
@@ -40,7 +55,14 @@
         {{ content.field_description }}
         </div>
 
+        {% if group_create_resources.show %}
+          {{ link('Add Resource', group_create_resources.url,
+            { 'class':['pull-right']} ) }}
+        {% endif %}
+          
         <h3>Organization Resources</h3>
+
+
         {# 
           Need to make this dynamically pull in all terms in the vocabulary instead of static 
          #}
