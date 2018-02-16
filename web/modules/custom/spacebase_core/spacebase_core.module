@@ -74,7 +74,7 @@ function spacebase_preprocess_group(&$variables) {
     }
   } elseif ($group->hasPermission('join group', $account)) {
       $variables['group_join']['show'] = true;
-      $variables['group-join']['url'] = new Url('entity.group.join', ['group' => $group->id()]);
+      $variables['group_join']['url'] = new Url('entity.group.join', ['group' => $group->id()]);
   }
 }
 
