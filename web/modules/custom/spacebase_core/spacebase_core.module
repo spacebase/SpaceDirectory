@@ -95,6 +95,14 @@ function spacebase_preprocess_group(&$variables) {
       $variables['group_join']['show'] = true;
       $variables['group_join']['url'] = new Url('entity.group.join', ['group' => $group->id()]);
   }
+
+  // get resource_type terms
+  $vid = 'resource_type';
+  $terms =
+    \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
+  foreach ($terms as $term) {
+    $variables['resource_type'][] = $term->name;
+  }
 }
 
 

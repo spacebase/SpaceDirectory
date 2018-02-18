@@ -69,25 +69,10 @@
         <h3>Organization Resources</h3>
 
 
-        {# 
-          Need to make this dynamically pull in all terms in the vocabulary instead of static 
-         #}
-         
-         {% set terms = { 
-            1: 'Files', 
-            2: 'Reports', 
-            3: 'Communication',
-            4: 'Wiki',
-            5: 'Code'   
-            } 
-          %}
-          
-          
     <div class="resources" role="tabpanel" data-example-id="togglable-tabs">
       <ul id="resourceTab" class="nav nav-tabs nav-tabs-responsive content-tabs" role="tablist">
           
-        {% for key, value in terms %}
-          
+        {% for key, value in resource_type %}
         <li role="presentation"{% if key == 1 %} class="active"{% endif %}{% if key == 2 %} class="next"{% endif %}>
           <a href="#{{ value }}" id="{{ value }}-tab" role="tab" data-toggle="tab" aria-controls="{{ value }}" aria-expanded="true">
             <span class="text">{{ value }}</span>
@@ -97,7 +82,7 @@
         {% endfor %}
       </ul>
       <div id="myTabContent" class="tab-content">
-        {% for key, value in terms %}
+        {% for key, value in resource_type %}
         <div role="tabpanel" class="tab-pane fade{% if key == 1 %} in active{% endif %}" id="{{ value }}" aria-labelledby="{{ value }}-tab">
           
           {{ drupal_view('organization_resources', 'block_1', value) }}
