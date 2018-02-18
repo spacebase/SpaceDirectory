@@ -45,11 +45,17 @@
       </div>
       <div class="box">
         {{ drupal_view('group_members', 'block_1') }}
+        {% if group_links.group_manage_members %}
+          <a href="{{group_links.group_manage_members}}" class="btn btn-secondary btn-small btn-block mt-2"><span class="icon"><i class="fas fa-users"></i></span> Manage Members</a>
+        {% endif %}
       </div>
       
     </aside>
     <article{{ attributes.addClass('col-sm-8') }}>
       <div class="box">
+        {% if group_links.group_edit %}
+          <a href="{{group_links.group_edit}}" class="btn btn-secondary btn-small pull-right"><span class="icon"><i class="fas fa-edit"></i></span> Edit Group</a>
+        {% endif %}
         <h2>Description </h2>
         <div class="description">
         {{ content.field_description }}
