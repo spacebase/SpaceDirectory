@@ -1,11 +1,8 @@
 {# New variables (Mike: erase this note if you want...)
  *
- *  Three variables set in preprocess to provide links:
- *  group_create_resources, group_join_, group_link
- *
- *   if group_create_resources.show
- *     link('Add Resource', group_create_resources.url,
- *       'class':...
+ *  Three variables set in preprocess to provide links.
+ *  {{ dd(group_links) }}
+ *  These are all urls: If the url is there, show the button with that url.
  #}
 
 <div class="container">
@@ -34,12 +31,11 @@
         {# drupal_region('groupmgt')#}
         {% if logged_in == false %}
           <a href="/user/register" class="btn btn-primary btn-block">Join SpaceBase</a>
-        {% elseif group_leave.show %}
-            {{ link('Leave organization', group_leave.url,
-                { 'class':['btn-xs', 'button', 'btn', 'btn-success']} ) }}
-        {% elseif group_join.show %}
-            {{ link('Join organization', group_join.url,
-                { 'class':['btn-xs', 'button', 'btn', 'btn-success']} ) }}
+        {% elseif group_links.leave %}
+          <a href="{{ group_links.leave }}"  class="btn btn-primary btn-block">Leave organization</a>
+        {% elseif group_links.join  %}
+          <a href="{{ group_links.join }}" class=btn btn-primary
+btn-block">Join Organization</a>
         {% endif %}
         </span>
       </div>
@@ -61,9 +57,10 @@
         {{ content.field_description }}
         </div>
 
-        {% if group_create_resources.show %}
-          {{ link('Add Resource', group_create_resources.url,
-            { 'class':['pull-right']} ) }}
+        {% if group_links.group_create_resources %}
+          <a href="{{group_links.group_create_resources}}" class="btn
+btn-secondary btn-small pull-right"><span class="icon"><i class="fas
+fa-edit"></i></span> Add Resource</a>
         {% endif %}
           
         <h3>Organization Resources</h3>
