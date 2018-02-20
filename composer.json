@@ -51,7 +51,8 @@
         "drupal/taxonomy_import": "^1.0",
         "drupal/devel": "^1.2",
         "drupal/views_block_filter_block": "1.x-dev",
-        "drupal/migrate_process_extra": "1.x-dev"
+        "drupal/migrate_process_extra": "1.x-dev",
+        "drupal/coder": "^8.2"
     },
     "require-dev": {
         "behat/mink": "~1.7",
@@ -60,7 +61,10 @@
         "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
         "mikey179/vfsStream": "~1.2",
         "phpunit/phpunit": "~4.8",
-        "symfony/css-selector": "~2.8"
+        "symfony/css-selector": "~2.8",
+        "overtrue/phplint": "^1.0",
+        "drupal/drupal-extension": "^3.1",
+        "guzzlehttp/guzzle" : "^6.0@dev"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
