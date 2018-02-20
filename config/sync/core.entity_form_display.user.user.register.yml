@@ -8,10 +8,12 @@ dependencies:
     - field.field.user.user.field_email_user
     - field.field.user.user.field_first_name_user
     - field.field.user.user.field_home_location_user
+    - field.field.user.user.field_intro
     - field.field.user.user.field_last_name_user
     - field.field.user.user.field_linkedin_user
     - field.field.user.user.field_position
     - field.field.user.user.field_tagline_user
+    - field.field.user.user.field_terms
     - field.field.user.user.field_website_user
     - field.field.user.user.user_picture
     - image.style.thumbnail
@@ -19,6 +21,7 @@ dependencies:
     - address
     - image
     - link
+    - markup
     - text
     - user
 _core:
@@ -29,12 +32,12 @@ bundle: user
 mode: register
 content:
   account:
-    weight: 0
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   field_bio_user:
-    weight: 6
+    weight: 7
     settings:
       rows: 9
       summary_rows: 3
@@ -51,12 +54,18 @@ content:
     type: string_textfield
     region: content
   field_home_location_user:
-    weight: 7
+    weight: 8
     settings:
       default_country: null
     third_party_settings: {  }
     type: address_default
     region: content
+  field_intro:
+    type: markup
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_last_name_user:
     weight: 3
     settings:
@@ -66,7 +75,7 @@ content:
     type: string_textfield
     region: content
   field_linkedin_user:
-    weight: 8
+    weight: 9
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -75,22 +84,28 @@ content:
     region: content
   field_position:
     type: string_textfield
-    weight: 4
+    weight: 5
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_tagline_user:
-    weight: 5
+    weight: 6
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: text_textfield
     region: content
+  field_terms:
+    type: markup
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_website_user:
-    weight: 9
+    weight: 10
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -98,7 +113,7 @@ content:
     type: link_default
     region: content
   timezone:
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -108,7 +123,7 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    weight: 1
+    weight: 4
     region: content
 hidden:
   contact: true
