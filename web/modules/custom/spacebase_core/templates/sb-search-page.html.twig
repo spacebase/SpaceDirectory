@@ -21,7 +21,7 @@
 
             {% if not fullpage and org_count > 3 %}
               <div class="see-all">
-                <a href="/search/organizations" class="btn btn-block">see all <span class="badge">{{ org_count }}</span></a>
+                <a href="/search/organizations?keywords={{ keywords }}" class="btn btn-block">see all <span class="badge">{{ org_count }}</span></a>
               </div>
             {% endif %}
 
@@ -42,7 +42,7 @@
 
             {% if not fullpage and people_count > 3 %}
               <div class="see-all">
-                <a href="/search/people" class="btn btn-block">see all <span class="badge">{{ people_count }}</span></a>
+                <a href="/search/people?keywords={{ keywords }}" class="btn btn-block">see all <span class="badge">{{ people_count }}</span></a>
               </div>
             {% endif %}
         </div>
