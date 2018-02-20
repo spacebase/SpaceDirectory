@@ -6525,6 +6525,36 @@ form .table > thead > tr > th {
   font-weight: 500;
   font-size: 20px; }
 
+.mb-1 {
+  margin-bottom: 10px; }
+
+.mb-2 {
+  margin-bottom: 20px; }
+
+.mb-3 {
+  margin-bottom: 30px; }
+
+.mb-4 {
+  margin-bottom: 40px; }
+
+.mb-5 {
+  margin-bottom: 50px; }
+
+.mt-1 {
+  margin-top: 10px; }
+
+.mt-2 {
+  margin-top: 20px; }
+
+.mt-3 {
+  margin-top: 30px; }
+
+.mt-4 {
+  margin-top: 40px; }
+
+.mt-5 {
+  margin-top: 50px; }
+
 .box {
   padding: 35px;
   background: #fff;
@@ -6656,7 +6686,7 @@ form .table > thead > tr > th {
   right: 0;
   width: 100%;
   z-index: 10;
-  top: 80px; }
+  top: 83px; }
 
 body.toolbar-tray-open .top-bar {
   top: 160px; }
@@ -6899,9 +6929,10 @@ body.toolbar-tray-open .top-bar {
     margin-bottom: 20px;
     font-weight: 500; }
   .profile h2.segment {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 300;
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    line-height: 1.4em; }
   .profile .position {
     font-size: 18px;
     margin-bottom: 40px; }
@@ -6975,8 +7006,9 @@ body.toolbar-tray-open .top-bar {
           color: #4e62a0;
           vertical-align: middle; }
         .profile .links ul li .smalltext {
-          font-size: 13px;
+          font-size: 11px;
           font-weight: 300;
+          line-height: 1.2em;
           word-wrap: break-word; }
           .profile .links ul li .smalltext a {
             color: #3f4147; }
@@ -7061,17 +7093,23 @@ body.toolbar-tray-open .top-bar {
         padding: 4px 15px;
         background: #325ce6; }
     .org-list .result .profile-text .segment,
+    .user-list .result .profile-text .segment {
+      font-style: italic;
+      font-size: 14px;
+      color: #76777f;
+      margin: 0 0 10px; }
+      @media screen and (max-width: 767px) {
+        .org-list .result .profile-text .segment,
+        .user-list .result .profile-text .segment {
+          font-size: 13px; } }
     .org-list .result .profile-text .quote,
-    .user-list .result .profile-text .segment,
     .user-list .result .profile-text .quote {
       font-style: italic;
       font-size: 18px;
       color: #76777f;
       margin: 0 0 10px; }
       @media screen and (max-width: 767px) {
-        .org-list .result .profile-text .segment,
         .org-list .result .profile-text .quote,
-        .user-list .result .profile-text .segment,
         .user-list .result .profile-text .quote {
           font-size: 13px; } }
     .org-list .result .profile-text .location,
