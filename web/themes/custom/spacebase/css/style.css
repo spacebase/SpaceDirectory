@@ -6388,7 +6388,7 @@ body.navbar-is-fixed-top {
 
 .main-container {
   padding-top: 100px;
-  min-height: 60vh; }
+  min-height: calc(100vh - 300px); }
 
 .btn {
   border-radius: 2px;
@@ -6547,10 +6547,17 @@ form .table > thead > tr > th {
     margin: 0 0 30px; }
   .box.login {
     max-width: 400px;
-    margin: 35px auto 35px; }
+    margin: 35px auto 35px;
+    box-shadow: 0 5px 40px rgba(0, 0, 0, 0.8); }
   .box.register {
     max-width: 600px;
-    margin: 35px auto 35px; }
+    margin: 35px auto 35px;
+    box-shadow: 0 5px 40px rgba(0, 0, 0, 0.8); }
+
+body.path-user {
+  background: #000 url(../images/earth-from-space-1.jpg) center top no-repeat;
+  background-attachment: fixed;
+  background-size: cover; }
 
 .navbar {
   background: rgba(0, 0, 0, 0.8);
@@ -7266,7 +7273,8 @@ body.path-search .main-container {
 input[type=text].form-control,
 input[type=password].form-control,
 input[type=search].form-control,
-input[type=email].form-control {
+input[type=email].form-control,
+input[type=url].form-control {
   border-radius: 3px;
   padding: 10px 15px;
   height: 44px;
@@ -7276,7 +7284,8 @@ input[type=email].form-control {
   input[type=text].form-control:focus,
   input[type=password].form-control:focus,
   input[type=search].form-control:focus,
-  input[type=email].form-control:focus {
+  input[type=email].form-control:focus,
+  input[type=url].form-control:focus {
     border-color: #83d891;
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.4), 0 1px 4px rgba(59, 186, 80, 0.2); }
 
