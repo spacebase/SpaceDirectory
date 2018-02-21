@@ -6812,7 +6812,8 @@ body.toolbar-tray-open .top-bar {
         background: #3bba50;
         font-size: 22px;
         position: relative;
-        text-indent: -9999px; }
+        text-indent: -9999px;
+        margin-left: 0 !important; }
         .home-welcome .views-exposed-form .form-actions .button:before {
           display: block;
           font-family: 'Font Awesome\ 5 Free';
