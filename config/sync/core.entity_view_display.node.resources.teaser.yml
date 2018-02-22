@@ -16,5 +16,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_important: true
+  field_label: true
   field_resource_link: true
   field_tab: true
