@@ -64,47 +64,50 @@ function spacebase_preprocess_group(&$variables) {
    * operations links function.
    */  
 
-  // Users can only ever one of join or leave:
-  if ($group->getMember($account)) {
-    // Edit the group overall
-    // /group/x/edit
-    if ($group->hasPermission('edit group', $account)) {
-      /*
-      $variables['group_edit']['show'] = true;
-      $variables['group_edit']['url'] =
-        $group->toUrl('edit-form'); // need any $url_options ?
-       */
-      $variables['group_links']['group_edit'] = '/group/' . $group->id() . '/edit';
+  /** Edit Group, Add Resource can be done by non-member admins.
+   * If not, move inside getMember($account)
+   */
+  // Edit the group overall
+  // /group/x/edit
+  if ($group->hasPermission('edit group', $account)) {
+    /*
+    $variables['group_edit']['show'] = true;
+    $variables['group_edit']['url'] =
+      $group->toUrl('edit-form'); // need any $url_options ?
+     */
+    $variables['group_links']['group_edit'] = '/group/' . $group->id() . '/edit';
+  }
+  if ($group->hasPermission('administer members', $account)) {
+    // @ToDo: review cache implications
+    $variables['group_links']['group_manage_members'] = '/group/' . $group->id() . '/members';
+    // If they can administer members, do they have pending applicants?
+    $name = 'group_members';
+    $display_id = 'page_2';
+    $result = views_get_view_result($name, $display_id, $group->id());
+    if ( count($result) > 0 ) {
+      $variables['group_links']['group_manage_applicants'] =  '/group/' . $group->id() . '/applicants';
     }
-    if ($group->hasPermission('administer members', $account)) {
-      // @ToDo: review cache implications
-      $variables['group_links']['group_manage_members'] = '/group/' . $group->id() . '/members';
-      // If they can administer members, do they have pending applicants?
-      $name = 'group_members';
-      $display_id = 'page_2';
-      $result = views_get_view_result($name, $display_id, $group->id());
-      if ( count($result) > 0 ) {
-        $variables['group_links']['group_manage_applicants'] =  '/group/' . $group->id() . '/applicants';
-      }
-    }
+  }
 
+  // Possible futur @ToDo: turn this array if add forums and so on,
+  // *and* those are also just permissions based.
+  // Links look like:
+  // group/20/content/create/group_node%3Aresources
+  $plugin_id = 'group_node:resources';
+  $quick_id = 'resources';
+  if ($group->hasPermission("create $plugin_id entity", $account)) {
+    $route_params = ['group' => $group->id(), 'plugin_id' => $plugin_id];
+    $url = new Url('entity.group_content.create_form', $route_params);
+    $variables['group_links']['group_create_'. $quick_id] =
+      $url->toString();
+  }
+
+  /* Leave and join depend on membership status AND permission */  
+  if ($group->getMember($account)) {
 
     if ($group->hasPermission('leave group', $account)) {
       $url =new Url('entity.group.leave', ['group' => $group->id()]);
       $variables['group_links']['leave'] = $url->toString();
-    }
-
-    // Possible futur @ToDo: turn this array if add forums and so on,
-    // *and* those are also just permissions based.
-    // Links look like:
-    // group/20/content/create/group_node%3Aresources
-    $plugin_id = 'group_node:resources';
-    $quick_id = 'resources';
-    if ($group->hasPermission("create $plugin_id entity", $account)) {
-      $route_params = ['group' => $group->id(), 'plugin_id' => $plugin_id];
-      $url = new Url('entity.group_content.create_form', $route_params);
-      $variables['group_links']['group_create_'. $quick_id] =
-        $url->toString();
     }
   } elseif ($group->hasPermission('join group', $account)) {
     $url = new Url('entity.group.join', ['group' => $group->id()]);
