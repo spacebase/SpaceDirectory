@@ -327,4 +327,18 @@ form{
   margin-top: 50px;
 }
 
+/* Org Resources: Taxonomy term input includes description */
+.field--name-field-tab .form-item-field-tab {
+  .descrip p {
+    font-weight: 200;
+  }
+  .descrip:before {
+    content: '— ';
+    // or surround with paren?
+  }
+  .descrip p {
+    display: inline;
+  }
+}
+
 
