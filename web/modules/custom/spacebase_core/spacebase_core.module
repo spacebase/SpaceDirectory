@@ -123,14 +123,6 @@ function spacebase_preprocess_group(&$variables) {
   }
 }
 
-
-function spacebase_options_list_alter(array &$options, array $context) {
-  dsm("options list alter");
-  dsm($options);
-  dsm($context);
-}
-
-
 /**
  * Implements hook_form_alter() on behalf of spacebase_core.module.
  */
@@ -143,25 +135,11 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
     $form['#action'] = '/search';
   }
   else if ($form_id == 'node_resources_form') {
-//    kint($form['field_tab']['widget']['#options']); //['#options');
-    dsm($form['field_tab']['widget']['#options'][93]);// = "We control the vertical";
-   // [__CLASS__] => Drupal\Core\Field\FieldFilteredMarkup
-   // [string:protected] => Portals
-
     foreach ($form['field_tab']['widget']['#options'] as $tid => $value) {
-      kint($tid);
-      $term =  \Drupal\taxonomy\Entity\Term::load($tid);
-      //kint($value); // This is an object, that I'm replacing with
+      //kint($value); // This is an object, being replaced with
       // a string. @ToRefactor, possibly instead use:
-      // function hook_options_list_alter(array &$options, array $context) {
-      //
-      kint($term);
-      kint("description");
-      dsm($term->getDescription());
-      //     [__CLASS__] => Drupal\Core\Field\FieldItemList
-      // Correct, should be able to get value.
-      //$value = $value . "(" . $term->description . ")";
-      //Encapsulated in <p>
+      // function hook_options_list_alter
+      $term =  \Drupal\taxonomy\Entity\Term::load($tid);
       if ($descrip = $term->getDescription()) {
         $form['field_tab']['widget']['#options'][$tid] =
           $value . " <span class='descrip'>$descrip</span>";
