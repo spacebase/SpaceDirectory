@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.resources.field_important
-    - field.field.node.resources.field_label
     - field.field.node.resources.field_resource_link
     - field.field.node.resources.field_tab
     - node.type.resources
@@ -21,15 +20,6 @@ content:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
-    region: content
-  field_label:
-    weight: 5
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   field_resource_link:
     type: link_default
