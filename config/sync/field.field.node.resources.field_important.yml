@@ -9,7 +9,7 @@ id: node.resources.field_important
 field_name: field_important
 entity_type: node
 bundle: resources
-label: Important
+label: 'Star this resource'
 description: ''
 required: false
 translatable: false

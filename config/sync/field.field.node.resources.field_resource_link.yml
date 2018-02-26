@@ -11,7 +11,7 @@ id: node.resources.field_resource_link
 field_name: field_resource_link
 entity_type: node
 bundle: resources
-label: 'Resource Link'
+label: Link
 description: ''
 required: true
 translatable: false
