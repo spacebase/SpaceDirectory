@@ -80,7 +80,7 @@ endif %}{% if value == 'Code' %} class="next"{% endif %}>
       </ul>
       <div id="myTabContent" class="tab-content">
         {% for key, value in resource_type %}
-        <div role="tabpanel" class="tab-pane fade{% if key == 1 %} in active{% endif %}" id="{{ value }}" aria-labelledby="{{ value }}-tab">
+        <div role="tabpanel" class="tab-pane fade{% if value == 'Portals' %} in active{% endif %}" id="{{ value }}" aria-labelledby="{{ value }}-tab">
           
           {{ drupal_view('organization_resources', 'block_1', value) }}
           
