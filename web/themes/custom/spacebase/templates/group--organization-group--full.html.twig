@@ -69,8 +69,8 @@ fa-edit"></i></span> Add Resource</a>
       <ul id="resourceTab" class="nav nav-tabs nav-tabs-responsive content-tabs" role="tablist">
           
         {% for key, value in resource_type %}
-        <li role="presentation"{% if value == 'Portals' %} class="active"{%
-endif %}{% if value == 'Code' %} class="next"{% endif %}>
+        <li role="presentation"{% if key == 0 %} class="active"{%
+endif %}{% if key == 1 %} class="next"{% endif %}>
           <a href="#{{ value }}" id="{{ value }}-tab" role="tab" data-toggle="tab" aria-controls="{{ value }}" aria-expanded="true">
             <span class="text">{{ value }}</span>
           </a>
