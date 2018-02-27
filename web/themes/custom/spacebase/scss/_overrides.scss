@@ -287,3 +287,51 @@ form{
   }
 }
 
+.pagination{
+  > li{
+    > a, > span{
+      display: inline-block;
+      width: 36px;
+      border-radius: 18px;
+      font-weight: bold;
+      border: none;
+      color: $text-light;
+      &:active,&:focus,&:hover{
+        background: $line;
+        color: $text;
+      }
+    }
+    &:first-child{
+      a{
+        border-bottom-left-radius: 18px;
+        border-top-left-radius: 18px;
+      }
+    }
+    &:last-child{
+      a{
+        border-bottom-right-radius: 18px;
+        border-top-right-radius: 18px;
+      }
+    }
+    &.pager__item--first,
+    &.pager__item--previous,
+    &.pager__item--next,
+    &.pager__item--last{
+      a{
+        width: auto;
+      }
+    }
+  }
+  .active{
+    a, span{
+      border-color: transparent;
+      background-color: $brand-primary;
+      color: #fff;
+      &:active,&:focus,&:hover{
+        border-color: transparent;
+        background-color: $brand-primary;
+        color: #fff;
+      }
+    }
+  }
+}
