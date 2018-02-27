@@ -151,7 +151,7 @@
   right: 0;
   width: 100%;
   z-index: 10;
-  top: 80px;
+  top: 83px;
 }
 
 body.toolbar-tray-open .top-bar{
@@ -195,6 +195,9 @@ body.toolbar-tray-open .top-bar{
     z-index: 1000;
     transition: right 0.5s ease;
   }
+  .top-bar{
+    transition: left 0.5s ease, right 0.5s ease;
+  }
   body.nav-open{
     .navbar-collapse.open{
       right: 0;
@@ -210,6 +213,10 @@ body.toolbar-tray-open .top-bar{
       right: 240px;
     }
     .navbar{
+      left: -240px !important;
+      right: 240px;
+    }
+    .top-bar{
       left: -240px !important;
       right: 240px;
     }

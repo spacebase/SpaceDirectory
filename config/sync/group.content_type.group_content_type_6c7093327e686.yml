@@ -1,0 +1,19 @@
+uuid: d55ab2d6-1933-4085-8e15-80a69dd25590
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.organization_group
+    - node.type.resources
+  module:
+    - gnode
+    - node
+id: group_content_type_6c7093327e686
+label: 'Organization group: Group node (Resources)'
+description: 'Adds <em class="placeholder">Resources</em> content to groups both publicly and privately.'
+group_type: organization_group
+content_plugin: 'group_node:resources'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: 1
+  use_creation_wizard: false
