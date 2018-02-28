@@ -65,13 +65,17 @@ fa-edit"></i></span> Add Resource</a>
         <h3>Organization Resources</h3>
 
 
+    {# see:
+http://www.tutorialspark.com/twitterBootstrap/TwitterBootstrap_Tabs.php
+       modified to deal with spaces in the id's #}
     <div class="resources" role="tabpanel" data-example-id="togglable-tabs">
       <ul id="resourceTab" class="nav nav-tabs nav-tabs-responsive content-tabs" role="tablist">
           
         {% for key, value in resource_type %}
+        {% set valueId =  value|replace(' ','-') %}
         <li role="presentation"{% if key == 0 %} class="active"{%
 endif %}{% if key == 1 %} class="next"{% endif %}>
-          <a href="#{{ value }}" id="{{ value }}-tab" role="tab" data-toggle="tab" aria-controls="{{ value }}" aria-expanded="true">
+          <a href="#{{ valueId }}" id="{{ valueId }}-tab" role="tab" data-toggle="tab" aria-controls="{{ valueId }}" aria-expanded="true">
             <span class="text">{{ value }}</span>
           </a>
         </li>
@@ -80,7 +84,8 @@ endif %}{% if key == 1 %} class="next"{% endif %}>
       </ul>
       <div id="myTabContent" class="tab-content">
         {% for key, value in resource_type %}
-        <div role="tabpanel" class="tab-pane fade{% if value == 'Portals' %} in active{% endif %}" id="{{ value }}" aria-labelledby="{{ value }}-tab">
+        {% set valueId =  value|replace(' ','-') %}
+        <div role="tabpanel" class="tab-pane fade{% if key == 0 %} in active{% endif %}" id="{{ valueId }}" aria-labelledby="{{ valueId }}-tab">
           
           {{ drupal_view('organization_resources', 'block_1', value) }}
           
