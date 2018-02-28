@@ -36,6 +36,12 @@
         {% elseif group_links.join  %}
           <a href="{{ group_links.join }}" class="btn btn-primary btn-block">Join Organization</a>
         {% endif %}
+        {% if logged_in %}
+        <br/>
+        <a href="/recommend" class="btn btn-secondary btn-block">Recommend
+Us</a>
+        {% endif %}
+
         </span>
       </div>
       <div class="box">
