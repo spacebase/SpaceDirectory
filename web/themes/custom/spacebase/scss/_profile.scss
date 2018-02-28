@@ -4,7 +4,7 @@
   clear: both;
   .profile-photo{
     img{
-      height: 200px;
+      height: auto;
       width: 200px;
       background: $text;
       border-radius: 50%;
@@ -19,9 +19,10 @@
     font-weight: 500;
   }
   h2.segment{
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 300;
     margin-bottom: 30px;
+    line-height: 1.4em;
   }
   .position{
     font-size: 18px;
@@ -104,8 +105,9 @@
           vertical-align: middle;
         }
         .smalltext{
-          font-size: 13px;
+          font-size: 11px;
           font-weight: 300;
+          line-height: 1.2em;
           word-wrap: break-word;
           a{
             color: $text;
@@ -164,6 +166,11 @@
       }
     }
   }
+  .col-sm-4.pull-right{
+    @media screen and (max-width: 767px) {
+      float: none !important;
+    }
+  }
 }
 
 .org-list,
@@ -186,6 +193,9 @@
     }
     .profile-text{
       margin-left: 115px;
+      @media screen and (max-width: 767px) {
+        margin-bottom: 10px;
+      }
       h2{
         font-size: 18px;
         margin: 0 0 5px;
@@ -205,12 +215,23 @@
           background: $brand-primary;
         }
       }
-      .segment,
+      .segment{
+        font-style: italic;
+        font-size: 14px;
+        color: $text-light;
+        margin: 0 0 10px;
+        @media screen and (max-width: 767px) {
+          font-size: 13px;
+        }
+      }
       .quote{
         font-style: italic;
         font-size: 18px;
         color: $text-light;
         margin: 0 0 10px;
+        @media screen and (max-width: 767px) {
+          font-size: 13px;
+        }
       }
       .location{
         display: inline-block;
@@ -341,6 +362,96 @@
         color: $text-light;
         margin-bottom: 0;
       }
+    }
+  }
+}
+
+.resources{
+  border-radius: 3px;
+  border: 1px solid $line;
+  padding: 15px;
+  ul.content-tabs{
+    margin: 0 0 25px;
+    padding: 0;
+    box-shadow: none;
+    border-bottom: 3px solid $line;
+    border-radius: 0;
+    height: 38px;
+    li{
+      a{
+        color: $text-light;
+        border-bottom: 3px solid transparent;
+        border-radius: 0;
+        font-size: 16px;
+        height: 38px;
+        padding: 8px 12px;
+        &:active, &:focus, &:hover{
+          background: none;
+          border-bottom-color: darken($line,10%);
+          color: $text;
+        }
+      }
+      &.active{
+        a{
+          border-bottom-color: $brand-primary;
+          background: none;
+          box-shadow: none;
+          &:active, &:focus, &:hover{
+            background: none;
+            border: none;
+            border-bottom: 3px solid $brand-primary;
+          }
+        }
+      }
+    }
+  }
+  table{
+    thead{
+      tr{
+        th{
+          border-bottom: 1px solid $line;
+          font-weight: 300;
+          font-size: 14px;
+          a{
+            color: $text;
+          }
+          &:first-child{
+            width: 42px;
+          }
+        }
+      }
+    }
+    tbody{
+      tr{
+        &:active, &:focus, &:hover{
+          background: none;
+        }
+        td{
+          font-weight: 300;
+          font-size: 13px;
+          border: none;
+          &.views-field-title{
+            font-weight: 500;
+            font-size: 14px;
+            a.important{
+              font-size: 16px;
+            }
+          }
+          a{
+            color: $link-color;
+          }
+          .fa-star{
+            color: $gold;
+          }
+          &:first-child{
+            width: 42px;
+            text-align: center;
+          }
+        }
+      }
+    }
+    &.table-striped > tbody > tr:nth-of-type(odd){
+      background: none;
     }
   }
 }

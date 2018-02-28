@@ -1,0 +1,23 @@
+uuid: d4eb1000-165d-4daf-ad2e-c99b5546d74b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_resource_link
+    - node.type.resources
+  module:
+    - link
+id: node.resources.field_resource_link
+field_name: field_resource_link
+entity_type: node
+bundle: resources
+label: Link
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link
