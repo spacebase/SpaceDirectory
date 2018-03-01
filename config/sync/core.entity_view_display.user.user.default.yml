@@ -7,10 +7,12 @@ dependencies:
     - field.field.user.user.field_email_user
     - field.field.user.user.field_first_name_user
     - field.field.user.user.field_home_location_user
+    - field.field.user.user.field_intro
     - field.field.user.user.field_last_name_user
     - field.field.user.user.field_linkedin_user
     - field.field.user.user.field_position
     - field.field.user.user.field_tagline_user
+    - field.field.user.user.field_terms
     - field.field.user.user.field_website_user
     - field.field.user.user.user_picture
     - image.style.profile_photo
@@ -18,6 +20,7 @@ dependencies:
     - address
     - image
     - link
+    - markup
     - text
     - user
 _core:
@@ -91,6 +94,13 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
+  field_terms:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_website_user:
     weight: 9
     label: hidden
@@ -117,4 +127,5 @@ content:
       image_link: ''
     third_party_settings: {  }
     label: hidden
-hidden: {  }
+hidden:
+  field_intro: true

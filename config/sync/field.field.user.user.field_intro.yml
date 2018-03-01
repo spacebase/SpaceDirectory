@@ -1,0 +1,25 @@
+uuid: d192c208-9341-48b6-ad18-88a155e65217
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_intro
+  module:
+    - markup
+    - user
+id: user.user.field_intro
+field_name: field_intro
+entity_type: user
+bundle: user
+label: Intro
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<h1>Sign up for SpaceBase!</h1>\r\n\r\n<p>This is some quick introductory text to explain the signup</p>\r\n\r\n<p>&nbsp;</p>\r\n"
+    format: full_html
+field_type: markup
