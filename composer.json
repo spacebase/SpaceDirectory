@@ -54,7 +54,8 @@
         "drupal/migrate_process_extra": "1.x-dev",
         "drupal/coder": "^8.2",
         "drupal/markup": "^1.0",
-        "drupal/adaptivetheme": "^3.1"
+        "drupal/adaptivetheme": "^3.1",
+        "drupal/zurb_foundation": "^5.0@beta"
     },
     "require-dev": {
         "behat/mink": "~1.7",
