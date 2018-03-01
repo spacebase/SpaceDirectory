@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "42a7514038eee9ee3c91a95c3ef092a2",
+    "content-hash": "2520c7895a13630f64a989f4ff9df510",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1255,52 +1255,6 @@
             ],
             "description": "Composer Plugin for updating the Drupal scaffold files when using drupal/core",
             "time": "2017-12-08T22:53:11+00:00"
-        },
-        {
-            "name": "drupal/adaptivetheme",
-            "version": "3.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/adaptivetheme",
-                "reference": "8.x-3.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/adaptivetheme-8.x-3.1.zip",
-                "reference": "8.x-3.1",
-                "shasum": "9e76bcf9ab5f141c867a5fb57a5ea59ea2d1e607"
-            },
-            "require": {
-                "drupal/core": "~8.0"
-            },
-            "type": "drupal-theme",
-            "extra": {
-                "branch-alias": {
-                    "dev-3.x": "3.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-3.1",
-                    "datestamp": "1518479880",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Jeff Burnz",
-                    "homepage": "https://www.drupal.org/user/61393"
-                }
-            ],
-            "homepage": "https://www.drupal.org/project/adaptivetheme",
-            "support": {
-                "source": "http://cgit.drupalcode.org/adaptivetheme"
-            }
         },
         {
             "name": "drupal/address",
@@ -3658,65 +3612,6 @@
                 "source": "http://cgit.drupalcode.org/views_block_filter_block"
             },
             "time": "2017-10-13T06:53:22+00:00"
-        },
-        {
-            "name": "drupal/zurb_foundation",
-            "version": "5.0.0-beta3",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/zurb-foundation",
-                "reference": "8.x-5.0-beta3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/zurb_foundation-8.x-5.0-beta3.zip",
-                "reference": "8.x-5.0-beta3",
-                "shasum": "af7452eae8e66b4224a32344a3c91175044d7225"
-            },
-            "require": {
-                "drupal/core": "~8.0"
-            },
-            "type": "drupal-theme",
-            "extra": {
-                "branch-alias": {
-                    "dev-5.x": "5.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-5.0-beta3",
-                    "datestamp": "1487487784",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Bcwald",
-                    "homepage": "https://www.drupal.org/user/215794"
-                },
-                {
-                    "name": "FlorisMoriceau",
-                    "homepage": "https://www.drupal.org/user/2627019"
-                },
-                {
-                    "name": "HongPong",
-                    "homepage": "https://www.drupal.org/user/60005"
-                },
-                {
-                    "name": "kevinquillen",
-                    "homepage": "https://www.drupal.org/user/317279"
-                }
-            ],
-            "description": "The most advanced responsive front-end framework in the world, now in Drupal! Based on Zurb Foundation version 5.x.",
-            "homepage": "https://www.drupal.org/project/zurb_foundation",
-            "support": {
-                "source": "http://cgit.drupalcode.org/zurb_foundation"
-            }
         },
         {
             "name": "drush/drush",
@@ -9499,7 +9394,6 @@
         "drupal/mailgun": 10,
         "drupal/views_block_filter_block": 20,
         "drupal/migrate_process_extra": 20,
-        "drupal/zurb_foundation": 10,
         "guzzlehttp/guzzle": 20
     },
     "prefer-stable": true,
