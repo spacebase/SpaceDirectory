@@ -53,7 +53,8 @@
         "drupal/views_block_filter_block": "1.x-dev",
         "drupal/migrate_process_extra": "1.x-dev",
         "drupal/coder": "^8.2",
-        "drupal/markup": "^1.0"
+        "drupal/markup": "^1.0",
+        "drupal/zurb_foundation": "^5.0@beta"
     },
     "require-dev": {
         "behat/mink": "~1.7",
