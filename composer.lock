@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e2d7f255a0cf01a2528251d15a7aba1",
+    "content-hash": "2520c7895a13630f64a989f4ff9df510",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1414,17 +1414,17 @@
         },
         {
             "name": "drupal/bootstrap",
-            "version": "3.9.0",
+            "version": "3.10.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/bootstrap",
-                "reference": "8.x-3.9"
+                "reference": "8.x-3.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bootstrap-8.x-3.9.zip",
-                "reference": "8.x-3.9",
-                "shasum": "2095ebf22b147a096d34ebbc428dfb62ea01f89b"
+                "url": "https://ftp.drupal.org/files/projects/bootstrap-8.x-3.10.zip",
+                "reference": "8.x-3.10",
+                "shasum": "1e7c45906fa3fe990868da53a336e702113cd66a"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -1435,8 +1435,8 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.9",
-                    "datestamp": "1516430285",
+                    "version": "8.x-3.10",
+                    "datestamp": "1519144980",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2439,17 +2439,17 @@
         },
         {
             "name": "drupal/fontawesome",
-            "version": "2.0.0-beta1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/fontawesome",
-                "reference": "8.x-2.0-beta1"
+                "reference": "8.x-2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/fontawesome-8.x-2.0-beta1.zip",
-                "reference": "8.x-2.0-beta1",
-                "shasum": "359b4e030cd230c3c0b6a879417215c17ba32916"
+                "url": "https://ftp.drupal.org/files/projects/fontawesome-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "e3a730489d23bb731452f2ce006c3fecbbcd31af"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2460,11 +2460,11 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-beta1",
-                    "datestamp": "1515436384",
+                    "version": "8.x-2.0",
+                    "datestamp": "1519143180",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -2589,6 +2589,9 @@
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "Fix: Group creators get duplicate entries": "https://www.drupal.org/files/issues/duplicate-members-on-group-create-fixed-2923297-3.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2605,7 +2608,8 @@
             "homepage": "https://www.drupal.org/project/group",
             "support": {
                 "source": "http://cgit.drupalcode.org/group"
-            }
+            },
+            "time": "2018-02-05T13:15:40+00:00"
         },
         {
             "name": "drupal/mailgun",
@@ -2732,6 +2736,73 @@
             "homepage": "https://www.drupal.org/project/mailsystem",
             "support": {
                 "source": "http://cgit.drupalcode.org/mailsystem"
+            }
+        },
+        {
+            "name": "drupal/markup",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/markup",
+                "reference": "8.x-1.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/markup-8.x-1.0-beta1.zip",
+                "reference": "8.x-1.0-beta1",
+                "shasum": "7bb8c7623094178b9e40ff711065bcae8538b46f"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta1",
+                    "datestamp": "1460007239",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Deciphered",
+                    "homepage": "https://www.drupal.org/user/103796"
+                },
+                {
+                    "name": "bcostlow",
+                    "homepage": "https://www.drupal.org/user/1340686"
+                },
+                {
+                    "name": "cYu",
+                    "homepage": "https://www.drupal.org/user/202205"
+                },
+                {
+                    "name": "ebeyrent",
+                    "homepage": "https://www.drupal.org/user/23897"
+                },
+                {
+                    "name": "mqanneh",
+                    "homepage": "https://www.drupal.org/user/2833163"
+                },
+                {
+                    "name": "mrfelton",
+                    "homepage": "https://www.drupal.org/user/305669"
+                }
+            ],
+            "description": "Defines a field type for markup.",
+            "homepage": "https://www.drupal.org/project/markup",
+            "support": {
+                "source": "http://cgit.drupalcode.org/markup"
             }
         },
         {

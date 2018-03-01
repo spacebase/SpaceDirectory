@@ -1,0 +1,25 @@
+uuid: f568c134-4e6c-4254-9dd4-5515d9ac6e75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_terms
+  module:
+    - markup
+    - user
+id: user.user.field_terms
+field_name: field_terms
+entity_type: user
+bundle: user
+label: Terms
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<h2>Terms of Use</h2>\r\n\r\n<p><em>by creating this account, you agree to accept our <a href=\"/terms\">terms of use</a></em></p>\r\n\r\n<div class=\"terms-box\">\r\n<p>Welcome to the website and online services of SpaceBase, a service provided by NAME, LLC (“Company,” “we,” or “us”). This page explains the terms by which you may use our online and/or mobile services, web site, and software provided on or in connection with the service (collectively the “Service”). By accessing or using the Service, you signify that you have read, understood, and agree to be bound by this Terms of Use Agreement (“Agreement”), whether or not you are a registered user of our Service.</p>\r\n\r\n<p>We reserve the right to amend this Agreement at any time by notifying you as provided in this Agreement, provided that no notice shall be required for non-substantive changes to the Agreement. If we substantively amend this Agreement, we will give you at least seven (7) days notice before the changes take effect, during which period of time you may reject the changes by terminating your account. Your continued use of the Service after any such change constitutes your acceptance of the new Terms of Use. If you do not agree to any of these terms or any future Terms of Use, do not use or access (or continue to access) the Service. This Agreement applies to all visitors, users, and others who access the Service (“Users”).</p>\r\n\r\n<h2>1. Use of Our Service and Confidentiality of Beta Service</h2>\r\n\r\n<p>Company provides a place to connect with other users.</p>\r\n\r\n<h3>A. Eligibility</h3>\r\n\r\n<p>This Service is intended solely for Users who are eighteen (18) years of age or older in the United States, and any registration, use or access to the Service by anyone under 13 is strictly prohibited and in violation of this Agreement. If you are under 18 years of age you may use the Service only if you either are an emancipated minor or possess legal parental or guardian consent, and are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations, and warranties set forth in this Agreement, and to abide by and comply with this Agreement. The Service is not available to any Users previously removed from the Service by Company.</p>\r\n</div>\r\n"
+    format: full_html
+field_type: markup

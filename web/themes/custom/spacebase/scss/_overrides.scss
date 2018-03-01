@@ -105,7 +105,7 @@ body.navbar-is-fixed-top{
 
 .main-container{
   padding-top: 100px;
-  min-height: 60vh;
+  min-height: calc(100vh - 300px);
 }
 
 .btn{
@@ -190,24 +190,6 @@ h3{
 h4{
   font-size: 20px;
   margin: 0 0 1em;
-}
-
-.form-control{
-  border-radius: 3px;
-  padding: 10px 15px;
-  height: 44px;
-  background: lighten($line,2%);
-  border: 2px solid $line;
-  box-shadow: inset 0 1px 4px rgba(0,0,0,0.4),  0 1px 4px rgba(0,0,0,0.2);
-  &:focus{
-    border-color: lighten($brand-secondary,20%);
-    box-shadow: inset 0 1px 4px rgba(0,0,0,0.4),  0 1px 4px rgba($brand-secondary,0.2);
-  }
-}
-
-label{
-  font-weight: 300;
-  font-size: 18px;
 }
 
 .local-actions{
