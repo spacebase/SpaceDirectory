@@ -170,10 +170,15 @@ function spacebase_core_user_form_submit(&$form, FormStateInterface $form_state)
  * that glues users to groups.
  */
 function spacebase_core_organization_join_submit(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
-  // membership glue content is:
-  $group_content = $form_state->getFormObject()->getEntity();
-  $group = $group_content->getGroup();
+  $group_content_membership = $form_state->getFormObject()->getEntity();
+  $group = $group_content_membership->getGroup();
+
+  // Redirect
   $form_state->setRedirect('entity.group.canonical', ['group' => $group->id()]);
+
+  // And add the role 'verified,' @ToSpec/ToDo unless the $group blocks autoverify
+  $group_content_membership->group_roles->setValue('organization_group-verified');
+  $group_content_membership->save(); // returns 2, SAVED_UPDATED, if working. Add test?
 }
 
 
