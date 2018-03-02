@@ -4,4 +4,9 @@
  * Bootstrap sub-theme.
  *
  * Place your custom PHP code in this file.
- */
+ */ 
+ 
+ function spacebase_preprocess_user(&$variables) {
+  $variables['currentuserid'] = \Drupal::currentUser()->id();
+  $variables['#cache']['contexts'][] = 'user';
+}
