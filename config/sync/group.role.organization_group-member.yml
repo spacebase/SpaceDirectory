@@ -18,3 +18,4 @@ permissions:
   - 'view group_membership content'
   - 'access group_node overview'
   - 'view group_node:organization entity'
+  - 'view group_node:resources entity'
