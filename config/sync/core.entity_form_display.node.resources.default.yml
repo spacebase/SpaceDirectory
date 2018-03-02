@@ -1,0 +1,58 @@
+uuid: 60fd2eec-0c05-4c05-97e7-0b21ba268611
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.resources.field_important
+    - field.field.node.resources.field_resource_link
+    - field.field.node.resources.field_tab
+    - node.type.resources
+  module:
+    - link
+id: node.resources.default
+targetEntityType: node
+bundle: resources
+mode: default
+content:
+  field_important:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_resource_link:
+    type: link_default
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: (optional)
+    third_party_settings: {  }
+  field_tab:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true

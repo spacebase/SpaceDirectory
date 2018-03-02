@@ -7,10 +7,12 @@ dependencies:
     - field.field.user.user.field_email_user
     - field.field.user.user.field_first_name_user
     - field.field.user.user.field_home_location_user
+    - field.field.user.user.field_intro
     - field.field.user.user.field_last_name_user
     - field.field.user.user.field_linkedin_user
     - field.field.user.user.field_position
     - field.field.user.user.field_tagline_user
+    - field.field.user.user.field_terms
     - field.field.user.user.field_website_user
     - field.field.user.user.user_picture
     - image.style.thumbnail
@@ -134,4 +136,6 @@ content:
     third_party_settings: {  }
     weight: 8
     region: content
-hidden: {  }
+hidden:
+  field_intro: true
+  field_terms: true
