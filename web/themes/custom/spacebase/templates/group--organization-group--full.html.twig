@@ -104,6 +104,22 @@ endif %}{% if key == 1 %} class="next"{% endif %}>
           
         
       </div>
+
+
+      <div class="box">
+        <h3>Organization Forum</h3>
+        {% if group_links.group_create_group_forum_topic %}
+          <a href="{{group_links.group_create_group_forum_topic}}" class="btn
+btn-secondary btn-small pull-right"><span class="icon"><i class="fas
+fa-edit"></i></span> Start Thread</a>
+        {% endif %}
+        {# Two blocks to put where they need to go: 
+            block_1, block_3
+         #}
+        {{ drupal_view('group_forum', 'block_3', nid) }}
+
+      </div>
+
     </article>
   </div>
 

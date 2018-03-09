@@ -84,17 +84,19 @@ function spacebase_preprocess_group(&$variables) {
     }
   }
 
-  // Possible futur @ToDo: turn this array if add forums and so on,
-  // *and* those are also just permissions based.
   // Links look like:
   // group/20/content/create/group_node%3Aresources
-  $plugin_id = 'group_node:resources';
-  $quick_id = 'resources';
-  if ($group->hasPermission("create $plugin_id entity", $account)) {
-    $route_params = ['group' => $group->id(), 'plugin_id' => $plugin_id];
-    $url = new Url('entity.group_content.create_form', $route_params);
-    $variables['group_links']['group_create_'. $quick_id] =
-      $url->toString() . '?destination=/group/' . $group->id();
+  // group/14/content/create/group_node%3Agroup_forum_topic
+  $ids = array('resources', 'group_forum_topic');
+  foreach ($ids as $id) {
+    $plugin_id = 'group_node:' . $id;
+
+    if ($group->hasPermission("create $plugin_id entity", $account)) {
+      $route_params = ['group' => $group->id(), 'plugin_id' => $plugin_id];
+      $url = new Url('entity.group_content.create_form', $route_params);
+      $variables['group_links']['group_create_'. $id] =
+        $url->toString() . '?destination=/group/' . $group->id();
+    }
   }
 
   /* Leave and join depend on membership status AND permission */  
@@ -109,7 +111,7 @@ function spacebase_preprocess_group(&$variables) {
     $variables['group_links']['join'] = $url->toString();
   }
 
-  // get resource_type terms
+  // provide resource_type terms, for tabs in twig
   $vid = 'resource_type';
   $terms =
     \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
@@ -117,6 +119,7 @@ function spacebase_preprocess_group(&$variables) {
     $variables['resource_type'][] = $term->name;
   }
 }
+
 
 /**
  * Implements hook_form_alter() on behalf of spacebase_core.module.
