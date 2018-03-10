@@ -14,7 +14,6 @@ dependencies:
     - image
     - node
     - text
-    - toggle_editable_fields
     - user
 id: group_forum
 label: 'Group Forum'
@@ -621,15 +620,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: toggle_editable_formatter
+          type: boolean
           settings:
-            'on': 'On'
-            'off': 'Off'
-            size: mini
-            onstyle: success
-            offstyle: default
-            height: null
-            width: null
+            format: default
+            format_custom_true: ''
+            format_custom_false: ''
           group_column: value
           group_columns: {  }
           group_rows: true
