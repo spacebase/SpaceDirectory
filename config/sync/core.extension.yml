@@ -18,7 +18,6 @@ module:
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
-  email_group_administrators: 0
   facets: 0
   facets_summary: 0
   field: 0
@@ -34,11 +33,12 @@ module:
   link: 0
   mailgun: 0
   mailsystem: 0
-  markup: 0
   menu_link_attributes: 0
   menu_ui: 0
   migrate: 0
   migrate_plus: 0
+  migrate_process_extra: 0
+  migrate_process_extra_plus: 0
   migrate_source_csv: 0
   migrate_tools: 0
   node: 0
@@ -57,6 +57,7 @@ module:
   system: 0
   taxonomy: 0
   text: 0
+  toggle_editable_fields: 0
   token: 0
   toolbar: 0
   tour: 0
