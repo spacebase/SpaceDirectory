@@ -58,6 +58,7 @@ module:
   system: 0
   taxonomy: 0
   text: 0
+  toggle_editable_fields: 0
   token: 0
   toolbar: 0
   tour: 0
