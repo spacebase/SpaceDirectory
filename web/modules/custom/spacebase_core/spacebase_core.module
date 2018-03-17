@@ -140,6 +140,9 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
       $form['#action'] = $path;
     }
   }
+  else if ($form_id == 'node_resources_edit_form') {
+    $form['revision_information']['#access'] = FALSE;
+  }
   else if ($form_id == 'node_resources_form') {
     foreach ($form['field_tab']['widget']['#options'] as $tid => $value) {
       //kint($value); // This is an object, being replaced with
