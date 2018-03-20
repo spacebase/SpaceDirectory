@@ -1,0 +1,106 @@
+.forum-list-view{
+  .view-content{
+    margin-bottom: 10px;
+  }
+  .views-row{
+    padding: 15px 0;
+    border-bottom: 1px solid $line;
+    position: relative;
+    .admin-links{
+      display: none;
+      position: absolute;
+      top: -5px;
+      right: 0;
+      text-align: right;
+      z-index: 2;
+      > span{
+        margin-left: 5px;
+        div,form{
+          display: inline-block;
+        }
+      }
+      .checkbox{
+        margin: 0;
+      }
+      .toggle{
+        &.off{
+          background: $grey-bg;
+        }
+        &.btn-xs{
+          padding: 0;
+          line-height: 1;
+          min-height: auto;
+          min-width: auto;
+        }
+        .toggle-handle.btn{
+          padding: 0;
+          line-height: 1;
+          vertical-align: top;
+          width: 50%;
+        }
+        .toggle-on,.toggle-off{
+          display: none;
+        }
+      }
+    }
+    &:hover{
+      .admin-links{
+        color: $text-light;
+        display: block;
+        padding: 3px;
+        background: rgba(255,255,255,0.7);
+        a{
+          color: $text-light;
+        }
+      }
+    }
+    .info{
+      float: left;
+      margin: 0 15px 0 0;
+      width: 44px;
+      .thumb{
+        margin-bottom: 10px;
+        img{
+          border-radius: 2px;
+        }
+      }
+      .comment-count{
+        font-size: 16px;
+        font-weight: bold;
+        color: $link-color;
+      }
+    }
+    .contents{
+      margin-left: 69px;
+      h3{
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0 0 0.1em 0;
+        i.fa-thumbtack{
+          color: $gold;
+          margin-right: 5px;
+        }
+      }
+      .text{
+        font-size: 14px;
+        margin: 0 0 5px;
+      }
+      .posted{
+        font-size: 13px;
+        color: $text-light;
+        a{
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .more-link{
+    a{
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+      color: $text;
+      display: block;
+    }
+  }
+}

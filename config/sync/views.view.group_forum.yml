@@ -5,8 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.storage.node.body
+    - field.storage.node.field_image
     - field.storage.node.field_pin_to_top
     - field.storage.user.user_picture
+    - image.style.forum_thumb_small
     - image.style.thumbnail
     - node.type.group_forum_topic
   module:
@@ -59,7 +61,7 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 2
+          items_per_page: 3
           offset: 0
       style:
         type: default
@@ -145,7 +147,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -263,9 +265,6 @@ display:
           id: title
           table: node_field_data
           field: title
-          settings:
-            link_to_entity: true
-          plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
@@ -298,20 +297,22 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: h3
           element_class: ''
-          element_label_type: ''
+          element_label_type: '0'
           element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: string
+          settings:
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -322,6 +323,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          plugin_id: field
         body:
           id: body
           table: node__body
@@ -393,7 +395,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: true
             text: ' by {{ uid }}'
@@ -460,7 +462,7 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: true
+            alter_text: false
             text: 'Posted {{ created }} {{ uid }}'
             make_link: false
             path: ''
@@ -501,7 +503,7 @@ display:
           click_sort_column: value
           type: timestamp_ago
           settings:
-            granularity: 2
+            granularity: 1
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -526,7 +528,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if comment_count == 1 %}\n1 comment\n{% else %}\n{{ comment_count }} comments\n{% endif %}"
+            text: "{% if comment_count == 1 %}\n1\n{% else %}\n{{ comment_count }}\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -579,7 +581,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Pin to top'
+          label: ''
           exclude: false
           alter:
             alter_text: false
@@ -608,14 +610,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: '0'
           element_class: ''
-          element_label_type: ''
+          element_label_type: '0'
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -628,8 +630,8 @@ display:
             size: mini
             onstyle: success
             offstyle: default
-            height: null
-            width: null
+            height: 16
+            width: 30
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -677,20 +679,20 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: '0'
           element_class: ''
-          element_label_type: ''
+          element_label_type: '0'
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: edit
-          output_url_as_text: false
+          text: '<i class="fas fa-edit"></i>'
+          output_url_as_text: true
           absolute: false
           entity_type: node
           plugin_id: entity_link_edit
@@ -698,6 +700,161 @@ display:
           id: delete_node
           table: node
           field: delete_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: delete
+          output_url_as_text: true
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link_delete
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: div
+          element_wrapper_class: admin-links
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: view
+          output_url_as_text: true
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link
+        field_image:
+          id: field_image
+          table: node__field_image
+          field: field_image
           relationship: none
           group_type: group
           admin_label: ''
@@ -742,11 +899,22 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: delete
-          output_url_as_text: false
-          absolute: false
-          entity_type: node
-          plugin_id: entity_link_delete
+          click_sort_column: target_id
+          type: image
+          settings:
+            image_style: forum_thumb_small
+            image_link: content
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         status:
           value: '1'
@@ -871,6 +1039,7 @@ display:
       use_more_text: 'view all discussions'
       link_url: '{{ raw_arguments.gid }}/forum'
       link_display: custom_url
+      css_class: forum-list-view
     cache_metadata:
       max-age: -1
       contexts:
@@ -882,6 +1051,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_image'
         - 'config:field.storage.node.field_pin_to_top'
         - 'config:field.storage.user.user_picture'
   block_1:
@@ -904,6 +1074,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_image'
         - 'config:field.storage.node.field_pin_to_top'
         - 'config:field.storage.user.user_picture'
   block_2:
@@ -937,6 +1108,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_image'
         - 'config:field.storage.node.field_pin_to_top'
         - 'config:field.storage.user.user_picture'
   block_3:
@@ -953,7 +1125,7 @@ display:
         use_more: false
         use_more_always: false
         use_more_text: false
-      use_more_always: false
+      use_more_always: true
       use_more_text: 'view all discussions'
     cache_metadata:
       max-age: -1
@@ -966,5 +1138,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_image'
         - 'config:field.storage.node.field_pin_to_top'
         - 'config:field.storage.user.user_picture'

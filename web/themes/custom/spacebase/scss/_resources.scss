@@ -1,0 +1,16 @@
+.resources-overview{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li{
+    margin: 0 0 15px;
+  }
+}
+
+
+
+@media screen and (max-width: 479px) {
+  .resources ul.content-tabs li a{
+    font-size: 13px;
+  }
+}

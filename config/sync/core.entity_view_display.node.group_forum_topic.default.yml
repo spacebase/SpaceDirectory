@@ -5,11 +5,13 @@ dependencies:
   config:
     - core.entity_view_display.comment.comment.default
     - field.field.node.group_forum_topic.body
+    - field.field.node.group_forum_topic.field_image
     - field.field.node.group_forum_topic.field_pin_to_top
     - field.field.node.group_forum_topic.field_reply
     - node.type.group_forum_topic
   module:
     - comment
+    - image
     - text
     - user
 id: node.group_forum_topic.default
@@ -20,12 +22,21 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_image:
+    weight: 0
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
   field_pin_to_top:
-    weight: 103
+    weight: 3
     label: above
     settings:
       format: default
@@ -35,7 +46,7 @@ content:
     type: boolean
     region: content
   field_reply:
-    weight: 102
+    weight: 2
     label: above
     settings:
       view_mode: default
@@ -44,7 +55,7 @@ content:
     type: comment_default
     region: content
   links:
-    weight: 100
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -4,11 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.node.group_forum_topic.body
+    - field.field.node.group_forum_topic.field_image
     - field.field.node.group_forum_topic.field_pin_to_top
     - field.field.node.group_forum_topic.field_reply
+    - image.style.thumbnail
     - node.type.group_forum_topic
   module:
     - comment
+    - image
     - text
 id: node.group_forum_topic.default
 targetEntityType: node
@@ -17,22 +20,30 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 1
+    weight: 2
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
     third_party_settings: {  }
     region: content
+  field_image:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
   field_pin_to_top:
-    weight: 2
+    weight: 3
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_reply:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: comment_default
