@@ -84,9 +84,15 @@ function spacebase_core_preprocess_group(&$variables) {
    */  
 
   /** Group tabs
-   * Still TBD if they all show all the time
+   * Still TBD if they all show all the time.
+   * Do this in the twig? Access to the url already there,
+   * this is just a shortcut.
+   * It's also at
+   * elements ['#attributes']['data-quickedit-entity-id']
+   * group id 'x-default'
+   * url
    */
-  $variables['group_url']['home'] = '/group/' . $group->id();
+  $variables['group_url'] = '/group/' . $group->id();
 
 
 

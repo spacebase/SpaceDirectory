@@ -574,6 +574,59 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: numeric
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: view
+          output_url_as_text: true
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link
         field_pin_to_top:
           id: field_pin_to_top
           table: node__field_pin_to_top
@@ -585,7 +638,7 @@ display:
           exclude: false
           alter:
             alter_text: false
-            text: ''
+            text: '<span class="pin"><i class="fas fa-thumbtack"></i> {{ field_pin_to_top }}</span>'
             make_link: false
             path: ''
             absolute: false
@@ -653,8 +706,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<span class="edit"><a href="{{ view_node }}/edit"><i class="fas fa-edit"></i></a></span>'
             make_link: false
             path: ''
             absolute: false
@@ -679,20 +732,20 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: '0'
-          element_class: ''
-          element_label_type: '0'
+          element_type: span
+          element_class: edit
+          element_label_type: ''
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: '0'
+          element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: '<i class="fas fa-edit"></i>'
-          output_url_as_text: true
+          text: ''
+          output_url_as_text: false
           absolute: false
           entity_type: node
           plugin_id: entity_link_edit
@@ -706,8 +759,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<span class="delete"><a href="{{ view_node }}/delete"><i class="fas fa-trash-alt"></i></a></span>'
             make_link: false
             path: ''
             absolute: false
@@ -744,8 +797,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: delete
-          output_url_as_text: true
+          text: ''
+          output_url_as_text: false
           absolute: false
           entity_type: node
           plugin_id: entity_link_delete
@@ -798,59 +851,6 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
-        view_node:
-          id: view_node
-          table: node
-          field: view_node
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: '0'
-          element_class: ''
-          element_label_type: '0'
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: '0'
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          text: view
-          output_url_as_text: true
-          absolute: false
-          entity_type: node
-          plugin_id: entity_link
         field_image:
           id: field_image
           table: node__field_image
