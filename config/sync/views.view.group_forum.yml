@@ -1137,7 +1137,7 @@ display:
         use_more_always: false
         use_more_text: false
       use_more_always: false
-      use_more_text: 'view all discussions'
+      use_more_text: more...
     cache_metadata:
       max-age: -1
       contexts:

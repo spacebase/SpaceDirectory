@@ -83,6 +83,13 @@ function spacebase_core_preprocess_group(&$variables) {
    * operations links function.
    */  
 
+  /** Group tabs
+   * Still TBD if they all show all the time
+   */
+  $variables['group_url']['home'] = '/group/' . $group->id();
+
+
+
   /** Edit Group, Add Resource can be done by non-member admins.
    * If not, move inside getMember($account)
    */
