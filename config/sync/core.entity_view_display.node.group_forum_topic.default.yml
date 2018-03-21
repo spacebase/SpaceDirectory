@@ -13,6 +13,7 @@ dependencies:
     - comment
     - image
     - text
+    - toggle_editable_fields
     - user
 id: node.group_forum_topic.default
 targetEntityType: node
@@ -22,7 +23,7 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 1
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -36,17 +37,21 @@ content:
     type: image
     region: content
   field_pin_to_top:
-    weight: 3
+    weight: 1
     label: above
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      'on': 'On'
+      'off': 'Off'
+      size: small
+      onstyle: success
+      offstyle: default
+      height: null
+      width: null
     third_party_settings: {  }
-    type: boolean
+    type: toggle_editable_formatter
     region: content
   field_reply:
-    weight: 2
+    weight: 3
     label: above
     settings:
       view_mode: default

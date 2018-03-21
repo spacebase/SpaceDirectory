@@ -967,7 +967,18 @@ display:
       title: 'Group Forum'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: 'Start the discussion.'
+          plugin_id: text_custom
       relationships:
         group_content:
           id: group_content
@@ -1037,7 +1048,7 @@ display:
       use_more: false
       use_more_always: true
       use_more_text: 'view all discussions'
-      link_url: '{{ raw_arguments.gid }}/forum'
+      link_url: 'group/{{ raw_arguments.gid }}/forum'
       link_display: custom_url
       css_class: forum-list-view
     cache_metadata:
@@ -1125,7 +1136,7 @@ display:
         use_more: false
         use_more_always: false
         use_more_text: false
-      use_more_always: true
+      use_more_always: false
       use_more_text: 'view all discussions'
     cache_metadata:
       max-age: -1
@@ -1134,6 +1145,68 @@ display:
         - 'languages:language_interface'
         - route
         - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_image'
+        - 'config:field.storage.node.field_pin_to_top'
+        - 'config:field.storage.user.user_picture'
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page-Forums
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      path: group/%group/forum
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: true
+          content:
+            value: "<h3>[view:title]</h3>\n<a href=\"/group/{{ raw_arguments.gid }}\">{{ arguments.gid }} Home</a>"
+            format: basic_html
+          plugin_id: text
+      defaults:
+        header: false
+        pager: false
+      pager:
+        type: full
+        options:
+          items_per_page: 10
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - route
+        - url
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
