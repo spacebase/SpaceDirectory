@@ -27,22 +27,44 @@ function spacebase_core_help($route_name, RouteMatchInterface $route_match) {
 }
 
 
+
  
 /** Implements hook_preprocess_node
  *
  * Link Forum nodes back to their Organization
  * (This could also go in theme if preferred)
- *
  */
+
 use Drupal\group\Entity\GroupContent;
 function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
-  // Forum threads should send people back to either the forum or
+
+  // 1. Forum threads should send people back to either the forum or
   // org page, tbd (by theme tempate).
-  // Designed, somewhat, with possible multiple group ownership in mind:
+  // 2. Don't show comments form to non-group members
+  // Designed loosely with possible multiple group ownership of forums in mind:
+
+  $account = \Drupal::currentUser();
+  $show_reply = FALSE;
+  $show_pin = FALSE; // #show-pin-access will probably change
   foreach (GroupContent::loadByEntity($variables['node']) as $group_content) {
-    $variables['parent_groups'][$group_content->getGroup()->id()] =
-      $group_content->getGroup()->label();
+    $group = $group_content->getGroup();
+    $variables['parent_groups'][$group->id()] = $group->label();
+    if ($group->hasPermission('create group_node:group_forum_topic entity', $account)) {
+      $show_reply = TRUE;
+    }
+    if ($group->hasPermission('organization_group-admin[administer group]', $account)) {
+      $show_pin = TRUE;
+    }
   }
+  if (!$show_reply) {
+    $variables['content']['field_reply'] = array('#markup'  =>
+      t("Join this organization to leave a comment"));
+  }
+  // #show-pin-access will probably change
+  if (!$show_pin) {
+    $variables['content']['field_pin_to_top'] = NULL;
+  }
+
 }
 
 
@@ -83,17 +105,8 @@ function spacebase_core_preprocess_group(&$variables) {
    * operations links function.
    */  
 
-  /** Group tabs
-   * Still TBD if they all show all the time.
-   * Do this in the twig? Access to the url already there,
-   * this is just a shortcut.
-   * It's also at
-   * elements ['#attributes']['data-quickedit-entity-id']
-   * group id 'x-default'
-   * url
-   */
+  /** Group tabs need url repeatedly. Just a shortcut */
   $variables['group_url'] = '/group/' . $group->id();
-
 
 
   /** Edit Group, Add Resource can be done by non-member admins.
