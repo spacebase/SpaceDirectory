@@ -1,0 +1,14 @@
+uuid: 7207e9c3-bc63-418c-8a45-1dca4f5749cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.spacebase_user
+  module:
+    - user
+id: user_remove_role_action.spacebase_user
+label: 'Remove the Spacebase User role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: spacebase_user

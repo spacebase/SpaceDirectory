@@ -1,0 +1,17 @@
+uuid: 0a871850-a755-40de-a9bb-0bd8139f406c
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.organization_group
+  enforced:
+    config:
+      - user.role.spacebase_user
+id: organization_group-69eae193c
+label: 'Spacebase User'
+weight: 3
+internal: true
+audience: outsider
+group_type: organization_group
+permissions_ui: false
+permissions: {  }

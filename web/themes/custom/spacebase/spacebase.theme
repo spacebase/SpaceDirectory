@@ -6,7 +6,29 @@
  * Place your custom PHP code in this file.
  */ 
  
- function spacebase_preprocess_user(&$variables) {
+function spacebase_preprocess_user(&$variables) {
   $variables['currentuserid'] = \Drupal::currentUser()->id();
   $variables['#cache']['contexts'][] = 'user';
+}
+
+function spacebase_views_pre_render(\Drupal\views\ViewExecutable $view) {
+
+  // Change descriptions for empty Organization Resources
+  if ($view->id() == "organization_resources" 
+      && $view->current_display == 'block_1') {
+    $term_name = $view->argument['name']->argument;
+    $term = array_shift(
+      \Drupal::entityTypeManager()
+        ->getStorage('taxonomy_term')
+        ->loadByProperties(['name' => $term_name])
+    );
+    if ($descrip = $term->getDescription()) {
+      // Remove closing </p> and possible last period (without relying on
+      // them) then add last text. 
+      $descrip = preg_replace('/\<\/p\>\s*$/', '', $descrip);  
+      $descrip = preg_replace('/\.\s*$/','', $descrip);
+      $view->empty['area_text_custom']->options['content'] = 
+        $descrip . " — nothing here, yet.</p>";
+    }
+  }
 }

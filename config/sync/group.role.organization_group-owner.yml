@@ -1,0 +1,34 @@
+uuid: f0d7fcf6-5b06-4f70-99a4-7fdc3312aca9
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.organization_group
+id: organization_group-owner
+label: Owner
+weight: -10
+internal: false
+audience: member
+group_type: organization_group
+permissions_ui: true
+permissions:
+  - 'access content overview'
+  - 'administer group'
+  - 'delete group'
+  - 'edit group'
+  - 'view group'
+  - 'administer members'
+  - 'update own group_membership content'
+  - 'leave group'
+  - 'view group_membership content'
+  - 'access group_node overview'
+  - 'view group_node:organization entity'
+  - 'create group_node:resources entity'
+  - 'delete any group_node:resources entity'
+  - 'delete own group_node:resources entity'
+  - 'update any group_node:resources entity'
+  - 'update own group_node:resources entity'
+  - 'view group_node:resources entity'
+  - 'view unpublished group_node:resources entity'
+  - 'delete any group_node:resources content'
+  - 'delete own group_node:resources content'
