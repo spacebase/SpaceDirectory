@@ -1,0 +1,14 @@
+uuid: ba9c3beb-f2dd-4702-aa7e-c50776c14c0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.spacebase_user
+  module:
+    - user
+id: user_add_role_action.spacebase_user
+label: 'Add the Spacebase User role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: spacebase_user

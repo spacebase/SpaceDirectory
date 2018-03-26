@@ -6,6 +6,7 @@ dependencies:
     - simple_block.simple_block.btn_add_organization
   module:
     - simple_block
+    - user
   theme:
     - spacebase
 id: spacebase_addorganization
@@ -19,4 +20,11 @@ settings:
   label: 'Add Organization'
   provider: simple_block
   label_display: '0'
-visibility: {  }
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      spacebase_user: spacebase_user
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

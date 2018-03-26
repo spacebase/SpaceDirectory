@@ -1,0 +1,16 @@
+uuid: 105b8ad0-b5bd-48c9-86f4-e2b97dbb017e
+langcode: en
+status: true
+dependencies: {  }
+id: spacebase_user
+label: 'Spacebase User'
+weight: 3
+is_admin: null
+permissions:
+  - 'access user contact forms'
+  - 'create organization content'
+  - 'delete organization revisions'
+  - 'delete own organization content'
+  - 'edit own organization content'
+  - 'revert organization revisions'
+  - 'use text format basic_html'
