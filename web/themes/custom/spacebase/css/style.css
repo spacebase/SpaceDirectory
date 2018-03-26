@@ -6605,31 +6605,59 @@ body.path-user {
   background-attachment: fixed;
   background-size: cover; }
 
+.navbar-header {
+  float: none; }
+
+.navbar-toggle {
+  display: block; }
+
+.navbar-collapse {
+  border-top: 1px solid transparent;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1); }
+
+.navbar-collapse.collapse {
+  display: none !important; }
+
+.navbar-nav {
+  float: none !important;
+  margin: 0;
+  padding: 0; }
+
+.navbar-nav > li {
+  float: none; }
+
+.navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
 .navbar {
   background: rgba(0, 0, 0, 0.8);
   border: none; }
-  .navbar.navbar-inverse .navbar-nav > li > a {
-    color: #fff;
-    text-transform: uppercase;
-    border-bottom: 2px solid transparent; }
-    @media screen and (max-width: 991px) {
-      .navbar.navbar-inverse .navbar-nav > li > a {
-        font-size: 15px;
-        padding-left: 10px;
-        padding-right: 10px; } }
-    .navbar.navbar-inverse .navbar-nav > li > a.btn-blank {
-      border: 1px solid rgba(255, 255, 255, 0.6); }
-  @media screen and (min-width: 768px) {
-    .navbar.navbar-inverse .navbar-nav {
-      padding: 15px 0;
-      float: right; } }
-  .navbar.navbar-inverse .navbar-nav .active > a, .navbar.navbar-inverse .navbar-nav .active > a:hover, .navbar.navbar-inverse .navbar-nav .active > a:focus {
-    background: none;
-    border-bottom-color: #76777f; }
-  .navbar.navbar-inverse .navbar-nav > .active > a.btn-primary {
-    background: #3bba50; }
-  .navbar.navbar-inverse .navbar-nav > .active > a.btn-blank {
-    background: black; }
+  .navbar.navbar-inverse .menu {
+    float: none !important;
+    padding: 0 !important; }
+    .navbar.navbar-inverse .menu > li > a {
+      color: #fff;
+      border-bottom: 2px solid transparent;
+      font-size: 15px;
+      padding-left: 10px;
+      padding-right: 10px; }
+      .navbar.navbar-inverse .menu > li > a:active, .navbar.navbar-inverse .menu > li > a:focus, .navbar.navbar-inverse .menu > li > a:hover {
+        background: #2b2c30;
+        color: #fff; }
+      .navbar.navbar-inverse .menu > li > a.btn-blank {
+        border: 1px solid rgba(255, 255, 255, 0.6); }
+    @media screen and (min-width: 768px) {
+      .navbar.navbar-inverse .menu {
+        padding: 15px 0;
+        float: right; } }
+    .navbar.navbar-inverse .menu .active > a, .navbar.navbar-inverse .menu .active > a:hover, .navbar.navbar-inverse .menu .active > a:focus {
+      background: none;
+      border-bottom-color: #76777f; }
+    .navbar.navbar-inverse .menu > .active > a.btn-primary {
+      background: #3bba50; }
+    .navbar.navbar-inverse .menu > .active > a.btn-blank {
+      background: black; }
   .navbar .btn {
     font-size: 14px;
     padding: 10px 15px; }
@@ -6643,58 +6671,46 @@ body.path-user {
     border-radius: 2px;
     border-color: transparent;
     margin-top: 20px; }
+    .navbar .navbar-toggle .icon-bar {
+      height: 3px;
+      width: 30px; }
+      .navbar .navbar-toggle .icon-bar + .icon-bar {
+        margin-top: 5px; }
   .navbar .logo {
-    max-width: 65%; }
+    max-width: 65%;
+    padding-left: 15px; }
 
 .block-views-blockuser-nav-block-1 {
-  color: #fff; }
-  @media screen and (min-width: 768px) {
-    .block-views-blockuser-nav-block-1 {
-      float: right; } }
+  float: right;
+  color: #fff;
+  margin-right: 10px; }
   .block-views-blockuser-nav-block-1 a {
     color: #fff; }
   .block-views-blockuser-nav-block-1 .user-nav {
     padding: 10px 0;
     position: relative; }
-    @media screen and (min-width: 768px) {
-      .block-views-blockuser-nav-block-1 .user-nav {
-        width: 60px;
-        margin-left: 15px; } }
     .block-views-blockuser-nav-block-1 .user-nav .nav-link {
       line-height: 40px; }
       .block-views-blockuser-nav-block-1 .user-nav .nav-link img {
         border-radius: 50%;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
         display: inline-block; }
-        @media screen and (max-width: 767px) {
-          .block-views-blockuser-nav-block-1 .user-nav .nav-link img {
-            margin-left: 10px;
-            float: right; } }
-      @media screen and (min-width: 768px) {
-        .block-views-blockuser-nav-block-1 .user-nav .nav-link .username {
-          display: none; } }
-      @media screen and (max-width: 767px) {
-        .block-views-blockuser-nav-block-1 .user-nav .nav-link i.fas {
-          display: none; } }
+      .block-views-blockuser-nav-block-1 .user-nav .nav-link .username {
+        display: none; }
     .block-views-blockuser-nav-block-1 .user-nav .user-dropdown {
+      display: none;
+      position: absolute;
+      top: 65px;
+      right: 0;
+      width: 220px;
+      background: rgba(0, 0, 0, 0.9);
+      border-radius: 3px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
       margin: 0;
       padding: 0;
-      padding: 10px;
+      padding: 15px 0;
       list-style: none;
-      z-index: 99; }
-      @media screen and (min-width: 768px) {
-        .block-views-blockuser-nav-block-1 .user-nav .user-dropdown {
-          display: none;
-          position: absolute;
-          top: 85px;
-          right: 0;
-          width: 140px;
-          background: #2b2c30;
-          border-radius: 3px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); } }
-      @media screen and (max-width: 767px) {
-        .block-views-blockuser-nav-block-1 .user-nav .user-dropdown {
-          display: block !important; } }
+      z-index: 200; }
       .block-views-blockuser-nav-block-1 .user-nav .user-dropdown:before {
         content: '';
         position: absolute;
@@ -6704,7 +6720,7 @@ body.path-user {
         height: 0;
         border-style: solid;
         border-width: 0 10px 10px 10px;
-        border-color: transparent transparent #2b2c30 transparent; }
+        border-color: transparent transparent rgba(0, 0, 0, 0.6) transparent; }
       .block-views-blockuser-nav-block-1 .user-nav .user-dropdown li {
         margin: 0;
         padding: 0; }
@@ -6726,61 +6742,125 @@ body.path-user {
 body.toolbar-tray-open .top-bar {
   top: 160px; }
 
-@media screen and (max-width: 767px) {
-  body {
-    transition: all 0.5s ease; }
+body {
+  transition: all 0.5s ease; }
 
-  .parallax-mirror {
-    transition: left 0.5s ease, right 0.5s ease; }
+.body-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1031;
+  display: none;
+  transition: left 0.5s ease; }
 
-  .body-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 999;
-    display: none;
-    transition: left 0.5s ease; }
+.navbar {
+  transition: left 0.5s ease, right 0.5s ease; }
 
-  .navbar {
-    transition: left 0.5s ease, right 0.5s ease; }
+.navbar-collapse {
+  background: #1f2023;
+  box-shadow: inset 2px 4px 6px rgba(0, 0, 0, 0.7);
+  position: fixed;
+  display: block !important;
+  top: 0;
+  right: -240px;
+  width: 240px;
+  height: 100vh !important;
+  margin: 0 !important;
+  max-height: 100vh !important;
+  z-index: 1000;
+  transition: right 0.5s ease; }
+  .navbar-collapse.collapse {
+    display: block !important; }
+    @media screen and (min-width: 768px) {
+      .navbar-collapse.collapse {
+        height: 100vh !important; } }
 
-  .navbar-collapse {
-    background: #1f2023;
-    box-shadow: inset 2px 4px 6px rgba(0, 0, 0, 0.7);
-    position: fixed;
-    display: block !important;
-    top: 0;
-    right: -240px;
-    width: 240px;
-    height: 100vh !important;
-    margin: 0 !important;
-    max-height: 100vh !important;
-    z-index: 1000;
+body.toolbar-fixed.toolbar-horizontal.toolbar-tray-open .navbar-fixed-top .navbar-collapse {
+  padding-top: 79px; }
+
+.top-bar {
+  transition: left 0.5s ease, right 0.5s ease; }
+
+body.nav-open {
+  margin-left: -240px;
+  margin-right: 240px; }
+  body.nav-open .navbar-collapse.open {
+    right: 0;
     transition: right 0.5s ease; }
+  body.nav-open .body-overlay {
+    left: -240px;
+    transition: left 0.5s ease; }
+  body.nav-open .parallax-mirror {
+    left: -240px !important;
+    right: 240px; }
+  body.nav-open .navbar {
+    left: -240px !important;
+    right: 240px; }
+  body.nav-open .top-bar {
+    left: -240px !important;
+    right: 240px; }
 
-  .top-bar {
-    transition: left 0.5s ease, right 0.5s ease; }
+.main-nav {
+  float: right;
+  position: relative; }
+  .main-nav .icon-blocks {
+    display: inline-block;
+    padding: 7px;
+    background: none;
+    border: none;
+    margin: 20px 15px 0;
+    border-radius: 2px;
+    line-height: 6px; }
+    .main-nav .icon-blocks:active, .main-nav .icon-blocks:focus, .main-nav .icon-blocks:hover {
+      background: #333;
+      outline: none; }
+    .main-nav .icon-blocks .icon-block-row {
+      display: block;
+      font-size: 0;
+      height: 6px;
+      margin: 0 0 4px;
+      line-height: 6px;
+      vertical-align: top; }
+      .main-nav .icon-blocks .icon-block-row:last-child {
+        margin-bottom: 0; }
+      .main-nav .icon-blocks .icon-block-row .icon-block {
+        background: #fff;
+        border-radius: 1px;
+        width: 6px;
+        height: 6px;
+        display: inline-block;
+        margin-right: 4px;
+        vertical-align: top; }
+        .main-nav .icon-blocks .icon-block-row .icon-block:last-child {
+          margin-right: 0; }
+  .main-nav .region-navdropdown {
+    display: block;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 75px;
+    right: 0;
+    width: 280px;
+    padding: 15px 0;
+    z-index: 200; }
+    .main-nav .region-navdropdown:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -10px;
+      right: 25px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 10px 10px 10px;
+      border-color: transparent transparent rgba(0, 0, 0, 0.6) transparent; }
 
-  body.nav-open {
-    margin-left: -240px;
-    margin-right: 240px; }
-    body.nav-open .navbar-collapse.open {
-      right: 0;
-      transition: right 0.5s ease; }
-    body.nav-open .body-overlay {
-      left: -240px;
-      transition: left 0.5s ease; }
-    body.nav-open .parallax-mirror {
-      left: -240px !important;
-      right: 240px; }
-    body.nav-open .navbar {
-      left: -240px !important;
-      right: 240px; }
-    body.nav-open .top-bar {
-      left: -240px !important;
-      right: 240px; } }
+@media screen and (max-width: 767px) {
+  .parallax-mirror {
+    transition: left 0.5s ease, right 0.5s ease; } }
 .footer-top {
   background: #333439;
   color: #76777f;

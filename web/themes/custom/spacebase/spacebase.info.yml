@@ -8,8 +8,10 @@ package: 'Bootstrap'
 
 regions:
   navigation: 'Navigation'
+  navdropdown: 'Nav Dropdown'
   navigation_collapsible: 'Navigation (Collapsible)'
-  header: 'header'
+  header: 'Header'
+  branding: 'Branding'
   topbar: 'Top Bar'
   highlighted: 'Highlighted'
   help: 'Help'

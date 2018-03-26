@@ -42,11 +42,19 @@
       
       $('.nav-link').on(clickTap, function (e) {
         e.stopPropagation();
+        $('.main-nav').find('.region-navdropdown').fadeOut(300);
         $('.user-dropdown').fadeToggle(300);
+      });
+      
+      $('.icon-blocks').on(clickTap, function (e) {
+        e.stopPropagation();
+        $('.user-dropdown').fadeOut(300);
+        $('.main-nav').find('.region-navdropdown').fadeToggle(300);
       });
       
       $(document).click(function(e){
         $('.user-dropdown').fadeOut(300);
+        $('.main-nav').find('.region-navdropdown').fadeOut(300);
       });
 
       $(document).on('show.bs.tab', '.nav-tabs-responsive [data-toggle="tab"]', function(e) {
