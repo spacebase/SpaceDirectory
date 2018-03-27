@@ -54,7 +54,6 @@
         "drupal/migrate_process_extra": "1.x-dev",
         "drupal/coder": "^8.2",
         "drupal/markup": "^1.0",
-        "drupal/toggle_editable_fields": "^1.0",
         "drupal/bootstrap_toggle": "^1.0"
 
     },
