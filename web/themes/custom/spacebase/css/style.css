@@ -6737,7 +6737,7 @@ body.path-user {
   right: 0;
   width: 100%;
   z-index: 10;
-  top: 83px; }
+  top: 80px; }
 
 body.toolbar-tray-open .top-bar {
   top: 160px; }
@@ -6845,9 +6845,10 @@ body.nav-open {
     right: 0;
     width: 280px;
     padding: 15px 0;
-    z-index: 200;
-    max-height: 75vh;
-    overflow-y: scroll; }
+    z-index: 200; }
+    .main-nav .region-navdropdown > nav {
+      max-height: 75vh;
+      overflow-y: scroll; }
     .main-nav .region-navdropdown:before {
       content: '';
       display: block;
@@ -7468,6 +7469,7 @@ body.nav-open {
         border-radius: 0 3px 3px 0;
         background: #3bba50;
         font-size: 16px;
+        margin-left: 0;
         padding: 5px;
         text-indent: -9999px;
         position: relative; }
