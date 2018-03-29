@@ -140,6 +140,9 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
       $form['#action'] = $path;
     }
   }
+  else if ($form_id == 'node_resources_edit_form') {
+    $form['revision_information']['#access'] = FALSE;
+  }
   else if ($form_id == 'node_resources_form') {
     foreach ($form['field_tab']['widget']['#options'] as $tid => $value) {
       //kint($value); // This is an object, being replaced with
@@ -170,15 +173,21 @@ function spacebase_core_user_form_submit(&$form, FormStateInterface $form_state)
  * that glues users to groups.
  */
 function spacebase_core_organization_join_submit(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
-  // membership glue content is:
-  $group_content = $form_state->getFormObject()->getEntity();
-  $group = $group_content->getGroup();
+  $group_content_membership = $form_state->getFormObject()->getEntity();
+  $group = $group_content_membership->getGroup();
+
+  // Redirect
   $form_state->setRedirect('entity.group.canonical', ['group' => $group->id()]);
+
+  // And add the role 'verified,' @ToSpec/ToDo unless the $group blocks autoverify
+  $group_content_membership->group_roles->setValue('organization_group-verified');
+  $group_content_membership->save(); // returns 2, SAVED_UPDATED, if working. Add test?
 }
 
 
 function spacebase_core_user_registration_submit(&$form, FormStateInterface $form_state) {
-  drupal_set_message("An email will be sent to you with instructions to verify your email address and complete the sign-up process.");
+  drupal_get_messages(); // dumps the existing message, use ours...
+  drupal_set_message("An email has been sent to you with instructions to verify your email address and complete the sign-up process.");
   $url = url::fromUserInput("/user/login");
   $form_state->setRedirectUrl($url);
 }
