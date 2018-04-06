@@ -77,15 +77,7 @@
 %}
 <article{{ attributes.addClass(classes) }}>
 
-
-  {% for gid, glabel in parent_groups %}
-    {% if gid > 0 %} 
-      <a href="/group/{{ gid }}" class="btn btn-primary">Back to {{ glabel
-}}</a>
-    {% endif %}
-  {% endfor %}
-
-
+  {{ content.field_image }}
 
   {{ title_prefix }}
   {% if not page %}
@@ -94,18 +86,18 @@
     </h2>
   {% endif %}
   {{ title_suffix }}
+  <h1>{{ label }}</h1>
 
   {% if display_submitted %}
-    <footer>
+    <div class="submitted">
       {{ author_picture }}
       <div{{ author_attributes.addClass('author') }}>
         {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
         {{ metadata }}
       </div>
-    </footer>
+    </div>
   {% endif %}
-
   <div{{ content_attributes.addClass('content') }}>
-    {{ content }}
+    {{ content|without('field_image') }}
   </div>
 </article>

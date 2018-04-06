@@ -317,21 +317,6 @@
 
 .member-list{
   h2{
-    .count{
-      background: $brand-primary;
-      color: #fff;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 4px 10px;
-      height: 26px;
-      line-height: 18px;
-      border-radius: 13px;
-      display: inline-block;
-      margin-left: 15px;
-      text-align: center;
-      min-width: 40px;
-      vertical-align: top;
-    }
   }
   .result{
     border-bottom: 1px solid $line;
@@ -452,6 +437,46 @@
     }
     &.table-striped > tbody > tr:nth-of-type(odd){
       background: none;
+    }
+  }
+}
+
+.profile-inner aside.col-sm-3{
+  padding-top: 31px;
+}
+
+.group-nav{
+  ul.menu{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li{
+      display: inline-block;
+      margin: 0 6px 0 0;
+      a{
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 3px 3px 0 0;
+        background: $grey-accent;
+        color: $text;
+        font-weight: 500;
+        &:active,&:focus,&:hover{
+          text-decoration: none;
+          background: lighten($grey-accent,10%);
+        }
+      }
+      &.active{
+        a{
+          background: #fff;
+          padding-bottom: 5px;
+        }
+      }
+      &:first-child{
+        a{
+          background: none;
+          
+        }
+      }
     }
   }
 }

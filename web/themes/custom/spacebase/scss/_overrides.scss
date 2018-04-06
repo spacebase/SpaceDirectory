@@ -179,7 +179,7 @@ body.navbar-is-fixed-top{
   font-size: 18px;
   text-align: center;
   i{
-    margin: 0 0 0 1px;
+    margin: 0;
   }
   &:active,&:focus,&:hover{
     background-color: lighten($brand-secondary,5%) !important;

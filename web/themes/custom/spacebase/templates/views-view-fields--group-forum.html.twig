@@ -33,7 +33,7 @@
 #}
 
 <div class="admin-links">
-  <span class="pin"><i class="fas fa-thumbtack"></i> {{ fields.field_pin_to_top.content }}</span>
+  <span class="pin"><i class="fas fa-thumbtack {% if 'Pinned' in fields.field_pin_to_top_1.content|striptags %}pinned{% endif %}"></i> {{ fields.field_pin_to_top.content }}</span>
   {{ fields.edit_node.content }}
   {{ fields.delete_node.content }}
 </div>

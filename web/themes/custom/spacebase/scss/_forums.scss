@@ -3,24 +3,52 @@
     margin-bottom: 10px;
   }
   .views-row{
-    padding: 15px 0;
+    padding: 15px 20px 15px 0;
     border-bottom: 1px solid $line;
     position: relative;
     .admin-links{
       display: none;
       position: absolute;
-      top: -5px;
-      right: 0;
+      top: 15px;
+      right: 0px;
       text-align: right;
       z-index: 2;
+      i.fa-trash-alt{
+        &:hover{
+          color: $red;
+        }
+      }
+      i.fa-edit{
+        &:hover{
+          color: $brand-secondary;
+        }
+      }
+      i.fa-thumbtack{
+        &.pinned{
+          color: $gold;
+        }
+      }
+      >a{
+        display: block;
+        text-align: center;
+        width: 20px;
+      }
       > span{
-        margin-left: 5px;
+        margin-left: 0;
+        display: block;
+        text-align: center;
+        width: 20px;
         div,form{
           display: inline-block;
         }
       }
       .checkbox{
         margin: 0;
+        input[type="checkbox"]{
+          position: static;
+          margin-right: -10px;
+          visibility: hidden;
+        }
       }
       .toggle{
         &.off{
@@ -103,4 +131,117 @@
       display: block;
     }
   }
+}
+
+.post-comment-count{
+  font-weight: bold;
+  padding: 20px 0 10px;
+  margin: 0 0 20px;
+  border-bottom: 1px solid $line;
+  color: $link-color;
+  font-size: 16px;
+}
+
+article.forum-comment{
+  padding: 15px 0;
+  .submitted{
+    color: $text-light;
+    line-height: 25px;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0 0 15px;
+    a{
+      font-weight: bold;
+    }
+    .field--name-user-picture{
+      margin: 0 10px 0 0;
+      float: left;
+      margin-right: 10px;
+      img{
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+      }
+    }
+  }
+  .field--name-comment-body{
+    margin: 0 0 15px 35px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  ul.links{
+    font-size: 10px;
+    font-weight: 500;
+    margin: 0 0 0 35px;
+    border-radius: 0;
+    background: none;
+    padding: 0;
+    li{
+      padding: 0;
+      margin-right: 10px;
+    }
+  }
+}
+
+.indented{
+  margin-left: 25px;
+  > article.forum-comment{
+    padding-left: 20px;
+    border-left: 2px solid $line;
+  }
+}
+
+.page-node-type-group-forum-topic{
+  .field--name-field-image{
+    float: left;
+    margin: 0 25px 20px 0;
+  }
+  h1{
+    margin: 0 0 0.5em;
+  }
+  .field--name-field-pin-to-top{
+    position: absolute;
+    top: -35px;
+    right: -15px;
+    div{
+      display: inline-block;
+    }
+    input[type="checkbox"]{
+      position: static;
+      margin: 0;
+    }
+  }
+  .submitted{
+    color: $text-light;
+    line-height: 25px;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0 0 15px;
+    a{
+      font-weight: bold;
+    }
+    .field--name-user-picture{
+      margin: 0 10px 0 0;
+      float: left;
+      margin-right: 10px;
+      img{
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+      }
+    }
+  }
+  #cboxTitle{
+    right: 0;
+    top: 0;
+    text-align: center;
+    padding: 2px 10px;
+    background: rgba(0,0,0,0.7);
+  }
+}
+
+.add-comment{
+  padding: 30px 0;
+  border-top: 1px solid $line;
+  margin-top: 40px;
 }

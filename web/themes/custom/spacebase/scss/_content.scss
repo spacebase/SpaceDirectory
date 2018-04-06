@@ -7,6 +7,24 @@
   h2{
     margin: 0 0 30px;
   }
+  h3{
+    font-size: 20px;
+    .count{
+      background: $brand-primary;
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 2px 8px;
+      height: 20px;
+      line-height: 16px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-left: 10px;
+      text-align: center;
+      min-width: 40px;
+      vertical-align: top;
+    }
+  }
   &.login{
     max-width: 400px;
     margin: 35px auto 35px;
@@ -27,6 +45,9 @@ body.path-user{
   background: #000 url(../images/earth-from-space-1.jpg) center top no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  &.user-profile{
+    background: $grey-bg;
+  }
 }
 
 .flex-boxes{

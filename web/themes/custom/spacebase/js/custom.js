@@ -73,6 +73,15 @@
         updateDropdownMenu( $next, 'right' );
       });
       
+      $('.admin-links').find('.fa-thumbtack').on(clickTap,function(){
+        $(this).parent().find('.checkbox-toggle').click();
+        if ($(this).parent().find('.checkbox-toggle').is(":checked")){
+          $(this).addClass('pinned');
+        } else {
+          $(this).removeClass('pinned');
+        }
+      });
+      
     }
   };
 

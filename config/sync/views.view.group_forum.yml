@@ -1049,7 +1049,7 @@ display:
       use_more_always: true
       use_more_text: 'view all discussions'
       link_url: 'group/{{ raw_arguments.gid }}/forum'
-      link_display: custom_url
+      link_display: '0'
       css_class: forum-list-view
     cache_metadata:
       max-age: -1
@@ -1131,7 +1131,7 @@ display:
       display_extenders: {  }
       block_description: 'Org Home Forum - Fields'
       display_description: ''
-      use_more: true
+      use_more: false
       defaults:
         use_more: false
         use_more_always: false
@@ -1172,8 +1172,8 @@ display:
           empty: false
           tokenize: true
           content:
-            value: "<h3>[view:title]</h3>\n<a href=\"/group/{{ raw_arguments.gid }}\">{{ arguments.gid }} Home</a>"
-            format: basic_html
+            value: '<h1>[view:title]</h1>'
+            format: raw_html
           plugin_id: text
       defaults:
         header: false
