@@ -239,19 +239,31 @@ class ToggleEditableFormatter extends FormatterBase implements ContainerFactoryP
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
+
     foreach ($items as $delta => $item) {
       // We create an instance of element form to edit field first and,
       // initialize Form object with item definition to make a form id dynamic.
-      $form_object = $this->classResolver->getInstanceFromDefinition(AjaxToggleForm::class);
-      $form_object->setFieldItem($item, $this->getSettings());
-      //kint($this->getSettings()); // weird values here, not always default, not what i set. @ToDo
-      // @ToDo
-      // Access is weird. Can I overwrite just this class later? I'm overwriting a lot of this module...
-      //kint($item); //FieldItemDataDefinition
-      //kint($item->getEntity());
 
-      $form_state = new FormState();
-      $elements[$delta] = $this->formBuilder->buildForm($form_object, $form_state);
+      // #Pins-field-access
+      // Only return the form at all if they can edit it.
+      // ( SpaceBase diverged from ToggleEditableForm here,
+      //   the module wants to print an un-editable form.
+      //   #ToDo: config this, and contribute it?
+      //
+      //if ( $node->get($fieldname)->access('edit') ) {
+      $fieldname = $this->fieldDefinition->getName();
+      $node = $items->getParent()->getValue();
+      if ( $node->$fieldname->access('edit') ) {
+        // Does checking the field also check the node? @ToDo
+        // If not, expect some forms to pass this step, and be view-only
+        // as ToggleEditableFormatter previously did (low priority)
+
+        $form_object = $this->classResolver->getInstanceFromDefinition(AjaxToggleForm::class);
+        $form_object->setFieldItem($item, $this->getSettings());
+
+        $form_state = new FormState();
+        $elements[$delta] = $this->formBuilder->buildForm($form_object, $form_state);
+      }
     }
 
     return $elements;

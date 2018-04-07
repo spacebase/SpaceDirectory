@@ -94,12 +94,11 @@ class AjaxToggleForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
+    //$this->entity->bundle();
+    // group_forum_topic ... so yes, a node
+
     $form['#tree'] = TRUE;
-    // @ToDo: probably move this earlier, SpaceBase doesn't want
-    // un-editable checkboxes.
-    if (!$this->entity->access('edit')) {
-      return $form;
-    }
+
     $form['checkbox'] = [
       '#type' => 'checkbox',
       '#default_value' => $this->defaultValue,
@@ -114,7 +113,11 @@ class AjaxToggleForm extends FormBase {
         ],
       ],
       //@ToDo: This is too hard-coded for SpaceBase's needs
-      '#disabled' => !$this->entity->access('edit'),
+      //Also, $account doesn't seem to be set here.
+      //Did I break that? Misinterpret? Find an error?
+      //We might want this on the node view, not the view view...
+      //Current specs say: comment it out!
+      //'#disabled' => !$this->entity->access('edit'),
     ];
     // print "<p>The entity this checks for access is: ";
     // print $this->entity->label();
