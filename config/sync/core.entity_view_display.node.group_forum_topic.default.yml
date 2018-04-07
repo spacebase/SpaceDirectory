@@ -48,8 +48,8 @@ content:
     settings:
       'on': 'On'
       'off': 'Off'
-      size: small
-      onstyle: success
+      size: large
+      onstyle: warning
       offstyle: default
       height: null
       width: null

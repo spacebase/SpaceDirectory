@@ -52,13 +52,14 @@ function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
     if ($group->hasPermission('create group_node:group_forum_topic entity', $account)) {
       $show_reply = TRUE;
     }
+    //@ToDo: this doesn't belong here, does it? Moved to hook_entity_field_access
     if ($group->hasPermission('organization_group-admin[administer group]', $account)) {
       $show_pin = TRUE;
     }
   }
   if (!$show_reply) {
     $variables['content']['field_reply'] = array('#markup'  =>
-      t("Join this organization to leave a comment"));
+      t("Join this organization to leave a comment."));
   }
   // #show-pin-access will probably change
   if (!$show_pin) {
@@ -67,6 +68,69 @@ function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
 
 }
 
+// @ToDo: these use statements from example, probably not all needed:
+
+// Use statements to support hook_entity_field_access.
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Access\AccessResult;
+
+// Interfaces used by entities to declare "ownership".
+use Drupal\user\EntityOwnerInterface;
+use Drupal\user\UserInterface;
+
+// Use statements for hook_entity_test_access.
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_entity_field_access().
+ *
+ * #Pins-field-access - Only group Admins can set the pins
+ *
+ */
+
+function spacebase_core_entity_field_access($operation, \Drupal\Core\Field\FieldDefinitionInterface $field_definition, \Drupal\Core\Session\AccountInterface $account, \Drupal\Core\Field\FieldItemListInterface $items = NULL) {
+
+
+  // Caching: unfortunately, group membership means we need to know
+  // if this user is an Admin of any groups, user-specific caches/
+  // @ToDo: does it matter that we cache all the other fields?
+  $result = AccessResult::neutral();
+  $result->addCacheContexts(['user']);
+
+  // Edit the pin? Matches ability to edit the group (not the node)
+  // Forbid access to this field except for admins
+  if ($field_definition->getName() == 'field_pin_to_top') {
+    if ($operation == 'edit') {
+      // Need the node, to get the group, to see if $account is an Admin
+      if ($items) {
+        $node = $items->getEntity();
+
+        // Warning: new nodes being created need to use form_alter @ToDo,
+        // this function fails to forbid them.
+        if ($node->isNew()) {
+          // Can't loadByEntity a node in the create-new form.
+          // So there's no clean way to know the group
+          // ( just $_GET['destination'] = group/$gid )
+          return $result;
+        }
+
+        foreach (GroupContent::loadByEntity($node) as $group_content) {
+          $group = $group_content->getGroup();
+          if ($group->hasPermission('organization_group-admin[administer group]', $account)) {
+            $result = AccessResult::allowed();
+            return $result->addCacheContexts(['user']);
+          }
+        }
+      }
+      $result = AccessResult::forbidden();
+    }
+
+  }
+  return $result;
+
+}
 
 /** Implements hook_preprocess_group() on behalf of spacebase_core.module.
  *
@@ -170,6 +234,7 @@ function spacebase_core_preprocess_group(&$variables) {
  * Implements hook_form_alter() on behalf of spacebase_core.module.
  */
 function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
   if ($form_id == 'user_register_form') {
     $form['actions']['submit']['#submit'][] = 'spacebase_core_user_registration_submit';
   }
@@ -179,10 +244,17 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
   else if ($form['#id'] == 'group-content-group-content-type-569a59a77cd78-group-join-form' ) {
     $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_join_submit';
   }
+  else if ($form_id == 'group_organization_group_add_form') {
+    // #show-pin-access #Pins-field-access
+    // http://space-base.lndo.site
+    //  group/16/content/create/group_node%3Agroup_forum_topic?destination=/group/16
+    // look at $form_state;
+    // $form_state build_info callback_object entity is a group
+
+  }
   else if ($form['#id'] == 'views-exposed-form-sitewide-search-search') {
     $form['keywords']['#attributes']['placeholder'] = 'Search';
     $path = \Drupal::service('path.current')->getPath();
-
     $form['#action'] = '/search';
     if (strpos($path, '/search/') === 0) {
       $form['#action'] = $path;
@@ -200,6 +272,8 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
       }
     }
   }
+
+
 }
 
 /** Submit function to redirect user to profile after edit
