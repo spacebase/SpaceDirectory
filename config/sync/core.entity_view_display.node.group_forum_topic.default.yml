@@ -42,11 +42,12 @@ content:
     settings:
       'on': 'On'
       'off': 'Off'
-      size: small
-      onstyle: success
+      size: large
+      onstyle: warning
       offstyle: default
-      height: null
-      width: null
+      height: 432
+      width: 21
+      toggle: '1'
     third_party_settings: {  }
     type: toggle_editable_formatter
     region: content
