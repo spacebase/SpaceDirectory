@@ -113,18 +113,11 @@ class AjaxToggleForm extends FormBase {
         ],
       ],
       //@ToDo: This is too hard-coded for SpaceBase's needs
-      //Also, $account doesn't seem to be set here.
-      //Did I break that? Misinterpret? Find an error?
       //We might want this on the node view, not the view view...
       //Current specs say: comment it out!
       //'#disabled' => !$this->entity->access('edit'),
     ];
-    // print "<p>The entity this checks for access is: ";
-    // print $this->entity->label();
-    // Use the Bootstrap toggle? This is the default for the module.
-    // Weird, the settings are a mix of defaults... and something.
-    // @ToDo
-    //kint($this->fieldSettings);
+
     if ( $this->fieldSettings['toggle'] ) {
       $form['checkbox']['#attributes']['data-toggle'] = 'toggle';
 

@@ -266,7 +266,23 @@ class ToggleEditableFormatter extends FormatterBase implements ContainerFactoryP
       }
     }
 
-    return $elements;
+    // Problem: passing null array gets altered to have explanations, and
+    // then gets printed with css.
+    if (!empty($elements)){
+      return $elements;
+    } else {
+      // At least in dev environments, blank elements get descriptive markup,
+      // but we need an "if." @ToDo Might be a way to do cut this and use
+      // something always returned by a success.
+      return [
+        $delta => array
+        (
+          //'#markup' => t('This user cannot edit this pin'),
+          '#prefix' => '<p class="cannot_edit">',
+          '#suffix' => '</p>'
+        ),
+      ];
+    }
   }
 
 }
