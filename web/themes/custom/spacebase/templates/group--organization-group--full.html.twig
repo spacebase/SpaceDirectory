@@ -45,7 +45,7 @@
 
       <div class="box">
           
-        <h3>External Resources <span class="count">X</span></h3>
+        <h3>External Resources <span class="count">{{resource_total}}</span></h3>
         
         <ul class="resources-overview">
             {% for key, value in resource_type %}
@@ -60,7 +60,7 @@
         </ul>
         
         <div class="more-link">
-          <a href="{{group_url}}/resources" class="btn btn-block">View All XX Resources</a>
+          <a href="{{group_url}}/resources" class="btn btn-block">View All {{resource_total}} Resources</a>
         </div>
 
         <div class="hidden">
