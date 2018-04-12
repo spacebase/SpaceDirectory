@@ -30,6 +30,11 @@
  * @see template_preprocess_views_view()
  *
  * @ingroup themeable
+ *
+ *
+ * SpaceBase notes:
+ * {{ view.result|length }}
+ *   shows the number of results returned: which maxes out based on paging
  */
 #}
 {%
@@ -42,7 +47,7 @@
   {{ title }}
   {{ title_suffix }}
   
-  <h3>Members <span class="count">{{ view.total_rows }}</span></h3>
+  <h3>Discussion <span class="count">{{ view.total_rows }}</span></h3>
 
   {% if header %}
     <header>
@@ -68,8 +73,3 @@
 
   {{ feed_icons }}
 </div>
-
-<div class="more-link">
-  <a href="{{group_url}}/members" class="btn btn-block">View All {{ view.total_rows }} Members</a>
-</div>
-

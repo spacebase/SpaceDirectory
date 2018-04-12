@@ -34,15 +34,14 @@
   </div>
   <div class="row">
     <div class="col col-sm-12 flex-boxes" id="flexboxes">
-      
-      
-      
-    <div class="box">
-      <h3>Discussions <span class="count">X</span></h3>
-      {{ drupal_view('group_forum', 'block_3') }}
 
-          <a href="{{group_url}}/forum" class="btn btn-block">View All XX Discussions</a>
-    </div>
+
+
+      <div class="box">
+        {{ drupal_view('group_forum', 'block_3') }}
+      </div>
+
+
 
       <div class="box">
           
@@ -102,10 +101,6 @@
     
     <div class="box">
       {{ drupal_view('group_members', 'block_1') }}
-        
-        <div class="more-link">
-          <a href="{{group_url}}/members" class="btn btn-block">View All XX Members</a>
-        </div>
     </div>
     
     
