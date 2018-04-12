@@ -8,6 +8,7 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
+use Drupal\views\Views;
 
 
 /**
@@ -227,6 +228,18 @@ function spacebase_core_preprocess_group(&$variables) {
   foreach ($terms as $term) {
     $variables['resource_type'][] = $term->name;
   }
+  
+  $view = Views::getView('organization_resources');
+  $view->setDisplay('block_2');  // No terms used in this display
+  $view->setArguments([$group->id()]);
+  $view->execute();
+  //$view->serialize();
+  //$preview = $view->preview(); //  execute but don't render
+  $variables['resource_total'] = $view->total_rows;
+  kint( $preview);
+
+
+
 }
 
 
