@@ -72,30 +72,55 @@
           {% endblock %}
         {% endif %}
 
+
+
         {# Content #}
         {% block content %}
           <a id="main-content"></a>
+
+
+{#    MIKE: which way should we do this?   Standard sidebars or hard-code
+template? Erase the other, and remove from blocks I think (the sidebar_first is
+set up in the browser, but I don't see where it's used.) #}
+
+
+        {# Group profile in right sidebar.#}
         <div class="row profile-inner">
           <aside class="col-sm-3 pull-right">
             <div class="box">
-              
-            {{ drupal_view('group_profile', 'block_1',14) }}
+            {{ drupal_view('group_profile', 'block_1') }}
             </div>
           </aside>
+
+
+      {# Sidebar First  Discuss with Mike putting it back like this?  
+      {% if page.sidebar_first %}
+        {% block sidebar_first %}
+          <aside class="col-sm-3 pull-right" role="complementary">
+            <box>
+            {{ page.sidebar_first }}
+            </box>
+          </aside>
+        {% endblock %}
+      {% endif %}
+#}
+
+
+
           <article{{ attributes.addClass('col-sm-9') }}>
-            <div class="group-nav">
-              
-              <ul class="menu">
-                <li><a href="#"><i class="fas fa-chevron-left"></i> <i class="fas fa-home"></i></a>
-                <li class="active"><a href="#">discussions</a>
-                <li><a href="#">resources</a>
-                <li><a href="#">members</a>
-              </ul>
-              
-            </div>
+
+            {{ drupal_block('org_menu_block') }}
+
+
+{# @ToDo: this is from forum page. Must be done custom something something #}
             <div class="box">
-          
-            {{ page.content }}
+              {% if group_links.group_create_group_forum_topic %}
+                <a href="{{group_links.group_create_group_forum_topic}}" 
+                class="btn btn-circle pull-right"><span class="icon"><i 
+                class="fas fa-plus-circle"></i></span></a>
+              {% endif %}
+
+              {{ page.content }}
             
             </div>
           </article>

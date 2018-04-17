@@ -133,6 +133,49 @@ function spacebase_core_entity_field_access($operation, \Drupal\Core\Field\Field
 
 }
 
+/** Implements template_preprocess_views_view(&$variables)
+ * @ToDo: this isn't right for the Forum page, because it's a page.
+ * But one day it will be a normal view again!
+
+function spacebase_core_preprocess_views_view(&$variables) {
+  // @ToDo: this is called for views, preprocess_group runs those views too.
+  // This seems to get fired a lot. Why? I'm seeing 83 as the arg, what is that?
+  $id = $variables['id'];
+  print $id;
+  kint($variables);
+  $variables['page']['#title'] = 'Changed';
+  if ($variables['id'] == "group_forum") {
+    $view = $variables['view'];
+    $group = $group = Drupal\group\Entity\Group::load($view->args[0]);
+    _set_the_group_links($variables, $group);
+    $variables['whatnowToDo'] = 'whatnow';
+    $variables['page']['#title'] = 'Changed';
+  }
+  print $id; // check $variables,is it being set?
+}
+*/
+function spacebase_core_preprocess_page(&$variables) {
+  // @ToDo: this is called for views, preprocess_group runs those views too.
+  // This seems to get fired a lot. Why? I'm seeing 83 as the arg, what is that?
+
+  kint($variables);
+  print $variables['page']['#title'];
+/*
+  $variables['page']['#title'] = 'Changed';
+  print $variables['page']['#title'];
+  if ($variables['id'] == "group_forum") {
+    $view = $variables['view'];
+    $group = $group = Drupal\group\Entity\Group::load($view->args[0]);
+    _set_the_group_links($variables, $group);
+    $variables['whatnowToDo'] = 'whatnow';
+    $variables['page']['#title'] = 'Changed';
+  }
+  $variables['whatnowToDo2'] = 'whatnow';
+*/
+}
+
+
+
 /** Implements hook_preprocess_group() on behalf of spacebase_core.module.
  *
  * Prepare theme variables to show links/buttons to join, leave, or create
@@ -147,8 +190,7 @@ function spacebase_core_preprocess_group(&$variables) {
   // @ToDo: test
 
   $group = $variables['group'];
-  $account = \Drupal::currentUser(); //or $variables['user']; ?
-  // Note: if users can administer a group, all permissions are true.
+
 
   /** Thoughts on code duplication:
    
@@ -168,7 +210,48 @@ function spacebase_core_preprocess_group(&$variables) {
    * from a more generalized approach that provides the links so that 
    * they can be grabbed by any function, rather than locked into the
    * operations links function.
-   */  
+   */
+  _set_the_group_links($variables, $group);
+
+}
+
+
+/**
+ * Implements ().
+
+function spacebase_core_theme_suggestions_page(array &$suggestions, array $variables, $hook) {
+  print "suggestionsz_page";
+  kint($suggestions);
+  print_r($suggestions);
+}
+ */
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function spacebase_core_theme_suggestions_page_alter(array &$suggestions, array $variables, $hook) {
+
+  //@ToDo, when do I add this? Or is this whole page thing silliness?
+//  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+//$route = \Drupal::routeMatch()->getRawParameter();
+  $current_path = \Drupal::service('path.current')->getPath();
+  // group/x/members, discussions, and
+  //$route = \Drupal::routeMatch()->getRouteName();
+  // view.group_forum.page_1
+  if (preg_match('/group\/\d*\/(forum|members|resources)/',$current_path)) {
+    $suggestions[] = 'page__org_profile';
+  }
+}
+
+
+/** function _set_the_group_links($variables, $group) {
+ *
+ * A variety of pre-process type functions (specs are still shifting) need
+ * to set some variables based on the group.
+ */
+function _set_the_group_links(&$variables, $group) {
+  $account = \Drupal::currentUser(); //or $variables['user']; ?
+  // Note: if users can administer a group, all permissions are true.
 
   /** Group tabs need url repeatedly. Just a shortcut */
   $variables['group_url'] = '/group/' . $group->id();
@@ -209,7 +292,7 @@ function spacebase_core_preprocess_group(&$variables) {
     }
   }
 
-  /* Leave and join depend on membership status AND permission */  
+  /* Leave and join depend on membership status AND permission */
   if ($group->getMember($account)) {
 
     if ($group->hasPermission('leave group', $account)) {
@@ -240,6 +323,7 @@ function spacebase_core_preprocess_group(&$variables) {
   //$view->serialize();
   //$preview = $view->preview(); //  execute but don't render
   $variables['resource_total'] = $view->total_rows;
+
 }
 
 // we repeatedly need the resource_type variable.
@@ -353,12 +437,18 @@ function spacebase_core_theme($existing, $type, $theme, $path) {
     // What is theme name? What is template?
     'group_resources' => [
       // Seems to work with underscores or dashes.
-      'template' => 'grouppageresources',
+      'template' => 'org-resources',
       'variables' => [
-        // loads it twice.
         'resource_type' => [], //_get_resource_type(),
         'group_id' => '',
         'group_links' => []
+      ],
+    ],
+    'menu_org_profile' => [
+      'template' => 'menu_org_profile',
+      'variables' => [
+        'active' => [],
+        'gid' => ''
       ],
     ],
   ];
