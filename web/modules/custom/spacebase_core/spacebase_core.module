@@ -158,8 +158,7 @@ function spacebase_core_preprocess_page(&$variables) {
   // @ToDo: this is called for views, preprocess_group runs those views too.
   // This seems to get fired a lot. Why? I'm seeing 83 as the arg, what is that?
 
-  kint($variables);
-  print $variables['page']['#title'];
+// @ToDo: delete this all?
 /*
   $variables['page']['#title'] = 'Changed';
   print $variables['page']['#title'];
@@ -167,10 +166,7 @@ function spacebase_core_preprocess_page(&$variables) {
     $view = $variables['view'];
     $group = $group = Drupal\group\Entity\Group::load($view->args[0]);
     _set_the_group_links($variables, $group);
-    $variables['whatnowToDo'] = 'whatnow';
-    $variables['page']['#title'] = 'Changed';
   }
-  $variables['whatnowToDo2'] = 'whatnow';
 */
 }
 
