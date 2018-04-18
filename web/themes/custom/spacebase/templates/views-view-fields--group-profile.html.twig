@@ -22,17 +22,16 @@
   <span class="btn-block">
   
   {# drupal_region('groupmgt')#}
-  
-  {# if logged_in == false #}
+  {% if logged_in == false %}
     <a href="/user/register" class="btn btn-primary btn-block">Join SpaceBase</a>
-  {# elseif group_links.leave #}
+  {% elseif group_links.leave %}
     <a href="#"  class="btn btn-primary btn-block">Leave organization</a>
-  {# elseif group_links.join  #}
+  {% elseif group_links.join  %}
     <a href="#" class="btn btn-primary btn-block">Join Organization</a>
-  {# endif #}
-  {# if logged_in #}
+  {% endif %}
+  {% if logged_in %}
   <br/>
   <a href="/recommend" class="btn btn-secondary btn-block">Recommend Us</a>
-  {# endif #}
+  {% endif %}
 
   </span>
