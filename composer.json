@@ -53,7 +53,8 @@
         "drupal/views_block_filter_block": "1.x-dev",
         "drupal/migrate_process_extra": "1.x-dev",
         "drupal/coder": "^8.2",
-        "drupal/markup": "^1.0"
+        "drupal/markup": "^1.0",
+        "drupal/calendar": "1.x-dev"
     },
     "require-dev": {
         "behat/mink": "~1.7",
@@ -113,6 +114,10 @@
           },
           "drupal/group": {
             "Fix: Group creators get duplicate entries": "https://www.drupal.org/files/issues/duplicate-members-on-group-create-fixed-2923297-3.patch"
+          },
+          "drupal/calendar": {
+              "Calendar Pager not rendering contextual filters": "https://www.drupal.org/files/issues/2018-04-04/calendar-pager_not_rendering_contextual_filters-2810739-4.patch",
+              "Calendar not display because of : .size() deprecated": "https://www.drupal.org/files/issues/2938872-replace-size-by-length_0.patch"
           }
         }
     },
