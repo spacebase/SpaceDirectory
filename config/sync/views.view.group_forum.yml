@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
     - field.storage.node.body
     - field.storage.node.field_image
     - field.storage.node.field_pin_to_top
@@ -1073,40 +1072,6 @@ display:
     display_options:
       display_extenders: {  }
       block_description: 'Organization Forum - Fields'
-      display_description: ''
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - route
-        - url
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_image'
-        - 'config:field.storage.node.field_pin_to_top'
-        - 'config:field.storage.user.user_picture'
-  block_2:
-    display_plugin: block
-    id: block_2
-    display_title: Block-Teasers
-    position: 1
-    display_options:
-      display_extenders: {  }
-      block_description: 'Organization Forum - Teasers'
-      style:
-        type: default
-        options: {  }
-      defaults:
-        style: false
-        row: false
-      row:
-        type: 'entity:node'
-        options:
-          relationship: none
-          view_mode: teaser
       display_description: ''
     cache_metadata:
       max-age: -1

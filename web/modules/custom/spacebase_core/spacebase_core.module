@@ -135,25 +135,18 @@ function spacebase_core_entity_field_access($operation, \Drupal\Core\Field\Field
 
 /** Implements template_preprocess_views_view(&$variables)
  * @ToDo: this isn't right for the Forum page, because it's a page.
- * But one day it will be a normal view again!
+ * But one day it will be a normal view again! Today!
+ */
 
 function spacebase_core_preprocess_views_view(&$variables) {
-  // @ToDo: this is called for views, preprocess_group runs those views too.
-  // This seems to get fired a lot. Why? I'm seeing 83 as the arg, what is that?
-  $id = $variables['id'];
-  print $id;
-  kint($variables);
-  $variables['page']['#title'] = 'Changed';
-  if ($variables['id'] == "group_forum") {
+
+  if ($variables['id'] == "group_forum" && $variables['display_id'] == 'page_1') {
     $view = $variables['view'];
     $group = $group = Drupal\group\Entity\Group::load($view->args[0]);
     _set_the_group_links($variables, $group);
-    $variables['whatnowToDo'] = 'whatnow';
-    $variables['page']['#title'] = 'Changed';
   }
-  print $id; // check $variables,is it being set?
 }
-*/
+
 function spacebase_core_preprocess_page(&$variables) {
   // @ToDo: this is called for views, preprocess_group runs those views too.
   // This seems to get fired a lot. Why? I'm seeing 83 as the arg, what is that?
@@ -246,8 +239,16 @@ function spacebase_core_theme_suggestions_page_alter(array &$suggestions, array 
  * to set some variables based on the group.
  */
 function _set_the_group_links(&$variables, $group) {
+  $current_uri = \Drupal::request()->getRequestUri(); // @ToTest:
+  // This is for destinations ... do we want as much path as possible,
+  // like pages, when someone comes back after signing up? I think so, test
+  // use cases.
+  // Previously destination was /group/' . $group->id(); when this was simpler.
+  // $url = \Drupal\Core\Url::fromRoute('<current>');
+
   $account = \Drupal::currentUser(); //or $variables['user']; ?
   // Note: if users can administer a group, all permissions are true.
+
 
   /** Group tabs need url repeatedly. Just a shortcut */
   $variables['group_url'] = '/group/' . $group->id();
@@ -284,7 +285,7 @@ function _set_the_group_links(&$variables, $group) {
       $route_params = ['group' => $group->id(), 'plugin_id' => $plugin_id];
       $url = new Url('entity.group_content.create_form', $route_params);
       $variables['group_links']['group_create_'. $id] =
-        $url->toString() . '?destination=/group/' . $group->id();
+        $url->toString() . '?destination=' . $current_uri;
     }
   }
 
