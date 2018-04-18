@@ -5,7 +5,9 @@
                 <li class="{{active.forum}}"><a href="/group/{{gid}}/forum">discussions</a>
                 <li class="{{active.resources}}"><a
 href="/group/{{gid}}/resources">resources</a>
+                {% if logged_in %}
                 <li class="{{active.members}}"><a href="/group/{{gid}}/members">members</a>
+                {% endif %}
               </ul>
 
             </div>
