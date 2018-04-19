@@ -93,7 +93,7 @@ set up in the browser, but I don't see where it's used.) #}
           </aside>
 
 
-      {# Sidebar First  Discuss with Mike putting it back like this?  
+      {# Sidebar First  Discuss with Mike putting it back like this?  @ToDo/@ToDiscuss
       {% if page.sidebar_first %}
         {% block sidebar_first %}
           <aside class="col-sm-3 pull-right" role="complementary">
@@ -110,17 +110,7 @@ set up in the browser, but I don't see where it's used.) #}
           <article{{ attributes.addClass('col-sm-9') }}>
 
             {{ drupal_block('org_menu_block') }}
-
-
-{# @ToDo: this is from forum page. Must be done custom something something #}
-            <div class="box">
-              {% if group_links.group_create_group_forum_topic %}
-                <a href="{{group_links.group_create_group_forum_topic}}" 
-                class="btn btn-circle pull-right"><span class="icon"><i 
-                class="fas fa-plus-circle"></i></span></a>
-              {% endif %}
-
-              {{ page.content }}
+            {{ page.content }}
             
             </div>
           </article>

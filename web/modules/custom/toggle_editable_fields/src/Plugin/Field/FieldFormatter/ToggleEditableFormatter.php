@@ -254,9 +254,7 @@ class ToggleEditableFormatter extends FormatterBase implements ContainerFactoryP
       $fieldname = $this->fieldDefinition->getName();
       $node = $items->getParent()->getValue();
       if ( $node->$fieldname->access('edit') ) {
-        // Does checking the field also check the node? @ToDo
-        // If not, expect some forms to pass this step, and be view-only
-        // as ToggleEditableFormatter previously did (low priority)
+        // (Also checks the container->parent node's access
 
         $form_object = $this->classResolver->getInstanceFromDefinition(AjaxToggleForm::class);
         $form_object->setFieldItem($item, $this->getSettings());
@@ -272,12 +270,11 @@ class ToggleEditableFormatter extends FormatterBase implements ContainerFactoryP
       return $elements;
     } else {
       // At least in dev environments, blank elements get descriptive markup,
-      // but we need an "if." @ToDo Might be a way to do cut this and use
-      // something always returned by a success.
+      // but we need an "if." @ToDo Might be a way to do cut this in the theme
+      // and just return null if empty.  nbd/theme might change anyway
       return [
         $delta => array
         (
-          //'#markup' => t('This user cannot edit this pin'),
           '#prefix' => '<p class="cannot_edit">',
           '#suffix' => '</p>'
         ),

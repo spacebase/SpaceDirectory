@@ -1,5 +1,11 @@
 ## About Toggle Editable Fields
 
+SpaceBase's version is a fork: using this module but with very heavy changes.
+There may be some pieces that can be contributed back; but our use case varies
+quite a bit.
+
+
+
 It provides a toggle formatter to edit fields in it view representation 
 for Boolean field type.
 

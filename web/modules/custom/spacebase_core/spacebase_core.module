@@ -148,15 +148,11 @@ function spacebase_core_preprocess_views_view(&$variables) {
     *  going to stop now. But expect this code to be useful soon,
     *  or else erase it...
 
-    $account = \Drupal::currentUser(); //or $variables['user']; ?
-
     // Prevent non-admin from seeing admin buttons (that won't work = not security issue)
     $view = $variables['view'];
     $group = Drupal\group\Entity\Group::load($view->args[0]);
     // Am I not an admin of the group?
     if (!$group->hasPermission('administer members', $account)) {
-      // remove admin options from display
-      kint($variables);
     }
    */
   }
@@ -185,16 +181,13 @@ function spacebase_core_preprocess_views_view_fields(&$variables) {
  * you already joined) set variables and make url's available to theme.
  */
 function spacebase_core_preprocess_group(&$variables) {
-  // I believe this will follow the same cache rules as
-  // groups, if I don't change the cache rules here.
-  // @ToDo: test
 
   $group = $variables['group'];
 
 
   /** Thoughts on code duplication:
    
-   * The first version of this worked mlore like the group module's operations
+   * The first version of this worked more like the group module's operations
    * link code, which unfortunately is written in a way hard to reuse.
    * I think the new way is simpler, and should be the last step for 
    * SpaceBase ... so easier for themers and less extensible.
@@ -228,16 +221,13 @@ function spacebase_core_theme_suggestions_page(array &$suggestions, array $varia
 
 /**
  * Implements hook_theme_suggestions_alter().
+ *
+ * The Org-Profile sub-pages (forum, members, and resources for now)
+ * use this page template.
  */
 function spacebase_core_theme_suggestions_page_alter(array &$suggestions, array $variables, $hook) {
 
-  //@ToDo, when do I add this? Or is this whole page thing silliness?
-//  if ($node = \Drupal::routeMatch()->getParameter('node')) {
-//$route = \Drupal::routeMatch()->getRawParameter();
   $current_path = \Drupal::service('path.current')->getPath();
-  // group/x/members, discussions, and
-  //$route = \Drupal::routeMatch()->getRouteName();
-  // view.group_forum.page_1
   if (preg_match('/group\/\d*\/(forum|members|resources)/',$current_path)) {
     $suggestions[] = 'page__org_profile';
   }
@@ -335,8 +325,8 @@ function _set_the_group_links(&$variables, $group) {
 
 }
 
-// we repeatedly need the resource_type variable.
-//@ToDo: save a microsecond by caching this
+// Get the resource type taxonomy tree names prepped for tabs
+//@ToDo: needed repeatedly - could save almost nothing by caching this
 function _get_resource_type() {
   // provide resource_type terms, for tabs in twig
   $vid = 'resource_type';
@@ -362,16 +352,6 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
   }
   else if ($form['#id'] == 'group-content-group-content-type-569a59a77cd78-group-join-form' ) {
     $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_join_submit';
-  }
-  else if ($form_id == 'group_organization_group_add_form') {
-    //@ToDo - this is all commented out. ok?
-
-    // #show-pin-access #Pins-field-access
-    // http://space-base.lndo.site
-    //  group/16/content/create/group_node%3Agroup_forum_topic?destination=/group/16
-    // look at $form_state;
-    // $form_state build_info callback_object entity is a group
-
   }
   else if ($form['#id'] == 'views-exposed-form-sitewide-search-search') {
     $form['keywords']['#attributes']['placeholder'] = 'Search';
@@ -419,7 +399,7 @@ function spacebase_core_organization_join_submit(&$form, \Drupal\Core\Form\FormS
   // Redirect
   $form_state->setRedirect('entity.group.canonical', ['group' => $group->id()]);
 
-  // And add the role 'verified,' @ToSpec/ToDo unless the $group blocks autoverify
+  // And add the role 'verified,' @ToSpec/ToDo this only if the $group blocks autoverify
   $group_content_membership->group_roles->setValue('organization_group-verified');
   $group_content_membership->save(); // returns 2, SAVED_UPDATED, if working. Add test?
 }

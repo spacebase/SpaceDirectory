@@ -112,7 +112,7 @@ class AjaxToggleForm extends FormBase {
           'type' => 'none',
         ],
       ],
-      //@ToDo: This is too hard-coded for SpaceBase's needs
+      //@ToDo/Contribute Back: This is too hard-coded for SpaceBase's needs
       //We might want this on the node view, not the view view...
       //Current specs say: comment it out!
       //'#disabled' => !$this->entity->access('edit'),
