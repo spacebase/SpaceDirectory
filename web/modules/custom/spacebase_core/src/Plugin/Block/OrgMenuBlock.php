@@ -19,9 +19,7 @@ class OrgMenuBlock extends BlockBase {
    */
   public function build() {
     $build = [];
-    $build['org_menu_block']['#markup'] = 'Implement OrgMenuBlock.';
     $build['#theme'] = 'menu_org_profile';
-
 
     $path = explode('/',\Drupal::service('path.current')->getPath());
     $build['#gid'] = intval($path[2]);

@@ -143,6 +143,23 @@ function spacebase_core_preprocess_views_view(&$variables) {
     $group = Drupal\group\Entity\Group::load($view->args[0]);
     _set_the_group_links($variables, $group);
   }
+  if ($variables['id'] == "group_members" && $variables['display_id'] == 'page_1') {
+   /** Buttons actually look ok as is. Since there's no ticket for this,
+    *  going to stop now. But expect this code to be useful soon,
+    *  or else erase it...
+
+    $account = \Drupal::currentUser(); //or $variables['user']; ?
+
+    // Prevent non-admin from seeing admin buttons (that won't work = not security issue)
+    $view = $variables['view'];
+    $group = Drupal\group\Entity\Group::load($view->args[0]);
+    // Am I not an admin of the group?
+    if (!$group->hasPermission('administer members', $account)) {
+      // remove admin options from display
+      kint($variables);
+    }
+   */
+  }
 }
 
 /** Implements template_preprocess_views_view_fields(&$variables)
@@ -157,23 +174,6 @@ function spacebase_core_preprocess_views_view_fields(&$variables) {
     _set_the_group_links($variables, $group);
   }
 }
-
-function spacebase_core_preprocess_page(&$variables) {
-  // @ToDo: this is called for views, preprocess_group runs those views too.
-  // This seems to get fired a lot. Why? I'm seeing 83 as the arg, what is that?
-
-// @ToDo: delete this all?
-/*
-  $variables['page']['#title'] = 'Changed';
-  print $variables['page']['#title'];
-  if ($variables['id'] == "group_forum") {
-    $view = $variables['view'];
-    $group = $group = Drupal\group\Entity\Group::load($view->args[0]);
-    _set_the_group_links($variables, $group);
-  }
-*/
-}
-
 
 
 /** Implements hook_preprocess_group() on behalf of spacebase_core.module.
@@ -250,6 +250,7 @@ function spacebase_core_theme_suggestions_page_alter(array &$suggestions, array 
  * to set some variables based on the group.
  */
 function _set_the_group_links(&$variables, $group) {
+
   $current_uri = \Drupal::request()->getRequestUri(); // @ToTest:
   // This is for destinations ... do we want as much path as possible,
   // like pages, when someone comes back after signing up? I think so, test
@@ -285,7 +286,7 @@ function _set_the_group_links(&$variables, $group) {
     }
   }
 
-  // Links look like:
+  // Links to add content to a group look like:
   // group/20/content/create/group_node%3Aresources
   // group/14/content/create/group_node%3Agroup_forum_topic
   $ids = array('resources', 'group_forum_topic');
@@ -363,6 +364,8 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
     $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_join_submit';
   }
   else if ($form_id == 'group_organization_group_add_form') {
+    //@ToDo - this is all commented out. ok?
+
     // #show-pin-access #Pins-field-access
     // http://space-base.lndo.site
     //  group/16/content/create/group_node%3Agroup_forum_topic?destination=/group/16
