@@ -93,7 +93,7 @@ set up in the browser, but I don't see where it's used.) #}
           </aside>
 
 
-      {# Sidebar First  Discuss with Mike putting it back like this?  @ToDo/@ToDiscuss
+      {# Sidebar First  Discuss with Mike putting it back like this?  
       {% if page.sidebar_first %}
         {% block sidebar_first %}
           <aside class="col-sm-3 pull-right" role="complementary">
@@ -108,10 +108,9 @@ set up in the browser, but I don't see where it's used.) #}
 
 
           <article{{ attributes.addClass('col-sm-9') }}>
-
             {{ drupal_block('org_menu_block') }}
-            {{ page.content }}
-            
+            <div class="box">
+              {{ page.content }}
             </div>
           </article>
         </div>
