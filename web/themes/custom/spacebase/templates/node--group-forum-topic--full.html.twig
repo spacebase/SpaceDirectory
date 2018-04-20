@@ -104,16 +104,11 @@
       </div>
     </div>
   {% endif %}
-  <div{{ content_attributes.addClass('content') }}>
+  <div{{ content_attributes.addClass('content') }} id="comments">
     {{ content|without('field_image','field_pin_to_top','field_reply') }}
     <div class="post-comment-count">
       <i class="fas fa-comments"></i> {{ comment_count }} comments</div>
     </div>
-    {% if comment_count > 1 %} {# one comment isn't clutter #}
-      {% if user.hasPermission('post comments') %}
-        <a class="btn btn-secondary" href="#comment-form">Leave your reply</a>
-      {% endif %}
-    {% endif %}
   {{ content.field_reply }}
   </div>
 </article>

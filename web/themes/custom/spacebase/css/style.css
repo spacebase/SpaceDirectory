@@ -6613,6 +6613,11 @@ form .table > thead > tr > th {
     margin: 0 0 30px; }
   .box h3 {
     font-size: 20px; }
+    .box h3 a {
+      color: #3f4147; }
+      .box h3 a:active, .box h3 a:focus, .box h3 a:hover {
+        color: #3f4147;
+        text-decoration: underline; }
     .box h3 .count {
       background: #325ce6;
       color: #fff;
@@ -6659,6 +6664,11 @@ body.path-user {
   margin-bottom: 40px; }
   .flex-boxes .box {
     margin-bottom: 0; }
+  @media screen and (max-width: 767px) {
+    .flex-boxes {
+      display: block; }
+      .flex-boxes .box {
+        margin-bottom: 20px; } }
 
 .navbar {
   background: rgba(0, 0, 0, 0.8);
@@ -7077,6 +7087,11 @@ body.toolbar-tray-open .top-bar {
       height: 100px;
       line-height: 100px;
       width: 80px; }
+      @media screen and (max-width: 767px) {
+        .profile .user-quote .quote-icon {
+          height: 38px;
+          line-height: 38px;
+          font-size: 30px; } }
   .profile .bio, .profile .description {
     margin-bottom: 50px; }
   .profile .links {
@@ -7235,7 +7250,8 @@ body.toolbar-tray-open .top-bar {
   .user-list .result .btn-group.dropdown {
     position: absolute;
     right: 0;
-    top: 15px; }
+    top: 15px;
+    padding: 10px; }
   @media screen and (max-width: 767px) {
     .org-list .result,
     .user-list .result {
@@ -7372,6 +7388,9 @@ body.toolbar-tray-open .top-bar {
 
 .profile-inner aside.col-sm-3 {
   padding-top: 31px; }
+  @media screen and (max-width: 767px) {
+    .profile-inner aside.col-sm-3 {
+      float: none !important; } }
 
 .group-nav ul.menu {
   list-style: none;
@@ -7737,7 +7756,6 @@ label {
 .post-comment-count {
   font-weight: bold;
   padding: 20px 0 10px;
-  margin: 0 0 20px;
   border-bottom: 1px solid #f0f0f0;
   color: #4e62a0;
   font-size: 16px;
@@ -7847,11 +7865,28 @@ article.forum-comment {
   text-align: center;
   padding: 2px 10px;
   background: rgba(0, 0, 0, 0.7); }
+.page-node-type-group-forum-topic .comment-form {
+  display: none; }
 
 .add-comment {
   padding: 30px 0;
-  border-top: 1px solid #f0f0f0;
-  margin-top: 40px; }
+  border-bottom: 1px solid #f0f0f0;
+  position: relative; }
+  .add-comment .form-actions {
+    clear: both; }
+
+.close-comment {
+  display: none;
+  position: absolute;
+  right: -10px;
+  top: 15px;
+  font-size: 34px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer; }
+
+.comment-form .control-label {
+  display: none; }
 
 .resources-overview {
   list-style: none;
