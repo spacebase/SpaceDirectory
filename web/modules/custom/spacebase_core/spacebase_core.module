@@ -231,6 +231,14 @@ function spacebase_core_theme_suggestions_page_alter(array &$suggestions, array 
   if (preg_match('/group\/\d*\/(forum|members|resources)/',$current_path)) {
     $suggestions[] = 'page__org_profile';
   }
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $content_type = $node->bundle();
+    if ($content_type == 'group_forum_topic') {
+      //{% include "@mytheme/partials/favicons.html.twig" %}
+      $suggestions[] = 'page__org_profile';
+    }
+    print $suggestions[3];
+  }
 }
 
 
