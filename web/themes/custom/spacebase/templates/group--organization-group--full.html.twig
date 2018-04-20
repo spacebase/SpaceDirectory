@@ -49,7 +49,7 @@
         
         <ul class="resources-overview">
             {% for key, value in resource_type %}
-            {% set valueId =  value|replace(' ','-') %}
+            {% set valueId =  value|replace(' ','_') %}
             
             <li>
               <h4><a href="{{group_url}}/resources#{{ valueId }}">{{ value }}</a>
