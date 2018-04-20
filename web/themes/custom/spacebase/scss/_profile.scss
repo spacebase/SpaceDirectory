@@ -171,6 +171,17 @@
       float: none !important;
     }
   }
+  .col-sm-3.pull-right{
+    h1{
+      font-size: 24px;
+    }
+    h2.segment, .location{
+      font-size: 14px;
+    }
+    .btn{
+      font-size: 16px;
+    }
+  }
 }
 
 .org-list,
@@ -259,8 +270,7 @@
     .btn-group.dropdown{
       position: absolute;
       right: 0;
-      top: 50%;
-      margin-top: -16px;
+      top: 15px;
     }
     @media screen and (max-width: 767px) {
       padding: 15px 0 55px 0;

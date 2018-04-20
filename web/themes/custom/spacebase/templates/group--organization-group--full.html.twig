@@ -49,11 +49,12 @@
         
         <ul class="resources-overview">
             {% for key, value in resource_type %}
-            {% set valueId =  value|replace(' ','-') %}
+            {% set valueId =  value|replace(' ','_') %}
             
             <li>
-              <a href="{{group_url}}/resources#{{ valueId }}">{{ value }}</a>
-              </a>
+              <h4><a href="{{group_url}}/resources#{{ valueId }}">{{ value }}</a>
+              </h4>
+              <p>Description</p>
             </li>
             
             {% endfor %}
@@ -61,37 +62,6 @@
         
         <div class="more-link">
           <a href="{{group_url}}/resources" class="btn btn-block">View All {{resource_total}} Resources</a>
-        </div>
-
-        <div class="hidden">
-            {# see:
-        http://www.tutorialspark.com/twitterBootstrap/TwitterBootstrap_Tabs.php
-               modified to deal with spaces in the id's #}
-                <div class="resources" role="tabpanel" data-example-id="togglable-tabs">
-                  <ul id="resourceTab" class="nav nav-tabs nav-tabs-responsive content-tabs" role="tablist">
-                      
-                    {% for key, value in resource_type %}
-                    {% set valueId =  value|replace(' ','-') %}
-                    <li role="presentation"{% if key == 0 %} class="active"{%
-            endif %}{% if key == 1 %} class="next"{% endif %}>
-                      <a href="#{{ valueId }}" id="{{ valueId }}-tab" role="tab" data-toggle="tab" aria-controls="{{ valueId }}" aria-expanded="true">
-                        <span class="text">{{ value }}</span>
-                      </a>
-                    </li>
-                    
-                    {% endfor %}
-                  </ul>
-                  <div id="myTabContent" class="tab-content">
-                    {% for key, value in resource_type %}
-                    {% set valueId =  value|replace(' ','-') %}
-                    <div role="tabpanel" class="tab-pane fade{% if key == 0 %} in active{% endif %}" id="{{ valueId }}" aria-labelledby="{{ valueId }}-tab">
-                      
-                      {{ drupal_view('organization_resources', 'block_1', value) }}
-                      
-                    </div>
-                    {% endfor %}
-                  </div>
-                </div>
         </div>
 
 

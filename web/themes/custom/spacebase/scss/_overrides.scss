@@ -115,6 +115,7 @@ body.navbar-is-fixed-top{
   border: 1px solid transparent;
   font-weight: 300;
   padding: 10px 15px;
+  white-space: normal;
   &:active,&:focus,&:hover{
     border-color: transparent;
   }

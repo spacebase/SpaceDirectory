@@ -1165,7 +1165,7 @@ display:
           empty: false
           tokenize: true
           content:
-            value: '<h1>[view:title]</h1>'
+            value: '<h2>[view:title]</h2>'
             format: raw_html
           plugin_id: text
       defaults:

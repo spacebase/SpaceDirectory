@@ -63,16 +63,18 @@
     </div>
   {% endif %}
 
+
   {# Intro blurbs for the Forum. Placed here so design team can edit. #}
   {% if group_links.group_create_group_forum_topic %}
 
     {# We could possibly pull in a field from the org, so Group Admins
        could describe their own forum? #}
     <p>Welcome to your organization's discussion forum.</p> 
-
-    <p><a href="{{group_links.group_create_group_forum_topic}}" class="btn
-btn-primary">New Post</a></p>
-
+    
+    <div class="forum-top">
+    <a href="{{group_links.group_create_group_forum_topic}}" class="btn
+btn-primary btn-small new-post"><i class="fas fa-plus"></i> New Post</a>
+    </div>
 
   {% elseif group_links.join %}
   

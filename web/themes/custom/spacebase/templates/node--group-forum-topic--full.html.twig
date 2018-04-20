@@ -76,6 +76,13 @@
   ]
 %}
 <article{{ attributes.addClass(classes) }}>
+  <div class="admin-links">
+
+  
+  <span class="pin">{{ content.field_pin_to_top }}<i class="fas fa-thumbtack pinned"></i>
+  <a href="/node/{{ node.id }}/edit"><i class="fas fa-edit"></i></a>
+  <a href="/node/{{ node.id }}/delete"><i class="fas fa-trash-alt"></i></a>
+  </div>
 
   {{ content.field_image }}
 
@@ -98,6 +105,10 @@
     </div>
   {% endif %}
   <div{{ content_attributes.addClass('content') }}>
-    {{ content|without('field_image') }}
+    {{ content|without('field_image','field_pin_to_top','field_reply') }}
+    <div class="post-comment-count">
+      <i class="fas fa-comments"></i> {{ comment_count }} comments</div>
+    </div>
+  {{ content.field_reply }}
   </div>
 </article>

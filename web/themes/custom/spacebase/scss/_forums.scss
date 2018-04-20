@@ -1,3 +1,8 @@
+.forum-top{
+  padding: 25px 0 10px;
+  border-bottom: 1px solid $line;
+  margin-bottom: 10px;
+}
 .forum-list-view{
   .view-content{
     margin-bottom: 10px;
@@ -7,12 +12,11 @@
     border-bottom: 1px solid $line;
     position: relative;
     .admin-links{
-      display: none;
-      position: absolute;
-      top: 15px;
-      right: 0px;
       text-align: right;
       z-index: 2;
+      margin-bottom: 5px;
+      margin-top: -10px;
+      margin-right: -10px;
       i.fa-trash-alt{
         &:hover{
           color: $red;
@@ -29,15 +33,19 @@
         }
       }
       >a{
-        display: block;
+        display: inline-block;
         text-align: center;
-        width: 20px;
+        color: $text;
+        margin-left: 5px;
+        span{
+          display: none;
+        }
       }
       > span{
         margin-left: 0;
-        display: block;
+        display: inline-block;
         text-align: center;
-        width: 20px;
+        color: $text;
         div,form{
           display: inline-block;
         }
@@ -68,17 +76,6 @@
         }
         .toggle-on,.toggle-off{
           display: none;
-        }
-      }
-    }
-    &:hover{
-      .admin-links{
-        color: $text-light;
-        display: block;
-        padding: 3px;
-        background: rgba(255,255,255,0.7);
-        a{
-          color: $text-light;
         }
       }
     }
@@ -131,10 +128,21 @@
   border-bottom: 1px solid $line;
   color: $link-color;
   font-size: 16px;
+  clear: both;
 }
 
 article.forum-comment{
   padding: 15px 0;
+  mark{
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-indent: -9999px;
+    overflow: hidden;
+    background: $brand-secondary;
+    margin-left: 10px;
+  }
   .submitted{
     color: $text-light;
     line-height: 25px;
@@ -180,9 +188,15 @@ article.forum-comment{
     padding-left: 20px;
     border-left: 2px solid $line;
   }
+  .indented .indented .indented .indented{
+    margin: 4px 0;
+  }
 }
 
 .page-node-type-group-forum-topic{
+  .group-forum-topic{
+    position: relative;
+  }
   .field--name-field-image{
     float: left;
     margin: 0 25px 20px 0;
@@ -190,13 +204,38 @@ article.forum-comment{
   h1{
     margin: 0 0 0.5em;
   }
-  .field--name-field-pin-to-top{
+  .admin-links{
     position: absolute;
-    top: -35px;
     right: -15px;
-    div{
-      display: inline-block;
+    top: -25px;
+    a{
+      margin-left: 15px;
+      color: $text;
     }
+    i.fa-thumbtack{
+      color: $text;
+      &.pinned{
+        color: $gold;
+      }
+    }
+    i.fa-trash-alt{
+      &:hover{
+        color: $red;
+      }
+    }
+    i.fa-edit{
+      &:hover{
+        color: $brand-secondary;
+      }
+    }
+    i.fa-thumbtack{
+      &.pinned{
+        color: $gold;
+      }
+    }
+  }
+  .field--name-field-pin-to-top{
+    display: none;
     input[type="checkbox"]{
       position: static;
       margin: 0;
@@ -220,6 +259,12 @@ article.forum-comment{
         height: 25px;
         border-radius: 50%;
       }
+    }
+  }
+  .field--name-body{
+    p{
+      font-size: 18px;
+      font-weight: 500;
     }
   }
   #cboxTitle{

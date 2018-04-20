@@ -19,3 +19,10 @@ function spacebase_theme_suggestions_page_alter(array &$suggestions, array $vari
     $suggestions[] = 'page__'.$content_type;
   }
 }
+
+function spacebase_preprocess_node(&$variables) {
+  // Note: you'll probably want this only for certain content types.
+  if ($variables['node']->getType() == 'group_forum_topic') {
+    $variables['comment_count'] = $variables['node']->get('field_reply')->comment_count;
+  }
+}
