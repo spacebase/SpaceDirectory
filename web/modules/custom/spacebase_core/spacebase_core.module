@@ -72,8 +72,34 @@ function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
   if (!$show_pin) {
     $variables['content']['field_pin_to_top'] = NULL;
   }
-
 }
+
+
+/** Implements hook_preprocess_page
+ *
+ * Send the group id to page--org-profile template.
+ * This page might be a view (forum, members) or custom (resources)
+ * with the gid in the url -- the view can handle these pages directly,
+ * or it might be a node from which the group
+ * must be extracted.
+ *
+ * OrgMenuBlock does something similar.
+ */
+//Just putting this empty function blasts the group profile
+//without an error message.
+//function spacebase_core_preprocess_page__group_forum_topic(&$variables) {
+// fails, block disappears.
+function spacebase_core_preprocess_page(&$variables) {
+  if (isset($variables['node']) && $variables['node']->getType = 'group_forum_topic') {
+    foreach (GroupContent::loadByEntity($variables['node']) as $group_content) {
+      $group = $group_content->getGroup();
+      $variables['groupid'] = $group->id();
+      // note: only one, or current design would break
+    }
+  }
+}
+
+
 
 // @ToDo: these use statements from example, probably not all needed:
 

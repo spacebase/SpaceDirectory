@@ -88,7 +88,13 @@ set up in the browser, but I don't see where it's used.) #}
         <div class="row profile-inner">
           <aside class="col-sm-3 pull-right">
             <div class="box">
-            {{ drupal_view('group_profile', 'block_1') }}
+              {% if groupid %}   
+                {# this is a forum node -> gid preprocessed from node #}
+                {{ drupal_view('group_profile', 'block_1', groupid) }}
+              {% else %}     
+                {# url contains group — view will find it #}
+                {{ drupal_view('group_profile', 'block_1')}}
+              {% endif %}
             </div>
           </aside>
 
