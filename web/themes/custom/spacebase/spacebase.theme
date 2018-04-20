@@ -11,7 +11,7 @@
   $variables['#cache']['contexts'][] = 'user';
 }
 
-
+/* @ToDo: combine with similar function in spacebase_core in one place? */
 function spacebase_theme_suggestions_page_alter(array &$suggestions, array $variables) {
 
   if ($node = \Drupal::routeMatch()->getParameter('node')) {

@@ -59,8 +59,14 @@ function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
     }
   }
   if (!$show_reply) {
+    /* We now show the comments. It has a nice message already about
+     *  logging in or registering. Do we want this msg instead?
+     * @ToDo: review, see if $show_reply is needed, or if this is needed
+     * somewhere else ... it's messing up the node page with current ACL :w
+     *
     $variables['content']['field_reply'] = array('#markup'  =>
       t("Join this organization to leave a comment."));
+    */
   }
   // #show-pin-access will probably change
   if (!$show_pin) {
