@@ -223,7 +223,7 @@ function spacebase_core_theme_suggestions_page(array &$suggestions, array $varia
  * Implements hook_theme_suggestions_alter().
  *
  * The Org-Profile sub-pages (forum, members, and resources for now)
- * use this page template.
+ * use this page template. So do the group forum nodes.
  */
 function spacebase_core_theme_suggestions_page_alter(array &$suggestions, array $variables, $hook) {
 
@@ -237,10 +237,8 @@ function spacebase_core_theme_suggestions_page_alter(array &$suggestions, array 
       //{% include "@mytheme/partials/favicons.html.twig" %}
       $suggestions[] = 'page__org_profile';
     }
-    print $suggestions[3];
   }
 }
-
 
 /** function _set_the_group_links($variables, $group) {
  *
