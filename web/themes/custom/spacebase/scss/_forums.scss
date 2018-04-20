@@ -283,6 +283,9 @@ article.forum-comment{
   padding: 30px 0;
   border-bottom: 1px solid $line;
   position: relative;
+  .form-actions{
+    clear: both;
+  }
 }
 
 .close-comment{

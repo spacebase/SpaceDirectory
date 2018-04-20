@@ -73,4 +73,10 @@ body.path-user{
   .box{
     margin-bottom: 0;
   }
+  @media screen and (max-width: 767px) {
+    display: block;
+    .box{
+      margin-bottom: 20px;
+    }
+  }
 }

@@ -81,6 +81,11 @@
       height: 100px;
       line-height: 100px;
       width: 80px;
+      @media screen and (max-width: 767px) {
+        height: 38px;
+        line-height: 38px;
+        font-size: 30px;
+      }
     }
   }
   .bio, .description{
@@ -271,6 +276,7 @@
       position: absolute;
       right: 0;
       top: 15px;
+      padding: 10px;
     }
     @media screen and (max-width: 767px) {
       padding: 15px 0 55px 0;
@@ -453,6 +459,9 @@
 
 .profile-inner aside.col-sm-3{
   padding-top: 31px;
+  @media screen and (max-width: 767px) {
+    float: none !important;
+  }
 }
 
 .group-nav{
