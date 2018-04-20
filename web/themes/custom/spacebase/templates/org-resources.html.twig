@@ -1,10 +1,10 @@
         {% if group_links.group_create_resources %}
           <a href="{{group_links.group_create_resources}}" class="btn
-btn-secondary btn-small pull-right"><span class="icon"><i class="fas
-fa-edit"></i></span> Add Resource</a>
+btn-primary btn-small pull-right"><span class="icon"><i class="fas
+fa-plus"></i></span> Add Resource</a>
         {% endif %}
 
-        <h3>External Resources</h3>
+        <h2>External Resources</h2>
 
     {# see:
 http://www.tutorialspark.com/twitterBootstrap/TwitterBootstrap_Tabs.php
@@ -14,7 +14,7 @@ http://www.tutorialspark.com/twitterBootstrap/TwitterBootstrap_Tabs.php
       <ul id="resourceTab" class="nav nav-tabs nav-tabs-responsive content-tabs" role="tablist">
 
         {% for key, value in resource_type %}
-        {% set valueId =  value|replace(' ','-') %}
+        {% set valueId =  value|replace(' ','_') %}
         <li role="presentation"{% if key == 0 %} class="active"{%
 endif %}{% if key == 1 %} class="next"{% endif %}>
           <a href="#{{ valueId }}" id="{{ valueId }}-tab" role="tab" data-toggle="tab" aria-controls="{{ valueId }}" aria-expanded="true">
@@ -26,7 +26,7 @@ endif %}{% if key == 1 %} class="next"{% endif %}>
       </ul>
       <div id="myTabContent" class="tab-content">
         {% for key, value in resource_type %}
-        {% set valueId =  value|replace(' ','-') %}
+        {% set valueId =  value|replace(' ','_') %}
         <div role="tabpanel" class="tab-pane fade{% if key == 0 %} in active{% endif %}" id="{{ valueId }}" aria-labelledby="{{ valueId }}-tab">
 
           {{ drupal_view('organization_resources', 'block_1', value, group_id) }}

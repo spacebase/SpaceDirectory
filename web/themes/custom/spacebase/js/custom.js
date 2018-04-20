@@ -73,6 +73,19 @@
         updateDropdownMenu( $next, 'right' );
       });
       
+      $(function() {
+        // Javascript to enable link to tab
+        var url = document.location.toString();
+        if (url.match('#')) {
+          $('.nav-tabs-responsive a[href="#'+url.split('#')[1]+'"]').tab('show') ;
+        }
+      
+        // Change hash for page-reload
+        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+          window.location.hash = e.target.hash;
+        });
+      });
+      
       $('.admin-links').find('.fa-thumbtack').on(clickTap,function(){
         $(this).parent().find('.checkbox-toggle').click();
         if ($(this).parent().find('.checkbox-toggle').is(":checked")){

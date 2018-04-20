@@ -6402,7 +6402,8 @@ body.navbar-is-fixed-top {
   font-size: 18px;
   border: 1px solid transparent;
   font-weight: 300;
-  padding: 10px 15px; }
+  padding: 10px 15px;
+  white-space: normal; }
   .btn:active, .btn:focus, .btn:hover {
     border-color: transparent; }
   .btn i {
@@ -6638,6 +6639,10 @@ form .table > thead > tr > th {
     box-shadow: 0 5px 40px rgba(0, 0, 0, 0.8);
     border: 10px solid #325ce6;
     border-radius: 4px; }
+  .box .more-link .btn {
+    font-size: 14px;
+    font-weight: 500;
+    color: #3f4147; }
 
 body.path-user {
   background: #000 url(../images/earth-from-space-1.jpg) center top no-repeat;
@@ -7134,6 +7139,12 @@ body.toolbar-tray-open .top-bar {
   @media screen and (max-width: 767px) {
     .profile .col-sm-4.pull-right {
       float: none !important; } }
+  .profile .col-sm-3.pull-right h1 {
+    font-size: 24px; }
+  .profile .col-sm-3.pull-right h2.segment, .profile .col-sm-3.pull-right .location {
+    font-size: 14px; }
+  .profile .col-sm-3.pull-right .btn {
+    font-size: 16px; }
 
 .org-list .view-header,
 .user-list .view-header {
@@ -7224,8 +7235,7 @@ body.toolbar-tray-open .top-bar {
   .user-list .result .btn-group.dropdown {
     position: absolute;
     right: 0;
-    top: 50%;
-    margin-top: -16px; }
+    top: 15px; }
   @media screen and (max-width: 767px) {
     .org-list .result,
     .user-list .result {
@@ -7637,6 +7647,11 @@ label {
 @media (max-width: 479px) {
   #narrow-browser-alert {
     display: none; } }
+.forum-top {
+  padding: 25px 0 10px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 10px; }
+
 .forum-list-view .view-content {
   margin-bottom: 10px; }
 .forum-list-view .views-row {
@@ -7644,12 +7659,11 @@ label {
   border-bottom: 1px solid #f0f0f0;
   position: relative; }
   .forum-list-view .views-row .admin-links {
-    display: none;
-    position: absolute;
-    top: 15px;
-    right: 0px;
     text-align: right;
-    z-index: 2; }
+    z-index: 2;
+    margin-bottom: 5px;
+    margin-top: -10px;
+    margin-right: -10px; }
     .forum-list-view .views-row .admin-links i.fa-trash-alt:hover {
       color: #ea0c36; }
     .forum-list-view .views-row .admin-links i.fa-edit:hover {
@@ -7657,14 +7671,17 @@ label {
     .forum-list-view .views-row .admin-links i.fa-thumbtack.pinned {
       color: #fec61c; }
     .forum-list-view .views-row .admin-links > a {
-      display: block;
+      display: inline-block;
       text-align: center;
-      width: 20px; }
+      color: #3f4147;
+      margin-left: 5px; }
+      .forum-list-view .views-row .admin-links > a span {
+        display: none; }
     .forum-list-view .views-row .admin-links > span {
       margin-left: 0;
-      display: block;
+      display: inline-block;
       text-align: center;
-      width: 20px; }
+      color: #3f4147; }
       .forum-list-view .views-row .admin-links > span div, .forum-list-view .views-row .admin-links > span form {
         display: inline-block; }
     .forum-list-view .views-row .admin-links .checkbox {
@@ -7687,13 +7704,6 @@ label {
       width: 50%; }
     .forum-list-view .views-row .admin-links .toggle .toggle-on, .forum-list-view .views-row .admin-links .toggle .toggle-off {
       display: none; }
-  .forum-list-view .views-row:hover .admin-links {
-    color: #76777f;
-    display: block;
-    padding: 3px;
-    background: rgba(255, 255, 255, 0.7); }
-    .forum-list-view .views-row:hover .admin-links a {
-      color: #76777f; }
   .forum-list-view .views-row .info {
     float: left;
     margin: 0 15px 0 0;
@@ -7723,12 +7733,6 @@ label {
       color: #76777f; }
       .forum-list-view .views-row .contents .posted a {
         font-weight: bold; }
-.forum-list-view .more-link a {
-  text-align: center;
-  padding: 10px 0;
-  font-size: 14px;
-  color: #3f4147;
-  display: block; }
 
 .post-comment-count {
   font-weight: bold;
@@ -7736,10 +7740,20 @@ label {
   margin: 0 0 20px;
   border-bottom: 1px solid #f0f0f0;
   color: #4e62a0;
-  font-size: 16px; }
+  font-size: 16px;
+  clear: both; }
 
 article.forum-comment {
   padding: 15px 0; }
+  article.forum-comment mark {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-indent: -9999px;
+    overflow: hidden;
+    background: #3bba50;
+    margin-left: 10px; }
   article.forum-comment .submitted {
     color: #76777f;
     line-height: 25px;
@@ -7776,18 +7790,35 @@ article.forum-comment {
   .indented > article.forum-comment {
     padding-left: 20px;
     border-left: 2px solid #f0f0f0; }
+  .indented .indented .indented .indented .indented {
+    margin: 4px 0; }
 
+.page-node-type-group-forum-topic .group-forum-topic {
+  position: relative; }
 .page-node-type-group-forum-topic .field--name-field-image {
   float: left;
   margin: 0 25px 20px 0; }
 .page-node-type-group-forum-topic h1 {
   margin: 0 0 0.5em; }
-.page-node-type-group-forum-topic .field--name-field-pin-to-top {
+.page-node-type-group-forum-topic .admin-links {
   position: absolute;
-  top: -35px;
-  right: -15px; }
-  .page-node-type-group-forum-topic .field--name-field-pin-to-top div {
-    display: inline-block; }
+  right: -15px;
+  top: -45px; }
+  .page-node-type-group-forum-topic .admin-links a {
+    margin-left: 15px;
+    color: #3f4147; }
+  .page-node-type-group-forum-topic .admin-links i.fa-thumbtack {
+    color: #3f4147; }
+    .page-node-type-group-forum-topic .admin-links i.fa-thumbtack.pinned {
+      color: #fec61c; }
+  .page-node-type-group-forum-topic .admin-links i.fa-trash-alt:hover {
+    color: #ea0c36; }
+  .page-node-type-group-forum-topic .admin-links i.fa-edit:hover {
+    color: #3bba50; }
+  .page-node-type-group-forum-topic .admin-links i.fa-thumbtack.pinned {
+    color: #fec61c; }
+.page-node-type-group-forum-topic .field--name-field-pin-to-top {
+  display: none; }
   .page-node-type-group-forum-topic .field--name-field-pin-to-top input[type="checkbox"] {
     position: static;
     margin: 0; }
@@ -7807,6 +7838,9 @@ article.forum-comment {
       width: 25px;
       height: 25px;
       border-radius: 50%; }
+.page-node-type-group-forum-topic .field--name-body p {
+  font-size: 18px;
+  font-weight: 500; }
 .page-node-type-group-forum-topic #cboxTitle {
   right: 0;
   top: 0;
@@ -7826,8 +7860,14 @@ article.forum-comment {
   margin: 0 0 15px; }
   .resources-overview li {
     margin: 0 0 25px; }
-    .resources-overview li a {
-      font-weight: bold; }
+    .resources-overview li h4 {
+      font-size: 16px;
+      margin: 0 0 5px; }
+      .resources-overview li h4 a {
+        font-weight: bold; }
+    .resources-overview li p {
+      font-size: 13px;
+      margin: 0; }
 
 @media screen and (max-width: 479px) {
   .resources ul.content-tabs li a {

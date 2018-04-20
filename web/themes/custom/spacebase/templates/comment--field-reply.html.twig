@@ -4,10 +4,10 @@
     server which comments are new for the user. Rendering the final "new"
     indicator here would break the render cache.
   #}
-  <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
 
   <footer>
-    <div class="submitted">{{ user_picture }} {{ submitted }} - {{ permalink }}</div>
+    <div class="submitted">{{ user_picture }} {{ submitted }} - {{ permalink }} 
+  <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark></div>
 
     {#
       Indicate the semantic relationship between parent and child comments for

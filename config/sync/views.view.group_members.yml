@@ -756,7 +756,18 @@ display:
           plugin_id: field
       filters: {  }
       sorts: {  }
-      header: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: ''
+          plugin_id: text_custom
       footer: {  }
       empty:
         area_text_custom:
@@ -1303,6 +1314,19 @@ display:
             authenticated: authenticated
       defaults:
         access: false
+        header: false
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '<h2>Members</h2>'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
