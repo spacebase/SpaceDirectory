@@ -25,16 +25,20 @@
  * @see template_preprocess_field()
  * @see comment_preprocess_field()
  */
-#}<a id="comments"></a>
+#}
 
 <section{{ attributes }}>
 
-  {{ comments }}
-
   {% if comment_form %}
     <div class="add-comment">
+    {% if user.hasPermission('post comments') %}
+      <button class="btn btn-primary btn-small leave-reply"><i class=" fas fa-edit"></i> Leave your reply</button>
+      <i class="fas fa-times-circle close-comment"></i>
+    {% endif %}
     {{ comment_form }}
     </div>
   {% endif %}
+
+  {{ comments }}
 
 </section>

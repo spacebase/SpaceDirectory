@@ -7737,7 +7737,6 @@ label {
 .post-comment-count {
   font-weight: bold;
   padding: 20px 0 10px;
-  margin: 0 0 20px;
   border-bottom: 1px solid #f0f0f0;
   color: #4e62a0;
   font-size: 16px;
@@ -7847,11 +7846,26 @@ article.forum-comment {
   text-align: center;
   padding: 2px 10px;
   background: rgba(0, 0, 0, 0.7); }
+.page-node-type-group-forum-topic .comment-form {
+  display: none; }
 
 .add-comment {
   padding: 30px 0;
-  border-top: 1px solid #f0f0f0;
-  margin-top: 40px; }
+  border-bottom: 1px solid #f0f0f0;
+  position: relative; }
+
+.close-comment {
+  display: none;
+  position: absolute;
+  right: -10px;
+  top: 15px;
+  font-size: 34px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer; }
+
+.comment-form .control-label {
+  display: none; }
 
 .resources-overview {
   list-style: none;

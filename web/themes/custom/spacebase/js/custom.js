@@ -45,6 +45,22 @@
         $('.user-dropdown').fadeToggle(300);
       });
       
+      $('.leave-reply').on(clickTap, function (e) {
+        e.stopPropagation();
+        $('.comment-form').slideDown(400);
+        $(this).slideUp(100);
+        $('.close-comment').fadeIn(200);
+        return false;
+      });
+      
+      $('.close-comment').on(clickTap, function (e) {
+        e.stopPropagation();
+        $('.comment-form').slideUp(400);
+        $('.leave-reply').slideDown(200);
+        $(this).hide();
+        return false;
+      });
+      
       $(document).click(function(e){
         $('.user-dropdown').fadeOut(300);
       });
