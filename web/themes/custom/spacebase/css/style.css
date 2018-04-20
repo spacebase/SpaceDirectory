@@ -6613,6 +6613,11 @@ form .table > thead > tr > th {
     margin: 0 0 30px; }
   .box h3 {
     font-size: 20px; }
+    .box h3 a {
+      color: #3f4147; }
+      .box h3 a:active, .box h3 a:focus, .box h3 a:hover {
+        color: #3f4147;
+        text-decoration: underline; }
     .box h3 .count {
       background: #325ce6;
       color: #fff;

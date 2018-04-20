@@ -9,6 +9,13 @@
   }
   h3{
     font-size: 20px;
+    a{
+      color: $text;
+      &:active,&:focus,&:hover{
+        color: $text;
+        text-decoration: underline;
+      }
+    }
     .count{
       background: $brand-primary;
       color: #fff;

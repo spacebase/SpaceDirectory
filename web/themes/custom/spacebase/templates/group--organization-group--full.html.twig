@@ -45,7 +45,7 @@
 
       <div class="box">
           
-        <h3>External Resources <span class="count">{{resource_total}}</span></h3>
+        <h3><a href="{{group_url}}/resources">External Resources</a> <span class="count">{{resource_total}}</span></h3>
         
         <ul class="resources-overview">
             {% for key, value in resource_type %}
@@ -70,7 +70,12 @@
     
     
     <div class="box">
+      {% if logged_in %}
       {{ drupal_view('group_members', 'block_1') }}
+      {% else %}
+      <h3>Members</h3>
+      <p><a href="/user/login">Sign in</a> to view the members list</p>
+      {% endif %}
     </div>
     
     
