@@ -13,48 +13,7 @@
     
     <aside class="col-sm-4 pull-right">
       <div class="box">
-//Not sure what all the merge-conflict blocks/designs are without running, so keep all for now,
-      //<<<<<<< HEAD
-        
-        <div class="profile-photo">
-        {{ content.field_image }}
-        </div>
-        
-        <h1>{{ label }}</h1>
-        <h2 class="segment">
-          {{ content.field_industry_segment[0]['#title'] }}{% for key, value in content.field_industry_segment %}{% if key > 0 %}, {{ content.field_industry_segment[key]['#title'] }}{% endif %}
-          {% endfor %}
-        </h2>
-        <div class="location">{{ content.field_headquarters_location.0.locality['#value'] }}, {{ content.field_headquarters_location.0.administrative_area['#value'] }}, {{ content.field_headquarters_location.0.country['#value'] }}</div>
-        
-        <p>
-       <a href="{{ content.field_linkedin[0]['#url'] }}" target="_blank" class="btn btn-blank"><span class="icon"><i class="fab fa-linkedin"></i></span> <span class="text">LinkedIn </span></a> <a href="{{ content.field_website[0]['#url'] }}" target="_blank" class="btn btn-blank"><span class="icon"><i class="fas fa-globe"></i></span> <span class="text">Website </span></a></p>
-        </ul>
-        <span class="btn-block">
-        {# drupal_region('groupmgt')#}
-        {% if logged_in == false %}
-          <a href="/user/register" class="btn btn-primary btn-block">Join SpaceBase</a>
-        {% elseif group_links.leave %}
-          <a href="{{ group_links.leave }}"  class="btn btn-primary btn-block">Leave organization</a>
-        {% elseif group_links.join  %}
-          <a href="{{ group_links.join }}" class="btn btn-primary btn-block">Join Organization</a>
-        {% endif %}
-        {% if logged_in %}
-        <br/>
-        <a href="/invite" class="btn btn-secondary btn-block">Invite
-New Members</a>
-        {% endif %}
-
-        </span>
-      </div>
-      <div class="box">
-        {{ drupal_view('group_members', 'block_1') }}
-        {% if group_links.group_manage_members %}
-          <a href="{{group_links.group_manage_members}}" class="btn btn-secondary btn-small btn-block mt-2"><span class="icon"><i class="fas fa-users"></i></span> Manage Members</a>
-        {% endif %}
-//=======
         {{ drupal_view('group_profile', 'block_1') }}
-//>>>>>>> forums-ajax-test-zone
       </div>
     </aside>
     
