@@ -176,13 +176,24 @@ function spacebase_core_preprocess_views_view(&$variables) {
     _set_the_group_links($variables, $group);
   }
   if ($variables['id'] == "group_members" && $variables['display_id'] == 'page_1') {
+    // Add member link on members page
+    $gid = \Drupal::routeMatch()->getParameter('group');
+    $group = Drupal\group\Entity\Group::load($gid);
+    $account = \Drupal::currentUser();
+
+    if ($group->hasPermission('administer members', $account)) {
+      // Don't send classes or text to the themer; send destination.
+      $variables['member_add_button'] = '/group/' . $gid .
+        '/content/add/group_membership?destination=/group/' . $gid . '/members';
+    }
+
    /** Buttons actually look ok as is. Since there's no ticket for this,
     *  going to stop now. But expect this code to be useful soon,
     *  or else erase it...
 
     // Prevent non-admin from seeing admin buttons (that won't work = not security issue)
     $view = $variables['view'];
-    $group = Drupal\group\Entity\Group::load($view->args[0]);
+    $group = ...above
     // Am I not an admin of the group?
     if (!$group->hasPermission('administer members', $account)) {
     }

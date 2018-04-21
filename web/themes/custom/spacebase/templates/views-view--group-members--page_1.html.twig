@@ -1,9 +1,6 @@
 {#
 /**
  * @file
- *
- *** This is the block on the organization page. ***
- *
  * Default theme implementation for main view template.
  *
  * Available variables:
@@ -28,50 +25,86 @@
  * - attachment_after: An optional attachment view to be displayed after the
  *   view content.
  * - dom_id: Unique id for every view being printed to give unique class for
- *   Javascript.
+ *   JavaScript.
+ *
+ * @ingroup templates
  *
  * @see template_preprocess_views_view()
- *
- * @ingroup themeable
  */
 #}
 {%
   set classes = [
+    'view',
+    'view-' ~ id|clean_class,
+    'view-id-' ~ id,
+    'view-display-id-' ~ display_id,
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
-  {{ title }}
+  {% if title %}
+    {{ title }}
+  {% endif %}
   {{ title_suffix }}
-  
-  <h3><a href="/group/{{view.args.0}}/members">Members</a> <span class="count">{{ view.total_rows }}</span></h3>
-
   {% if header %}
-    <header>
+    <div class="view-header">
       {{ header }}
-    </header>
+    </div>
+  {% endif %}
+  {% if exposed %}
+    <div class="view-filters form-group">
+      {{ exposed }}
+    </div>
+  {% endif %}
+  {% if attachment_before %}
+    <div class="attachment attachment-before">
+      {{ attachment_before }}
+    </div>
   {% endif %}
 
-  {{ exposed }}
-  {{ attachment_before }}
+  
+  {% if member_add_button %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="text-right">
+              <a href="{{member_add_button}}" class="btn btn-xs btn-success
+                pull-right">Add member</a>
+            </div>
+        </div>
+    </div>
+  {% endif %}
 
-  {{ rows }}
-  {{ empty }}
-  {{ pager }}
 
-  {{ attachment_after }}
-  {{ more }}
+  {% if rows %}
+    <div class="view-content">
+      {{ rows }}
+    </div>
+  {% elseif empty %}
+    <div class="view-empty">
+      {{ empty }}
+    </div>
+  {% endif %}
 
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+  {% if attachment_after %}
+    <div class="attachment attachment-after">
+      {{ attachment_after }}
+    </div>
+  {% endif %}
+  {% if more %}
+    {{ more }}
+  {% endif %}
   {% if footer %}
-    <footer>
+    <div class="view-footer">
       {{ footer }}
-    </footer>
+    </div>
   {% endif %}
-
-  {{ feed_icons }}
+  {% if feed_icons %}
+    <div class="feed-icons">
+      {{ feed_icons }}
+    </div>
+  {% endif %}
 </div>
-<div class="more-link">
-  <a href="/group/{{view.args.0}}/members" class="btn btn-block">View All {{ view.total_rows }} Members</a>
-</div>
-
