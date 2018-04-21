@@ -32,3 +32,18 @@ function spacebase_views_pre_render(\Drupal\views\ViewExecutable $view) {
     }
   }
 }
+/* @ToDo: combine with similar function in spacebase_core in one place? */
+function spacebase_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $content_type = $node->bundle();
+    $suggestions[] = 'page__'.$content_type;
+  }
+}
+
+function spacebase_preprocess_node(&$variables) {
+  // Note: you'll probably want this only for certain content types.
+  if ($variables['node']->getType() == 'group_forum_topic') {
+    $variables['comment_count'] = $variables['node']->get('field_reply')->comment_count;
+  }
+}

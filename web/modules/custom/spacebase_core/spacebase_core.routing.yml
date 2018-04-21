@@ -20,3 +20,10 @@ spacebase_core.search_controller_search_organizations:
     _title: 'Organizations'
   requirements:
     _permission: 'access content'
+spacebase_core.orgs_controller_show_resources:
+  path: '/group/{gid}/resources'
+  defaults:
+    _controller: '\Drupal\spacebase_core\Controller\OrgsController::resources'
+    _title: 'Organization Resources A'
+  requirements:
+    _permission: 'access content'

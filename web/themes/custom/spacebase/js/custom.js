@@ -45,6 +45,22 @@
         $('.user-dropdown').fadeToggle(300);
       });
       
+      $('.leave-reply').on(clickTap, function (e) {
+        e.stopPropagation();
+        $('.comment-form').slideDown(400);
+        $(this).slideUp(100);
+        $('.close-comment').fadeIn(200);
+        return false;
+      });
+      
+      $('.close-comment').on(clickTap, function (e) {
+        e.stopPropagation();
+        $('.comment-form').slideUp(400);
+        $('.leave-reply').slideDown(200);
+        $(this).hide();
+        return false;
+      });
+      
       $(document).click(function(e){
         $('.user-dropdown').fadeOut(300);
       });
@@ -71,6 +87,28 @@
         updateDropdownMenu( $prev, 'left' );
         updateDropdownMenu( $current, 'center' );
         updateDropdownMenu( $next, 'right' );
+      });
+      
+      $(function() {
+        // Javascript to enable link to tab
+        var url = document.location.toString();
+        if (url.match('#')) {
+          $('.nav-tabs-responsive a[href="#'+url.split('#')[1]+'"]').tab('show') ;
+        }
+      
+        // Change hash for page-reload
+        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+          window.location.hash = e.target.hash;
+        });
+      });
+      
+      $('.admin-links').find('.fa-thumbtack').on(clickTap,function(){
+        $(this).parent().find('.checkbox-toggle').click();
+        if ($(this).parent().find('.checkbox-toggle').is(":checked")){
+          $(this).addClass('pinned');
+        } else {
+          $(this).removeClass('pinned');
+        }
       });
       
     }

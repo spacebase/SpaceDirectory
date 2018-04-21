@@ -1,0 +1,22 @@
+uuid: 7f051b8c-c3bc-49be-a28e-109ea31b8eef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.group_forum_topic
+  module:
+    - text
+id: node.group_forum_topic.body
+field_name: body
+entity_type: node
+bundle: group_forum_topic
+label: 'Start Discussion'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary
