@@ -42,6 +42,15 @@
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
+
+  
+  {% if member_add_button %}
+    <a href="{{member_add_button}}" class="btn btn-xs btn-success
+      pull-right">Add member</a>
+  {% endif %}
+
+
+
   {{ title_prefix }}
   {% if title %}
     {{ title }}
@@ -60,18 +69,6 @@
   {% if attachment_before %}
     <div class="attachment attachment-before">
       {{ attachment_before }}
-    </div>
-  {% endif %}
-
-  
-  {% if member_add_button %}
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="text-right">
-              <a href="{{member_add_button}}" class="btn btn-xs btn-success
-                pull-right">Add member</a>
-            </div>
-        </div>
     </div>
   {% endif %}
 
