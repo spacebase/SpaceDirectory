@@ -249,6 +249,13 @@ function spacebase_core_preprocess_group(&$variables) {
    */
   _set_the_group_links($variables, $group);
 
+  // Also, prep the descriptions per term
+  // There is vaguely similar code in spacebase.theme
+
+  // Foreach term in the vocab
+
+  // if ($descrip = $term->getDescription()) {
+
 }
 
 
@@ -353,29 +360,21 @@ function _set_the_group_links(&$variables, $group) {
   }
 
   // provide resource_type terms, for tabs in twig
-  //$variables['resource_type'][] = _get_resource_type();
-  $vid = 'resource_type';
-  $terms =
-    \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
-  foreach ($terms as $term) {
-    $variables['resource_type'][] = $term->name;
-  }
-  $variables['resource_type'] = _get_resource_type();
-
+  //$variables['resource_type'] = _get_resource_type(); // being replaced, probably
+  // @ToDo-Refactor replace other times this older version above is called with the new one, I think,
+  $variables['resource_type'] = _prep_resources();
 
   // Get total number of resources:
   $view = Views::getView('organization_resources');
   $view->setDisplay('block_2');  // No terms used in this display
   $view->setArguments([$group->id()]);
   $view->execute();
-  //$view->serialize();
-  //$preview = $view->preview(); //  execute but don't render
   $variables['resource_total'] = $view->total_rows;
 
 }
 
 // Get the resource type taxonomy tree names prepped for tabs
-//@ToDo: needed repeatedly - could save almost nothing by caching this
+// Specs changed, @ToDo replacing this with next one...
 function _get_resource_type() {
   // provide resource_type terms, for tabs in twig
   $vid = 'resource_type';
@@ -387,6 +386,28 @@ function _get_resource_type() {
   }
   return $var;
 }
+
+// Get the resource type taxonomy tree names & descriptions prepped for tabs
+//@ToDo: needed repeatedly - could save almost nothing by caching this
+function _prep_resources() {
+  $vid = 'resource_type';
+  $var = [];
+  // in getStorage below,
+  // $load_entities defaults to false = faster, not complete objects.
+  // This is admin-created data, so treating it as pretty safe markup
+  $terms =
+    \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
+  foreach ($terms as $term) {
+    $var[] = [
+      name => $term->name,
+      description =>  ['#markup' => $term->description__value]
+      ];
+  }
+  return $var;
+}
+
+
+
 
 /**
  * Implements hook_form_alter() on behalf of spacebase_core.module.
