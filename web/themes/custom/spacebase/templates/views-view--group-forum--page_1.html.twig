@@ -78,9 +78,7 @@ btn-primary btn-small new-post"><i class="fas fa-plus"></i> New Post</a>
 
   {% elseif group_links.join %}
   
-    <p>Join this group to participate in the discussion!</p>
-
-    <p>{{group_links.join}}</p>
+    <p><a href="{{group_links.join}}">Join this group</a> to participate in the discussion!</p>
 
   {% else %}
 

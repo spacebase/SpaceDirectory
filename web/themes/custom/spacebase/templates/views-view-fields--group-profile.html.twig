@@ -25,9 +25,9 @@
   {% if logged_in == false %}
     <a href="/user/register" class="btn btn-primary btn-block">Join SpaceBase</a>
   {% elseif group_links.leave %}
-    <a href="#"  class="btn btn-primary btn-block">Leave organization</a>
+    <a href="{{group_links.leave}}"  class="btn btn-primary btn-block">Leave organization</a>
   {% elseif group_links.join  %}
-    <a href="#" class="btn btn-primary btn-block">Join Organization</a>
+    <a href="{{group_links.join}}" class="btn btn-primary btn-block">Join Organization</a>
   {% endif %}
   {% if logged_in %}
   <br/>
