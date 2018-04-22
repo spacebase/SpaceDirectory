@@ -48,16 +48,16 @@
         <h3><a href="{{group_url}}/resources">External Resources</a> <span class="count">{{resource_total}}</span></h3>
         
         <ul class="resources-overview">
+
             {% for key, value in resource_type %}
-            {% set valueId =  value|replace(' ','_') %}
-            
+            {% set nameId =  value.name|replace(' ','_') %}
             <li>
-              <h4><a href="{{group_url}}/resources#{{ valueId }}">{{ value }}</a>
+              <h4><a href="{{group_url}}/resources#{{ nameId }}">{{ value.name }}</a>
               </h4>
-              <p>Description</p>
+              {{value.description}}
             </li>
-            
             {% endfor %}
+
         </ul>
         
         <div class="more-link">
