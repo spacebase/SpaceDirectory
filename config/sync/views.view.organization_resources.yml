@@ -463,8 +463,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<a href="{{ edit_node }}" title="edit"><i class="fas fa-edit"></i> <span class="hidden">edit</span></a>'
             make_link: false
             path: ''
             absolute: false
@@ -502,6 +502,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           text: edit
+          output_url_as_text: true
+          absolute: false
           entity_type: node
           plugin_id: entity_link_edit
         delete_node:
@@ -514,8 +516,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<a href="{{ delete_node }}" title="delete"><i class="fas fa-trash-alt"></i> <span class="hidden">delete</span></a>'
             make_link: false
             path: ''
             absolute: false
@@ -553,6 +555,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           text: delete
+          output_url_as_text: true
+          absolute: false
           entity_type: node
           plugin_id: entity_link_delete
       filters:

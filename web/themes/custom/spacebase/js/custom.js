@@ -41,8 +41,17 @@
       });
       
       $('.nav-link').on(clickTap, function (e) {
-        e.stopPropagation();
-        $('.user-dropdown').fadeToggle(300);
+        e.stopImmediatePropagation();
+        if($('.user-dropdown').is(":visible")){
+          $('.user-dropdown').fadeOut(300);
+          e.stopPropagation();
+          return false;
+        } else {
+          $('.user-dropdown').fadeIn(300);
+          e.stopPropagation();
+          return false;
+        }
+        
       });
       
       $('.leave-reply').on(clickTap, function (e) {
