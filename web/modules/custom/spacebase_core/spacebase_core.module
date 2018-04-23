@@ -142,19 +142,24 @@ function spacebase_core_entity_field_access($operation, \Drupal\Core\Field\Field
 
         // Warning: new nodes being created need to use form_alter @ToDo,
         // this function fails to forbid them.
+        $group = '';
         if ($node->isNew()) {
           // Can't loadByEntity a node in the create-new form.
           // So there's no clean way to know the group
           // ( just $_GET['destination'] = group/$gid )
-          return $result;
-        }
-
-        foreach (GroupContent::loadByEntity($node) as $group_content) {
-          $group = $group_content->getGroup();
+          $group = \Drupal::routeMatch()->getParameter('group');
+          //$group = Drupal\group\Entity\Group::load($gid);
           if ($group->hasPermission('organization_group-admin[administer group]', $account)) {
             $result = AccessResult::allowed();
             return $result->addCacheContexts(['user']);
           }
+        } else {
+          $group_content = reset(GroupContent::loadByEntity($node) );
+          $group = $group_content->getGroup();
+        }
+        if ($group->hasPermission('organization_group-admin[administer group]', $account)) {
+          $result = AccessResult::allowed();
+          return $result->addCacheContexts(['user']);
         }
       }
       $result = AccessResult::forbidden();
