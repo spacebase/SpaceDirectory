@@ -20,7 +20,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 3
+    weight: 2
     settings:
       rows: 9
       summary_rows: 3
@@ -28,7 +28,7 @@ content:
     third_party_settings: {  }
     region: content
   field_image:
-    weight: 2
+    weight: 3
     settings:
       preview_image_style: forum_thumb_large
       progress_indicator: throbber
@@ -36,7 +36,7 @@ content:
     type: image_image
     region: content
   field_pin_to_top:
-    weight: 1
+    weight: 0
     settings:
       display_label: true
     third_party_settings: {  }
@@ -50,11 +50,11 @@ content:
     region: content
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
-      placeholder: ''
+      placeholder: Title
     third_party_settings: {  }
 hidden:
   created: true
