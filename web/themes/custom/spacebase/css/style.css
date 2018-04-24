@@ -7888,6 +7888,32 @@ article.forum-comment {
 .comment-form .control-label {
   display: none; }
 
+.field--name-comment-body:after {
+  clear: both;
+  content: '';
+  display: block;
+  height: 0;
+  visibility: hidden; }
+
+.node-group-forum-topic-form {
+  position: relative;
+  padding-top: 20px; }
+  .node-group-forum-topic-form .field--name-field-pin-to-top {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    margin: 0; }
+    .node-group-forum-topic-form .field--name-field-pin-to-top .checkbox {
+      margin: 0; }
+    .node-group-forum-topic-form .field--name-field-pin-to-top label {
+      font-size: 12px;
+      padding: 0 20px 0 0; }
+      .node-group-forum-topic-form .field--name-field-pin-to-top label input[type="checkbox"] {
+        right: 0;
+        left: auto; }
+  .node-group-forum-topic-form .form-item-title-0-value label, .node-group-forum-topic-form .field--name-body label {
+    display: none; }
+
 .resources-overview {
   list-style: none;
   padding: 10px 0px 15px;

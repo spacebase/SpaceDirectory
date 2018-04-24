@@ -304,3 +304,40 @@ article.forum-comment{
     display: none;
   }
 }
+
+.field--name-comment-body{
+  &:after{
+    clear: both;
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+.node-group-forum-topic-form{
+  position: relative;
+  padding-top: 20px;
+  .field--name-field-pin-to-top{
+    position: absolute;
+    top: -20px;
+    right: 0;
+    margin: 0;
+    .checkbox{
+      margin: 0;
+    }
+    label{
+      font-size: 12px;
+      padding: 0 20px 0 0;
+      input[type="checkbox"]{
+        right: 0;
+        left: auto;
+      }
+    }
+  }
+  .form-item-title-0-value, .field--name-body{
+    label{
+      display: none;
+    }
+  }
+}
