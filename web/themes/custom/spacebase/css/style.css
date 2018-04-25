@@ -6658,6 +6658,11 @@ body.path-user {
       background: #3bba50; }
     .navbar.navbar-inverse .menu > .active > a.btn-blank {
       background: black; }
+    .navbar.navbar-inverse .menu.menu--account {
+      float: right !important;
+      padding: 12px 0 0 !important; }
+      .navbar.navbar-inverse .menu.menu--account > li {
+        display: inline-block; }
   .navbar .btn {
     font-size: 14px;
     padding: 10px 15px; }

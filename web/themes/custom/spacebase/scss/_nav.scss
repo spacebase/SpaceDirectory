@@ -68,6 +68,13 @@
       > .active > a.btn-blank{
         background: black;
       }
+      &.menu--account{
+        float: right !important;
+        padding: 12px 0 0 !important;
+        >li{
+          display: inline-block;
+        }
+      }
     }
   }
   .btn{
