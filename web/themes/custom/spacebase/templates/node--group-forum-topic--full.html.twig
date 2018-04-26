@@ -77,11 +77,20 @@
 %}
 <article{{ attributes.addClass(classes) }}>
   <div class="admin-links">
+    {# 1 of 3 admin-links: others are view/group_forum block and page,
+       which handle most of the access. #}
 
-  
-  <span class="pin">{{ content.field_pin_to_top }}<i class="fas fa-thumbtack pinned"></i>
-  <a href="/node/{{ node.id }}/edit"><i class="fas fa-edit"></i></a>
-  <a href="/node/{{ node.id }}/delete"><i class="fas fa-trash-alt"></i></a>
+    {% if (admin_links_q.show_pin) %}
+    <span class="pin">{{ content.field_pin_to_top }}<i class="fas fa-thumbtack pinned"></i>
+    {% endif %}
+
+    {% if (admin_links_q.edit) %}
+    <a href="/node/{{ node.id }}/edit"><i class="fas fa-edit"></i></a>
+    {% endif %}
+
+    {% if (admin_links_q.delete) %}
+    <a href="/node/{{ node.id }}/delete"><i class="fas fa-trash-alt"></i></a>
+    {% endif %}
   </div>
 
   {{ content.field_image }}

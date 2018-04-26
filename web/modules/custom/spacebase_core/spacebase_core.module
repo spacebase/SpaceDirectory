@@ -43,6 +43,7 @@ function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
   // org page, tbd (by theme tempate).
   // 2. Don't show comments form to non-group members
   // Designed loosely with possible multiple group ownership of forums in mind:
+  // 3. Admin pins; others come from views.
 
   $account = \Drupal::currentUser();
   $show_reply = FALSE;
@@ -57,6 +58,8 @@ function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
     if ($group->hasPermission('organization_group-admin[administer group]', $account)) {
       $show_pin = TRUE;
     }
+    _set_the_group_links($variables, $group);  /* only one group, refactor code */
+
   }
   if (!$show_reply) {
     /* We now show the comments. It has a nice message already about
@@ -68,10 +71,14 @@ function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
       t("Join this organization to leave a comment."));
     */
   }
-  // #show-pin-access will probably change
-  if (!$show_pin) {
-    $variables['content']['field_pin_to_top'] = NULL;
-  }
+
+
+  // 3. Admin pins. Here, and via views, which handle permissions via view fields.
+  $node = $variables['node'];
+  $variables['admin_links_q']['show_pin'] = $show_pin;
+  $variables['admin_links_q']['edit'] = $node->access('update');
+  $variables['admin_links_q']['delete'] = $node->access('delete');
+
 }
 
 
