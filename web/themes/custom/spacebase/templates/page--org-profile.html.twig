@@ -1,44 +1,7 @@
 
 {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
-{# Navbar #}
-{% if page.navigation or page.navigation_collapsible %}
-  {% block navbar %}
-    {%
-      set navbar_classes = [
-        'navbar',
-        theme.settings.navbar_inverse ? 'navbar-inverse' : 'navbar-default',
-        theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : container,
-      ]
-    %}
-    <header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
-      {% if not navbar_attributes.hasClass(container) %}
-        <div class="{{ container }}">
-      {% endif %}
-      <div class="navbar-header">
-        {{ page.navigation }}
-        {# .btn-navbar is used as the toggle for collapsed navbar content #}
-        {% if page.navigation_collapsible %}
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-            <span class="sr-only">{{ 'Toggle navigation'|t }}</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        {% endif %}
-      </div>
 
-      {# Navigation (collapsible) #}
-      {% if page.navigation_collapsible %}
-        <div id="navbar-collapse" class="navbar-collapse collapse">
-          {{ page.navigation_collapsible }}
-        </div>
-      {% endif %}
-      {% if not navbar_attributes.hasClass(container) %}
-        </div>
-      {% endif %}
-    </header>
-  {% endblock %}
-{% endif %}
+{% include '@spacebase/includes/header.html.twig' %}
 
 {# Main #}
 {% block main %}
@@ -127,50 +90,7 @@ set up in the browser, but I don't see where it's used.) #}
   </div>
 {% endblock %}
 
-<footer class="footer-top" role="contentinfo">
-  <div class="{{ container }}">
-    <div class="row">
-      <div class="col-sm-3">
-        {% if page.footer_top_1 %}
-          {% block footer_top_1 %}
-              {{ page.footer_top_1 }}
-          {% endblock %}
-        {% endif %}
-      </div>
-      
-      <div class="col-sm-3">
-        {% if page.footer_top_2 %}
-          {% block footer_top_2 %}
-              {{ page.footer_top_2 }}
-          {% endblock %}
-        {% endif %}
-      </div>
-      
-      <div class="col-sm-3">
-        {% if page.footer_top_3 %}
-          {% block footer_top_3 %}
-              {{ page.footer_top_3 }}
-          {% endblock %}
-        {% endif %}
-      </div>
-      
-      <div class="col-sm-3">
-        {% if page.footer_top_4 %}
-          {% block footer_top_4 %}
-              {{ page.footer_top_4 }}
-          {% endblock %}
-        {% endif %}
-      </div>
-    </div>
-  </div>
-</footer>
+{% include '@spacebase/includes/footer.html.twig' %}
 
-{% if page.footer %}
-  {% block footer %}
-    <footer class="footer" role="contentinfo">
-      <div class="{{ container }}">
-      {{ page.footer }}
-      </div>
-    </footer>
-  {% endblock %}
-{% endif %}
+
+<div class="body-overlay"></div>
