@@ -390,4 +390,3 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.user.user_picture'
-

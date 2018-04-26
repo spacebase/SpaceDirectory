@@ -12,8 +12,8 @@ _core:
   default_config_hash: GT_zYl7I9VAILH8OxMRe-VDvFadCDHxRcnmBc5xEmf0
 id: spacebase_main_menu
 theme: spacebase
-region: navigation_collapsible
-weight: -9
+region: navdropdown
+weight: -12
 provider: null
 plugin: 'system_menu_block:main'
 settings:

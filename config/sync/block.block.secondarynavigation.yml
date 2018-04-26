@@ -1,0 +1,24 @@
+uuid: 426681af-34b4-4690-a235-b2dac3b01277
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.secondary-navigation
+  module:
+    - system
+  theme:
+    - spacebase
+id: secondarynavigation
+theme: spacebase
+region: navigation_collapsible
+weight: 0
+provider: null
+plugin: 'system_menu_block:secondary-navigation'
+settings:
+  id: 'system_menu_block:secondary-navigation'
+  label: 'Secondary Navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

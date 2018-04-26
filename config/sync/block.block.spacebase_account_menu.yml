@@ -13,7 +13,7 @@ _core:
   default_config_hash: R2K_qX0ZUMbUL6ie_-S9tZVjvqmlWKlscikgeRv9vhw
 id: spacebase_account_menu
 theme: spacebase
-region: navigation_collapsible
+region: navigation
 weight: -10
 provider: null
 plugin: 'system_menu_block:account'
