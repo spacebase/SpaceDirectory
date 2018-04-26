@@ -71,7 +71,7 @@
       });
       
       $('.icon-blocks').on(clickTap, function (e) {
-        e.stopPropagation();
+        e.stopImmediatePropagation();
         $('.user-dropdown').fadeOut(300);
         $('.main-nav').find('.region-navdropdown').fadeToggle(300);
       });

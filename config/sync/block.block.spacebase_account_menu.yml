@@ -14,7 +14,7 @@ _core:
 id: spacebase_account_menu
 theme: spacebase
 region: navigation
-weight: -12
+weight: -10
 provider: null
 plugin: 'system_menu_block:account'
 settings:

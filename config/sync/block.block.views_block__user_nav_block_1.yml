@@ -12,7 +12,7 @@ dependencies:
 id: views_block__user_nav_block_1
 theme: spacebase
 region: navigation
-weight: -13
+weight: -12
 provider: null
 plugin: 'views_block:user_nav-block_1'
 settings:
