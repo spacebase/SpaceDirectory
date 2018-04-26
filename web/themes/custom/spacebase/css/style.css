@@ -6726,6 +6726,15 @@ body.path-user {
     .navbar.navbar-inverse .menu.menu--account {
       float: right !important;
       padding: 12px 0 0 !important; }
+      @media screen and (max-width: 767px) {
+        .navbar.navbar-inverse .menu.menu--account {
+          padding: 18px 0 0 !important; }
+          .navbar.navbar-inverse .menu.menu--account li a {
+            font-size: 13px; }
+            .navbar.navbar-inverse .menu.menu--account li a.btn {
+              margin: 0 5px 0 0 !important;
+              padding-left: 5px;
+              padding-right: 5px; } }
       .navbar.navbar-inverse .menu.menu--account > li {
         display: inline-block; }
   .navbar .btn {
@@ -6741,6 +6750,9 @@ body.path-user {
     border-radius: 2px;
     border-color: transparent;
     margin-top: 20px; }
+    @media screen and (max-width: 767px) {
+      .navbar .navbar-toggle {
+        margin-right: 5px; } }
     .navbar .navbar-toggle .icon-bar {
       height: 3px;
       width: 30px; }
@@ -6749,6 +6761,18 @@ body.path-user {
   .navbar .logo {
     max-width: 65%;
     padding-left: 15px; }
+    .navbar .logo img {
+      max-width: 100%; }
+    @media screen and (max-width: 767px) {
+      .navbar .logo {
+        max-width: 40%; } }
+    @media screen and (max-width: 479px) {
+      .navbar .logo {
+        max-width: 30%;
+        padding-top: 5px; } }
+    @media screen and (max-width: 340px) {
+      .navbar .logo {
+        padding-top: 10px; } }
 
 .block-views-blockuser-nav-block-1 {
   float: right;
@@ -6905,6 +6929,9 @@ body.nav-open {
         vertical-align: top; }
         .main-nav .icon-blocks .icon-block-row .icon-block:last-child {
           margin-right: 0; }
+    @media screen and (max-width: 767px) {
+      .main-nav .icon-blocks {
+        margin: 20px 1px; } }
   .main-nav .region-navdropdown {
     display: none;
     background: rgba(0, 0, 0, 0.9);
