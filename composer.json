@@ -25,7 +25,7 @@
         "drupal/config_direct_save": "^1.0",
         "drupal/config_installer": "^1.0",
         "drupal/console": "^1",
-        "drupal/core": "^8",
+        "drupal/core": "^8.5.3",
         "drupal/empty_page": "^1.1",
         "drupal/group": "1.x-dev",
         "drupal/migrate_source_csv": "^2.0",
