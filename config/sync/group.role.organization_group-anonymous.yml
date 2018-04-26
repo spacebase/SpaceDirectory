@@ -12,7 +12,8 @@ audience: anonymous
 group_type: organization_group
 permissions_ui: true
 permissions:
-  - 'view group'
-  - 'access group_node overview'
-  - 'view group_node:organization entity'
-  - 'view group_node:resources entity'
+  0: 'view group'
+  1: 'access group_node overview'
+  2: 'view group_node:organization entity'
+  3: 'view group_node:resources entity'
+  6: 'view group_node:group_forum_topic entity'

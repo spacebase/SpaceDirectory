@@ -41,12 +41,44 @@
       });
       
       $('.nav-link').on(clickTap, function (e) {
+        e.stopImmediatePropagation();
+        if($('.user-dropdown').is(":visible")){
+          $('.user-dropdown').fadeOut(300);
+          e.stopPropagation();
+          return false;
+        } else {
+          $('.user-dropdown').fadeIn(300);
+          e.stopPropagation();
+          return false;
+        }
+        
+      });
+      
+      $('.leave-reply').on(clickTap, function (e) {
         e.stopPropagation();
-        $('.user-dropdown').fadeToggle(300);
+        $('.comment-form').slideDown(400);
+        $(this).slideUp(100);
+        $('.close-comment').fadeIn(200);
+        return false;
+      });
+      
+      $('.close-comment').on(clickTap, function (e) {
+        e.stopPropagation();
+        $('.comment-form').slideUp(400);
+        $('.leave-reply').slideDown(200);
+        $(this).hide();
+        return false;
+      });
+      
+      $('.icon-blocks').on(clickTap, function (e) {
+        e.stopImmediatePropagation();
+        $('.user-dropdown').fadeOut(300);
+        $('.main-nav').find('.region-navdropdown').fadeToggle(300);
       });
       
       $(document).click(function(e){
         $('.user-dropdown').fadeOut(300);
+        $('.main-nav').find('.region-navdropdown').fadeOut(300);
       });
 
       $(document).on('show.bs.tab', '.nav-tabs-responsive [data-toggle="tab"]', function(e) {
@@ -71,6 +103,28 @@
         updateDropdownMenu( $prev, 'left' );
         updateDropdownMenu( $current, 'center' );
         updateDropdownMenu( $next, 'right' );
+      });
+      
+      $(function() {
+        // Javascript to enable link to tab
+        var url = document.location.toString();
+        if (url.match('#')) {
+          $('.nav-tabs-responsive a[href="#'+url.split('#')[1]+'"]').tab('show') ;
+        }
+      
+        // Change hash for page-reload
+        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+          window.location.hash = e.target.hash;
+        });
+      });
+      
+      $('.admin-links').find('.fa-thumbtack').on(clickTap,function(){
+        $(this).parent().find('.checkbox-toggle').click();
+        if ($(this).parent().find('.checkbox-toggle').is(":checked")){
+          $(this).addClass('pinned');
+        } else {
+          $(this).removeClass('pinned');
+        }
       });
       
     }

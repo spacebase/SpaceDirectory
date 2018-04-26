@@ -8,6 +8,7 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
+use Drupal\views\Views;
 
 
 /**
@@ -27,6 +28,198 @@ function spacebase_core_help($route_name, RouteMatchInterface $route_match) {
 }
 
 
+
+ 
+/** Implements hook_preprocess_node
+ *
+ * Link Forum nodes back to their Organization
+ * (This could also go in theme if preferred)
+ */
+
+use Drupal\group\Entity\GroupContent;
+function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
+
+  // 1. Forum threads should send people back to either the forum or
+  // org page, tbd (by theme tempate).
+  // 2. Don't show comments form to non-group members
+  // Designed loosely with possible multiple group ownership of forums in mind:
+
+  $account = \Drupal::currentUser();
+  $show_reply = FALSE;
+  $show_pin = FALSE; // #show-pin-access will probably change
+  foreach (GroupContent::loadByEntity($variables['node']) as $group_content) {
+    $group = $group_content->getGroup();
+    $variables['parent_groups'][$group->id()] = $group->label();
+    if ($group->hasPermission('create group_node:group_forum_topic entity', $account)) {
+      $show_reply = TRUE;
+    }
+    //@ToDo: this doesn't belong here, does it? Moved to hook_entity_field_access
+    if ($group->hasPermission('organization_group-admin[administer group]', $account)) {
+      $show_pin = TRUE;
+    }
+  }
+  if (!$show_reply) {
+    /* We now show the comments. It has a nice message already about
+     *  logging in or registering. Do we want this msg instead?
+     * @ToDo: review, see if $show_reply is needed, or if this is needed
+     * somewhere else ... it's messing up the node page with current ACL :w
+     *
+    $variables['content']['field_reply'] = array('#markup'  =>
+      t("Join this organization to leave a comment."));
+    */
+  }
+  // #show-pin-access will probably change
+  if (!$show_pin) {
+    $variables['content']['field_pin_to_top'] = NULL;
+  }
+}
+
+
+/** Implements hook_preprocess_page
+ *
+ * Send the group id to page--org-profile template.
+ * This page might be a view (forum, members) or custom (resources)
+ * with the gid in the url -- the view can handle these pages directly,
+ * or it might be a node from which the group
+ * must be extracted.
+ *
+ * OrgMenuBlock does something similar.
+ */
+//Just putting this empty function blasts the group profile
+//without an error message.
+//function spacebase_core_preprocess_page__group_forum_topic(&$variables) {
+// fails, block disappears.
+function spacebase_core_preprocess_page(&$variables) {
+  if (isset($variables['node']) && $variables['node']->getType = 'group_forum_topic') {
+    foreach (GroupContent::loadByEntity($variables['node']) as $group_content) {
+      $group = $group_content->getGroup();
+      $variables['groupid'] = $group->id();
+      // note: only one, or current design would break
+    }
+  }
+}
+
+
+
+// @ToDo: these use statements from example, probably not all needed:
+
+// Use statements to support hook_entity_field_access.
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Access\AccessResult;
+
+// Interfaces used by entities to declare "ownership".
+use Drupal\user\EntityOwnerInterface;
+use Drupal\user\UserInterface;
+
+// Use statements for hook_entity_test_access.
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_entity_field_access().
+ *
+ * #Pins-field-access - Only group Admins can set the pins
+ *
+ */
+
+function spacebase_core_entity_field_access($operation, \Drupal\Core\Field\FieldDefinitionInterface $field_definition, \Drupal\Core\Session\AccountInterface $account, \Drupal\Core\Field\FieldItemListInterface $items = NULL) {
+
+
+  // Caching: unfortunately, group membership means we need to know
+  // if this user is an Admin of any groups, user-specific caches/
+  // @ToDo: does it matter that we cache all the other fields?
+  $result = AccessResult::neutral();
+  $result->addCacheContexts(['user']);
+
+  // Edit the pin? Matches ability to edit the group (not the node)
+  // Forbid access to this field except for admins
+  if ($field_definition->getName() == 'field_pin_to_top') {
+    if ($operation == 'edit') {
+      // Need the node, to get the group, to see if $account is an Admin
+      if ($items) {
+        $node = $items->getEntity();
+
+        // Warning: new nodes being created need to use form_alter @ToDo,
+        // this function fails to forbid them.
+        $group = '';
+        if ($node->isNew()) {
+          // Can't loadByEntity a node in the create-new form.
+          // So there's no clean way to know the group
+          // ( just $_GET['destination'] = group/$gid )
+          $group = \Drupal::routeMatch()->getParameter('group');
+          //$group = Drupal\group\Entity\Group::load($gid);
+          if ($group->hasPermission('organization_group-admin[administer group]', $account)) {
+            $result = AccessResult::allowed();
+            return $result->addCacheContexts(['user']);
+          }
+        } else {
+          $group_content = reset(GroupContent::loadByEntity($node) );
+          $group = $group_content->getGroup();
+        }
+        if ($group->hasPermission('organization_group-admin[administer group]', $account)) {
+          $result = AccessResult::allowed();
+          return $result->addCacheContexts(['user']);
+        }
+      }
+      $result = AccessResult::forbidden();
+    }
+
+  }
+  return $result;
+
+}
+
+/** Implements template_preprocess_views_view(&$variables)
+ *
+ * One of a few preprocesses that _set_the_group_links for a template
+ */
+function spacebase_core_preprocess_views_view(&$variables) {
+  if ($variables['id'] == "group_forum" && $variables['display_id'] == 'page_1') {
+    $view = $variables['view'];
+    $group = Drupal\group\Entity\Group::load($view->args[0]);
+    _set_the_group_links($variables, $group);
+  }
+  if ($variables['id'] == "group_members" && $variables['display_id'] == 'page_1') {
+    // Add member link on members page
+    $gid = \Drupal::routeMatch()->getParameter('group');
+    $group = Drupal\group\Entity\Group::load($gid);
+    $account = \Drupal::currentUser();
+
+    if ($group->hasPermission('administer members', $account)) {
+      // Don't send classes or text to the themer; send destination.
+      $variables['member_add_button'] = '/group/' . $gid .
+        '/content/add/group_membership?destination=/group/' . $gid . '/members';
+    }
+
+   /** Buttons actually look ok as is. Since there's no ticket for this,
+    *  going to stop now. But expect this code to be useful soon,
+    *  or else erase it...
+
+    // Prevent non-admin from seeing admin buttons (that won't work = not security issue)
+    $view = $variables['view'];
+    $group = ...above
+    // Am I not an admin of the group?
+    if (!$group->hasPermission('administer members', $account)) {
+    }
+   */
+  }
+}
+
+/** Implements template_preprocess_views_view_fields(&$variables)
+ *
+ * One of a few preprocesses that _set_the_group_links for a template
+ */
+function spacebase_core_preprocess_views_view_fields(&$variables) {
+  if ($variables['view']->id() == 'group_profile') {
+    // Same as preprocess_views_view. Refactor? @ToDoTrivial
+    $view = $variables['view'];
+    $group = Drupal\group\Entity\Group::load($view->args[0]);
+    _set_the_group_links($variables, $group);
+  }
+}
+
+
 /** Implements hook_preprocess_group() on behalf of spacebase_core.module.
  *
  * Prepare theme variables to show links/buttons to join, leave, or create
@@ -35,18 +228,14 @@ function spacebase_core_help($route_name, RouteMatchInterface $route_match) {
  * Based on both permissions and membership status (can't join a group
  * you already joined) set variables and make url's available to theme.
  */
-function spacebase_preprocess_group(&$variables) {
-  // I believe this will follow the same cache rules as
-  // groups, if I don't change the cache rules here.
-  // @ToDo: test
+function spacebase_core_preprocess_group(&$variables) {
 
   $group = $variables['group'];
-  $account = \Drupal::currentUser(); //or $variables['user']; ?
-  // Note: if users can administer a group, all permissions are true.
+
 
   /** Thoughts on code duplication:
    
-   * The first version of this worked mlore like the group module's operations
+   * The first version of this worked more like the group module's operations
    * link code, which unfortunately is written in a way hard to reuse.
    * I think the new way is simpler, and should be the last step for 
    * SpaceBase ... so easier for themers and less extensible.
@@ -62,7 +251,71 @@ function spacebase_preprocess_group(&$variables) {
    * from a more generalized approach that provides the links so that 
    * they can be grabbed by any function, rather than locked into the
    * operations links function.
-   */  
+   */
+  _set_the_group_links($variables, $group);
+
+  // Also, prep the descriptions per term
+  // There is vaguely similar code in spacebase.theme
+
+  // Foreach term in the vocab
+
+  // if ($descrip = $term->getDescription()) {
+
+}
+
+
+/**
+ * Implements ().
+
+function spacebase_core_theme_suggestions_page(array &$suggestions, array $variables, $hook) {
+  print "suggestionsz_page";
+  kint($suggestions);
+  print_r($suggestions);
+}
+ */
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ *
+ * The Org-Profile sub-pages (forum, members, and resources for now)
+ * use this page template. So do the group forum nodes.
+ */
+function spacebase_core_theme_suggestions_page_alter(array &$suggestions, array $variables, $hook) {
+
+  $current_path = \Drupal::service('path.current')->getPath();
+  if (preg_match('/group\/\d*\/(forum|members|resources)/',$current_path)) {
+    $suggestions[] = 'page__org_profile';
+  }
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $content_type = $node->bundle();
+    if ($content_type == 'group_forum_topic') {
+      //{% include "@mytheme/partials/favicons.html.twig" %}
+      $suggestions[] = 'page__org_profile';
+    }
+  }
+}
+
+/** function _set_the_group_links($variables, $group) {
+ *
+ * A variety of pre-process type functions (specs are still shifting) need
+ * to set some variables based on the group.
+ */
+function _set_the_group_links(&$variables, $group) {
+
+  $current_uri = \Drupal::request()->getRequestUri(); // @ToTest:
+  // This is for destinations ... do we want as much path as possible,
+  // like pages, when someone comes back after signing up? I think so, test
+  // use cases.
+  // Previously destination was /group/' . $group->id(); when this was simpler.
+  // $url = \Drupal\Core\Url::fromRoute('<current>');
+
+  $account = \Drupal::currentUser(); //or $variables['user']; ?
+  // Note: if users can administer a group, all permissions are true.
+
+
+  /** Group tabs need url repeatedly. Just a shortcut */
+  $variables['group_url'] = '/group/' . $group->id();
+
 
   /** Edit Group, Add Resource can be done by non-member admins.
    * If not, move inside getMember($account)
@@ -84,20 +337,22 @@ function spacebase_preprocess_group(&$variables) {
     }
   }
 
-  // Possible futur @ToDo: turn this array if add forums and so on,
-  // *and* those are also just permissions based.
-  // Links look like:
+  // Links to add content to a group look like:
   // group/20/content/create/group_node%3Aresources
-  $plugin_id = 'group_node:resources';
-  $quick_id = 'resources';
-  if ($group->hasPermission("create $plugin_id entity", $account)) {
-    $route_params = ['group' => $group->id(), 'plugin_id' => $plugin_id];
-    $url = new Url('entity.group_content.create_form', $route_params);
-    $variables['group_links']['group_create_'. $quick_id] =
-      $url->toString() . '?destination=/group/' . $group->id();
+  // group/14/content/create/group_node%3Agroup_forum_topic
+  $ids = array('resources', 'group_forum_topic');
+  foreach ($ids as $id) {
+    $plugin_id = 'group_node:' . $id;
+
+    if ($group->hasPermission("create $plugin_id entity", $account)) {
+      $route_params = ['group' => $group->id(), 'plugin_id' => $plugin_id];
+      $url = new Url('entity.group_content.create_form', $route_params);
+      $variables['group_links']['group_create_'. $id] =
+        $url->toString() . '?destination=' . $current_uri;
+    }
   }
 
-  /* Leave and join depend on membership status AND permission */  
+  /* Leave and join depend on membership status AND permission */
   if ($group->getMember($account)) {
 
     if ($group->hasPermission('leave group', $account)) {
@@ -109,19 +364,61 @@ function spacebase_preprocess_group(&$variables) {
     $variables['group_links']['join'] = $url->toString();
   }
 
-  // get resource_type terms
+  // provide resource_type terms, for tabs in twig
+  //$variables['resource_type'] = _get_resource_type(); // being replaced, probably
+  // @ToDo-Refactor replace other times this older version above is called with the new one, I think,
+  $variables['resource_type'] = _prep_resources();
+
+  // Get total number of resources:
+  $view = Views::getView('organization_resources');
+  $view->setDisplay('block_2');  // No terms used in this display
+  $view->setArguments([$group->id()]);
+  $view->execute();
+  $variables['resource_total'] = $view->total_rows;
+
+}
+
+// Get the resource type taxonomy tree names prepped for tabs
+// Specs changed, @ToDo replacing this with next one...
+function _get_resource_type() {
+  // provide resource_type terms, for tabs in twig
   $vid = 'resource_type';
+  $var = [];
   $terms =
     \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
   foreach ($terms as $term) {
-    $variables['resource_type'][] = $term->name;
+    $var[] = $term->name;
   }
+  return $var;
 }
+
+// Get the resource type taxonomy tree names & descriptions prepped for tabs
+//@ToDo: needed repeatedly - could save almost nothing by caching this
+function _prep_resources() {
+  $vid = 'resource_type';
+  $var = [];
+  // in getStorage below,
+  // $load_entities defaults to false = faster, not complete objects.
+  // This is admin-created data, so treating it as pretty safe markup
+  $terms =
+    \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
+  foreach ($terms as $term) {
+    $var[] = [
+      name => $term->name,
+      description =>  ['#markup' => $term->description__value]
+      ];
+  }
+  return $var;
+}
+
+
+
 
 /**
  * Implements hook_form_alter() on behalf of spacebase_core.module.
  */
 function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
   if ($form_id == 'user_register_form') {
     $form['actions']['submit']['#submit'][] = 'spacebase_core_user_registration_submit';
   }
@@ -134,7 +431,6 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
   else if ($form['#id'] == 'views-exposed-form-sitewide-search-search') {
     $form['keywords']['#attributes']['placeholder'] = 'Search';
     $path = \Drupal::service('path.current')->getPath();
-
     $form['#action'] = '/search';
     if (strpos($path, '/search/') === 0) {
       $form['#action'] = $path;
@@ -155,6 +451,8 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
       }
     }
   }
+
+
 }
 
 /** Submit function to redirect user to profile after edit
@@ -179,7 +477,7 @@ function spacebase_core_organization_join_submit(&$form, \Drupal\Core\Form\FormS
   // Redirect
   $form_state->setRedirect('entity.group.canonical', ['group' => $group->id()]);
 
-  // And add the role 'verified,' @ToSpec/ToDo unless the $group blocks autoverify
+  // And add the role 'verified,' @ToSpec/ToDo this only if the $group blocks autoverify
   $group_content_membership->group_roles->setValue('organization_group-verified');
   $group_content_membership->save(); // returns 2, SAVED_UPDATED, if working. Add test?
 }
@@ -202,6 +500,25 @@ function spacebase_core_theme($existing, $type, $theme, $path) {
         'org_count' => '',
         'people' => '',
         'people_count' => '',
+      ],
+    ],
+    // Imitate the forum view with twig-tweak driven variant
+    // Have to use underscores
+    // What is theme name? What is template?
+    'group_resources' => [
+      // Seems to work with underscores or dashes.
+      'template' => 'org-resources',
+      'variables' => [
+        'resource_type' => [], //_get_resource_type(),
+        'group_id' => '',
+        'group_links' => []
+      ],
+    ],
+    'menu_org_profile' => [
+      'template' => 'menu_org_profile',
+      'variables' => [
+        'active' => [],
+        'gid' => ''
       ],
     ],
   ];
