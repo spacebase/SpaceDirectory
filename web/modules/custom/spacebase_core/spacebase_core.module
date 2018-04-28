@@ -9,6 +9,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\views\Views;
+use Drupal\group\Entity\GroupContent;
 
 
 /**
@@ -28,15 +29,62 @@ function spacebase_core_help($route_name, RouteMatchInterface $route_match) {
 }
 
 
+/** function _group_from_node($node)
+ *
+ * Returns the (one) group this node is part of (groups module allows
+ * nodes to belong to more than one group — we don't.)
+ */
+function _group_from_node($node) {
+    $group_content = reset(GroupContent::loadByEntity($node) );
+    return $group_content->getGroup();
+}
 
- 
+/**
+ * Implements hook_comment_links_alter(),
+ *
+ * to remove the reply if the user isn't in the group  #131
+ */
+function spacebase_core_comment_links_alter(array &$links) {
+    $account = \Drupal::currentUser();
+    $node = \Drupal::routeMatch()->getParameter('node');
+    $group = _group_from_node($node);
+    $variables['parent_groups'][$group->id()] = $group->label();
+    // Starting a thread and replying to someone elses, same permissions (now)
+    if (!$group->hasPermission('create group_node:group_forum_topic entity', $account)) {
+        unset($links['comment']['#links']['comment-reply']);
+    }
+}
+
+/** Implements hook_preprocess_field_comment
+ *
+ * Can the current user post comments into this group
+ * (Initially, are they a member, but permission based
+ * so might change.)
+ * This is for the entry box, not the "reply" link
+ * #131
+ */
+function spacebase_core_preprocess_field__comment(&$variables) {
+    $account = \Drupal::currentUser();
+
+    // the field is in a node that has a group.
+    $node = $variables['element']['#object'];
+    $group = _group_from_node($node);
+    $variables['parent_groups'][$group->id()] = $group->label();
+    // Starting a thread and replying to someone elses, same permissions (now)
+    if ($group->hasPermission('create group_node:group_forum_topic entity', $account)) {
+        $variables['post_comments_this_group'] = TRUE;
+    }
+}
+
+
+
+
 /** Implements hook_preprocess_node
  *
  * Link Forum nodes back to their Organization
  * (This could also go in theme if preferred)
  */
 
-use Drupal\group\Entity\GroupContent;
 function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
 
   // 1. Forum threads should send people back to either the forum or
@@ -46,32 +94,23 @@ function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
   // 3. Admin pins; others come from views.
 
   $account = \Drupal::currentUser();
-  $show_reply = FALSE;
   $show_pin = FALSE; // #show-pin-access will probably change
-  foreach (GroupContent::loadByEntity($variables['node']) as $group_content) {
-    $group = $group_content->getGroup();
-    $variables['parent_groups'][$group->id()] = $group->label();
-    if ($group->hasPermission('create group_node:group_forum_topic entity', $account)) {
-      $show_reply = TRUE;
-    }
-    //@ToDo: this doesn't belong here, does it? Moved to hook_entity_field_access
-    if ($group->hasPermission('organization_group-admin[administer group]', $account)) {
-      $show_pin = TRUE;
-    }
+
+  $group = _group_from_node($variables['node']);
+  $variables['parent_groups'][$group->id()] = $group->label();
+    /* elsewhere, right? Test. @ToDo cut if tests ok. */
+  $show_reply = FALSE;
+
+  if ($group->hasPermission('create group_node:group_forum_topic entity', $account)) {
+    $show_reply = TRUE;
+  }
+  // Access to pins is tricky, View access means you can see the item is pinned,
+  // but don't see that in the places
+  // where editors can edit the pins.
+  if ($group->hasPermission('organization_group-admin[administer group]', $account)) {
+    $show_pin = TRUE;
+  }
     _set_the_group_links($variables, $group);  /* only one group, refactor code */
-
-  }
-  if (!$show_reply) {
-    /* We now show the comments. It has a nice message already about
-     *  logging in or registering. Do we want this msg instead?
-     * @ToDo: review, see if $show_reply is needed, or if this is needed
-     * somewhere else ... it's messing up the node page with current ACL :w
-     *
-    $variables['content']['field_reply'] = array('#markup'  =>
-      t("Join this organization to leave a comment."));
-    */
-  }
-
 
   // 3. Admin pins. Here, and via views, which handle permissions via view fields.
   $node = $variables['node'];
@@ -98,11 +137,8 @@ function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
 // fails, block disappears.
 function spacebase_core_preprocess_page(&$variables) {
   if (isset($variables['node']) && $variables['node']->getType = 'group_forum_topic') {
-    foreach (GroupContent::loadByEntity($variables['node']) as $group_content) {
-      $group = $group_content->getGroup();
-      $variables['groupid'] = $group->id();
-      // note: only one, or current design would break
-    }
+    $group = _group_from_node($variables['node']);
+    $variables['groupid'] = $group->id();
   }
 }
 
@@ -147,22 +183,13 @@ function spacebase_core_entity_field_access($operation, \Drupal\Core\Field\Field
       if ($items) {
         $node = $items->getEntity();
 
-        // Warning: new nodes being created need to use form_alter @ToDo,
-        // this function fails to forbid them.
+        // Get the group, for new or existing nodes.
         $group = '';
         if ($node->isNew()) {
           // Can't loadByEntity a node in the create-new form.
-          // So there's no clean way to know the group
-          // ( just $_GET['destination'] = group/$gid )
           $group = \Drupal::routeMatch()->getParameter('group');
-          //$group = Drupal\group\Entity\Group::load($gid);
-          if ($group->hasPermission('organization_group-admin[administer group]', $account)) {
-            $result = AccessResult::allowed();
-            return $result->addCacheContexts(['user']);
-          }
         } else {
-          $group_content = reset(GroupContent::loadByEntity($node) );
-          $group = $group_content->getGroup();
+          $group = _group_from_node($node);
         }
         if ($group->hasPermission('organization_group-admin[administer group]', $account)) {
           $result = AccessResult::allowed();
@@ -198,18 +225,6 @@ function spacebase_core_preprocess_views_view(&$variables) {
       $variables['member_add_button'] = '/group/' . $gid .
         '/content/add/group_membership?destination=/group/' . $gid . '/members';
     }
-
-   /** Buttons actually look ok as is. Since there's no ticket for this,
-    *  going to stop now. But expect this code to be useful soon,
-    *  or else erase it...
-
-    // Prevent non-admin from seeing admin buttons (that won't work = not security issue)
-    $view = $variables['view'];
-    $group = ...above
-    // Am I not an admin of the group?
-    if (!$group->hasPermission('administer members', $account)) {
-    }
-   */
   }
 }
 
@@ -240,25 +255,7 @@ function spacebase_core_preprocess_group(&$variables) {
   $group = $variables['group'];
 
 
-  /** Thoughts on code duplication:
-   
-   * The first version of this worked more like the group module's operations
-   * link code, which unfortunately is written in a way hard to reuse.
-   * I think the new way is simpler, and should be the last step for 
-   * SpaceBase ... so easier for themers and less extensible.
-      $variables['group_leave']['show'] = true;
-      $variables['group_leave']['url'] = 
-        new Url('entity.group.leave', ['group' => $group->id()]);
-       
-   * Originally based on:
-   * modules/gnode/src/Plugin/GroupContentEnabler/GroupNode.php
-   * src/Plugin/GroupContentEnabler/GroupMembership.php
-   * It's likely that this might be turned into a function and moved from
-   * this preprocess, but not sure yet. Groups module might benefit
-   * from a more generalized approach that provides the links so that 
-   * they can be grabbed by any function, rather than locked into the
-   * operations links function.
-   */
+
   _set_the_group_links($variables, $group);
 
   // Also, prep the descriptions per term
@@ -270,16 +267,6 @@ function spacebase_core_preprocess_group(&$variables) {
 
 }
 
-
-/**
- * Implements ().
-
-function spacebase_core_theme_suggestions_page(array &$suggestions, array $variables, $hook) {
-  print "suggestionsz_page";
-  kint($suggestions);
-  print_r($suggestions);
-}
- */
 
 /**
  * Implements hook_theme_suggestions_alter().
@@ -306,6 +293,26 @@ function spacebase_core_theme_suggestions_page_alter(array &$suggestions, array 
  *
  * A variety of pre-process type functions (specs are still shifting) need
  * to set some variables based on the group.
+ *
+/** Thoughts on code duplication:
+
+ * The first version of this worked more like the group module's operations
+ * link code, which unfortunately is written in a way hard to reuse.
+ * I think the new way is simpler, and should be the last step for
+ * SpaceBase ...  easier for themers but less extensible.
+ *
+ * It follows this pattern:
+ * $variables['group_links']['group_manage_applicants']
+ * The variable is false or the URL, so links can be designed in template.
+ *
+ * Originally based on:
+ * modules/gnode/src/Plugin/GroupContentEnabler/GroupNode.php
+ * src/Plugin/GroupContentEnabler/GroupMembership.php
+ * Groups module might benefit
+ * from a more generalized approach that provides the links so that
+ * they can be grabbed by any function, rather than locked into the
+ * operations links function. See if as this evolves, something can be
+ * contributed back... @ToDo-Later
  */
 function _set_the_group_links(&$variables, $group) {
 
