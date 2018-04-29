@@ -35,6 +35,7 @@ function spacebase_core_help($route_name, RouteMatchInterface $route_match) {
  * nodes to belong to more than one group — we don't.)
  */
 function _group_from_node($node) {
+  // Sometimes $node is null. Like when clicking a reply link.
     $group_content = reset(GroupContent::loadByEntity($node) );
     return $group_content->getGroup();
 }
@@ -42,11 +43,20 @@ function _group_from_node($node) {
 /**
  * Implements hook_comment_links_alter(),
  *
- * to remove the reply if the user isn't in the group  #131
+ * to remove the reply if the user isn't in the group  #131.
+ *
+ * This fires on node/39#comment-24
  */
 function spacebase_core_comment_links_alter(array &$links) {
     $account = \Drupal::currentUser();
-    $node = \Drupal::routeMatch()->getParameter('node');
+
+    //The reply button is on the node route; comments call it an entity
+    if ( $node = \Drupal::routeMatch()->getParameter('node') ) {
+    } else {
+      //comment/reply/node/52/field_reply/23
+      $node = \Drupal::routeMatch()->getParameter('entity');
+    }    //comment/reply/node/52/field_reply/23
+
     $group = _group_from_node($node);
     $variables['parent_groups'][$group->id()] = $group->label();
     // Starting a thread and replying to someone elses, same permissions (now)
