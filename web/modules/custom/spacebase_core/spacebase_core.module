@@ -12,6 +12,7 @@ use Drupal\views\Views;
 use Drupal\group\Entity\GroupContent;
 
 
+
 /**
  * Implements hook_help().
  */
@@ -35,9 +36,9 @@ function spacebase_core_help($route_name, RouteMatchInterface $route_match) {
  * nodes to belong to more than one group — we don't.)
  */
 function _group_from_node($node) {
-  // Sometimes $node is null. Like when clicking a reply link.
-    $group_content = reset(GroupContent::loadByEntity($node) );
-    return $group_content->getGroup();
+
+  $group_content = array_values(GroupContent::loadByEntity($node))[0];
+  return $group_content->getGroup();
 }
 
 /**
@@ -146,7 +147,8 @@ function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
 //function spacebase_core_preprocess_page__group_forum_topic(&$variables) {
 // fails, block disappears.
 function spacebase_core_preprocess_page(&$variables) {
-  if (isset($variables['node']) && $variables['node']->getType = 'group_forum_topic') {
+  if (isset($variables['node']) && $variables['node']->getType == 'group_forum_topic') {
+    //How is this firing when I try to create a new basic page
     $group = _group_from_node($variables['node']);
     $variables['groupid'] = $group->id();
   }
@@ -371,6 +373,7 @@ function _set_the_group_links(&$variables, $group) {
     if ($group->hasPermission("create $plugin_id entity", $account)) {
       $route_params = ['group' => $group->id(), 'plugin_id' => $plugin_id];
       $url = new Url('entity.group_content.create_form', $route_params);
+      /* might remove this for resources, which also have a tab from the form */
       $variables['group_links']['group_create_'. $id] =
         $url->toString() . '?destination=' . $current_uri;
     }
@@ -389,7 +392,6 @@ function _set_the_group_links(&$variables, $group) {
   }
 
   // provide resource_type terms, for tabs in twig
-  //$variables['resource_type'] = _get_resource_type(); // being replaced, probably
   // @ToDo-Refactor replace other times this older version above is called with the new one, I think,
   $variables['resource_type'] = _prep_resources();
 
@@ -428,8 +430,8 @@ function _prep_resources() {
     \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
   foreach ($terms as $term) {
     $var[] = [
-      name => $term->name,
-      description =>  ['#markup' => $term->description__value]
+      'name' => $term->name,
+      'description' =>  ['#markup' => $term->description__value]
       ];
   }
   return $var;
@@ -460,10 +462,13 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
       $form['#action'] = $path;
     }
   }
-  else if ($form_id == 'node_resources_edit_form') {
+  else if ($form_id == 'node_resources_edit_form' ||
+      $form_id == 'node_resources_form') {
+
     $form['revision_information']['#access'] = FALSE;
-  }
-  else if ($form_id == 'node_resources_form') {
+    $form['actions']['submit']['#submit'][] = 'spacebase_core_resources_tab_redirect';
+
+    // Add a description to the Resource-type Tabs:
     foreach ($form['field_tab']['widget']['#options'] as $tid => $value) {
       //kint($value); // This is an object, being replaced with
       // a string. @ToRefactor, possibly instead use:
@@ -475,9 +480,24 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
       }
     }
   }
-
-
 }
+
+/** Submit function to redirect to resources to specific Tab
+ * The resource "Tab" can be set in the form, so destination in link insuff.
+ */
+function spacebase_core_resources_tab_redirect(&$form, FormStateInterface $form_state) {
+  // An admin might be editing another user, don't use currentUser.
+  $node = $form_state->getFormObject()->getEntity();
+  $group = _group_from_node($node);
+  $field_name = $node->field_tab->view()[0]['#title'];
+  $field_name = str_replace(' ', '_',$field_name); // or more gen solu?
+  $url = url::fromUserInput("/group/" . $group->id() . "/resources/#" . $field_name);
+  $form_state->setRedirectUrl($url);
+
+  // Gets rid of destination, which is set for all the new group-related node types
+  \Drupal::request()->query->remove('destination');
+}
+
 
 /** Submit function to redirect user to profile after edit
  *  Default was to go back to edit page again.
@@ -547,3 +567,5 @@ function spacebase_core_theme($existing, $type, $theme, $path) {
     ],
   ];
 }
+
+
