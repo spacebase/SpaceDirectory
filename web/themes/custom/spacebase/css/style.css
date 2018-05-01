@@ -7046,6 +7046,8 @@ body.nav-open {
     font-weight: bold; }
     .parallax-window a:hover, .parallax-window a:focus, .parallax-window a:active {
       color: #fff; }
+  .parallax-window p {
+    text-shadow: 2px 2px 1px black; }
 
 .home-welcome {
   min-height: 80vh; }
@@ -7160,7 +7162,8 @@ body.nav-open {
     color: #fff; }
   .partners .partner {
     display: inline-block;
-    margin: 15px 40px; }
+    margin: 15px 40px;
+    vertical-align: top; }
 
 .profile {
   padding-top: 170px;
