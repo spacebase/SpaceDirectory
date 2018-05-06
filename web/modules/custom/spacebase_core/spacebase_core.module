@@ -174,23 +174,29 @@ use Drupal\Core\Entity\EntityInterface;
 /**
  * Implements hook_entity_field_access().
  *
- * #Pins-field-access - Only group Admins can set the pins
+ * #Pins-field-access - Only group Admins can set the pins.
  *
  */
 
 function spacebase_core_entity_field_access($operation, \Drupal\Core\Field\FieldDefinitionInterface $field_definition, \Drupal\Core\Session\AccountInterface $account, \Drupal\Core\Field\FieldItemListInterface $items = NULL) {
 
+  // @ToDo: TestTheAccess by returning here, and making sure it fails in AjaxToggleForm.
+  $result = AccessResult::neutral();
 
   // Caching: unfortunately, group membership means we need to know
-  // if this user is an Admin of any groups, user-specific caches/
-  // @ToDo: does it matter that we cache all the other fields?
-  $result = AccessResult::neutral();
+  // if this user is an Admin of any groups, so user-specific cache:
   $result->addCacheContexts(['user']);
 
   // Edit the pin? Matches ability to edit the group (not the node)
-  // Forbid access to this field except for admins
+  // Forbid access to this field except for admins. Note that the
+  // toggle module wants to disable fields that users can view-not-edit ...
+  // We want to forbid those fields entirely.
   if ($field_definition->getName() == 'field_pin_to_top') {
-    if ($operation == 'edit') {
+    if ($operation == 'update') {
+      // 'edit' or  'update' coming from line 256 in ToggleEditableFormatter,
+      // which was originally 'edit' but should have been update.
+
+
       // Need the node, to get the group, to see if $account is an Admin
       if ($items) {
         $node = $items->getEntity();

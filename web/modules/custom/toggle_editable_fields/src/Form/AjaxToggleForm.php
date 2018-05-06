@@ -93,12 +93,7 @@ class AjaxToggleForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-
-    //$this->entity->bundle();
-    // group_forum_topic ... so yes, a node
-
     $form['#tree'] = TRUE;
-
     $form['checkbox'] = [
       '#type' => 'checkbox',
       '#default_value' => $this->defaultValue,
@@ -112,20 +107,15 @@ class AjaxToggleForm extends FormBase {
           'type' => 'none',
         ],
       ],
-      //@ToDo/Contribute Back: This is too hard-coded for SpaceBase's needs
-      //We might want this on the node view, not the view view...
-      //Current specs say: comment it out!
-      //'#disabled' => !$this->entity->access('edit'),
+      '#disabled' => !( $this->entity->access('update') && $this->fieldItem->getEntity()->get($this->fieldName)->access('update') ),
     ];
 
+    // Add toggle library and set attribute, unless set to just show a checkbox
     if ( $this->fieldSettings['toggle'] ) {
       $form['checkbox']['#attributes']['data-toggle'] = 'toggle';
-
-      // Add library.
       $form['#attached']['library'][] = 'toggle_editable_fields/bootstrap.toogle';
       $this->setBooststrapDataAttributes($form['checkbox']);
     }
-
     return $form;
   }
 
@@ -171,7 +161,9 @@ class AjaxToggleForm extends FormBase {
       throw new \Exception("No field $this->fieldName found in {$this->entity->id()} entity.");
     }
 
-    if ($this->entity->access('edit')) {
+    // Checks update access for the node and the field
+    $fieldItemList = $this->fieldItem->getEntity()->get($this->fieldName);
+    if ($this->entity->access('update') && $fieldItemList->access('update')) {
       $this->entity->get($this->fieldName)->set($this->delta, $value);
       $this->entity->save();
     }
