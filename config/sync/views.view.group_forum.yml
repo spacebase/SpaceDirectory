@@ -683,11 +683,12 @@ display:
           settings:
             'on': Pin
             'off': 'Off'
-            size: mini
+            size: large
             onstyle: success
             offstyle: default
             height: 16
             width: 30
+            toggle: 0
           group_column: value
           group_columns: {  }
           group_rows: true
