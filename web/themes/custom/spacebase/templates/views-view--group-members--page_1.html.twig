@@ -37,17 +37,13 @@
     'view',
     'view-' ~ id|clean_class,
     'view-id-' ~ id,
+    'clearfix',
     'view-display-id-' ~ display_id,
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
 
-  
-  {% if member_add_button %}
-    <a href="{{member_add_button}}" class="btn btn-xs btn-success
-      pull-right">Add member</a>
-  {% endif %}
 
 
 
@@ -76,6 +72,13 @@
   {% if rows %}
     <div class="view-content">
       {{ rows }}
+      
+  
+    {% if member_add_button %}
+      <div class="add-member">
+      <a href="{{member_add_button}}"><i class="fas fa-plus-circle"></i> <span class="hidden">Add Member</span></a>
+      </div>
+    {% endif %}
     </div>
   {% elseif empty %}
     <div class="view-empty">
@@ -104,4 +107,8 @@
       {{ feed_icons }}
     </div>
   {% endif %}
+</div>
+
+<div class="member-list pending clearfix">
+{{ drupal_view('group_members', 'block_3') }}
 </div>

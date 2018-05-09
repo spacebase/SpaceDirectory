@@ -1,0 +1,14 @@
+<div class="profile-thumb">
+  <a href="/u/{{ fields.name.content|render|striptags|trim }}">{{ fields.user_picture.content }}</a>
+</div>
+<h3><a href="/u/{{ fields.name.content|render|striptags|trim }}">{{ fields.field_first_name_user.content }} {{ fields.field_last_name_user.content }}</a></h3>
+<div class="position">
+  {{ fields.field_position.content }}
+</div>
+
+<div class="reject-accept">
+  <span class="reject"><i class="fas fa-times-circle"></i></span> <span class="accept"><i class="fas fa-check-circle"></i></span>
+  <div class="hidden">
+    checkboxes here
+  </div>
+</div>

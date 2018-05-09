@@ -1,0 +1,10 @@
+<div class="profile-thumb">
+  <a href="/u/{{ fields.name.content|render|striptags|trim }}">{{ fields.user_picture.content }}</a>
+</div>
+<h3><a href="/u/{{ fields.name.content|render|striptags|trim }}">{{ fields.field_first_name_user.content }} {{ fields.field_last_name_user.content }}</a> <i class="fas fa-shield-alt"></i></h3>
+<div class="position">
+  {{ fields.field_position.content }}
+</div>
+<div class="admin-links">
+  {{ fields.edit_group_content.content }} {{ fields.delete_group_content.content }}
+</div>

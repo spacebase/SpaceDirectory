@@ -201,11 +201,41 @@ h1, h2, h3, h4, h5, h6{
 h1{
   font-size: 32px;
   margin: 0 0 1em;
+  .count{
+    background: $brand-primary;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 8px;
+    height: 20px;
+    line-height: 16px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 10px;
+    text-align: center;
+    min-width: 40px;
+    vertical-align: middle;
+  }
 }
 
 h2{
   font-size: 26px;
   margin: 0 0 1em;
+  .count{
+    background: $brand-primary;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 8px;
+    height: 20px;
+    line-height: 16px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 10px;
+    text-align: center;
+    min-width: 40px;
+    vertical-align: middle;
+  }
 }
 
 h3{
