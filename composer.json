@@ -55,7 +55,8 @@
         "drupal/coder": "^8.2",
         "drupal/markup": "^1.0",
         "drupal/bootstrap_toggle": "^1.0",
-        "drupal/colorbox": "^1.4"
+        "drupal/colorbox": "^1.4",
+        "drupal/google_analytics": "^2.2"
 
     },
     "require-dev": {
