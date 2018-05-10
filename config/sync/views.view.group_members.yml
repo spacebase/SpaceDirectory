@@ -756,7 +756,18 @@ display:
           plugin_id: field
       filters: {  }
       sorts: {  }
-      header: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: ''
+          plugin_id: text_custom
       footer: {  }
       empty:
         area_text_custom:
@@ -1297,19 +1308,33 @@ display:
         menu_name: main
         enabled: true
       access:
-        type: group_permission
+        type: role
         options:
-          group_permission: 'administer members'
+          role:
+            authenticated: authenticated
       defaults:
         access: false
+        header: false
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '<h2>Members</h2>'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
-        - group_membership.roles.permissions
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags:
         - 'config:field.storage.group_content.group_roles'
         - 'config:field.storage.user.field_first_name_user'
@@ -1395,6 +1420,44 @@ display:
         type: group_permission
         options:
           group_permission: 'administer members'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - group_membership.roles.permissions
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+      tags:
+        - 'config:field.storage.group_content.group_roles'
+        - 'config:field.storage.user.field_first_name_user'
+        - 'config:field.storage.user.field_last_name_user'
+        - 'config:field.storage.user.user_picture'
+  page_3:
+    display_plugin: page
+    id: page_3
+    display_title: 'Page: Orig Administrative Members Page'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: group/%group/members--orig
+      menu:
+        type: tab
+        title: Members
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 20
+        context: '0'
+        menu_name: main
+        enabled: true
+      access:
+        type: group_permission
+        options:
+          group_permission: 'administer members'
+      defaults:
+        access: false
+      display_description: 'Duplicate the original before major rewrite.'
     cache_metadata:
       max-age: -1
       contexts:

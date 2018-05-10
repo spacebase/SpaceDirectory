@@ -1,0 +1,15 @@
+uuid: 65d4aac1-09b5-464e-9bff-df949763aaa3
+langcode: en
+status: true
+dependencies: {  }
+name: forum_full
+label: 'Forum Full'
+effects:
+  961f862c-ecd3-4d19-b6c7-5d23d660487f:
+    uuid: 961f862c-ecd3-4d19-b6c7-5d23d660487f
+    id: image_scale
+    weight: 1
+    data:
+      width: 280
+      height: null
+      upscale: false

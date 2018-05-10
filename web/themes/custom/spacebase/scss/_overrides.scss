@@ -14,6 +14,7 @@
 @import "component/table-drag";
 @import "component/tabs";
 @import "component/toolbar";
+@import "component/forum";
 
 // jQuery UI style overrides.
 @import "jquery-ui/autocomplete";
@@ -114,6 +115,7 @@ body.navbar-is-fixed-top{
   border: 1px solid transparent;
   font-weight: 300;
   padding: 10px 15px;
+  white-space: normal;
   &:active,&:focus,&:hover{
     border-color: transparent;
   }
@@ -163,6 +165,25 @@ body.navbar-is-fixed-top{
   &:active,&:focus,&:hover{
     background-color: lighten($grey-accent,10%);
     border: 1px solid transparent;
+    color: #fff;
+  }
+}
+
+.btn-circle{
+  background: $brand-secondary;
+  border-radius: 50%;
+  color: #fff;
+  height: 28px;
+  width: 28px;
+  padding: 2px 0;
+  line-height: 24px;
+  font-size: 18px;
+  text-align: center;
+  i{
+    margin: 0;
+  }
+  &:active,&:focus,&:hover{
+    background-color: lighten($brand-secondary,5%) !important;
     color: #fff;
   }
 }

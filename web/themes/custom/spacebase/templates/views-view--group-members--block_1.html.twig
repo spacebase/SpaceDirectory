@@ -1,6 +1,9 @@
 {#
 /**
  * @file
+ *
+ *** This is the block on the organization page. ***
+ *
  * Default theme implementation for main view template.
  *
  * Available variables:
@@ -42,7 +45,7 @@
   {{ title }}
   {{ title_suffix }}
   
-  <h2>Members <span class="count">{{ view.total_rows }}</span></h2>
+  <h3><a href="/group/{{view.args.0}}/members">Members</a> <span class="count">{{ view.total_rows }}</span></h3>
 
   {% if header %}
     <header>
@@ -68,3 +71,7 @@
 
   {{ feed_icons }}
 </div>
+<div class="more-link">
+  <a href="/group/{{view.args.0}}/members" class="btn btn-block">View All {{ view.total_rows }} Members</a>
+</div>
+

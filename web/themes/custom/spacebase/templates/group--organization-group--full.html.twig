@@ -10,48 +10,13 @@
     
   
   <div class="row profile">
+    
     <aside class="col-sm-4 pull-right">
       <div class="box">
-        
-        <div class="profile-photo">
-        {{ content.field_image }}
-        </div>
-        
-        <h1>{{ label }}</h1>
-        <h2 class="segment">
-          {{ content.field_industry_segment[0]['#title'] }}{% for key, value in content.field_industry_segment %}{% if key > 0 %}, {{ content.field_industry_segment[key]['#title'] }}{% endif %}
-          {% endfor %}
-        </h2>
-        <div class="location">{{ content.field_headquarters_location.0.locality['#value'] }}, {{ content.field_headquarters_location.0.administrative_area['#value'] }}, {{ content.field_headquarters_location.0.country['#value'] }}</div>
-        
-        <p>
-       <a href="{{ content.field_linkedin[0]['#url'] }}" target="_blank" class="btn btn-blank"><span class="icon"><i class="fab fa-linkedin"></i></span> <span class="text">LinkedIn </span></a> <a href="{{ content.field_website[0]['#url'] }}" target="_blank" class="btn btn-blank"><span class="icon"><i class="fas fa-globe"></i></span> <span class="text">Website </span></a></p>
-        </ul>
-        <span class="btn-block">
-        {# drupal_region('groupmgt')#}
-        {% if logged_in == false %}
-          <a href="/user/register" class="btn btn-primary btn-block">Join SpaceBase</a>
-        {% elseif group_links.leave %}
-          <a href="{{ group_links.leave }}"  class="btn btn-primary btn-block">Leave organization</a>
-        {% elseif group_links.join  %}
-          <a href="{{ group_links.join }}" class="btn btn-primary btn-block">Join Organization</a>
-        {% endif %}
-        {% if logged_in %}
-        <br/>
-        <a href="/invite" class="btn btn-secondary btn-block">Invite
-New Members</a>
-        {% endif %}
-
-        </span>
+        {{ drupal_view('group_profile', 'block_1') }}
       </div>
-      <div class="box">
-        {{ drupal_view('group_members', 'block_1') }}
-        {% if group_links.group_manage_members %}
-          <a href="{{group_links.group_manage_members}}" class="btn btn-secondary btn-small btn-block mt-2"><span class="icon"><i class="fas fa-users"></i></span> Manage Members</a>
-        {% endif %}
-      </div>
-      
     </aside>
+    
     <article{{ attributes.addClass('col-sm-8') }}>
       <div class="box">
         {% if group_links.group_edit %}
@@ -61,50 +26,78 @@ New Members</a>
         <div class="description">
         {{ content.field_description }}
         </div>
-
-        {% if group_links.group_create_resources %}
-          <a href="{{group_links.group_create_resources}}" class="btn
-btn-secondary btn-small pull-right"><span class="icon"><i class="fas
-fa-edit"></i></span> Add Resource</a>
-        {% endif %}
-          
-        <h3>External Resources</h3>
-
-
-    {# see:
-http://www.tutorialspark.com/twitterBootstrap/TwitterBootstrap_Tabs.php
-       modified to deal with spaces in the id's #}
-    <div class="resources" role="tabpanel" data-example-id="togglable-tabs">
-      <ul id="resourceTab" class="nav nav-tabs nav-tabs-responsive content-tabs" role="tablist">
-          
-        {% for key, value in resource_type %}
-        {% set valueId =  value|replace(' ','-') %}
-        <li role="presentation"{% if key == 0 %} class="active"{%
-endif %}{% if key == 1 %} class="next"{% endif %}>
-          <a href="#{{ valueId }}" id="{{ valueId }}-tab" role="tab" data-toggle="tab" aria-controls="{{ valueId }}" aria-expanded="true">
-            <span class="text">{{ value }}</span>
-          </a>
-        </li>
-        
-        {% endfor %}
-      </ul>
-      <div id="myTabContent" class="tab-content">
-        {% for key, value in resource_type %}
-        {% set valueId =  value|replace(' ','-') %}
-        <div role="tabpanel" class="tab-pane fade{% if key == 0 %} in active{% endif %}" id="{{ valueId }}" aria-labelledby="{{ valueId }}-tab">
-          
-          {{ drupal_view('organization_resources', 'block_1', value) }}
-          
-        </div>
-        {% endfor %}
-      </div>
-    </div>
           
           
-          
-        
       </div>
     </article>
+        
+  </div>
+  <div class="row">
+    <div class="col col-sm-12 flex-boxes" id="flexboxes">
+
+
+
+      <div class="box">
+        {{ drupal_view('group_forum', 'block_3') }}
+      </div>
+
+
+
+      <div class="box">
+          
+        <h3><a href="{{group_url}}/resources">External Resources</a> <span class="count">{{resource_total}}</span></h3>
+        
+        <ul class="resources-overview">
+
+            {% for key, value in resource_type %}
+            {% set nameId =  value.name|replace(' ','_') %}
+            <li>
+              <h4><a href="{{group_url}}/resources#{{ nameId }}">{{ value.name }}</a>
+              </h4>
+              {{value.description}}
+            </li>
+            {% endfor %}
+
+        </ul>
+        
+        <div class="more-link">
+          <a href="{{group_url}}/resources" class="btn btn-block">View All {{resource_total}} Resources</a>
+        </div>
+
+
+    </div>
+    
+    
+    
+    <div class="box">
+      {% if logged_in %}
+      {{ drupal_view('group_members', 'block_1') }}
+      {% else %}
+      <h3>Members</h3>
+      <p><a href="/user/login">Sign in</a> to view the members list</p>
+      {% endif %}
+    </div>
+    
+    
+    
+    {# ----- hide these boxes until they're in use ----- #}
+    <div class="hidden">
+      
+    <div class="box">
+      <h3>Blogs</h3>
+    </div>
+    <div class="box">
+      <h3>Events</h3>
+    </div>
+    <div class="box">
+      <h3>Projects</h3>
+    </div>
+    
+    </div>
+    {# ----- end hidden ----- #}
+    
+    
+    </div>
   </div>
 
 </div>

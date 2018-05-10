@@ -7,6 +7,31 @@
   h2{
     margin: 0 0 30px;
   }
+  h3{
+    font-size: 20px;
+    a{
+      color: $text;
+      &:active,&:focus,&:hover{
+        color: $text;
+        text-decoration: underline;
+      }
+    }
+    .count{
+      background: $brand-primary;
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 2px 8px;
+      height: 20px;
+      line-height: 16px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-left: 10px;
+      text-align: center;
+      min-width: 40px;
+      vertical-align: top;
+    }
+  }
   &.login{
     max-width: 400px;
     margin: 35px auto 35px;
@@ -21,10 +46,37 @@
     border: 10px solid $brand-primary;
     border-radius: 4px;
   }
+  .more-link{
+    .btn{
+      font-size: 14px;
+      font-weight: 500;
+      color: $text;
+    }
+  }
 }
 
 body.path-user{
   background: #000 url(../images/earth-from-space-1.jpg) center top no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  &.user-profile{
+    background: $grey-bg;
+  }
+}
+
+.flex-boxes{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  grid-auto-rows: minmax(100px, auto);
+  margin-bottom: 40px;
+  .box{
+    margin-bottom: 0;
+  }
+  @media screen and (max-width: 767px) {
+    display: block;
+    .box{
+      margin-bottom: 20px;
+    }
+  }
 }

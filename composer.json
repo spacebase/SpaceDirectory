@@ -25,7 +25,7 @@
         "drupal/config_direct_save": "^1.0",
         "drupal/config_installer": "^1.0",
         "drupal/console": "^1",
-        "drupal/core": "^8",
+        "drupal/core": "^8.5.3",
         "drupal/empty_page": "^1.1",
         "drupal/group": "1.x-dev",
         "drupal/migrate_source_csv": "^2.0",
@@ -53,7 +53,11 @@
         "drupal/views_block_filter_block": "1.x-dev",
         "drupal/migrate_process_extra": "1.x-dev",
         "drupal/coder": "^8.2",
-        "drupal/markup": "^1.0"
+        "drupal/markup": "^1.0",
+        "drupal/bootstrap_toggle": "^1.0",
+        "drupal/colorbox": "^1.4",
+        "drupal/google_analytics": "^2.2"
+
     },
     "require-dev": {
         "behat/mink": "~1.7",

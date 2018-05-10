@@ -14,14 +14,16 @@ function spacebase_preprocess_user(&$variables) {
 function spacebase_views_pre_render(\Drupal\views\ViewExecutable $view) {
 
   // Change descriptions for empty Organization Resources
+  // @Refactor, not sure, could this be combined with  _prep_resources
+  // in spacebase_core?
   if ($view->id() == "organization_resources" 
       && $view->current_display == 'block_1') {
     $term_name = $view->argument['name']->argument;
-    $term = array_shift(
+    $terms =
       \Drupal::entityTypeManager()
         ->getStorage('taxonomy_term')
-        ->loadByProperties(['name' => $term_name])
-    );
+        ->loadByProperties(['name' => $term_name]);
+    $term = array_shift($terms);
     if ($descrip = $term->getDescription()) {
       // Remove closing </p> and possible last period (without relying on
       // them) then add last text. 
@@ -30,5 +32,20 @@ function spacebase_views_pre_render(\Drupal\views\ViewExecutable $view) {
       $view->empty['area_text_custom']->options['content'] = 
         $descrip . " — nothing here, yet.</p>";
     }
+  }
+}
+/* @ToDo: combine with similar function in spacebase_core in one place? */
+function spacebase_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $content_type = $node->bundle();
+    $suggestions[] = 'page__'.$content_type;
+  }
+}
+
+function spacebase_preprocess_node(&$variables) {
+  // Note: you'll probably want this only for certain content types.
+  if ($variables['node']->getType() == 'group_forum_topic') {
+    $variables['comment_count'] = $variables['node']->get('field_reply')->comment_count;
   }
 }
