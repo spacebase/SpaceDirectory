@@ -12,7 +12,7 @@ dependencies:
 id: city
 theme: spacebase
 region: sidebar_second
-weight: -12
+weight: -13
 provider: null
 plugin: 'facet_block:city'
 settings:

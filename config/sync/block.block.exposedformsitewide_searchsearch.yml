@@ -1,25 +1,26 @@
-uuid: 610bbbbf-12d3-4ea8-ae77-8463256027b7
+uuid: 1fb005ae-c083-4074-9d8f-cd678a50ea08
 langcode: en
 status: true
 dependencies:
   config:
-    - facets.facet.industry_segment
+    - views.view.sitewide_search
   module:
-    - facets
     - system
+    - views
   theme:
     - spacebase
-id: industrysegment
+id: exposedformsitewide_searchsearch
 theme: spacebase
 region: sidebar_second
-weight: -12
+weight: -14
 provider: null
-plugin: 'facet_block:industry_segment'
+plugin: 'views_exposed_filter_block:sitewide_search-search'
 settings:
-  id: 'facet_block:industry_segment'
-  label: 'Industry Segment'
-  provider: facets
+  id: 'views_exposed_filter_block:sitewide_search-search'
+  label: ''
+  provider: views
   label_display: visible
+  views_label: ''
 visibility:
   request_path:
     id: request_path

@@ -117,6 +117,9 @@
           },
           "drupal/group": {
             "Fix: Group creators get duplicate entries": "https://www.drupal.org/files/issues/duplicate-members-on-group-create-fixed-2923297-3.patch"
+          },
+          "drupal/search_api" : {
+            "Facets are lost by Views on keyword search": "https://www.drupal.org/files/issues/facets-lost-by-keyword-search-2378945-8.x-19.patch"
           }
         }
     },
