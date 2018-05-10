@@ -463,11 +463,12 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
     if (strpos($path, '/search/') === 0) {
       $form['#action'] = $path;
     }
-
-    $form['sf'] = array(
-      '#type' => 'checkboxes',
-      '#options' => array('group_name' => 'Name', 'group_description' => 'Description'),
-    );
+    if ($path == '/search/organizations') {
+      $form['sf'] = array(
+        '#type' => 'checkboxes',
+        '#options' => array('group_name' => 'Name', 'group_description' => 'Description'),
+      );
+    }
   }
   else if ($form_id == 'node_resources_edit_form' ||
       $form_id == 'node_resources_form') {
