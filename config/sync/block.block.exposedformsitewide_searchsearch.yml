@@ -1,4 +1,4 @@
-uuid: 436ef7b5-f7e0-4514-846c-d09309df1e40
+uuid: 1fb005ae-c083-4074-9d8f-cd678a50ea08
 langcode: en
 status: true
 dependencies:
@@ -9,10 +9,10 @@ dependencies:
     - views
   theme:
     - spacebase
-id: sitewide_search_keywords
+id: exposedformsitewide_searchsearch
 theme: spacebase
-region: topbar
-weight: 0
+region: sidebar_second
+weight: -14
 provider: null
 plugin: 'views_exposed_filter_block:sitewide_search-search'
 settings:
@@ -24,6 +24,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/search\r\n/search/people"
+    pages: /search/organizations
     negate: false
     context_mapping: {  }
