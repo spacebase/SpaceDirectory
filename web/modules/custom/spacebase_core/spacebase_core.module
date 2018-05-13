@@ -408,6 +408,17 @@ function _set_the_group_links(&$variables, $group) {
   $view->execute();
   $variables['resource_total'] = $view->total_rows;
 
+  /* Is this group owned by User 1, needing a real owner? */
+  if ( $owner = $group->getOwner()->id() == 1 ) {
+    //ONLY Logged in spacebase site members can see
+    if ($account->id() > 0 ) {
+      $variables['group_seeks_owner'] = true;
+      $variables['group_name'] = $group->label();
+    }
+  }
+
+
+
 }
 
 // Get the resource type taxonomy tree names prepped for tabs
@@ -591,5 +602,4 @@ function spacebase_core_theme($existing, $type, $theme, $path) {
     ],
   ];
 }
-
 
