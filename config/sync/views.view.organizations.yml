@@ -649,7 +649,20 @@ display:
           entity_field: type
           plugin_id: bundle
       sorts: {  }
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: 'Download the organizations as a CSV file.'
+            format: basic_html
+          plugin_id: text
       footer: {  }
       empty: {  }
       relationships:
@@ -679,54 +692,20 @@ display:
         - 'config:field.storage.group.field_website'
         - 'config:field.storage.user.field_first_name_user'
         - 'config:field.storage.user.field_last_name_user'
-  page_2:
+  page_1:
     display_plugin: page
-    id: page_2
-    display_title: 'Page 2'
-    position: 4
+    id: page_1
+    display_title: Page
+    position: 2
     display_options:
       display_extenders: {  }
-      path: admin/organization_csv
+      path: admin/spacebase_nz_orgs
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - user.permissions
-      tags:
-        - 'config:field.storage.group.field_industry_segment'
-        - 'config:field.storage.group.field_linkedin'
-        - 'config:field.storage.group.field_website'
-        - 'config:field.storage.user.field_first_name_user'
-        - 'config:field.storage.user.field_last_name_user'
-  rest_export_1:
-    display_plugin: rest_export
-    id: rest_export_1
-    display_title: 'REST export'
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: admin/organization_csv
-      pager:
-        type: none
-        options:
-          offset: 0
-      style:
-        type: serializer
-        options:
-          uses_fields: false
-          formats:
-            csv: csv
-      row:
-        type: data_entity
-        options: {  }
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - request_format
         - user.permissions
       tags:
         - 'config:field.storage.group.field_industry_segment'
@@ -741,7 +720,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: admin/organization_csv_fields
+      path: admin/spacebase_nz_orgs
       pager:
         type: none
         options:
