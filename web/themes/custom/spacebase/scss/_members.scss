@@ -11,6 +11,7 @@
     text-align: center;
     vertical-align: top;
     border: none;
+    position: relative;
     &:nth-child(4){
       clear: left;
     }
@@ -41,6 +42,19 @@
         display: inline-block;
         padding: 3px 5px;
         margin: 0 4px;
+        z-index: 2;
+        i.fa-edit{
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          cursor: pointer;
+        }
+        i.fa-trash-alt{
+          position: absolute;
+          top: 15px;
+          left: 15px;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -56,12 +70,14 @@
       height: 298px;
       vertical-align: middle;
       text-align: center;
-      line-height: 298px;
       cursor: pointer;
+      color: $brand-secondary;
+      &:active,&:focus,&:hover{
+        text-decoration: none;
+      }
       i{
         font-size: 60px;
-        color: $brand-secondary;
-        vertical-align: middle;
+        margin-top: 70px;
       }
     }
   }

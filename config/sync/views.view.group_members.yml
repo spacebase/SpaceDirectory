@@ -809,18 +809,7 @@ display:
           content: ''
           plugin_id: text_custom
       footer: {  }
-      empty:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content: 'No members available.'
-          plugin_id: text_custom
+      empty: {  }
       relationships:
         gc__user:
           id: gc__user
@@ -1349,6 +1338,7 @@ display:
         filters: false
         filter_groups: false
         arguments: false
+        empty: false
       header:
         area_text_custom:
           id: area_text_custom
@@ -2174,6 +2164,18 @@ display:
           entity_type: group_content
           entity_field: gid
           plugin_id: numeric
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: 'No pending members'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:

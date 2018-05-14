@@ -6525,7 +6525,8 @@ h4 {
   margin: 0 -15px 10px;
   border-radius: 2px;
   border: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: inline-block; }
   .nav-tabs li {
     margin-right: 4px; }
     .nav-tabs li a {
@@ -6622,6 +6623,9 @@ form .table > thead > tr > th {
 
 .mt-5 {
   margin-top: 50px; }
+
+.dblock {
+  display: block; }
 
 /* Org Resources: Taxonomy term input includes description */
 .field--name-field-tab .form-item-field-tab .descrip p {
@@ -8124,7 +8128,8 @@ article.forum-comment {
     padding: 20px;
     text-align: center;
     vertical-align: top;
-    border: none; }
+    border: none;
+    position: relative; }
     .member-list .result:nth-child(4) {
       clear: left; }
     .member-list .result .profile-thumb {
@@ -8146,7 +8151,18 @@ article.forum-comment {
       color: #76777f;
       display: inline-block;
       padding: 3px 5px;
-      margin: 0 4px; }
+      margin: 0 4px;
+      z-index: 2; }
+      .member-list .result .admin-links a i.fa-edit {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer; }
+      .member-list .result .admin-links a i.fa-trash-alt {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        cursor: pointer; }
   .member-list .add-member {
     width: 210px;
     height: 298px;
@@ -8159,12 +8175,13 @@ article.forum-comment {
       height: 298px;
       vertical-align: middle;
       text-align: center;
-      line-height: 298px;
-      cursor: pointer; }
+      cursor: pointer;
+      color: #3bba50; }
+      .member-list .add-member a:active, .member-list .add-member a:focus, .member-list .add-member a:hover {
+        text-decoration: none; }
       .member-list .add-member a i {
         font-size: 60px;
-        color: #3bba50;
-        vertical-align: middle; }
+        margin-top: 70px; }
   .member-list.pending {
     margin-bottom: 10px;
     padding-top: 30px;

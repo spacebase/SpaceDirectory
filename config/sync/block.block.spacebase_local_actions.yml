@@ -1,6 +1,6 @@
 uuid: 2933419c-830a-4f2d-a10c-1be71d47db93
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - spacebase
