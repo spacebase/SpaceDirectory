@@ -1,30 +1,29 @@
-uuid: 2a802939-a3ba-4950-91cb-fd896a977108
+uuid: 1fb005ae-c083-4074-9d8f-cd678a50ea08
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.partners
+    - views.view.sitewide_search
   module:
     - system
     - views
   theme:
     - spacebase
-id: views_block__partners_block_1
+id: exposedformsitewide_searchsearch
 theme: spacebase
-region: content
-weight: -7
+region: sidebar_second
+weight: -14
 provider: null
-plugin: 'views_block:partners-block_1'
+plugin: 'views_exposed_filter_block:sitewide_search-search'
 settings:
-  id: 'views_block:partners-block_1'
+  id: 'views_exposed_filter_block:sitewide_search-search'
   label: ''
   provider: views
   label_display: visible
   views_label: ''
-  items_per_page: none
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
+    pages: /search/organizations
     negate: false
     context_mapping: {  }

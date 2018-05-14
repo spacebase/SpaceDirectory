@@ -11,6 +11,9 @@
       color: #fff;
     }
   }
+  p{
+    text-shadow: 2px 2px 1px rgba(0,0,0,1.0);
+  }
 }
 .home-welcome{
   min-height: 80vh;
@@ -143,5 +146,6 @@
   .partner{
     display: inline-block;
     margin: 15px 40px;
+    vertical-align: top;
   }
 }
