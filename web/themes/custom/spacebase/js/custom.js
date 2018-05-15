@@ -54,6 +54,13 @@
         
       });
       
+      $('.search-icon').on(clickTap, function (e) {
+        e.stopPropagation();
+        $('.navbar').find('.block-views-exposed-filter-blocksitewide-search-search').slideToggle(200);
+        $(this).toggleClass('active');
+        return false;
+      });
+      
       $('.leave-reply').on(clickTap, function (e) {
         e.stopPropagation();
         $('.comment-form').slideDown(400);
