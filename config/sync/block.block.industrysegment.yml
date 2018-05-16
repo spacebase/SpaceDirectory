@@ -11,8 +11,8 @@ dependencies:
     - spacebase
 id: industrysegment
 theme: spacebase
-region: sidebar_second
-weight: -12
+region: sidebar_first
+weight: -10
 provider: null
 plugin: 'facet_block:industry_segment'
 settings:

@@ -6672,6 +6672,7 @@ body.path-user {
       .flex-boxes .box {
         margin-bottom: 20px; } }
 
+.region-sidebar-first h2.block-title,
 .region-sidebar-second h2.block-title {
   margin: 0 0 10px;
   font-size: 18px; }
@@ -7860,23 +7861,33 @@ label {
   float: left;
   padding-top: 15px; }
 
+.region-sidebar-first .form-checkboxes,
 .region-sidebar-second .form-checkboxes {
   padding: 4px 0; }
+  .region-sidebar-first .form-checkboxes .form-item,
   .region-sidebar-second .form-checkboxes .form-item {
     margin-right: 10px; }
+    .region-sidebar-first .form-checkboxes .form-item label,
     .region-sidebar-second .form-checkboxes .form-item label {
       font-size: 14px; }
+.region-sidebar-first .form-actions,
 .region-sidebar-second .form-actions {
   display: block; }
+  .region-sidebar-first .form-actions button,
   .region-sidebar-second .form-actions button {
     display: block;
     margin: 10px 0 20px;
     background: #3bba50;
     width: 100%; }
-    .region-sidebar-second .form-actions button:active, .region-sidebar-second .form-actions button:focus, .region-sidebar-second .form-actions button:hover {
+    .region-sidebar-first .form-actions button:active, .region-sidebar-first .form-actions button:focus, .region-sidebar-first .form-actions button:hover,
+    .region-sidebar-second .form-actions button:active,
+    .region-sidebar-second .form-actions button:focus,
+    .region-sidebar-second .form-actions button:hover {
       background: #2f933f; }
+.region-sidebar-first .block-views-exposed-filter-blocksitewide-search-search,
 .region-sidebar-second .block-views-exposed-filter-blocksitewide-search-search {
   margin-bottom: 20px; }
+.region-sidebar-first .facets-soft-limit-link,
 .region-sidebar-second .facets-soft-limit-link {
   display: block;
   font-weight: bold;
