@@ -6797,8 +6797,9 @@ body.path-user {
     .navbar .block-views-exposed-filter-blocksitewide-search-search {
       display: block !important; } }
   .navbar .block-views-exposed-filter-blocksitewide-search-search #views-exposed-form-sitewide-search-search {
+    float: left;
     padding: 18px 0 0;
-    margin: 0 auto;
+    margin: 0 0 0 15px;
     width: 452px; }
     .navbar .block-views-exposed-filter-blocksitewide-search-search #views-exposed-form-sitewide-search-search .form-checkboxes {
       display: none; }
@@ -6872,7 +6873,8 @@ body.path-user {
       display: none; }
       .navbar .block-views-exposed-filter-blocksitewide-search-search #views-exposed-form-sitewide-search-search {
         width: auto;
-        padding: 0; }
+        padding: 0;
+        margin: 0 0 0 10px; }
         .navbar .block-views-exposed-filter-blocksitewide-search-search #views-exposed-form-sitewide-search-search .form-item-keywords {
           display: inline-block;
           float: left;
