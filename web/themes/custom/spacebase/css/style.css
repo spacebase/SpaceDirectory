@@ -6649,12 +6649,14 @@ form .table > thead > tr > th {
     font-weight: 500;
     color: #3f4147; }
 
-body.path-user {
+body.user-login,
+body.user-register,
+body.user-password,
+body.user-edit,
+body[class^="user-reset"] {
   background: #000 url(../images/earth-from-space-1.jpg) center top no-repeat;
   background-attachment: fixed;
   background-size: cover; }
-  body.path-user.user-profile {
-    background: #e2e1e1; }
 
 .flex-boxes {
   display: grid;
