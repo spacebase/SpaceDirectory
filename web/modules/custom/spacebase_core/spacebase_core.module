@@ -557,8 +557,11 @@ function spacebase_core_organization_join_submit(&$form, \Drupal\Core\Form\FormS
   $form_state->setRedirect('entity.group.canonical', ['group' => $group->id()]);
 
   // And add the role 'verified,' @ToSpec/ToDo this only if the $group blocks autoverify
+  /* No longer autoverify 20190516 This might become an option in the future,
+   * leaving for the moment 
   $group_content_membership->group_roles->setValue('organization_group-verified');
   $group_content_membership->save(); // returns 2, SAVED_UPDATED, if working. Add test?
+ */
 }
 
 
