@@ -15,4 +15,10 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_evt_description: true
+  field_evt_end: true
+  field_evt_links: true
+  field_evt_location: true
+  field_evt_registration: true
+  field_evt_start: true

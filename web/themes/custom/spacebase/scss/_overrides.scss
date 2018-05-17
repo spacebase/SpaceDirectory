@@ -274,7 +274,14 @@ form{
   }
 }
 
-.pagination{
+.pagination, .pager ul{
+  &:after{
+    clear: both;
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
   > li{
     > a, > span{
       display: inline-block;
@@ -307,6 +314,12 @@ form{
       a{
         width: auto;
       }
+    }
+    &.pager__item--previous{
+      float: left;
+    }
+    &.pager__item--next{
+      float: right;
     }
   }
   .active{

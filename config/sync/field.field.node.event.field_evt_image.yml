@@ -1,0 +1,38 @@
+uuid: f86dd920-4d23-492b-8420-14447ad875b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_evt_image
+    - node.type.event
+  module:
+    - image
+id: node.event.field_evt_image
+field_name: field_evt_image
+entity_type: node
+bundle: event
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: 1100x1100
+  min_resolution: 1100x500
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: c3c58d53-a1a1-410e-aed7-cc3e2e0c8ef6
+    alt: 'Space Events'
+    title: ''
+    width: 1100
+    height: 508
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image
