@@ -2052,7 +2052,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: 'not empty'
+          operator: empty
           value: ''
           group: 1
           exposed: false
@@ -3692,44 +3692,6 @@ display:
           1: AND
     cache_metadata:
       max-age: 0
-      contexts:
-        - group_membership.roles.permissions
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-      tags:
-        - 'config:field.storage.group_content.group_roles'
-        - 'config:field.storage.user.field_first_name_user'
-        - 'config:field.storage.user.field_last_name_user'
-        - 'config:field.storage.user.user_picture'
-  page_3:
-    display_plugin: page
-    id: page_3
-    display_title: 'Page: Orig Administrative Members Page'
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: group/%group/members--orig
-      menu:
-        type: tab
-        title: Members
-        description: ''
-        expanded: false
-        parent: ''
-        weight: 20
-        context: '0'
-        menu_name: main
-        enabled: true
-      access:
-        type: group_permission
-        options:
-          group_permission: 'administer members'
-      defaults:
-        access: false
-      display_description: 'Duplicate the original before major rewrite.'
-    cache_metadata:
-      max-age: -1
       contexts:
         - group_membership.roles.permissions
         - 'languages:language_content'
