@@ -7,5 +7,5 @@ dependencies:
 id: company_footer
 title: 'Company Info'
 content:
-  value: "<div><a href=\"/\"><img alt=\"SpaceBase logo\" data-entity-type=\"file\" data-entity-uuid=\"939aa637-330d-459e-80ea-8336e1665338\" src=\"/sites/default/files/inline-images/logo-footer.png\" /></a></div>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Suggest a feature, report a bug: feedback@spacebase.co</p>\r\n"
+  value: "<div><a href=\"/\"><img alt=\"SpaceBase logo\" data-entity-type=\"file\" data-entity-uuid=\"939aa637-330d-459e-80ea-8336e1665338\" src=\"/sites/default/files/inline-images/logo-footer.png\" /></a></div>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Suggest a feature, report a bug: <a href=\"mailto:feedback@spacebase.co\">feedback@spacebase.co</a></p>\r\n"
   format: full_html

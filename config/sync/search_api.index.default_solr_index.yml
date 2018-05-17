@@ -13,6 +13,7 @@ dependencies:
     - field.storage.group.field_image
     - field.storage.group.field_website
     - field.storage.group.field_headquarters_location
+    - field.storage.group.field_industry_segment
     - field.storage.user.field_bio_user
     - field.storage.user.field_email_user
     - field.storage.user.field_first_name_user
@@ -213,6 +214,14 @@ field_settings:
     property_path: label
     type: solr_text_ngram
     boost: !!float 8
+  field_industry_segment:
+    label: 'Industry Segment'
+    datasource_id: 'entity:group'
+    property_path: field_industry_segment
+    type: integer
+    dependencies:
+      config:
+        - field.storage.group.field_industry_segment
   user_bio:
     label: Bio
     datasource_id: 'entity:user'
