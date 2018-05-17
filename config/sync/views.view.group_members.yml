@@ -1317,15 +1317,15 @@ display:
           content: '<h2>Members</h2>'
           plugin_id: text_custom
       filters:
-        roles_target_id:
-          id: roles_target_id
-          table: user__roles
-          field: roles_target_id
-          relationship: gc__user
+        group_roles_target_id:
+          id: group_roles_target_id
+          table: group_content__group_roles
+          field: group_roles_target_id
+          relationship: none
           group_type: group
           admin_label: ''
           operator: 'not empty'
-          value: {  }
+          value: ''
           group: 1
           exposed: false
           expose:
@@ -1340,7 +1340,7 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            reduce: false
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -1353,10 +1353,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          reduce_duplicates: true
-          entity_type: user
-          entity_field: roles
-          plugin_id: user_roles
+          plugin_id: string
       filter_groups:
         operator: AND
         groups:
