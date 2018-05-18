@@ -8146,14 +8146,26 @@ article.forum-comment {
         margin: 0 auto; }
     .member-grid .result h3 {
       font-size: 22px;
-      margin: 0 0 5px; }
+      margin: 0 -15px 5px; }
       .member-grid .result h3 a {
         color: #3f4147; }
       .member-grid .result h3 i {
         color: #fec61c; }
     .member-grid .result .position {
       font-size: 14px;
-      margin-bottom: 10px; }
+      margin-bottom: 5px; }
+    .member-grid .result .joined {
+      font-size: 12px;
+      margin-bottom: 5px;
+      font-weight: 500;
+      font-style: italic;
+      color: #76777f; }
+    .member-grid .result .roles {
+      font-size: 13px;
+      margin-bottom: 10px;
+      font-weight: 500; }
+      .member-grid .result .roles i {
+        color: #fec61c; }
     .member-grid .result .admin-links {
       display: none; }
       .member-grid .result .admin-links a {
