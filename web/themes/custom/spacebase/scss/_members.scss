@@ -78,12 +78,16 @@
       text-align: center;
       cursor: pointer;
       color: $brand-secondary;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.1em;
       &:active,&:focus,&:hover{
         text-decoration: none;
       }
       i{
-        font-size: 60px;
-        margin-top: 70px;
+        font-size: 170px;
+        margin-top: 20px;
+        margin-bottom: 8px;
       }
     }
   }

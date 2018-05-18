@@ -8187,12 +8187,16 @@ article.forum-comment {
       vertical-align: middle;
       text-align: center;
       cursor: pointer;
-      color: #3bba50; }
+      color: #3bba50;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.1em; }
       .member-grid .add-member a:active, .member-grid .add-member a:focus, .member-grid .add-member a:hover {
         text-decoration: none; }
       .member-grid .add-member a i {
-        font-size: 60px;
-        margin-top: 70px; }
+        font-size: 170px;
+        margin-top: 20px;
+        margin-bottom: 8px; }
   .member-grid.pending {
     margin-bottom: 10px;
     padding-top: 30px;
