@@ -1,4 +1,4 @@
-.member-list{
+.member-grid{
   margin-bottom: 40px;
   .view-content{
     text-align: left;
@@ -37,24 +37,30 @@
       margin-bottom: 10px;
     }
     .admin-links{
+      display: none;
       a{
         color: $text-light;
         display: inline-block;
-        padding: 3px 5px;
-        margin: 0 4px;
         z-index: 2;
-        i.fa-edit{
+        &.member-edit{
           position: absolute;
           top: 15px;
           right: 15px;
           cursor: pointer;
+          color: $brand-secondary;
         }
-        i.fa-trash-alt{
+        &.member-remove{
           position: absolute;
           top: 15px;
           left: 15px;
           cursor: pointer;
+          color: $red;
         }
+      }
+    }
+    &:hover{
+      .admin-links{
+        display: block;
       }
     }
   }
@@ -85,31 +91,97 @@
     margin-bottom: 10px;
     padding-top: 30px;
     border-top: 4px solid $line;
+    .view{
+      position: relative;
+      padding-bottom: 50px;
+      &:after{
+        clear: both;
+        content: '';
+        display: block;
+        height: 0;
+        visibility: hidden;
+      }
+    }
     h2{
-      font-size: 20px;
+      font-size: 18px;
       color: $text-light;
     }
     .result{
       width: 130px;
       padding: 15px;
       margin: 0 5px 10px 0;
+      position: relative;
       h3{
-        font-size: 16px;
+        font-size: 14px;
       }
       .reject-accept{
-        font-size: 30px;
+        font-size: 26px;
         color: $text-light;
+        vertical-align: top;
+        i{
+          vertical-align: top;
+        }
+        .default{
+          font-size: 14px;
+          line-height: 30px;
+          height: 30px;
+          display: inline-block;
+          vertical-align: top;
+          &.active{
+            color: $brand-primary;
+          }
+          i{
+            vertical-align: middle;
+          }
+        }
+        .reject,.accept{
+          position: absolute;
+          top: 90px;
+          background: #fff;
+          border-radius: 50%;
+          width: 28px;
+          height: 28px;
+        }
         .reject{
-          margin: 0 4px;
+          left: 25px;
           &.active{
             color: $red;
           }
         }
         .accept{
-          margin: 0 4px;
+          right: 25px;
           &.active{
             color: $brand-secondary;
           }
+        }
+      }
+    }
+    #edit-actions--2{
+      display: none;
+      button{
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 16px;
+        background: $brand-secondary;
+        color: #fff;
+        padding: 8px 10px;
+        &:active,&:focus,&:hover{
+          background: lighten($brand-secondary,10%);
+        }
+      }
+    }
+    #edit-actions{
+      button{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-size: 16px;
+        background: $brand-secondary;
+        color: #fff;
+        padding: 8px 10px;
+        &:active,&:focus,&:hover{
+          background: lighten($brand-secondary,10%);
         }
       }
     }

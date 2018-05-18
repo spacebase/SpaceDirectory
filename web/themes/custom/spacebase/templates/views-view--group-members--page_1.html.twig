@@ -109,6 +109,8 @@
   {% endif %}
 </div>
 
-<div class="member-list pending clearfix">
-{{ drupal_view('group_members', 'block_3') }}
+{# Add logic around this to check for group admin privileges #}
+
+<div class="member-grid pending clearfix">
+{{ drupal_view('group_members', 'block_2') }}
 </div>

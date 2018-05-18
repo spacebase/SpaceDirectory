@@ -1,7 +1,7 @@
 <div class="profile-thumb">
   <a href="/u/{{ fields.name.content|render|striptags|trim }}">{{ fields.user_picture.content }}</a>
 </div>
-<h3><i class="fas fa-shield-alt"></i> <a href="/u/{{ fields.name.content|render|striptags|trim }}">{{ fields.field_first_name_user.content }} {{ fields.field_last_name_user.content }}</a></h3>
+<h3>{% if fields.group_roles.content|render|striptags|trim == 'Admin' %}<i class="fas fa-shield-alt"></i> {% endif %}<a href="/u/{{ fields.name.content|render|striptags|trim }}">{{ fields.field_first_name_user.content }} {{ fields.field_last_name_user.content }}</a></h3>
 <div class="position">
   {{ fields.field_position.content }}
 </div>
