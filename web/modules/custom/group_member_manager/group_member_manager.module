@@ -45,3 +45,15 @@ function group_member_action_info() {
   );
 }
 
+/**
+ * Implements hook_mail().
+ *
+ * No surpises here.
+ */
+function group_member_manager_mail($key, &$message, $params) {
+
+     $message['from'] = \Drupal::config('system.site')->get('mail');
+     $message['subject'] = $params['subject'];
+     $message['body'][] = $params['message'];
+
+}
