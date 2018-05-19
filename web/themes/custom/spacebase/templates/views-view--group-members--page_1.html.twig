@@ -109,8 +109,9 @@
   {% endif %}
 </div>
 
-{# Add logic around this to check for group admin privileges #}
-
-<div class="member-grid pending clearfix">
-{{ drupal_view('group_members', 'block_2') }}
-</div>
+{# member_add_button has same permissions as pending member view #}
+{% if member_add_button %}
+  <div class="member-grid pending clearfix">
+  {{ drupal_view('group_members', 'block_2') }}
+  </div>
+{% endif %}
