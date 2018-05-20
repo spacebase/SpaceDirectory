@@ -8,6 +8,9 @@
 <div class="roles">
   {% if fields.group_roles.content|render|striptags|trim == 'Admin' %}<i class="fas fa-shield-alt"></i> {% endif %}{{ fields.group_roles.content }}
 </div>
+<div class="organization-role">
+  {{ fields.field_organization_role.content }}
+</div>
 <div class="joined">
   Joined {{ fields.created.content }}
 </div>
