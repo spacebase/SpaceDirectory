@@ -475,6 +475,16 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
     $form['path']['#access'] = FALSE;
     $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_edit_user_submit';
   }
+  // The confirmation page mid- deleting a user. Just changing message (description)
+  else if ($form_id == "group_content_group_content_type_569a59a77cd78_delete_form") {
+    // module is not a class, so stick with t()
+    $uid = $form_state->getFormObject()->getEntity()->entity_id->target_id;
+    $user = \Drupal\user\Entity\User::load($uid)->label();
+    $gid = $form_state->getFormObject()->getEntity()->gid->target_id;
+    $group = \Drupal\group\Entity\Group::load($gid)->label();
+    $form['description']['#markup'] = t("Are you sure you want to delete <em>@user</em> from <em>@group?</em>",
+      ['@user' => $user, '@group'=>$group]);
+  }
   else if ($form['#id'] == 'views-exposed-form-sitewide-search-search') {
     $form['keywords']['#attributes']['placeholder'] = 'Search';
     $path = \Drupal::service('path.current')->getPath();
