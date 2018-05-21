@@ -25,8 +25,20 @@ class OrgAdvancedSearchBlock extends BlockBase {
     $links[] = $this->fieldLink('group_name', "Name");
     $links[] = $this->fieldLink('group_description', "Description");
 
+    $active = [];
+    foreach($links as $link) {
+      if ($link['active']) {
+        $active[] = $link['link']['#title'];
+      }
+    }
+
+    if (empty($active)) {
+      $active = ['All'];
+    }
+
     return [
       '#links' => $links,
+      '#active' => join(', ', $active),
       '#theme' => 'org_advanced_search',
       '#attached' => array(
         'library' => array(

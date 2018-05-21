@@ -597,7 +597,7 @@ function spacebase_core_theme($existing, $type, $theme, $path) {
       ],
     ],
     'org_advanced_search' => array(
-      'variables' => array('links' => array()),
+      'variables' => array('links' => array(), 'active' => ''),
       'template' => 'block--org-advanced-search',
     ),
     // Imitate the forum view with twig-tweak driven variant
