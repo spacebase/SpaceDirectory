@@ -37,6 +37,11 @@ processor_configs:
       sort: -10
     settings:
       sort: DESC
+  camel_case_label:
+    processor_id: camel_case_label
+    weights:
+      build: -10
+    settings: {  }
   count_widget_order:
     processor_id: count_widget_order
     weights:
