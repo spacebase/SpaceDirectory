@@ -1,0 +1,14 @@
+uuid: 587758af-5fdb-42c0-a17a-8d41cd6d7cec
+langcode: en
+status: true
+dependencies: {  }
+name: member_thumb_small
+label: 'Member Thumb Small'
+effects:
+  8e964923-029d-4b1d-828e-04db6bb9cfcd:
+    uuid: 8e964923-029d-4b1d-828e-04db6bb9cfcd
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 100
+      height: 100

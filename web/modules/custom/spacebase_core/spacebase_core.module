@@ -458,6 +458,7 @@ function _prep_resources() {
  * Implements hook_form_alter() on behalf of spacebase_core.module.
  */
 function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
   if ($form_id == 'user_register_form') {
     $form['actions']['submit']['#submit'][] = 'spacebase_core_user_registration_submit';
   }
@@ -466,6 +467,23 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
   }
   else if ($form['#id'] == 'group-content-group-content-type-569a59a77cd78-group-join-form' ) {
     $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_join_submit';
+  }
+  // Org admin editing an Org-Member (or Applicant, though no link currently offered)
+  else if ($form_id == 'group_content_group_content_type_569a59a77cd78_edit_form') {
+    // Can't edit Admin, Verified, etc. This might come back?
+    $form['group_roles']['#access'] = FALSE;
+    $form['path']['#access'] = FALSE;
+    $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_edit_user_submit';
+  }
+  // The confirmation page mid- deleting a user. Just changing message (description)
+  else if ($form_id == "group_content_group_content_type_569a59a77cd78_delete_form") {
+    // module is not a class, so stick with t()
+    $uid = $form_state->getFormObject()->getEntity()->entity_id->target_id;
+    $user = \Drupal\user\Entity\User::load($uid)->label();
+    $gid = $form_state->getFormObject()->getEntity()->gid->target_id;
+    $group = \Drupal\group\Entity\Group::load($gid)->label();
+    $form['description']['#markup'] = t("Are you sure you want to delete <em>@user</em> from <em>@group?</em>",
+      ['@user' => $user, '@group'=>$group]);
   }
   else if ($form['#id'] == 'views-exposed-form-sitewide-search-search') {
     $form['keywords']['#attributes']['placeholder'] = 'Search';
@@ -557,8 +575,26 @@ function spacebase_core_organization_join_submit(&$form, \Drupal\Core\Form\FormS
   $form_state->setRedirect('entity.group.canonical', ['group' => $group->id()]);
 
   // And add the role 'verified,' @ToSpec/ToDo this only if the $group blocks autoverify
+  /* No longer autoverify 20190516 This might become an option in the future,
+   * leaving for the moment 
   $group_content_membership->group_roles->setValue('organization_group-verified');
   $group_content_membership->save(); // returns 2, SAVED_UPDATED, if working. Add test?
+ */
+}
+
+
+/** Submit function to redirect users (always Org-Admins) to the org after editing a user.
+ *
+ * Similar to spacebase_core_organization_join_submit, but goes to member page.
+ *
+ */
+function spacebase_core_organization_edit_user_submit(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $group_content_membership = $form_state->getFormObject()->getEntity();
+  $group = $group_content_membership->getGroup();
+
+  // Redirect
+  $url = url::fromUserInput("/group/" . $group->id() . "/members");
+  $form_state->setRedirectUrl($url);
 }
 
 
