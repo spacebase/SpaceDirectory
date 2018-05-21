@@ -31,7 +31,7 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
@@ -71,8 +71,8 @@ display:
           multiday_theme: '1'
           multiday_hidden: {  }
           granularity_links:
-            day: view.sb_events_calendar.page_day
-            week: view.sb_events_calendar.page_week
+            day: ''
+            week: ''
       row:
         type: calendar_row
         options:
@@ -198,7 +198,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: long
+            format_type: medium
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -322,7 +322,20 @@ display:
           plugin_id: datetime
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'There are no scheduled events for this time period.'
+            format: basic_html
+          plugin_id: text
       relationships:
         group_content:
           id: group_content
@@ -342,7 +355,6 @@ display:
           plugin_id: group_content_to_entity_reverse
       arguments: {  }
       display_extenders: {  }
-      css_class: calendar-year-view
     cache_metadata:
       max-age: -1
       contexts:
@@ -371,16 +383,18 @@ display:
           max_items_behavior: more
           groupby_times: hour
           groupby_times_custom: null
-          theme_style: '1'
+          theme_style: '2'
           groupby_field: ''
           multiday_theme: '1'
           multiday_hidden: {  }
+          granularity_links:
+            day: ''
+            week: ''
       defaults:
         style: false
         row: false
         arguments: false
         header: false
-        css_class: false
       row:
         type: calendar_row
         options:
@@ -460,7 +474,6 @@ display:
           content: ''
           pager_embed: 1
           plugin_id: calendar_header
-      css_class: calendar-day-view
     cache_metadata:
       max-age: 0
       contexts:
@@ -481,7 +494,7 @@ display:
       path: events/month
       display_description: ''
       menu:
-        type: tab
+        type: 'default tab'
         title: Month
         description: ''
         expanded: false
@@ -490,7 +503,7 @@ display:
         context: '0'
         menu_name: main
       tab_options:
-        type: normal
+        type: none
         title: Calendar
         description: ''
         weight: 0
@@ -556,139 +569,6 @@ display:
       defaults:
         arguments: false
         header: false
-        fields: false
-        css_class: false
-      fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: div
-          element_wrapper_class: dblock
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: node
-          entity_field: created
-          plugin_id: field
-        field_evt_start:
-          id: field_evt_start
-          table: node__field_evt_start
-          field: field_evt_start
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: datetime_default
-          settings:
-            timezone_override: ''
-            format_type: html_time
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-      css_class: calendar-month-view
     cache_metadata:
       max-age: 0
       contexts:
@@ -718,16 +598,18 @@ display:
           max_items_behavior: more
           groupby_times: hour
           groupby_times_custom: null
-          theme_style: '1'
+          theme_style: '2'
           groupby_field: ''
           multiday_theme: '1'
           multiday_hidden: {  }
+          granularity_links:
+            day: ''
+            week: ''
       defaults:
         style: false
         row: false
         arguments: false
         header: false
-        css_class: false
       row:
         type: calendar_row
         options:
@@ -807,7 +689,6 @@ display:
           content: ''
           pager_embed: 1
           plugin_id: calendar_header
-      css_class: calendar-week-view
     cache_metadata:
       max-age: 0
       contexts:
