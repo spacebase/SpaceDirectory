@@ -485,20 +485,6 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
     $form['description']['#markup'] = t("Are you sure you want to delete <em>@user</em> from <em>@group?</em>",
       ['@user' => $user, '@group'=>$group]);
   }
-  else if ($form['#id'] == 'views-exposed-form-sitewide-search-search') {
-    $form['keywords']['#attributes']['placeholder'] = 'Search';
-    $path = \Drupal::service('path.current')->getPath();
-    $form['#action'] = '/search';
-    if (strpos($path, '/search/') === 0) {
-      $form['#action'] = $path;
-    }
-    if ($path == '/search/organizations') {
-      $form['sf'] = array(
-        '#type' => 'checkboxes',
-        '#options' => array('group_name' => 'Name', 'group_description' => 'Description'),
-      );
-    }
-  }
   else if ($form_id == 'node_resources_edit_form' ||
       $form_id == 'node_resources_form') {
 
@@ -518,22 +504,6 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
     }
   }
 }
-
-function spacebase_core_views_pre_view(Drupal\views\ViewExecutable $view) {
-  if ($view->id() == 'sitewide_search') {
-    if (!empty($_GET['sf'])) {
-      $filters = $view->display_handler->getOption('filters');
-      if ($filters['search_api_fulltext']) {
-        unset($filters['search_api_fulltext']['fields']);
-        foreach ($_GET['sf'] as $key) {
-          $filters['search_api_fulltext']['fields'][$key] = $key;
-        }
-        $view->display_handler->overrideOption('filters', $filters);
-      }
-    }
-  }
-}
-
 
 /** Submit function to redirect to resources to specific Tab
  * The resource "Tab" can be set in the form, so destination in link insuff.

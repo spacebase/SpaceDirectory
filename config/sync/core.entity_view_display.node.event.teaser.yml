@@ -18,6 +18,7 @@ content:
 hidden:
   field_evt_description: true
   field_evt_end: true
+  field_evt_image: true
   field_evt_links: true
   field_evt_location: true
   field_evt_registration: true

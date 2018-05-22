@@ -54,7 +54,7 @@ display:
       pager:
         type: calendar
         options:
-          pager_placement: top
+          exclude_display: 1
       style:
         type: calendar
         options:
@@ -447,18 +447,6 @@ display:
           empty: true
           tokenize: 1
           content: '{{ arguments.field_evt_start_value_full_date }}'
-          pager_embed: 0
-          plugin_id: calendar_header
-        calendar_header_1:
-          id: calendar_header_1
-          table: views
-          field: calendar_header
-          relationship: none
-          group_type: group
-          admin_label: 'Calendar Pager'
-          empty: true
-          tokenize: 1
-          content: ''
           pager_embed: 1
           plugin_id: calendar_header
     cache_metadata:
@@ -539,18 +527,6 @@ display:
           empty: true
           tokenize: 1
           content: '{{ arguments.field_evt_start_value_year_month }}'
-          pager_embed: 0
-          plugin_id: calendar_header
-        calendar_header_1:
-          id: calendar_header_1
-          table: views
-          field: calendar_header
-          relationship: none
-          group_type: group
-          admin_label: 'Calendar Pager'
-          empty: true
-          tokenize: 1
-          content: ''
           pager_embed: 1
           plugin_id: calendar_header
       defaults:
@@ -662,18 +638,6 @@ display:
           empty: true
           tokenize: 1
           content: 'Week of {{ arguments.field_evt_start_value_year_week }}'
-          pager_embed: 0
-          plugin_id: calendar_header
-        calendar_header_1:
-          id: calendar_header_1
-          table: views
-          field: calendar_header
-          relationship: none
-          group_type: group
-          admin_label: 'Calendar Pager'
-          empty: true
-          tokenize: 1
-          content: ''
           pager_embed: 1
           plugin_id: calendar_header
     cache_metadata:
@@ -769,18 +733,6 @@ display:
           empty: true
           tokenize: 1
           content: '{{ arguments.field_evt_start_value_year }}'
-          pager_embed: 0
-          plugin_id: calendar_header
-        calendar_header_1:
-          id: calendar_header_1
-          table: views
-          field: calendar_header
-          relationship: none
-          group_type: group
-          admin_label: 'Calendar Pager'
-          empty: true
-          tokenize: 1
-          content: ''
           pager_embed: 1
           plugin_id: calendar_header
       path: events/year

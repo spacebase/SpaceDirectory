@@ -37,7 +37,6 @@ module:
   help: 0
   history: 0
   image: 0
-  kint: 0
   link: 0
   mailgun: 0
   mailsystem: 0
@@ -65,6 +64,7 @@ module:
   shortcut: 0
   simple_block: 0
   spacebase_core: 0
+  spacebase_search: 0
   system: 0
   taxonomy: 0
   text: 0
@@ -76,8 +76,8 @@ module:
   update: 0
   user: 0
   views_block_filter_block: 0
-  views_templates: 0
   views_bulk_operations: 0
+  views_templates: 0
   views_ui: 0
   fontyourface: 1
   menu_link_content: 1

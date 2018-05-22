@@ -7915,6 +7915,19 @@ label {
   border-bottom: 2px solid #f0f0f0;
   border-top: 2px solid #f0f0f0; }
 
+.view-sb-site-events-calendar .view-header .pager {
+  text-align: left;
+  margin: 5px 0; }
+  .view-sb-site-events-calendar .view-header .pager ul {
+    padding: 0;
+    margin: 0; }
+    .view-sb-site-events-calendar .view-header .pager ul li a {
+      width: auto; }
+    .view-sb-site-events-calendar .view-header .pager ul li span {
+      width: auto; }
+  .view-sb-site-events-calendar .view-header .pager .dropdown-menu li {
+    display: block; }
+
 .calendar-calendar .month-view .full td.week {
   background: #325ce6;
   color: #fff;
@@ -8026,27 +8039,25 @@ label {
       color: #3f4147;
       font-weight: normal;
       font-size: 11px; }
-.calendar-calendar .month-view {
-  padding: 15px !important; }
-  .calendar-calendar .month-view table.mini td {
-    border: 1px solid #f0f0f0;
-    text-align: center; }
-    .calendar-calendar .month-view table.mini td.days {
-      background: #f0f0f0;
-      font-size: 11px;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
-    .calendar-calendar .month-view table.mini td div.day {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background: none;
-      border: none;
-      float: none;
-      width: auto;
-      font-size: 13px; }
-      .calendar-calendar .month-view table.mini td div.day a {
-        font-weight: bold;
-        color: #325ce6; }
-    .calendar-calendar .month-view table.mini td.today {
-      background: #d1dbf9; }
+.calendar-calendar .month-view table.mini td {
+  border: 1px solid #f0f0f0;
+  text-align: center; }
+  .calendar-calendar .month-view table.mini td.days {
+    background: #f0f0f0;
+    font-size: 11px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  .calendar-calendar .month-view table.mini td div.day {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: none;
+    border: none;
+    float: none;
+    width: auto;
+    font-size: 13px; }
+    .calendar-calendar .month-view table.mini td div.day a {
+      font-weight: bold;
+      color: #325ce6; }
+  .calendar-calendar .month-view table.mini td.today {
+    background: #d1dbf9; }
 
 body.page-node-type-event .event .image {
   margin: 0 0 30px; }

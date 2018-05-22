@@ -10,6 +10,31 @@
     border-top: 2px solid $line;
   }
 }
+.view-sb-site-events-calendar{
+  .view-header{
+    .pager{
+      text-align: left;
+      margin: 5px 0;
+      ul{
+        padding: 0;
+        margin: 0;
+        li{
+          a{
+            width: auto;
+          }
+          span{
+            width: auto;
+          }
+        }
+      }
+      .dropdown-menu{
+        li{
+          display: block;
+        }
+      }
+    }
+  }
+}
 .calendar-calendar{
   .month-view{
     .full{
@@ -191,7 +216,6 @@
     }
   }
   .month-view{
-    padding: 15px !important;
     table.mini{
       td{
         border: 1px solid $line;
