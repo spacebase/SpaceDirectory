@@ -349,12 +349,15 @@ function _set_the_group_links(&$variables, $group) {
   if ($group->hasPermission('administer members', $account)) {
     // @ToDo: review cache implications
     $variables['group_links']['group_manage_members'] = '/group/' . $group->id() . '/members';
-    // If they can administer members, do they have pending applicants?
-    $name = 'group_members';
-    $display_id = 'page_2';
-    $result = views_get_view_result($name, $display_id, $group->id());
-    if ( count($result) > 0 ) {
-      $variables['group_links']['group_manage_applicants'] =  '/group/' . $group->id() . '/applicants';
+
+    $ids = \Drupal::entityQuery('group_content')
+      ->condition('type','group_content_type_569a59a77cd78')
+      ->condition('gid', $group->id())
+      ->condition('group_roles', NULL, 'IS NULL')
+      ->execute();
+
+    if ($ids) {
+      $variables['group_links']['group_manage_applicants'] =  '/group/' . $group->id() . '/members';
     }
   }
 
@@ -465,7 +468,7 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
   // Org admin editing an Org-Member (or Applicant, though no link currently offered)
   else if ($form_id == 'group_content_group_content_type_569a59a77cd78_edit_form') {
     // Can't edit Admin, Verified, etc. This might come back?
-    $form['group_roles']['#access'] = FALSE;
+    //$form['group_roles']['#access'] = FALSE;
     $form['path']['#access'] = FALSE;
     $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_edit_user_submit';
   }
