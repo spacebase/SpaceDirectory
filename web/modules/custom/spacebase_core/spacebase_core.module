@@ -376,11 +376,16 @@ function _set_the_group_links(&$variables, $group) {
 
   /* Leave and join depend on membership status AND permission */
   if ($group->getMember($account)) {
-
+    // Leave
     if ($group->hasPermission('leave group', $account)) {
       $url =new Url('entity.group.leave', ['group' => $group->id()]);
       $variables['group_links']['leave'] = $url->toString();
     }
+    // Pending (can still Leave). Site-Admins won't get this.
+    if (!$group->hasPermission('view group_membership content', $account)) {
+      $variables['group_links']['pending'] = TRUE;
+    }
+    
   } elseif ($group->hasPermission('join group', $account)) {
     $url = new Url('entity.group.join', ['group' => $group->id()]);
     $variables['group_links']['join'] = $url->toString();
