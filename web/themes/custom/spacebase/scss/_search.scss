@@ -66,11 +66,79 @@
       }
     }
   }
+  .block{
+    padding: 8px 0;
+    .dropdown{
+      .btn.dropdown-toggle{
+        background: transparent;
+        padding: 6px 15px;
+        border-radius: 2px;
+        border: none;
+        color: #fff;
+        font-weight: 500;
+        font-size: 14px;
+      }
+      &.open{
+        .btn.dropdown-toggle{
+          border: none;
+          background: darken($brand-primary,10%);
+        }
+      }
+      .dropdown-menu{
+        background: darken($brand-primary,10%);
+        li{
+          a{
+            background: transparent;
+            color: #fff;
+            position: relative;
+            padding: 3px 20px 3px 28px;
+            &:active,&:focus,&:hover{
+              background: $brand-primary;
+            }
+          }
+          &.active{
+            a{
+              background: $brand-primary;
+              &:before{
+                display: block;
+                font-family: 'Font Awesome\ 5 Free';
+                content: '\f00c';
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-font-smoothing: antialiased;
+                display: inline-block;
+                font-weight: 900;
+                font-style: normal;
+                font-variant: normal;
+                text-rendering: auto;
+                line-height: 1;
+                font-size: 12px;
+                float: left;
+                line-height: 12px;
+                height: 12px;
+                color: #fff;
+                text-indent: 0;
+                text-align: center;
+                position: absolute;
+                top: 7px;
+                left: 6px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 body.path-search{
   .main-container{
-    padding-top: 160px;
+    padding-top: 97px;
+    transition: padding-top 0.3s ease;
+  }
+  &.topbar-open{
+    .main-container{
+      padding-top: 160px;
+    }
   }
 }
 
@@ -93,5 +161,14 @@ body.path-search{
     &:active,&:focus,&:hover{
       background: darken($line,5%);
     }
+  }
+}
+
+.facets-widget-links{
+  margin-bottom: 25px;
+  ul{
+    list-style: none;
+    padding: 0 0 0 5px;
+    margin: 0 0 20px;
   }
 }
