@@ -1,0 +1,23 @@
+uuid: 326d5d05-fbcd-41a9-bef6-b6533cc23a79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pin_to_top
+    - node.type.group_forum_topic
+id: node.group_forum_topic.field_pin_to_top
+field_name: field_pin_to_top
+entity_type: node
+bundle: group_forum_topic
+label: 'Pin to Top'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Pinned
+  off_label: 'Off'
+field_type: boolean

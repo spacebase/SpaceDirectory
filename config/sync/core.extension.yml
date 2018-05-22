@@ -10,18 +10,19 @@ module:
   cer: 0
   ckeditor: 0
   color: 0
+  colorbox: 0
   comment: 0
   config: 0
   config_direct_save: 0
   contact: 0
   contextual: 0
+  csv_serialization: 0
   ctools: 0
   datetime: 0
   dblog: 0
   devel: 0
   dynamic_page_cache: 0
   editor: 0
-  email_group_administrators: 0
   facets: 0
   facets_summary: 0
   field: 0
@@ -30,7 +31,9 @@ module:
   filter: 0
   fontawesome: 0
   gnode: 0
+  google_analytics: 0
   group: 0
+  group_member_manager: 0
   help: 0
   history: 0
   image: 0
@@ -43,6 +46,8 @@ module:
   menu_ui: 0
   migrate: 0
   migrate_plus: 0
+  migrate_process_extra: 0
+  migrate_process_extra_plus: 0
   migrate_source_csv: 0
   migrate_tools: 0
   node: 0
@@ -51,16 +56,19 @@ module:
   path: 0
   quickedit: 0
   rdf: 0
+  rest: 0
   search_api: 0
   search_api_db: 0
   search_api_db_defaults: 0
   search_api_solr: 0
+  serialization: 0
   shortcut: 0
   simple_block: 0
   spacebase_core: 0
   system: 0
   taxonomy: 0
   text: 0
+  toggle_editable_fields: 0
   token: 0
   toolbar: 0
   tour: 0
@@ -69,6 +77,7 @@ module:
   user: 0
   views_block_filter_block: 0
   views_templates: 0
+  views_bulk_operations: 0
   views_ui: 0
   fontyourface: 1
   menu_link_content: 1

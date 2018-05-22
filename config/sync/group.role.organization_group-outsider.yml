@@ -17,3 +17,4 @@ permissions:
   - 'access group_node overview'
   - 'view group_node:organization entity'
   - 'view group_node:resources entity'
+  - 'view group_node:group_forum_topic entity'

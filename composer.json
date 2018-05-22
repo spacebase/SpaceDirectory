@@ -25,7 +25,7 @@
         "drupal/config_direct_save": "^1.0",
         "drupal/config_installer": "^1.0",
         "drupal/console": "^1",
-        "drupal/core": "^8",
+        "drupal/core": "^8.5.3",
         "drupal/empty_page": "^1.1",
         "drupal/group": "1.x-dev",
         "drupal/migrate_source_csv": "^2.0",
@@ -54,6 +54,10 @@
         "drupal/migrate_process_extra": "1.x-dev",
         "drupal/coder": "^8.2",
         "drupal/markup": "^1.0",
+        "drupal/bootstrap_toggle": "^1.0",
+        "drupal/colorbox": "^1.4",
+        "drupal/google_analytics": "^2.2",
+        "drupal/csv_serialization": "^1.3",
         "drupal/calendar": "1.x-dev"
     },
     "require-dev": {
@@ -118,6 +122,9 @@
           "drupal/calendar": {
               "Calendar Pager not rendering contextual filters": "https://www.drupal.org/files/issues/2018-04-04/calendar-pager_not_rendering_contextual_filters-2810739-4.patch",
               "Calendar not display because of : .size() deprecated": "https://www.drupal.org/files/issues/2938872-replace-size-by-length_0.patch"
+          },
+          "drupal/search_api" : {
+            "Facets are lost by Views on keyword search": "https://www.drupal.org/files/issues/facets-lost-by-keyword-search-2378945-8.x-19.patch"
           }
         }
     },

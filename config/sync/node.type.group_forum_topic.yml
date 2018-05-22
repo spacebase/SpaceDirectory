@@ -1,0 +1,17 @@
+uuid: 12604b50-bae4-4944-8530-1605dc5c1db4
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Group Forum Topic'
+type: group_forum_topic
+description: 'Topics/threads for each group''s (chat-like) Forum. '
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

@@ -12,10 +12,10 @@ audience: member
 group_type: organization_group
 permissions_ui: true
 permissions:
-  - 'view group'
-  - 'update own group_membership content'
-  - 'leave group'
-  - 'view group_membership content'
-  - 'access group_node overview'
-  - 'view group_node:organization entity'
-  - 'view group_node:resources entity'
+  0: 'view group'
+  1: 'update own group_membership content'
+  2: 'leave group'
+  4: 'access group_node overview'
+  5: 'view group_node:organization entity'
+  6: 'view group_node:resources entity'
+  9: 'view group_node:group_forum_topic entity'

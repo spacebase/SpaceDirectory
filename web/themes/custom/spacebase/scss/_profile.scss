@@ -81,6 +81,11 @@
       height: 100px;
       line-height: 100px;
       width: 80px;
+      @media screen and (max-width: 767px) {
+        height: 38px;
+        line-height: 38px;
+        font-size: 30px;
+      }
     }
   }
   .bio, .description{
@@ -171,6 +176,23 @@
       float: none !important;
     }
   }
+  .col-sm-3.pull-right{
+    h1{
+      font-size: 24px;
+    }
+    h2.segment, .location{
+      font-size: 14px;
+    }
+    .btn{
+      font-size: 16px;
+    }
+  }
+  .claim {
+    padding: 25px 0 0;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+  }
 }
 
 .org-list,
@@ -259,8 +281,8 @@
     .btn-group.dropdown{
       position: absolute;
       right: 0;
-      top: 50%;
-      margin-top: -16px;
+      top: 15px;
+      padding: 10px;
     }
     @media screen and (max-width: 767px) {
       padding: 15px 0 55px 0;
@@ -317,21 +339,6 @@
 
 .member-list{
   h2{
-    .count{
-      background: $brand-primary;
-      color: #fff;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 4px 10px;
-      height: 26px;
-      line-height: 18px;
-      border-radius: 13px;
-      display: inline-block;
-      margin-left: 15px;
-      text-align: center;
-      min-width: 40px;
-      vertical-align: top;
-    }
   }
   .result{
     border-bottom: 1px solid $line;
@@ -452,6 +459,49 @@
     }
     &.table-striped > tbody > tr:nth-of-type(odd){
       background: none;
+    }
+  }
+}
+
+.profile-inner aside.col-sm-3{
+  padding-top: 31px;
+  @media screen and (max-width: 767px) {
+    float: none !important;
+  }
+}
+
+.group-nav{
+  ul.menu{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li{
+      display: inline-block;
+      margin: 0 6px 0 0;
+      a{
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 3px 3px 0 0;
+        background: $grey-accent;
+        color: $text;
+        font-weight: 500;
+        &:active,&:focus,&:hover{
+          text-decoration: none;
+          background: lighten($grey-accent,10%);
+        }
+      }
+      &.active{
+        a{
+          background: #fff;
+          padding-bottom: 5px;
+        }
+      }
+      &:first-child{
+        a{
+          background: none;
+          
+        }
+      }
     }
   }
 }

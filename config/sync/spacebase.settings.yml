@@ -10,14 +10,34 @@ schemas:
   bootstrap: 8000
   spacebase: 8000
 navbar_position: fixed-top
-features:
-  comment_user_picture: true
-  comment_user_verification: true
-  favicon: true
-  node_user_picture: true
 logo:
   path: themes/custom/spacebase/logo.png
   url: ''
   use_default: false
 navbar_inverse: 1
+region_wells:
+  navigation: ''
+  navdropdown: ''
+  navigation_collapsible: ''
+  header: ''
+  branding: ''
+  topbar: ''
+  highlighted: ''
+  help: ''
+  content: ''
+  sidebar_first: ''
+  sidebar_second: ''
+  footer_top_1: ''
+  footer_top_2: ''
+  footer_top_3: ''
+  footer_top_4: ''
+  footer: ''
+  groupmgt: ''
+modal_enabled: 0
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+button_iconize: 0
 table: ''
