@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Truncate fontyourface_font
+ */
+function spacebase_core_update_8001() {
+  if (db_table_exists('fontyourface_font')) {
+    db_query("TRUNCATE fontyourface_font");
+  }
+}
