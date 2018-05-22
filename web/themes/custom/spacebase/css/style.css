@@ -7917,7 +7917,8 @@ label {
 
 .view-sb-site-events-calendar .view-header .pager {
   text-align: left;
-  margin: 5px 0; }
+  margin: 5px 0;
+  position: relative; }
   @media screen and (max-width: 1023px) {
     .view-sb-site-events-calendar .view-header .pager {
       padding-top: 45px; } }
@@ -7946,7 +7947,8 @@ label {
       @media screen and (max-width: 600px) {
         .view-sb-site-events-calendar .view-header .pager ul li h2 {
           width: auto;
-          margin-left: 0; } }
+          margin-left: 0;
+          top: 0; } }
   .view-sb-site-events-calendar .view-header .pager .dropdown-menu li {
     display: block; }
     .view-sb-site-events-calendar .view-header .pager .dropdown-menu li a {
@@ -8092,10 +8094,22 @@ label {
 
 body.page-node-type-event .event .image {
   margin: 0 0 30px; }
+body.page-node-type-event .event .calendar-name {
+  margin: 0 0 15px;
+  font-size: 16px;
+  padding: 5px 15px 5px 10px;
+  background: #325ce6;
+  color: #fff;
+  float: left;
+  display: inline-block;
+  text-decoration: none; }
+  body.page-node-type-event .event .calendar-name i {
+    margin-right: 5px; }
 @media screen and (min-width: 768px) {
   body.page-node-type-event .event h1 {
     float: left;
-    width: 60%; } }
+    width: 60%;
+    clear: left; } }
 body.page-node-type-event .event .content {
   position: relative; }
   body.page-node-type-event .event .content .description {

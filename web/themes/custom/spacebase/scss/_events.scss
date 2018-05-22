@@ -15,6 +15,7 @@
     .pager{
       text-align: left;
       margin: 5px 0;
+      position: relative;
       @media screen and (max-width: 1023px) {
         padding-top: 45px;
       }
@@ -46,6 +47,7 @@
             @media screen and (max-width: 600px) {
               width: auto;
               margin-left: 0;
+              top: 0;
             }
           }
         }
@@ -283,10 +285,24 @@ body.page-node-type-event{
     .image{
       margin: 0 0 30px;
     }
+    .calendar-name{
+      margin: 0 0 15px;
+      font-size: 16px;
+      padding: 5px 15px 5px 10px;
+      background: $brand-primary;
+      color: #fff;
+      float: left;
+      display: inline-block;
+      text-decoration: none;
+      i{
+        margin-right: 5px;
+      }
+    }
     h1{
       @media screen and (min-width: 768px) {
         float: left;
         width: 60%;
+        clear: left;
       }
     }
     .content{
