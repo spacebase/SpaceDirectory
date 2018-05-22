@@ -1,0 +1,8 @@
+uuid: c97f986e-c1a7-4514-a86f-9632618b43ae
+langcode: en
+status: true
+dependencies: {  }
+id: full_display
+label: 'Full Display'
+locked: false
+pattern: 'l, j F, Y - g:i a'

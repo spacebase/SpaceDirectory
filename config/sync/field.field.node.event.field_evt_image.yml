@@ -28,11 +28,11 @@ settings:
   title_field: false
   title_field_required: false
   default_image:
-    uuid: c3c58d53-a1a1-410e-aed7-cc3e2e0c8ef6
+    uuid: 03cd8192-78b2-433c-b824-b334842cc15a
     alt: 'Space Events'
     title: ''
     width: 1100
-    height: 508
+    height: 500
   handler: 'default:file'
   handler_settings: {  }
 field_type: image

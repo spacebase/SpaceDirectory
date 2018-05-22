@@ -446,7 +446,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: 1
-          content: '{{ arguments.field_evt_start_value_full_date }}'
+          content: '<h1>{{ arguments.field_evt_start_value_full_date }}</h1>'
           pager_embed: 1
           plugin_id: calendar_header
     cache_metadata:
@@ -526,7 +526,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: 1
-          content: '{{ arguments.field_evt_start_value_year_month }}'
+          content: '<h1>{{ arguments.field_evt_start_value_year_month }}</h1>'
           pager_embed: 1
           plugin_id: calendar_header
       defaults:
@@ -637,7 +637,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: 1
-          content: 'Week of {{ arguments.field_evt_start_value_year_week }}'
+          content: '<h1>Week of {{ arguments.field_evt_start_value_year_week }}</h1>'
           pager_embed: 1
           plugin_id: calendar_header
     cache_metadata:
@@ -732,7 +732,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: 1
-          content: '{{ arguments.field_evt_start_value_year }}'
+          content: '<h1>{{ arguments.field_evt_start_value_year }}</h1>'
           pager_embed: 1
           plugin_id: calendar_header
       path: events/year
