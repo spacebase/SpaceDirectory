@@ -15,8 +15,11 @@
     .pager{
       text-align: left;
       margin: 5px 0;
+      @media screen and (max-width: 1023px) {
+        padding-top: 45px;
+      }
       @media screen and (max-width: 767px) {
-        padding-top: 35px;
+        padding-top: 45px;
       }
       ul{
         padding: 0;
@@ -31,15 +34,19 @@
           h2{
             display: inline-block;
             position: absolute;
-            margin: 0 0 0 -150px;
+            margin: 0 0 0 -250px;
             top: -10px;
             left: 50%;
-            width: 300px;
+            width: 500px;
             text-align: center;
             font-size: 24px;
             padding: 5px 0;
             border: solid $line;
             border-width: 2px 0;
+            @media screen and (max-width: 600px) {
+              width: auto;
+              margin-left: 0;
+            }
           }
         }
       }
@@ -94,7 +101,8 @@
         border-left: 3px solid $brand-primary;
         border-right: 3px solid $brand-primary;
       }
-      .single-day{
+      .single-day,
+      .multi-day{
         td{
           .item{
             .calendar.weekview{

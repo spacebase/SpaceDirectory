@@ -7918,9 +7918,12 @@ label {
 .view-sb-site-events-calendar .view-header .pager {
   text-align: left;
   margin: 5px 0; }
+  @media screen and (max-width: 1023px) {
+    .view-sb-site-events-calendar .view-header .pager {
+      padding-top: 45px; } }
   @media screen and (max-width: 767px) {
     .view-sb-site-events-calendar .view-header .pager {
-      padding-top: 35px; } }
+      padding-top: 45px; } }
   .view-sb-site-events-calendar .view-header .pager ul {
     padding: 0;
     margin: 0; }
@@ -7931,15 +7934,19 @@ label {
     .view-sb-site-events-calendar .view-header .pager ul li h2 {
       display: inline-block;
       position: absolute;
-      margin: 0 0 0 -150px;
+      margin: 0 0 0 -250px;
       top: -10px;
       left: 50%;
-      width: 300px;
+      width: 500px;
       text-align: center;
       font-size: 24px;
       padding: 5px 0;
       border: solid #f0f0f0;
       border-width: 2px 0; }
+      @media screen and (max-width: 600px) {
+        .view-sb-site-events-calendar .view-header .pager ul li h2 {
+          width: auto;
+          margin-left: 0; } }
   .view-sb-site-events-calendar .view-header .pager .dropdown-menu li {
     display: block; }
     .view-sb-site-events-calendar .view-header .pager .dropdown-menu li a {
@@ -7972,20 +7979,24 @@ label {
   border-top: 3px solid #325ce6;
   border-left: 3px solid #325ce6;
   border-right: 3px solid #325ce6; }
-.calendar-calendar .month-view .full .single-day td .item .calendar.weekview {
+.calendar-calendar .month-view .full .single-day td .item .calendar.weekview,
+.calendar-calendar .month-view .full .multi-day td .item .calendar.weekview {
   float: none;
   margin: 0 3px 3px;
   padding: 2px 4px;
   border-radius: 3px;
   background: #f0f0f0;
   border: 1px solid #8da4f1; }
-  .calendar-calendar .month-view .full .single-day td .item .calendar.weekview .contents {
+  .calendar-calendar .month-view .full .single-day td .item .calendar.weekview .contents,
+  .calendar-calendar .month-view .full .multi-day td .item .calendar.weekview .contents {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
-    .calendar-calendar .month-view .full .single-day td .item .calendar.weekview .contents a {
+    .calendar-calendar .month-view .full .single-day td .item .calendar.weekview .contents a,
+    .calendar-calendar .month-view .full .multi-day td .item .calendar.weekview .contents a {
       display: block;
       font-size: 11px;
       color: #325ce6; }
-    .calendar-calendar .month-view .full .single-day td .item .calendar.weekview .contents time {
+    .calendar-calendar .month-view .full .single-day td .item .calendar.weekview .contents time,
+    .calendar-calendar .month-view .full .multi-day td .item .calendar.weekview .contents time {
       color: #3f4147;
       font-weight: normal;
       font-size: 9px; }
