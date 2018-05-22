@@ -88,14 +88,11 @@ function spacebase_core_preprocess_field__comment(&$variables) {
 }
 
 
-
-
 /** Implements hook_preprocess_node
  *
  * Link Forum nodes back to their Organization
  * (This could also go in theme if preferred)
  */
-
 function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
 
   // 1. Forum threads should send people back to either the forum or
@@ -134,30 +131,22 @@ function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
 
 /** Implements hook_preprocess_page
  *
- * Send the group id to page--org-profile template.
- * This page might be a view (forum, members) or custom (resources)
- * with the gid in the url -- the view can handle these pages directly,
- * or it might be a node from which the group
- * must be extracted.
+ * Send the group id to page--org-profile templates,
+ * which are used often, including for things like confirming the delete
+ * of a forum entry.
  *
- * OrgMenuBlock does something similar.
  */
-//Just putting this empty function blasts the group profile
-//without an error message.
-//function spacebase_core_preprocess_page__group_forum_topic(&$variables) {
-// fails, block disappears.
 function spacebase_core_preprocess_page(&$variables) {
-  if (isset($variables['node']) && $variables['node']->getType == 'group_forum_topic') {
-    //How is this firing when I try to create a new basic page
+  if (isset($variables['node']) &&
+            $variables['node']->get('type')->target_id ==  'group_forum_topic') {
+    // $variables['node']->getType == 'group_forum_topic' ... doesn't work, just on the delete confirm page,
+    // The above clunky version works everywhere so far:
     $group = _group_from_node($variables['node']);
     $variables['groupid'] = $group->id();
   }
 }
 
-
-
 // @ToDo: these use statements from example, probably not all needed:
-
 // Use statements to support hook_entity_field_access.
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Session\AccountInterface;
