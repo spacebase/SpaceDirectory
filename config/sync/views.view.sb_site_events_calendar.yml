@@ -342,6 +342,7 @@ display:
           plugin_id: group_content_to_entity_reverse
       arguments: {  }
       display_extenders: {  }
+      title: 'New Zealand Space Calendar'
     cache_metadata:
       max-age: -1
       contexts:
@@ -446,7 +447,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: 1
-          content: '<h1>{{ arguments.field_evt_start_value_full_date }}</h1>'
+          content: '<h2>{{ arguments.field_evt_start_value_full_date }}</h2>'
           pager_embed: 1
           plugin_id: calendar_header
     cache_metadata:
@@ -526,7 +527,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: 1
-          content: '<h1>{{ arguments.field_evt_start_value_year_month }}</h1>'
+          content: '<h2>{{ arguments.field_evt_start_value_year_month }}</h2>'
           pager_embed: 1
           plugin_id: calendar_header
       defaults:
@@ -637,7 +638,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: 1
-          content: '<h1>Week of {{ arguments.field_evt_start_value_year_week }}</h1>'
+          content: '<h2>Week of {{ arguments.field_evt_start_value_year_week }}</h2>'
           pager_embed: 1
           plugin_id: calendar_header
     cache_metadata:
@@ -732,7 +733,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: 1
-          content: '<h1>{{ arguments.field_evt_start_value_year }}</h1>'
+          content: '<h2>{{ arguments.field_evt_start_value_year }}</h2>'
           pager_embed: 1
           plugin_id: calendar_header
       path: events/year

@@ -28,7 +28,7 @@
           span{
             width: auto;
           }
-          h1{
+          h2{
             display: inline-block;
             position: absolute;
             margin: 0 0 0 -150px;
@@ -261,6 +261,11 @@
           background: lighten($brand-primary,35%);
         }
       }
+    }
+  }
+  .year-view{
+    .month-view{
+      padding: 10px;
     }
   }
 }

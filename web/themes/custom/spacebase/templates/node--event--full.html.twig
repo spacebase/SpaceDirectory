@@ -103,20 +103,24 @@
     <h1>{{ label }}</h1>
     <aside class="event-sidebar">
     
+    {% if content.field_evt_registration['#items'] is not empty %}
     <div class="registration">
       {{ content.field_evt_registration }}
     </div>
+    {% endif %}
     
     <div class="dates">
-      <h3>Dates</h3>
+      <h3>Date and time</h3>
       <strong>Start:</strong> {{ content.field_evt_start }}<br>
       <strong>End:</strong> {{ content.field_evt_end }}
     </div>
     
+    {% if content.field_evt_location['#items'] is not empty %}
     <div class="location">
       <h3>Location</h3>
       {{ content.field_evt_location }}
     </div>
+    {% endif %}
     
     </aside>
     
@@ -124,10 +128,12 @@
       {{ content.field_evt_description }}
     </div>
     
+    {% if content.field_evt_links['#items'] is not empty %}
     <div class="links">
       <h2>Important Links</h2>
       {{ content.field_evt_links }}
     </div>
+    {% endif %}
     
     
     

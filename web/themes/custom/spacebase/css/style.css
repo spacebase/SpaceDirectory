@@ -7928,7 +7928,7 @@ label {
       width: auto; }
     .view-sb-site-events-calendar .view-header .pager ul li span {
       width: auto; }
-    .view-sb-site-events-calendar .view-header .pager ul li h1 {
+    .view-sb-site-events-calendar .view-header .pager ul li h2 {
       display: inline-block;
       position: absolute;
       margin: 0 0 0 -150px;
@@ -8076,6 +8076,8 @@ label {
       color: #325ce6; }
   .calendar-calendar .month-view table.mini td.today {
     background: #d1dbf9; }
+.calendar-calendar .year-view .month-view {
+  padding: 10px; }
 
 body.page-node-type-event .event .image {
   margin: 0 0 30px; }

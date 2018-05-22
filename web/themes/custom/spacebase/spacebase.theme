@@ -56,3 +56,12 @@ function spacebase_preprocess_html(&$variables) {
   $path_alias = ltrim($path_alias, '/');
   $variables['attributes']['class'][] = \Drupal\Component\Utility\Html::cleanCssIdentifier($path_alias);
 }
+
+function spacebase_preprocess_page(&$vars) {
+    if(isset($vars['node'])) {
+        $vars['title'] = $vars['node']->title->value;
+    }
+    else{
+       $vars['title'] =$vars['page']['#title'];
+    }
+ }
