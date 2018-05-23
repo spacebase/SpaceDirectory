@@ -30,6 +30,7 @@ module:
   gnode: 0
   google_analytics: 0
   group: 0
+  group_member_manager: 0
   help: 0
   history: 0
   image: 0
