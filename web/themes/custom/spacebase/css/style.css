@@ -6416,6 +6416,12 @@ body.navbar-is-fixed-top {
   padding: 4px 10px;
   font-size: 16px; }
 
+.btn-xsmall {
+  padding: 4px 10px;
+  font-size: 11px; }
+  .btn-xsmall i {
+    margin-right: 2px; }
+
 .btn-primary {
   background-color: #3bba50; }
   .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
@@ -6662,6 +6668,7 @@ form .table > thead > tr > th {
     padding: 10px; }
     .ui-dialog .ui-dialog-buttonpane button {
       margin: 0 0 0 15px; }
+
 .dblock {
   display: block; }
 
@@ -8198,11 +8205,11 @@ article.forum-comment {
       font-weight: 500;
       font-style: italic;
       color: #76777f; }
-    .member-grid .result .roles {
+    .member-grid .result .roles, .member-grid .result .organization-role {
       font-size: 13px;
       margin-bottom: 10px;
       font-weight: 500; }
-      .member-grid .result .roles i {
+      .member-grid .result .roles i, .member-grid .result .organization-role i {
         color: #fec61c; }
     .member-grid .result .admin-links {
       display: none; }
@@ -8270,6 +8277,9 @@ article.forum-comment {
       position: relative; }
       .member-grid.pending .result h3 {
         font-size: 14px; }
+      .member-grid.pending .result .joined {
+        font-size: 11px;
+        padding: 4px 0 0; }
       .member-grid.pending .result .reject-accept {
         font-size: 26px;
         color: #76777f;
