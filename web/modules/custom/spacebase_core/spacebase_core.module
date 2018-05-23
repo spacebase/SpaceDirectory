@@ -455,7 +455,6 @@ function _prep_resources() {
  * Implements hook_form_alter() on behalf of spacebase_core.module.
  */
 function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-
   if ($form_id == 'user_register_form') {
     $form['actions']['submit']['#submit'][] = 'spacebase_core_user_registration_submit';
   }
