@@ -133,6 +133,14 @@ body.navbar-is-fixed-top{
   font-size: 16px;
 }
 
+.btn-xsmall{
+  padding: 4px 10px;
+  font-size: 11px;
+  i{
+    margin-right: 2px;
+  }
+}
+
 .btn-primary{
   background-color: $brand-secondary;
   &:active,&:focus,&:hover{
@@ -201,11 +209,41 @@ h1, h2, h3, h4, h5, h6{
 h1{
   font-size: 32px;
   margin: 0 0 1em;
+  .count{
+    background: $brand-primary;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 8px;
+    height: 20px;
+    line-height: 16px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 10px;
+    text-align: center;
+    min-width: 40px;
+    vertical-align: middle;
+  }
 }
 
 h2{
   font-size: 26px;
   margin: 0 0 1em;
+  .count{
+    background: $brand-primary;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 8px;
+    height: 20px;
+    line-height: 16px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 10px;
+    text-align: center;
+    min-width: 40px;
+    vertical-align: middle;
+  }
 }
 
 h3{
@@ -234,6 +272,7 @@ h4{
   border-radius: 2px;
   border: none;
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  display: inline-block;
   li{
     margin-right: 4px;
     a{
@@ -382,6 +421,55 @@ form{
 
 .mt-5{
   margin-top: 50px;
+}
+
+.ui-dialog{
+  box-shadow: 0 3px 8px rgba(0,0,0,0.8);
+  border: none !important;
+  border-radius: 2px;
+  padding: 0;
+  .ui-dialog-titlebar{
+    border-radius: 2px 2px 0 0;
+    background: $brand-primary;
+    border: none; 
+    color: #fff;
+    .ui-dialog-titlebar-close{
+      background: transparent;
+      border: none;
+      color: #fff;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      &:before{
+        content: "\f00d";
+        color: #fff;
+        display: block;
+        font-family: 'Font Awesome\ 5 Free';
+        text-align: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+      }
+    }
+  }
+  .ui-dialog-content{
+    padding: 30px;
+  }
+  .ui-dialog-buttonpane{
+    background: $grey-bg;
+    border: none !important;
+    text-align: right;
+    padding: 10px;
+    button{
+      margin: 0 0 0 15px;
+    }
+  }
+}
+.dblock{
+  display: block;
 }
 
 /* Org Resources: Taxonomy term input includes description */

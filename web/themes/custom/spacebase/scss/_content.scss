@@ -58,13 +58,14 @@
   }
 }
 
-body.path-user{
+body.user-login,
+body.user-register,
+body.user-password,
+body.user-edit,
+body[class^="user-reset"]{
   background: #000 url(../images/earth-from-space-1.jpg) center top no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  &.user-profile{
-    background: $grey-bg;
-  }
 }
 
 .flex-boxes{

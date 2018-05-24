@@ -134,6 +134,22 @@
         }
       });
       
+      $('.reject-accept').find('i').on(clickTap,function(){
+        if ($(this).parent().hasClass('active')){
+          $(this).parent().removeClass('active');
+          $(this).parent().parent().find('.fieldgroup .form-item:nth-child(2)').find('input').prop("checked", true);
+        } else {
+          $(this).parent().parent().find('span').removeClass('active');
+          if($(this).parent().hasClass('reject')){
+            $(this).parent().addClass('active');
+            $(this).parent().parent().find('.fieldgroup .form-item:nth-child(1)').find('input').prop("checked", true);
+          } else if($(this).parent().hasClass('accept')){
+            $(this).parent().addClass('active');
+            $(this).parent().parent().find('.fieldgroup .form-item:nth-child(3)').find('input').prop("checked", true);
+          }
+        }
+      });
+      
     }
   };
 
