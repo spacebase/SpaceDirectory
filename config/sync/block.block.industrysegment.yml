@@ -12,7 +12,7 @@ dependencies:
 id: industrysegment
 theme: spacebase
 region: sidebar_first
-weight: -10
+weight: -11
 provider: null
 plugin: 'facet_block:industry_segment'
 settings:

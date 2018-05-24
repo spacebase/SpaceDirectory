@@ -474,16 +474,13 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
         $form['#action'] = $path;
         $form['keywords']['#attributes']['placeholder'] = 'Search organizations';
         $form['sf'] = array(
+          '#title' => 'Text Fields',
           '#type' => 'checkboxes',
           '#options' => array(
             'group_name' => 'Name',
             'group_description' => 'Description'
           ),
           '#default_value' => 'group_name',
-        );
-        $form['advanced_search'] = array(
-          '#markup' => '<a id="org-advanced-search" class="label" href="#">Advanced Search</a>',
-          '#weight' => 100,
         );
         break;
       case '/search/people':

@@ -16,14 +16,14 @@ show_only_one_result: false
 field_identifier: group_location_locality
 facet_source_id: 'search_api:views_block__sitewide_search__search'
 widget:
-  type: links
+  type: checkbox
   config:
     show_numbers: true
     soft_limit: 5
     soft_limit_settings:
       show_less_label: 'Show less'
       show_more_label: 'Show more'
-query_operator: and
+query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true

@@ -164,11 +164,16 @@ body.path-search{
   }
 }
 
-.facets-widget-links{
+.facets-widget-checkbox{
   margin-bottom: 25px;
   ul{
     list-style: none;
     padding: 0 0 0 5px;
     margin: 0 0 20px;
+    li{
+      input{
+        margin: 0 10px 0 0;
+      }
+    }
   }
 }
