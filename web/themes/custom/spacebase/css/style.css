@@ -8173,6 +8173,13 @@ article.forum-comment {
   margin-bottom: 40px; }
   .member-grid .view-content {
     text-align: left; }
+    .member-grid .view-content div:nth-child(3n+1) {
+      clear: left; }
+    @media screen and (max-width: 1023px) {
+      .member-grid .view-content div:nth-child(3n+1) {
+        clear: none; }
+      .member-grid .view-content div:nth-child(2n+1) {
+        clear: left; } }
   .member-grid .result {
     margin: 0 45px 20px 0;
     float: left;
@@ -8182,8 +8189,9 @@ article.forum-comment {
     vertical-align: top;
     border: none;
     position: relative; }
-    .member-grid .result:nth-child(4) {
-      clear: left; }
+    @media screen and (max-width: 1199px) {
+      .member-grid .result {
+        margin-right: 5px; } }
     .member-grid .result .profile-thumb {
       margin-bottom: 10px; }
       .member-grid .result .profile-thumb img {
@@ -8267,6 +8275,27 @@ article.forum-comment {
         display: block;
         height: 0;
         visibility: hidden; }
+    .member-grid.pending .view-content {
+      text-align: left; }
+      .member-grid.pending .view-content div:nth-child(3n+1) {
+        clear: none; }
+      .member-grid.pending .view-content div:nth-child(5n+1) {
+        clear: left; }
+      @media screen and (max-width: 1199px) {
+        .member-grid.pending .view-content div:nth-child(5n+1) {
+          clear: none; }
+        .member-grid.pending .view-content div:nth-child(4n+1) {
+          clear: left; } }
+      @media screen and (max-width: 991px) {
+        .member-grid.pending .view-content div:nth-child(4n+1) {
+          clear: none; }
+        .member-grid.pending .view-content div:nth-child(3n+1) {
+          clear: left; } }
+      @media screen and (max-width: 479px) {
+        .member-grid.pending .view-content div:nth-child(3n+1) {
+          clear: none; }
+        .member-grid.pending .view-content div:nth-child(2n+1) {
+          clear: left; } }
     .member-grid.pending h2 {
       font-size: 18px;
       color: #76777f; }
