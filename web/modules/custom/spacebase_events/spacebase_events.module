@@ -121,6 +121,6 @@ function spacebase_events_calendar_get_key_formats() {
     'day' => 'Ymd',
     'week' => 'YW',
     'month' => 'Ym',
-    'Year' => 'Y',
+    'year' => 'Y',
   ];
 }
