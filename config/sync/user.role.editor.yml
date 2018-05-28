@@ -16,6 +16,7 @@ permissions:
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access user contact forms'
+  - 'administer blocks'
   - 'administer comments'
   - 'administer contact forms'
   - 'administer facets'
