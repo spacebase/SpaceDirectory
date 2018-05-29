@@ -429,7 +429,7 @@ display:
           alter:
             alter_text: true
             text: '{{ user_first_name }} {{ user_last_name }}'
-            make_link: true
+            make_link: false
             path: '/u/{{ name|lower }}'
             absolute: false
             external: false
@@ -468,7 +468,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
