@@ -8,6 +8,7 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
+use Drupal\Core\Link;
 use Drupal\views\Views;
 use Drupal\group\Entity\GroupContent;
 
@@ -248,6 +249,23 @@ function spacebase_core_preprocess_views_view_fields(&$variables) {
   }
 }
 
+/**
+ * Implements hook_preprocess_HOOK() for views-view-field.html.twig.
+ *
+ * Make the views-created name ("first last") an aliased link.
+ */
+function spacebase_core_preprocess_views_view_field(&$variables) {
+  $view = $variables['view'];
+  if ($view->id() == 'sitewide_search') {
+    $field = $variables['field'];
+    if ($field->field == 'name') {
+      $text = $variables['output'];
+      $user = $variables['row']->_object->getValue();
+      $url = $user->toURL();
+      $variables['output'] = Link::fromTextAndUrl($text, $url);
+    }
+  }
+}
 
 /** Implements hook_preprocess_group() on behalf of spacebase_core.module.
  *
