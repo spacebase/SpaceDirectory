@@ -150,6 +150,10 @@
         }
       });
       
+      $('.filter-button').on(clickTap,function(){
+        $(this).siblings('.region-sidebar-first').toggleClass('opened');
+      });
+      
     }
   };
 

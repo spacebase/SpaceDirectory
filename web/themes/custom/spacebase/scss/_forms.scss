@@ -125,8 +125,51 @@ label{
   }
 }
 
+.filter-button{
+  background: #fff;
+  @media screen and (min-width: 768px) {
+    display: none !important;
+  }
+  @media screen and (max-width: 767px) {
+    margin-bottom: 10px;
+  }
+}
+
+.region-sidebar-first{
+  @media screen and (max-width: 767px) {
+    overflow: hidden;
+    &.box.well{
+      min-height: 0;
+      padding: 0 15px;
+      box-shadow: none;
+      margin-bottom: 0px;
+    }
+    max-height: 0;
+    transition: max-height 0.3s ease, padding 0.3s ease, margin-bottom 0.3s ease;
+    section{
+    }
+    &.opened{
+      &.box.well{
+        padding: 15px 15px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        margin-bottom: 10px;
+      }
+      max-height: 500px;
+      section{
+        display: block;
+      }
+    }
+  }
+}
+
 .region-sidebar-first,
 .region-sidebar-second{
+  legend{
+    margin-bottom: 10px;
+  }
+  .form-item-keywords{
+    display: none;
+  }
   .form-checkboxes{
     padding: 4px 0;
     .form-item{
