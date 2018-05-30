@@ -489,6 +489,7 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
       '#title' => t("Make this user the org's owner."),
       '#required' => FALSE
     );
+    $form['path']['#access'] = false;
     $form['actions']['submit']['#submit'][] = 'spacebase_core_org_owner_submit';
   }
   else if ($form['#id'] == 'group-content-group-content-type-569a59a77cd78-group-join-form' ) {
@@ -588,18 +589,23 @@ function spacebase_core_org_owner_submit(&$form, FormStateInterface $form_state)
     $user =  \Drupal\user\Entity\User::load($uid);
     $group_content_membership = $form_state->getFormObject()->getEntity();
     $group = $group_content_membership->getGroup();
-    print "hi";
+
     // Make uid the owner of the group
     $group->setOwner($user);
     $group->save();
 
-    // Do we want to auto-provide admin role? Ask Rich.
+    // Do we want to auto-provide admin role? Ask Rich. For now, code is here, yes.
     $group_content_membership->group_roles->setValue('organization_group-admin');
     $group_content_membership->save(); // returns 2, SAVED_UPDATED, if working. Add test?
 
-    // And delete the uid=1 content membership, if that is the case. Changing owners between
-    // real people will not remove the Admin status of the past owner, do that by hand.
-    // Check with Rich to be sure.
+    // Remove our main Admin, uid=1
+    // I don't check if uid=1 is a non-owning member, that's not a case today.
+    // removeMember Does nothing if not a member.
+    // Changing owners between real people will not remove the Admin status of the past owner,
+    // do that by hand if desired.
+    $group->removeMember(\Drupal\user\Entity\User::load(1));
+
+
 
   }
   // An admin might be editing another user, don't use currentUser.
