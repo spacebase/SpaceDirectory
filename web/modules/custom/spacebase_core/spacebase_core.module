@@ -230,6 +230,9 @@ function spacebase_core_preprocess_views_view(&$variables) {
 
     if ($group->hasPermission('administer members', $account)) {
       // Don't send classes or text to the themer; send destination.
+      $variables['member_invite_button'] = true;
+    }
+    if ($account->hasPermission('bypass group access')) {
       $variables['member_add_button'] = '/group/' . $gid .
         '/content/add/group_membership?destination=/group/' . $gid . '/members';
     }
@@ -479,16 +482,28 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
   else if ($form['#id'] == 'user-form' ) {
     $form['actions']['submit']['#submit'][] = 'spacebase_core_user_form_submit';
   }
+  // Add a new member to an Organization / Edit
+  // for Org admin editing an Org-Member or Applicant
+  else if ($form['#id'] == 'group-content-group-content-type-569a59a77cd78-add-form' ||
+           $form['#id'] == "group-content-group-content-type-569a59a77cd78-edit-form") {
+    $form['org-owner'] = array(
+      '#type' => 'checkbox',
+      '#title' => t("Make this user the org's owner."),
+      '#required' => FALSE,
+      '#access' => \Drupal::currentUser()->hasPermission('bypass group access')
+    );
+    $form['path']['#access'] = false;
+    // Can't edit Admin, Verified, etc. This might come back?
+    //$form['group_roles']['#access'] = FALSE;
+    $form['actions']['submit']['#submit'][] = 'spacebase_core_org_owner_submit';
+    $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_edit_user_submit';
+
+
+  }
   else if ($form['#id'] == 'group-content-group-content-type-569a59a77cd78-group-join-form' ) {
     $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_join_submit';
   }
-  // Org admin editing an Org-Member (or Applicant, though no link currently offered)
-  else if ($form_id == 'group_content_group_content_type_569a59a77cd78_edit_form') {
-    // Can't edit Admin, Verified, etc. This might come back?
-    //$form['group_roles']['#access'] = FALSE;
-    $form['path']['#access'] = FALSE;
-    $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_edit_user_submit';
-  }
+
   // The confirmation page mid- deleting a user. Just changing message (description)
   else if ($form_id == "group_content_group_content_type_569a59a77cd78_delete_form") {
     // module is not a class, so stick with t()
@@ -566,6 +581,48 @@ function spacebase_core_resources_tab_redirect(&$form, FormStateInterface $form_
 }
 
 
+
+/** Submit function when you make someone the Organization Owner
+ *  Default was to go back to edit page again.
+ */
+function spacebase_core_org_owner_submit(&$form, FormStateInterface $form_state) {
+  if ($form_state->getValue('org-owner')) {
+    $uid = $form_state->getValue('entity_id')[0]['target_id'];
+    $user =  \Drupal\user\Entity\User::load($uid);
+    $group_content_membership = $form_state->getFormObject()->getEntity();
+    $group = $group_content_membership->getGroup();
+
+    // Make uid the owner of the group
+    $group->setOwner($user);
+    $group->save();
+
+    // Do we want to auto-provide admin role? Ask Rich. For now, code is here, yes.
+    $group_content_membership->group_roles->setValue('organization_group-admin');
+    $group_content_membership->save(); // returns 2, SAVED_UPDATED, if working. Add test?
+
+    // Remove our main Admin, uid=1
+    // I don't check if uid=1 is a non-owning member, that's not a case today.
+    // removeMember Does nothing if not a member.
+    // Changing owners between real people will not remove the Admin status of the past owner,
+    // do that by hand if desired.
+    $group->removeMember(\Drupal\user\Entity\User::load(1));
+  }
+}
+
+/** Submit function to redirect users (always Org-Admins) to the org after editing a user.
+ *
+ * Similar to spacebase_core_organization_join_submit, but goes to member page.
+ *
+ */
+function spacebase_core_organization_edit_user_submit(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $group_content_membership = $form_state->getFormObject()->getEntity();
+  $group = $group_content_membership->getGroup();
+
+  // Redirect
+  $url = url::fromUserInput("/group/" . $group->id() . "/members");
+  $form_state->setRedirectUrl($url);
+}
+
 /** Submit function to redirect user to profile after edit
  *  Default was to go back to edit page again.
  */
@@ -596,20 +653,6 @@ function spacebase_core_organization_join_submit(&$form, \Drupal\Core\Form\FormS
  */
 }
 
-
-/** Submit function to redirect users (always Org-Admins) to the org after editing a user.
- *
- * Similar to spacebase_core_organization_join_submit, but goes to member page.
- *
- */
-function spacebase_core_organization_edit_user_submit(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
-  $group_content_membership = $form_state->getFormObject()->getEntity();
-  $group = $group_content_membership->getGroup();
-
-  // Redirect
-  $url = url::fromUserInput("/group/" . $group->id() . "/members");
-  $form_state->setRedirectUrl($url);
-}
 
 
 function spacebase_core_user_registration_submit(&$form, FormStateInterface $form_state) {

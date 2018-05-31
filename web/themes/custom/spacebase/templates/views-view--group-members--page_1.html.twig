@@ -74,7 +74,7 @@
       {{ rows }}
       
   
-    {% if member_add_button %}
+    {% if member_invite_button %}
       <div class="add-member">
       <a href="/invite"><i class="dblock fas fa-plus-circle"></i> <span class="text-center">Invite New Members</span></a>
       </div>
@@ -83,6 +83,12 @@
   {% elseif empty %}
     <div class="view-empty">
       {{ empty }}
+    </div>
+  {% endif %}
+
+  {% if member_add_button %}
+    <div class="add-new-member">
+      <a href="{{member_add_button}}" class="btn btn-secondary">Add New Member</a>
     </div>
   {% endif %}
 
@@ -109,8 +115,8 @@
   {% endif %}
 </div>
 
-{# member_add_button has same permissions as pending member view #}
-{% if member_add_button %}
+{# member_invite_button has same permissions as pending member view #}
+{% if member_invite_button %}
   <div class="member-grid pending clearfix">
   {{ drupal_view('group_members', 'block_2') }}
   </div>
