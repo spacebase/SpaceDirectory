@@ -174,9 +174,15 @@ label{
     padding: 4px 0;
     .form-item{
       margin-right: 10px;
+      display: block;
       label{
-        font-size: 14px;
+        font-size: 18px;
+        font-weight: 300;
       }
+    }
+    input[type=checkbox]{
+      vertical-align: top;
+      margin: 4px 6px 0 0;
     }
   }
   .form-actions{

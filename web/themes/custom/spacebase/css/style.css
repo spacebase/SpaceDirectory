@@ -7910,7 +7910,8 @@ body.path-search.topbar-open .main-container {
     padding: 0 0 0 5px;
     margin: 0 0 20px; }
     .facets-widget-checkbox ul li input {
-      margin: 0 10px 0 0; }
+      margin: 4px 10px 0 0;
+      vertical-align: top; }
 
 .form-group {
   max-width: 100%; }
@@ -8046,10 +8047,16 @@ label {
   padding: 4px 0; }
   .region-sidebar-first .form-checkboxes .form-item,
   .region-sidebar-second .form-checkboxes .form-item {
-    margin-right: 10px; }
+    margin-right: 10px;
+    display: block; }
     .region-sidebar-first .form-checkboxes .form-item label,
     .region-sidebar-second .form-checkboxes .form-item label {
-      font-size: 14px; }
+      font-size: 18px;
+      font-weight: 300; }
+  .region-sidebar-first .form-checkboxes input[type=checkbox],
+  .region-sidebar-second .form-checkboxes input[type=checkbox] {
+    vertical-align: top;
+    margin: 4px 6px 0 0; }
 .region-sidebar-first .form-actions,
 .region-sidebar-second .form-actions {
   display: block; }
