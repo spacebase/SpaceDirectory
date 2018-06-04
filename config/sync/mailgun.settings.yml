@@ -5,7 +5,7 @@ test_mode: false
 tracking_opens: ''
 tracking_clicks: ''
 tracking_exception: ''
-format_filter: full_html
+format_filter: email
 use_queue: false
 use_theme: false
 tagging_mailkey: false
