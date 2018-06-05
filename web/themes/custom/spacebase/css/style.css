@@ -6863,11 +6863,14 @@ body[class^="user-reset"] {
     padding: 10px 0;
     position: relative; }
     .block-views-blockuser-nav-block-1 .user-nav .nav-link {
-      line-height: 40px; }
+      line-height: 40px;
+      overflow: hidden; }
       .block-views-blockuser-nav-block-1 .user-nav .nav-link img {
         border-radius: 50%;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-        display: inline-block; }
+        display: inline-block;
+        width: 40px;
+        height: 40px; }
       .block-views-blockuser-nav-block-1 .user-nav .nav-link .username {
         display: none; }
     .block-views-blockuser-nav-block-1 .user-nav .user-dropdown {

@@ -146,11 +146,13 @@
     position: relative;
     .nav-link{
       line-height: 40px;
+      overflow: hidden;
       img{
         border-radius: 50%;
         box-shadow: 0 2px 4px rgba(0,0,0,0.6);
         display: inline-block;
-
+        width: 40px;
+        height: 40px;
       }
 
       .username{
