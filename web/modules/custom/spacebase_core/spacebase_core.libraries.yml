@@ -1,0 +1,6 @@
+sb-search:
+  version: 1.x
+  js:
+    js/sb-search.js: {}
+  dependencies:
+    - core/jquery

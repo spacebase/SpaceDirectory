@@ -132,6 +132,162 @@
       padding-top: 10px;
     }
   }
+  .search-icon{
+    font-size: 30px;
+    padding: 25px 15px;
+    margin: 0 5px;
+    color: #fff;
+    &.active{
+      background: $brand-primary;
+    }
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+    @media screen and (max-width: 767px) {
+      height: 85px;
+      padding: 25px 10px;
+    }
+    @media screen and (max-width: 480px) {
+      padding: 25px 8px;
+    }
+    @media screen and (max-width: 420px) {
+      padding: 25px 5px;
+    }
+  }
+  .block-views-exposed-filter-blocksitewide-search-search{
+    @media screen and (min-width: 768px) {
+      display: block !important;
+      float: left;
+    }
+    #views-exposed-form-sitewide-search-search{
+      padding: 15px 0 0;
+      margin: 0 0 0 15px;
+      width: 452px;
+      legend{
+        display: none;
+      }
+      .form-checkboxes{
+        display: none;
+      }
+      .form-item-keywords{
+        display: inline-block;
+        float: left;
+        margin: 0;
+        .form-text{
+          border-radius: 3px 0 0 3px;
+          width: 400px;
+        }
+      }
+      .form-actions{
+        button{
+          margin: 0;
+          padding: 11px 25px;
+          background: $brand-secondary;
+          border-radius: 0 3px 3px 0;
+          text-indent: -9999px;
+          position: relative;
+          &:before{
+            display: block;
+            font-family: 'Font Awesome\ 5 Free';
+            content: '\f002';
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            display: inline-block;
+            font-weight: 900;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;
+            font-size: 24px;
+            float: left;
+            line-height: 42px;
+            height: 42px;
+            width: 30px;
+            color: #fff;
+            text-align: center;
+            text-indent: 0;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -15px;
+          }
+        }
+      }
+      #org-advanced-search{
+        background: none;
+        font-size: 12px;
+        font-weight: normal;
+        border-radius: 2px 2px 0 0;
+        margin-top: 1px;
+        &.label-default{
+          background: $brand-primary;
+        }
+      }
+    }
+    @media screen and (max-width: 1140px) {
+      #views-exposed-form-sitewide-search-search{
+        width: 382px;
+        .form-item-keywords{
+          .form-text{
+            width: 330px;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 1024px) {
+      #views-exposed-form-sitewide-search-search{
+        width: 352px;
+        .form-item-keywords{
+          .form-text{
+            width: 300px;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 980px) {
+      #views-exposed-form-sitewide-search-search{
+        width: 302px;
+        .form-item-keywords{
+          .form-text{
+            width: 250px;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 920px) {
+      #views-exposed-form-sitewide-search-search{
+        width: 232px;
+        .form-item-keywords{
+          .form-text{
+            width: 180px;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      padding: 10px 20px;
+      position: fixed;
+      top: 85px;
+      left: 0;
+      right: 0;
+      background: $brand-primary;
+      display: none;
+      #views-exposed-form-sitewide-search-search{
+        width: auto;
+        padding: 0;
+        margin: 0 0 0 10px;
+        .form-item-keywords{
+          display: inline-block;
+          float: left;
+          width: calc(100% - 52px);
+          .form-text{
+            width: 100%;
+          } 
+        }
+      }
+    }
+  }
 }
 
 .block-views-blockuser-nav-block-1{
@@ -199,7 +355,6 @@
 
 .top-bar{
   background: $brand-primary;
-  padding: 8px 0;
   position: fixed;
   left: 0;
   right: 0;
