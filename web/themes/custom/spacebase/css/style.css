@@ -8333,3 +8333,38 @@ article.forum-comment {
       padding: 8px 10px; }
       .member-grid.pending #edit-actions button:active, .member-grid.pending #edit-actions button:focus, .member-grid.pending #edit-actions button:hover {
         background: #5dcb6f; }
+
+body.page-node-type-blog-post .image {
+  margin: 0 0 30px; }
+body.page-node-type-blog-post h1 {
+  margin: 0 0 20px; }
+  @media screen and (min-width: 768px) {
+    body.page-node-type-blog-post h1 {
+      float: left;
+      width: 60%;
+      clear: left; } }
+body.page-node-type-blog-post .blog-sidebar {
+  margin: 0 0 30px; }
+  @media screen and (min-width: 768px) {
+    body.page-node-type-blog-post .blog-sidebar {
+      float: right;
+      width: 25%;
+      margin: 0 0 30px 40px; } }
+body.page-node-type-blog-post .post-date {
+  font-size: 1.4em;
+  margin: 0 0 40px;
+  clear: left; }
+  body.page-node-type-blog-post .post-date i {
+    margin: 0 10px 0 0; }
+  body.page-node-type-blog-post .post-date div {
+    display: inline-block; }
+  @media screen and (min-width: 768px) {
+    body.page-node-type-blog-post .post-date {
+      width: 70%; } }
+body.page-node-type-blog-post .text {
+  font-size: 1.2em;
+  margin: 0 0 40px;
+  clear: left; }
+  @media screen and (min-width: 768px) {
+    body.page-node-type-blog-post .text {
+      width: 70%; } }
