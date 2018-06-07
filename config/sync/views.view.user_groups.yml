@@ -38,7 +38,7 @@ display:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_comment: ''
           query_tags: {  }
@@ -354,7 +354,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          display_name: 1
+          display_name: true
           plugin_id: country_code
         field_headquarters_location_locality:
           id: field_headquarters_location_locality
