@@ -4,6 +4,9 @@
   margin-bottom: 35px;
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  &.well{
+    padding: 35px 15px;
+  }
   h2{
     margin: 0 0 30px;
   }
@@ -79,5 +82,13 @@ body[class^="user-reset"]{
     .box{
       margin-bottom: 20px;
     }
+  }
+}
+
+.region-sidebar-first,
+.region-sidebar-second{
+  h2.block-title{
+    margin: 0 0 10px;
+    font-size: 18px;
   }
 }
