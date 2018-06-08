@@ -14,7 +14,7 @@ dependencies:
     - serialization
     - user
 id: people_csv
-label: 'People CSV'
+label: 'People CSV Export'
 module: views
 description: ''
 tag: ''
