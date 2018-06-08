@@ -520,15 +520,19 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
       case '/search/organizations':
         $form['#action'] = $path;
         $form['keywords']['#attributes']['placeholder'] = 'Search organizations';
-        $form['sf'] = array(
+        $form['sf'] = [
           '#title' => 'Text Fields',
           '#type' => 'checkboxes',
-          '#options' => array(
+          '#options' => [
             'group_name' => 'Name',
             'group_description' => 'Description'
-          ),
-          '#default_value' => 'group_name',
-        );
+          ],
+          '#default_value' => ['group_name'],
+          'group_name' => [
+            '#disabled' => TRUE,
+            '#attributes' => ['checked' => 'checked'],
+          ],
+        ];
         break;
       case '/search/people':
         $form['#action'] = $path;
@@ -562,6 +566,10 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
 
 function spacebase_core_views_pre_view(Drupal\views\ViewExecutable $view) {
   if ($view->id() == 'sitewide_search') {
+    // We will always search group name. Can't use default_value with disabled checkbox
+    // @TODO https://www.drupal.org/project/drupal/issues/2911473
+    $_GET['sf']['group_name'] = 'group_name';
+
     if (!empty($_GET['sf'])) {
       $filters = $view->display_handler->getOption('filters');
       if ($filters['search_api_fulltext']) {
