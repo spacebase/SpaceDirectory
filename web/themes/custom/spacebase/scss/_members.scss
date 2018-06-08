@@ -1,5 +1,12 @@
 .member-grid{
   margin-bottom: 40px;
+  position: relative;
+  .add-new-member{
+    position: absolute;
+    top: -5px;
+    right: 0;
+    z-index: 2;
+  }
   .view-content{
     text-align: left;
   }
