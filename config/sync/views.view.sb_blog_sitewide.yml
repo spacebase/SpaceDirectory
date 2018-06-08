@@ -5,10 +5,13 @@ dependencies:
   config:
     - field.storage.node.body
     - field.storage.node.field_bp_authors
+    - field.storage.node.field_bp_image
     - field.storage.node.field_bp_post_date
+    - image.style.blog_thumb
     - node.type.blog_post
   module:
     - group
+    - image
     - node
     - text
     - user
@@ -53,12 +56,17 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: full
         options:
           items_per_page: 10
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -67,9 +75,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
+          quantity: 9
       style:
         type: default
       row:
@@ -80,43 +86,122 @@ display:
           separator: ''
           hide_empty: false
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          entity_type: node
-          entity_field: title
-          label: ''
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            trim: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            html: false
-          hide_empty: false
-          empty_zero: false
-          settings:
-            link_to_entity: true
-          plugin_id: field
+        field_bp_image:
+          id: field_bp_image
+          table: node__field_bp_image
+          field: field_bp_image
           relationship: none
           group_type: group
           admin_label: ''
+          label: ''
           exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image
+          settings:
+            image_style: blog_thumb
+            image_link: content
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: h2
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: string
+          settings:
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -127,6 +212,9 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
         field_bp_post_date:
           id: field_bp_post_date
           table: node__field_bp_post_date
@@ -178,8 +266,8 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: long
-            custom_date_format: ''
+            date_format: custom
+            custom_date_format: 'F j, Y'
             timezone: ''
           group_column: value
           group_columns: {  }
@@ -306,7 +394,7 @@ display:
           click_sort_column: value
           type: text_summary_or_trimmed
           settings:
-            trim_length: 600
+            trim_length: 200
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -396,8 +484,21 @@ display:
           expose:
             label: ''
           plugin_id: standard
-      title: Blog
-      header: {  }
+      title: 'SpaceBase Blog'
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: '<h1>SpaceBase Blog</h1>'
+            format: raw_html
+          plugin_id: text
       footer: {  }
       empty: {  }
       relationships:
@@ -420,6 +521,7 @@ display:
           plugin_id: group_content_to_entity_reverse
       arguments: {  }
       display_extenders: {  }
+      css_class: blog-list
     cache_metadata:
       max-age: -1
       contexts:
@@ -431,6 +533,7 @@ display:
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_bp_authors'
+        - 'config:field.storage.node.field_bp_image'
         - 'config:field.storage.node.field_bp_post_date'
   sitewide_blog:
     display_plugin: page
@@ -452,4 +555,5 @@ display:
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_bp_authors'
+        - 'config:field.storage.node.field_bp_image'
         - 'config:field.storage.node.field_bp_post_date'

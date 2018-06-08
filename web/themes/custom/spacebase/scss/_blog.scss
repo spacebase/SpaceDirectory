@@ -17,6 +17,9 @@ body.page-node-type-blog-post{
       width: 25%;
       margin: 0 0 30px 40px;
     }
+    .authors{
+      font-size: 1.4em;
+    }
   }
   .post-date{
     font-size: 1.4em;
@@ -38,6 +41,40 @@ body.page-node-type-blog-post{
     clear: left;
     @media screen and (min-width: 768px){
       width: 70%;
+    }
+  }
+}
+
+.blog-list{
+  .views-row{
+    padding: 20px 0;
+    border-bottom: 1px solid $line;
+    &:last-child{
+      border-bottom: none;
+    }
+    .image{
+      margin: 0 0 20px 0;
+      @media screen and (min-width: 768px){
+        float: left;
+        margin: 0 20px 0 0;
+      }
+    }
+    .text{
+      @media screen and (min-width: 768px){
+        margin: 0 0 0 220px;
+      }
+      h2{
+        margin: 0 0 10px;
+        font-size: 22px;
+      }
+      .posted{
+        font-size: 16px;
+        font-style: italic;
+        margin: 0 0 20px;
+      }
+      .body{
+        font-size: 20px;
+      }
     }
   }
 }

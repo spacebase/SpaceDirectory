@@ -8350,6 +8350,8 @@ body.page-node-type-blog-post .blog-sidebar {
       float: right;
       width: 25%;
       margin: 0 0 30px 40px; } }
+  body.page-node-type-blog-post .blog-sidebar .authors {
+    font-size: 1.4em; }
 body.page-node-type-blog-post .post-date {
   font-size: 1.4em;
   margin: 0 0 40px;
@@ -8368,3 +8370,27 @@ body.page-node-type-blog-post .text {
   @media screen and (min-width: 768px) {
     body.page-node-type-blog-post .text {
       width: 70%; } }
+
+.blog-list .views-row {
+  padding: 20px 0;
+  border-bottom: 1px solid #f0f0f0; }
+  .blog-list .views-row:last-child {
+    border-bottom: none; }
+  .blog-list .views-row .image {
+    margin: 0 0 20px 0; }
+    @media screen and (min-width: 768px) {
+      .blog-list .views-row .image {
+        float: left;
+        margin: 0 20px 0 0; } }
+  @media screen and (min-width: 768px) {
+    .blog-list .views-row .text {
+      margin: 0 0 0 220px; } }
+  .blog-list .views-row .text h2 {
+    margin: 0 0 10px;
+    font-size: 22px; }
+  .blog-list .views-row .text .posted {
+    font-size: 16px;
+    font-style: italic;
+    margin: 0 0 20px; }
+  .blog-list .views-row .text .body {
+    font-size: 20px; }

@@ -5,9 +5,12 @@ dependencies:
   config:
     - field.field.node.blog_post.body
     - field.field.node.blog_post.field_bp_authors
+    - field.field.node.blog_post.field_bp_image
     - field.field.node.blog_post.field_bp_post_date
+    - image.style.thumbnail
     - node.type.blog_post
   module:
+    - image
     - path
     - text
 id: node.blog_post.default
@@ -38,6 +41,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_bp_image:
+    weight: 26
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
     region: content
   field_bp_post_date:
     weight: 8

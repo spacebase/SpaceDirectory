@@ -25,4 +25,6 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_bp_authors: true
+  field_bp_post_date: true

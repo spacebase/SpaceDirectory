@@ -1,0 +1,30 @@
+uuid: dc0c865c-58d1-4ef3-a2a4-d38a4c1fabe6
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - image
+    - node
+id: node.field_bp_image
+field_name: field_bp_image
+entity_type: node
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: b6886640-55b8-4db9-a2a8-129410cd4d98
+    alt: ''
+    title: ''
+    width: 1100
+    height: 500
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

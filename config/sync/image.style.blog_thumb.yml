@@ -1,0 +1,14 @@
+uuid: 23f788b6-bf62-4d3d-98da-27d240ef76fb
+langcode: en
+status: true
+dependencies: {  }
+name: blog_thumb
+label: 'Blog Thumb'
+effects:
+  a74917a4-0c31-4224-81f5-c7fc62c94f4f:
+    uuid: a74917a4-0c31-4224-81f5-c7fc62c94f4f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 200
+      height: 90
