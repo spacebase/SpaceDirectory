@@ -1,9 +1,10 @@
 <?php
 
-/** Testing:
+/** TEST
+ *
  * 2 config issues to clean up, see
  * Bandaid
- * all emails to stephencataldo@gmail.com until it works well
+ * most emails to stephencataldo@gmail.com until it works well
  *
  * Soon: consider html emails.
  */
@@ -47,12 +48,13 @@ function email_group_administrators_cron() {
   $interval = $cron_config->get('interval');
   $interval = !empty($interval) ? $interval : 3600 * 13; // < 24
       /*  3600; is hourly */
-  
+
   $next_execution = \Drupal::state()->get('email_group_administrators.next_execution');
   $next_execution = !empty($next_execution) ? $next_execution : 0;
   \Drupal::logger('email_group_administrators')->notice('Request time is ' . REQUEST_TIME . ' and next execution can happen at ' . $next_execution . ',  after an interval of ' . $interval . ' seconds.');
   
-  $hour = date('H'); // hour, 24 hour format  
+  $hour = date('H'); // hour, 24 hour format
+
   // If at least $interval seconds have gone by, and it's before noon:
   if ( REQUEST_TIME >= $next_execution && $hour < 12 ) {
     //\Drupal::logger('email_group_administrators')->notice('Send reminder emails to admins. REQUEST TIME > ' . $next_execution);
@@ -129,7 +131,7 @@ function _email_who_what() {
           $base_url = "https://spacebase.co/";
         }
         $label = Drupal\Component\Utility\Html::escape($group->label()); 
-        $msg = "<br/>" . $pending . " pending members for " . $label . " at " . $base_url . "/group/" . $group->id() . "/applicants\n";
+        $msg = "<br/>" . $pending . " pending members for " . $label . " at " . $base_url . "/group/" . $group->id() . "/members#pending\n";
         $messages[$admin] .= $msg;
       }
     }      
@@ -143,12 +145,15 @@ function _email_who_what() {
     //\Drupal::logger('email_group_administrators')->notice("Send an email to " . $admin);
     $account =  \Drupal\user\Entity\User::load($admin);
     $email = $account->getEmail();
-    $email = 'stephencataldo@gmail.com'; // until live runs smooth!
+    //TEST
+    if (strpos($email, 'rich') === false && strpos($email, 'kurt') === false ) {
+      $email = 'stephencataldo@gmail.com'; // until live runs smooth! TESTING
+    }
     $langcode = $account->getPreferredLangcode();
     $params = array();
     $params['message'] = $account->getUsername() . ', '
-      . t("<p>You have pending members to accept or reject at SpaceBase:</p>\n\n") 
-      . t("<p>You can edit each applicant to be <em>verified</em> and then they will be able to participate. When editing, you also have the option to block them, or to make them an admin of your group.</p>")
+      . t("<p>You have pending members to moderate at SpaceBase:</p>\n\n")
+      . t("<p>If you <em>accept members</em> they will be allowd to participate. If necessary, you can also reject an applicant.</p>")
                          . $msg;
     $params['subject'] = "Pending members at SpaceBase";
 
