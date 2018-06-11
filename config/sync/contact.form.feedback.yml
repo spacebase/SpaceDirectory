@@ -7,7 +7,7 @@ _core:
 id: feedback
 label: 'Website feedback'
 recipients:
-  - michael@ixtlandesigns.com
+  - feedback@spacebase.co
 reply: ''
 weight: 0
 message: 'Your message has been sent.'
