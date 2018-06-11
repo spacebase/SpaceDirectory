@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * Contains spacebase_search.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter()
+ */
+function spacebase_search_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form['#id'] == 'views-exposed-form-sitewide-search-search') {
+    $form['keywords']['#attributes']['placeholder'] = 'Search';
+    $path = \Drupal::service('path.current')->getPath();
+    $form['#action'] = '/search';
+    if (strpos($path, '/search/') === 0) {
+      $form['#action'] = $path;
+    }
+    if ($path == '/search/organizations') {
+      $form['sf'] = array(
+        '#type' => 'checkboxes',
+        '#options' => array('group_name' => 'Name', 'group_description' => 'Description'),
+      );
+    }
+  }
+}
+
+/**
+ * Implements hook_views_pre_view()
+ */
+function spacebase_search_views_pre_view(Drupal\views\ViewExecutable $view) {
+  if ($view->id() == 'sitewide_search') {
+    if (!empty($_GET['sf'])) {
+      $filters = $view->display_handler->getOption('filters');
+      if ($filters['search_api_fulltext']) {
+        unset($filters['search_api_fulltext']['fields']);
+        foreach ($_GET['sf'] as $key) {
+          $filters['search_api_fulltext']['fields'][$key] = $key;
+        }
+        $view->display_handler->overrideOption('filters', $filters);
+      }
+    }
+  }
+}

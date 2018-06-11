@@ -5,6 +5,8 @@ module:
   block_content: 0
   block_type_templates: 0
   breakpoint: 0
+  calendar: 0
+  calendar_datetime: 0
   cer: 0
   ckeditor: 0
   color: 0
@@ -62,6 +64,8 @@ module:
   shortcut: 0
   simple_block: 0
   spacebase_core: 0
+  spacebase_events: 0
+  spacebase_search: 0
   system: 0
   taxonomy: 0
   text: 0
@@ -73,11 +77,11 @@ module:
   update: 0
   user: 0
   views_block_filter_block: 0
+  views_bulk_operations: 0
+  views_templates: 0
   views_ui: 0
-  fontyourface: 1
   menu_link_content: 1
   pathauto: 1
-  google_fonts_api: 10
   views: 10
   empty_page: 1000
   standard: 1000

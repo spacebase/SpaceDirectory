@@ -583,7 +583,6 @@ function spacebase_core_views_pre_view(Drupal\views\ViewExecutable $view) {
   }
 }
 
-
 /** Submit function to redirect to resources to specific Tab
  * The resource "Tab" can be set in the form, so destination in link insuff.
  */

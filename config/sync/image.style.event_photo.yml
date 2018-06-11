@@ -1,0 +1,14 @@
+uuid: 2045b77b-d578-48f4-95ba-7e3e35fb59da
+langcode: en
+status: true
+dependencies: {  }
+name: event_photo
+label: 'Event Photo'
+effects:
+  19343868-04f2-456b-bee4-458443639c0c:
+    uuid: 19343868-04f2-456b-bee4-458443639c0c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1140
+      height: 500
