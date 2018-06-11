@@ -201,6 +201,25 @@ body.navbar-is-fixed-top{
   font-size: 13px;
 }
 
+.add-button{
+  font-size: 30px;
+  color: $brand-secondary;
+  position: relative;
+  &:active,&:focus,&:hover{
+    color: lighten($brand-secondary,5%) !important;
+    span.hidden{
+      display: block !important;
+      font-size: 10px;
+      font-weight: 500;
+      position: absolute;
+      line-height: 10px;
+      bottom: -15px;
+      left: 0;
+      text-align: center;
+    }
+  }
+}
+
 h1, h2, h3, h4, h5, h6{
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
