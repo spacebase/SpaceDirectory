@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5844657ab6825233d82600011d4abd5",
+    "content-hash": "50e697499d3a05b8cf2dc48c164e31a1",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1559,7 +1559,7 @@
                     "Calendar Pager not rendering contextual filters": "https://www.drupal.org/files/issues/2018-04-04/calendar-pager_not_rendering_contextual_filters-2810739-4.patch",
                     "Calendar not display because of : .size() deprecated": "https://www.drupal.org/files/issues/2938872-replace-size-by-length_0.patch",
                     "Year display header always shows current year after using pager": "https://www.drupal.org/files/issues/year_display_header_always_shows_current_year-2915266-02.patch",
-                    "ISO-8601 Week and Year": "https://www.drupal.org/files/issues/2018-05-28/iso_8601_week_and_year-2917145-3.patch"
+                    "ISO-8601 Week and Year": "https://www.drupal.org/files/issues/2018-06-11/iso_8601_week_and_year-2917145-4.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4121,6 +4121,76 @@
                 "source": "http://cgit.drupalcode.org/views_block_filter_block"
             },
             "time": "2017-10-13T06:53:22+00:00"
+        },
+        {
+            "name": "drupal/views_bulk_operations",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/views_bulk_operations",
+                "reference": "8.x-2.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_bulk_operations-8.x-2.3.zip",
+                "reference": "8.x-2.3",
+                "shasum": "96bcda2b8436492c3747452b9b1d75adab5fd751"
+            },
+            "require": {
+                "drupal/core": "^8.4"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.3",
+                    "datestamp": "1525091284",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Marcin Grabias",
+                    "homepage": "https://www.drupal.org/u/graber"
+                },
+                {
+                    "name": "Jon Pugh",
+                    "homepage": "https://www.drupal.org/user/17028"
+                },
+                {
+                    "name": "bojanz",
+                    "homepage": "https://www.drupal.org/user/86106"
+                },
+                {
+                    "name": "infojunkie",
+                    "homepage": "https://www.drupal.org/user/48424"
+                },
+                {
+                    "name": "joelpittet",
+                    "homepage": "https://www.drupal.org/user/160302"
+                }
+            ],
+            "description": "Adds an ability to perform bulk operations on selected entities from view results. Provides an API to create such operations.",
+            "homepage": "https://www.drupal.org/project/views_bulk_operations",
+            "support": {
+                "source": "http://cgit.drupalcode.org/views_bulk_operations",
+                "issues": "https://www.drupal.org/project/issues/views_bulk_operations?version=8.x",
+                "docs": "https://www.drupal.org/docs/8/modules/views-bulk-operations-vbo"
+            }
         },
         {
             "name": "drupal/views_templates",

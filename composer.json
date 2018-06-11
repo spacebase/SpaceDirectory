@@ -60,7 +60,8 @@
         "drupal/csv_serialization": "^1.3",
         "drupal/calendar": "1.x-dev",
         "drupal/token": "1.1",
-        "drupal/mail_edit": "1.x-dev"
+        "drupal/mail_edit": "1.x-dev",
+        "drupal/views_bulk_operations": "^2.3"
     },
     "require-dev": {
         "behat/mink": "~1.7",
@@ -125,7 +126,7 @@
               "Calendar Pager not rendering contextual filters": "https://www.drupal.org/files/issues/2018-04-04/calendar-pager_not_rendering_contextual_filters-2810739-4.patch",
               "Calendar not display because of : .size() deprecated": "https://www.drupal.org/files/issues/2938872-replace-size-by-length_0.patch",
               "Year display header always shows current year after using pager": "https://www.drupal.org/files/issues/year_display_header_always_shows_current_year-2915266-02.patch",
-              "ISO-8601 Week and Year": "https://www.drupal.org/files/issues/2018-05-28/iso_8601_week_and_year-2917145-3.patch"
+              "ISO-8601 Week and Year": "https://www.drupal.org/files/issues/2018-06-11/iso_8601_week_and_year-2917145-4.patch"
           },
           "drupal/search_api" : {
             "Facets are lost by Views on keyword search": "https://www.drupal.org/files/issues/facets-lost-by-keyword-search-2378945-8.x-19.patch"
