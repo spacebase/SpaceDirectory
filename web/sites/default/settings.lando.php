@@ -17,4 +17,7 @@ if ($_SERVER['LANDO'] == 'ON') {
   $config['search_api.server.default_solr_server']['backend_config']['connector_config']['port'] = '8983';
 
   $settings['hash_salt'] = md5(getenv('LANDO_HOST_IP'));
+
+  $config['stage_file_proxy.settings']['origin'] = 'https://spacebase.co';
+  $config['stage_file_proxy.settings']['hotlink'] = TRUE;
 }
