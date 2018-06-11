@@ -1,5 +1,12 @@
 .member-grid{
   margin-bottom: 40px;
+  position: relative;
+  .add-new-member{
+    position: absolute;
+    top: -5px;
+    right: 0;
+    z-index: 2;
+  }
   .view-content{
     text-align: left;
   }
@@ -43,7 +50,7 @@
       font-style: italic;
       color: $text-light;
     }
-    .roles{
+    .roles, .organization-role{
       font-size: 13px;
       margin-bottom: 10px;
       font-weight: 500;
@@ -132,6 +139,10 @@
       position: relative;
       h3{
         font-size: 14px;
+      }
+      .joined{
+        font-size: 11px;
+        padding: 4px 0 0;
       }
       .reject-accept{
         font-size: 26px;

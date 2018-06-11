@@ -133,6 +133,14 @@ body.navbar-is-fixed-top{
   font-size: 16px;
 }
 
+.btn-xsmall{
+  padding: 4px 10px;
+  font-size: 11px;
+  i{
+    margin-right: 2px;
+  }
+}
+
 .btn-primary{
   background-color: $brand-secondary;
   &:active,&:focus,&:hover{
@@ -472,9 +480,9 @@ form{
       margin: 0 0 0 15px;
     }
   }
-  .dblock {
-    display: block;
-  }
+}
+.dblock{
+  display: block;
 }
 /* Org Resources: Taxonomy term input includes description */
 .field--name-field-tab .form-item-field-tab {

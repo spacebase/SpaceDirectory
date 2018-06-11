@@ -1,0 +1,20 @@
+uuid: 3332e869-4473-49a3-9d13-71f521b0d600
+langcode: en
+status: true
+dependencies: {  }
+name: Email
+format: email
+weight: 0
+filters:
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }

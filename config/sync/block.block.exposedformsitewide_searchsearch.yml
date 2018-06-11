@@ -1,4 +1,4 @@
-uuid: 1fb005ae-c083-4074-9d8f-cd678a50ea08
+uuid: f67b4f55-fe77-4ea5-a929-df874ff174e7
 langcode: en
 status: true
 dependencies:
@@ -11,15 +11,15 @@ dependencies:
     - spacebase
 id: exposedformsitewide_searchsearch
 theme: spacebase
-region: sidebar_second
-weight: -14
+region: sidebar_first
+weight: -13
 provider: null
 plugin: 'views_exposed_filter_block:sitewide_search-search'
 settings:
   id: 'views_exposed_filter_block:sitewide_search-search'
   label: ''
   provider: views
-  label_display: visible
+  label_display: '0'
   views_label: ''
 visibility:
   request_path:

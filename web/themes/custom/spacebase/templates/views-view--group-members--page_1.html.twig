@@ -74,7 +74,7 @@
       {{ rows }}
       
   
-    {% if member_add_button %}
+    {% if member_invite_button %}
       <div class="add-member">
       <a href="/invite"><i class="dblock fas fa-plus-circle"></i> <span class="text-center">Invite New Members</span></a>
       </div>
@@ -84,6 +84,10 @@
     <div class="view-empty">
       {{ empty }}
     </div>
+  {% endif %}
+
+  {% if member_add_button %}
+      <a href="{{member_add_button}}" class="btn btn-primary btn-small add-new-member"><i class="fas fa-plus-circle"></i> Add New Member</a>
   {% endif %}
 
   {% if pager %}
@@ -109,9 +113,9 @@
   {% endif %}
 </div>
 
-{# member_add_button has same permissions as pending member view #}
-{% if member_add_button %}
-  <div class="member-grid pending clearfix">
+{# member_invite_button has same permissions as pending member view #}
+{% if member_invite_button %}
+  <div id="pending" class="member-grid pending clearfix">
   {{ drupal_view('group_members', 'block_2') }}
   </div>
 {% endif %}
