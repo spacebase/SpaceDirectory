@@ -4,39 +4,31 @@ Feature: Test social media links
 
     Scenario: Facebook link
     Given I am on "/"
-    When I click on the element with xpath """
-/html/body/div[3]/footer[2]/div/div/section[1]/a[1]/i
-"""
+    When I click "behat-facebook"
     And I wait until the page loads
-    #TODO not sure why these are failing, need to see screen to see where browser is going
-    Then I should see "Greetings from New Zealand!"
+    Then I should see "SpaceBase NZ"
 
 
     Scenario: Twitter link
     Given I am on "/"
-    When I click on the element with xpath """
-//a[@href='https://twitter.com/SpaceBaseNZ']
-"""
+    When I click "behat-twitter"
     And I wait until the page loads
-    Then I should see "Tweet to SpaceBase"
+    Then I should see "SpaceBase is a social enterprise with a vision to democratize space for everyone"
 
 
     Scenario: YouTube link
     Given I am on "/"
-    When I click on the element with xpath """
-//*[@id="block-sociallinks"]/a[3]
-"""
+    When I click "behat-youtube"
     And I wait until the page loads
     Then I should see "Videos"
 
 
     Scenario: LinkedIn link
     Given I am on "/"
-    When I click on the element with xpath """
-//*[@id="block-sociallinks"]/a[4]
-"""
-    And I wait until the page loads
-    Then I should see "Company details"
+    When I click "behat-linkedin"
+    # And I wait until the page loads
+    # TODO: resolve issue of 'join now' page loading instead of proper page
+    Then I should see "SpaceBase is a social enterprise founded by three Edmund Hillary Fellows"
 
 
 

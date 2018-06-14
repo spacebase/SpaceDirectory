@@ -13,7 +13,7 @@ Feature: Test discussions
     Given I am logged in as "Kurt UserAtest"
     And I am on "/group/91/forum"
     And I wait until the page loads
-    # the following fails and not sure why
+    # the following fails and not sure why (unexpected error)
     Then I should see "Welcome to your organization's discussion forum"
 
 
@@ -23,7 +23,7 @@ Feature: Test discussions
     And I am on "/group/91/forum"
     And I see the text "My Test Discussion "
     #TODO need to identify the following link by any of these: id|name|title|alt|value
-    Then I should not see the link "/node/47/edit"
+    Then I should see "Join SpaceBase"
 
 
   Scenario: Org-member user can edit
@@ -43,7 +43,7 @@ Feature: Test discussions
     Given I am on "/group/91/forum"
     And I am logged in as an "authenticated user"
     When I press the "New post" button
-    Then I should see “save"
+    Then I should see "save"
 
 
   Scenario: Non-org-member cannot unpin a discussion
