@@ -53,6 +53,7 @@ module:
   options: 0
   page_cache: 0
   path: 0
+  publishcontent: 0
   quickedit: 0
   rdf: 0
   rest: 0

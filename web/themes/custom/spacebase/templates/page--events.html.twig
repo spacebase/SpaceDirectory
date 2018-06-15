@@ -62,11 +62,12 @@
             {{ page.help }}
           {% endblock %}
         {% endif %}
-        
-        
-        {# code for permissions #}
+
+
+        {% if logged_in %}
           <a href="/node/add/event" class="add-button pull-right"><i class="fas fa-plus-circle"></i> <span class="hidden">Add event</span></a>
-          
+        {% endif %}
+
         <h1>{{ title }}</h1>
 
         {# Content #}
