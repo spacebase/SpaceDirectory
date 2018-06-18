@@ -16,6 +16,8 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Component\Render\PlainTextOutput;
+
 
 /**
  * Implements hook_help().
@@ -48,16 +50,15 @@ function email_group_administrators_cron() {
   $interval = $cron_config->get('interval');
   $interval = !empty($interval) ? $interval : 3600 * 13; // < 24
       /*  3600; is hourly */
-
   $next_execution = \Drupal::state()->get('email_group_administrators.next_execution');
   $next_execution = !empty($next_execution) ? $next_execution : 0;
+
   \Drupal::logger('email_group_administrators')->notice('Request time is ' . REQUEST_TIME . ' and next execution can happen at ' . $next_execution . ',  after an interval of ' . $interval . ' seconds.');
   
   $hour = date('H'); // hour, 24 hour format
 
   // If at least $interval seconds have gone by, and it's before noon:
   if ( REQUEST_TIME >= $next_execution && $hour < 12 ) {
-    //\Drupal::logger('email_group_administrators')->notice('Send reminder emails to admins. REQUEST TIME > ' . $next_execution);
     \Drupal::state()->set('email_group_administrators.next_execution', REQUEST_TIME + $interval);
 
     // Send emails and set the min time before we might send more.
@@ -82,7 +83,6 @@ function _email_who_what() {
       //  (blocked and verified are both not-pending)
       $uid = $membership->getUser()->id();
       foreach ($membership->getRoles() as $rid => $role) {
-        //\Drupal::logger('email_group_administrators')->notice("UID is " . $uid . " and rid is "  . $rid);
         if ($rid == 'organization_group-admin' || $rid == 'organization_group-owner' ) {
           // Users can be Admin and Owner both, just one email:
           if (!$done[$uid]) {
@@ -142,7 +142,6 @@ function _email_who_what() {
   $key = 'email_group_administrators';
  
   foreach ($messages as $admin => $msg) {
-    //\Drupal::logger('email_group_administrators')->notice("Send an email to " . $admin);
     $account =  \Drupal\user\Entity\User::load($admin);
     $email = $account->getEmail();
     //TEST
@@ -151,23 +150,51 @@ function _email_who_what() {
     }
     $langcode = $account->getPreferredLangcode();
     $params = array();
+    $params['account'] = $account;
+    $params['applicants'] = $msg;
+
+    /** Pre-config approach, erase in a bit if config works:
+    $params['name'] = $account->field_first_name_user->value; //   $account->getUsername(); // Or, First, Last?
     $params['message'] = $account->getUsername() . ', '
       . t("<p>You have pending members to moderate at SpaceBase:</p>\n\n")
       . t("<p>If you <em>accept members</em> they will be allowd to participate. If necessary, you can also reject an applicant.</p>")
                          . $msg;
-    $params['subject'] = "Pending members at SpaceBase";
+     $params['subject'] = "Pending members at SpaceBase";
+    */
 
-    $result = \Drupal::service('plugin.manager.mail')->mail($module, 'notice', $email, $langcode, $params);
+    $result = \Drupal::service('plugin.manager.mail')->mail($module, 'email_admin_pending', $email, $langcode, $params);
   }
 }
 
 /**
  * Implements hook_mail().
+ *
+ * Uses token module for user name, and replaces the list of applicants, while getting the
+ * email from config so that the mail_edit module works: admin/config/system/mail-edit
  */
 function email_group_administrators_mail($key, &$message, $params) {
-      $message['subject'] = $params['subject'];
-      $message['body'][] = $params['message'];
-      //   $message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($body);
+  $token_service = \Drupal::token();
+  $langcode = $message['langcode'];
+  $token_variables = ['user' => $params['account']];
+  $mail_config = \Drupal::config('spacebase_core.emails'); // note: called .mail in user module, .emails in docs
+  // Note: might get rid of tokens, and do our own lighter-weight name replacement system similar to [LIST]
+  $token_options = ['langcode' => $langcode,'clear' => TRUE];
+  $text = $token_service->replace($mail_config->get($key . '.body'), $token_variables, $token_options);
+  $message['body'][] = str_replace('[LIST]', $params['applicants'], $text);
+  $message['subject'] .= PlainTextOutput::renderFromHtml($token_service->replace($mail_config->get($key . '.subject'), $token_variables, $token_options));
+  //$message['subject'] = PlainTextOutput::renderFromHtml($mail_config->get($key . '.subject'));
 }
 
 
+
+/**
+ * Implements hook_mail_edit_keys().
+ * Make it available to mail_edit to edit the template
+ */
+function spacebase_core_mail_edit_templates() {
+  return [
+    'spacebase_core.emails' => [
+      'email_admin_pending' => t('Orgs admins notice when applicants pending'),
+    ],
+  ];
+}
