@@ -25,12 +25,12 @@ deploy:
 	lando drush -y updb
 	lando drush -y config-import
 	lando drush -y entup
-	lando drush en kint stage_file_proxy -y
+	lando drush en devel kint stage_file_proxy -y
 	lando drupal smo dev
 
 clean:
 	lando drupal smo prod
-	lando drush pm-uninstall kint stage_file_proxy -y
+	lando drush pm-uninstall devel kint stage_file_proxy -y
 
 css:
 	sass web/themes/custom/spacebase/scss/style.scss web/themes/custom/spacebase/css/style.css
