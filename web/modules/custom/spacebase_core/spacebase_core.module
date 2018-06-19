@@ -224,7 +224,7 @@ function spacebase_core_preprocess_views_view(&$variables) {
   }
   if ($variables['id'] == "group_members" && $variables['display_id'] == 'page_1') {
     // Add member link on members page
-    $gid = \Drupal::routeMatch()->getParameter('group');
+    $gid = (int) \Drupal::routeMatch()->getParameter('group');
     $group = Drupal\group\Entity\Group::load($gid);
     $account = \Drupal::currentUser();
 

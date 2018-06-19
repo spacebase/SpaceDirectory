@@ -19,8 +19,17 @@ class OrgPendingMembersBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    $form = \Drupal::formBuilder()->getForm('Drupal\spacebase_orgs\Form\OrgPendingMembersForm');
-    return $form;
+    $build = [];
+    if ($gid = (int) \Drupal::routeMatch()->getParameter('group')) {
+      if ($group = \Drupal\group\Entity\Group::load($gid)) {
+        $account = \Drupal::currentUser();
+        if ($group->hasPermission('administer members', $account)) {
+          $build = \Drupal::formBuilder()->getForm('Drupal\spacebase_orgs\Form\OrgPendingMembersForm');
+        }
+      }
+    }
+    $build['#cache']['max-age'] = 0;
+    return $build;
   }
 
 }

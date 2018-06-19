@@ -6,23 +6,6 @@
  */
 
 use Drupal\Component\Render\PlainTextOutput;
-use Drupal\block\Entity\Block;
-use Drupal\Core\Session\AccountInterface;
-use Drupal\Core\Access\AccessResult;
-
-function spacebase_orgs_block_access(Block $block, $operation, AccountInterface $account) {
-  if ($operation == 'view' && $block->getPluginId() == 'org_pending_members_block') {
-    if ($gid = \Drupal::routeMatch()->getParameter('group')) {
-      if ($group = Drupal\group\Entity\Group::load($gid)) {
-        if ($group->hasPermission('administer members', $account)) {
-          return AccessResult::allowed();
-        }
-      }
-    }
-    return AccessResult::forbidden();
-  }
-  return AccessResult::neutral();
-}
 
 function spacebase_orgs_preprocess_views_view_fields(&$variables) {
   if ($variables['view']->id() == 'group_members' && $variables['view']->current_display == 'page_1') {
