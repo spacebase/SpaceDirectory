@@ -1,0 +1,26 @@
+uuid: e09dd7b1-312d-4880-a6b1-c201e8aaeda0
+langcode: en
+status: true
+dependencies:
+  module:
+    - spacebase_orgs
+    - system
+  theme:
+    - spacebase
+id: pendingmembers
+theme: spacebase
+region: content
+weight: 16
+provider: null
+plugin: org_pending_members_block
+settings:
+  id: org_pending_members_block
+  label: 'Pending Members'
+  provider: spacebase_orgs
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/group/*/members'
+    negate: false
+    context_mapping: {  }

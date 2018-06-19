@@ -1,0 +1,74 @@
+<?php
+
+/**
+ * @file
+ * Contains spacebase_orgs.module.
+ */
+
+use Drupal\Component\Render\PlainTextOutput;
+
+function spacebase_orgs_preprocess_views_view_fields(&$variables) {
+  if ($variables['view']->id() == 'group_members' && $variables['view']->current_display == 'page_1') {
+    $variables['membership'] = [
+      'owner' => FALSE,
+      'admin' => FALSE,
+      'verified' => FALSE,
+    ];
+
+    foreach ($variables["row"]->_entity->group_roles->getValue() as $role) { // @TODO don't be lazy
+      switch ($role['target_id']) {
+        case 'organization_group-admin':
+          $variables['membership']['admin'] = TRUE;
+          break;
+        case 'organization_group-verified':
+          $variables['membership']['verified'] = TRUE;
+          break;
+      }
+    }
+
+    if ($variables["row"]->groups_field_data_group_content_field_data_uid == $variables["row"]->users_field_data_group_content_field_data_uid) {
+      $variables['membership']['owner'] = TRUE;
+    }
+  }
+}
+
+function spacebase_orgs_send_email($key, $params) {
+  $account = $params['account'];
+  $site_mail = \Drupal::config('system.site')->get('mail_notification');
+  if (empty($site_mail)) {
+    $site_mail = \Drupal::config('system.site')->get('mail');
+  }
+  if (empty($site_mail)) {
+    $site_mail = ini_get('sendmail_from');
+  }
+  $mail = \Drupal::service('plugin.manager.mail')->mail('spacebase_orgs', $key, $account->getEmail(), $account->getPreferredLangcode(), $params, $site_mail);
+}
+
+/**
+ * Implements hook_mail().
+ */
+function spacebase_orgs_mail($key, &$message, $params) {
+  $token_service = \Drupal::token();
+  $language_manager = \Drupal::languageManager();
+  $langcode = $message['langcode'];
+  $variables = ['user' => $params['account'], 'group' => $params['group']];
+
+  $language = $language_manager->getLanguage($params['account']->getPreferredLangcode());
+  $original_language = $language_manager->getConfigOverrideLanguage();
+  $language_manager->setConfigOverrideLanguage($language);
+  $mail_config = \Drupal::config('spacebase_orgs.mail');
+
+  $token_options = ['langcode' => $langcode, 'clear' => TRUE];
+  $message['subject'] .= PlainTextOutput::renderFromHtml($token_service->replace($mail_config->get($key . '.subject'), $variables, $token_options));
+  $message['body'][] = $token_service->replace($mail_config->get($key . '.body'), $variables, $token_options);
+
+  $language_manager->setConfigOverrideLanguage($original_language);
+}
+
+function spacebase_orgs_theme($existing, $type, $theme, $path) {
+  return [
+    'org_pending_members_form' => [
+      'render element' => 'form',
+    ],
+  ];
+}
