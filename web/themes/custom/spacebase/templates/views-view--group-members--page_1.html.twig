@@ -112,10 +112,3 @@
     </div>
   {% endif %}
 </div>
-
-{# member_invite_button has same permissions as pending member view #}
-{% if member_invite_button %}
-  <div id="pending" class="member-grid pending clearfix">
-  {{ drupal_view('group_members', 'block_2') }}
-  </div>
-{% endif %}
