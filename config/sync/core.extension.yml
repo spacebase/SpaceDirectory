@@ -33,7 +33,6 @@ module:
   gnode: 0
   google_analytics: 0
   group: 0
-  group_member_manager: 0
   help: 0
   history: 0
   image: 0
@@ -67,6 +66,7 @@ module:
   simple_block: 0
   spacebase_core: 0
   spacebase_events: 0
+  spacebase_orgs: 0
   spacebase_search: 0
   system: 0
   taxonomy: 0

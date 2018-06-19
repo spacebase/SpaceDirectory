@@ -35,6 +35,9 @@
     }
     .profile-thumb{
       margin-bottom: 10px;
+      .field--name-user-picture{
+        margin: 0;
+      }
       img{
         border-radius: 50%;
         margin: 0 auto;
@@ -46,7 +49,10 @@
       a{
         color: $text;
       }
-      i{
+      i.fa-shield-alt.owner{
+        color: $brand-primary;
+      }
+      i.fa-shield-alt.admin{
         color: $gold;
       }
     }
@@ -75,19 +81,29 @@
         color: $text-light;
         display: inline-block;
         z-index: 2;
+        text-align: center;
+        width: 44px;
+        height: 44px;
+        line-height: 44px;
+        display: block;
+        border-radius: 50%;
+        border: 2px solid #fff;
         &.member-edit{
           position: absolute;
-          top: 15px;
+          top: 150px;
           right: 15px;
           cursor: pointer;
-          color: $brand-secondary;
+          background: $brand-secondary;
+          color: #fff;
         }
         &.member-remove{
           position: absolute;
-          top: 15px;
+          top: 150px;
           left: 15px;
           cursor: pointer;
-          color: $red;
+          background: $red;
+          color: #fff;
+          
         }
       }
     }
@@ -181,6 +197,9 @@
       padding: 15px;
       margin: 0 5px 10px 0;
       position: relative;
+      .profile-thumb{
+        margin-bottom: 15px;
+      }
       h3{
         font-size: 14px;
       }
@@ -215,6 +234,17 @@
           border-radius: 50%;
           width: 28px;
           height: 28px;
+          span{
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            line-height: 9px;
+            display: none;
+          }
+          &:hover,&:focus{
+            span{
+              display: block;
+            }
+          }
         }
         .reject{
           left: 25px;
@@ -226,6 +256,40 @@
           right: 25px;
           &.active{
             color: $brand-secondary;
+          }
+        }
+        .make-admin{
+          background: $text-light;
+          display: inline-block;
+          width: 22px;
+          height: 22px;
+          text-align: center;
+          line-height: 20px;
+          color: #fff;
+          font-size: 14px;
+          border-radius: 50%;
+          border: 1px solid #fff;
+          position: absolute;
+          top: 74px;
+          right: 7px;
+          &.active{
+            background: $gold;
+          }
+          span{
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            line-height: 9px;
+            position: absolute;
+            left: 4px;
+            bottom: -10px;
+            font-weight: bold;
+            color: $text-light;
+            display: none;
+          }
+          &:hover,&:focus{
+            span{
+              display: block;
+            }
           }
         }
       }

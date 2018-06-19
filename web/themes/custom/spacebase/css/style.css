@@ -8740,6 +8740,8 @@ article.forum-comment {
         margin-right: 5px; } }
     .member-grid .result .profile-thumb {
       margin-bottom: 10px; }
+      .member-grid .result .profile-thumb .field--name-user-picture {
+        margin: 0; }
       .member-grid .result .profile-thumb img {
         border-radius: 50%;
         margin: 0 auto; }
@@ -8748,7 +8750,9 @@ article.forum-comment {
       margin: 0 -15px 5px; }
       .member-grid .result h3 a {
         color: #3f4147; }
-      .member-grid .result h3 i {
+      .member-grid .result h3 i.fa-shield-alt.owner {
+        color: #325ce6; }
+      .member-grid .result h3 i.fa-shield-alt.admin {
         color: #fec61c; }
     .member-grid .result .position {
       font-size: 14px;
@@ -8770,19 +8774,28 @@ article.forum-comment {
       .member-grid .result .admin-links a {
         color: #76777f;
         display: inline-block;
-        z-index: 2; }
+        z-index: 2;
+        text-align: center;
+        width: 44px;
+        height: 44px;
+        line-height: 44px;
+        display: block;
+        border-radius: 50%;
+        border: 2px solid #fff; }
         .member-grid .result .admin-links a.member-edit {
           position: absolute;
-          top: 15px;
+          top: 150px;
           right: 15px;
           cursor: pointer;
-          color: #3bba50; }
+          background: #3bba50;
+          color: #fff; }
         .member-grid .result .admin-links a.member-remove {
           position: absolute;
-          top: 15px;
+          top: 150px;
           left: 15px;
           cursor: pointer;
-          color: #ea0c36; }
+          background: #ea0c36;
+          color: #fff; }
     .member-grid .result:hover .admin-links {
       display: block; }
   .member-grid .add-member {
@@ -8850,6 +8863,8 @@ article.forum-comment {
       padding: 15px;
       margin: 0 5px 10px 0;
       position: relative; }
+      .member-grid.pending .result .profile-thumb {
+        margin-bottom: 15px; }
       .member-grid.pending .result h3 {
         font-size: 14px; }
       .member-grid.pending .result .joined {
@@ -8878,6 +8893,13 @@ article.forum-comment {
           border-radius: 50%;
           width: 28px;
           height: 28px; }
+          .member-grid.pending .result .reject-accept .reject span, .member-grid.pending .result .reject-accept .accept span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            line-height: 9px;
+            display: none; }
+          .member-grid.pending .result .reject-accept .reject:hover span, .member-grid.pending .result .reject-accept .reject:focus span, .member-grid.pending .result .reject-accept .accept:hover span, .member-grid.pending .result .reject-accept .accept:focus span {
+            display: block; }
         .member-grid.pending .result .reject-accept .reject {
           left: 25px; }
           .member-grid.pending .result .reject-accept .reject.active {
@@ -8886,6 +8908,34 @@ article.forum-comment {
           right: 25px; }
           .member-grid.pending .result .reject-accept .accept.active {
             color: #3bba50; }
+        .member-grid.pending .result .reject-accept .make-admin {
+          background: #76777f;
+          display: inline-block;
+          width: 22px;
+          height: 22px;
+          text-align: center;
+          line-height: 20px;
+          color: #fff;
+          font-size: 14px;
+          border-radius: 50%;
+          border: 1px solid #fff;
+          position: absolute;
+          top: 74px;
+          right: 7px; }
+          .member-grid.pending .result .reject-accept .make-admin.active {
+            background: #fec61c; }
+          .member-grid.pending .result .reject-accept .make-admin span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            line-height: 9px;
+            position: absolute;
+            left: 4px;
+            bottom: -10px;
+            font-weight: bold;
+            color: #76777f;
+            display: none; }
+          .member-grid.pending .result .reject-accept .make-admin:hover span, .member-grid.pending .result .reject-accept .make-admin:focus span {
+            display: block; }
     .member-grid.pending #edit-actions--2 {
       display: none; }
       .member-grid.pending #edit-actions--2 button {
