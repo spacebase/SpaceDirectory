@@ -6,11 +6,13 @@ dependencies:
     - field.field.node.blog_post.body
     - field.field.node.blog_post.field_bp_authors
     - field.field.node.blog_post.field_bp_image
+    - field.field.node.blog_post.field_bp_medium
     - field.field.node.blog_post.field_bp_post_date
     - image.style.thumbnail
     - node.type.blog_post
   module:
     - image
+    - link
     - path
     - text
 id: node.blog_post.default
@@ -49,6 +51,14 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_bp_medium:
+    weight: 27
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   field_bp_post_date:
     weight: 8

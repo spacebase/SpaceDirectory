@@ -2,9 +2,11 @@
 
     <div class="image">
         {{ fields['field_bp_image'].content }}
+        
     </div>
     <div class="text">
         <h2>{{ fields['title'].content }}</h2>
-        <div class="posted">Posted {{ fields['field_bp_post_date'].content }} by {{ fields['field_bp_authors'].content }}</div>
+        <div class="post-date pull-right">{{ fields['field_bp_post_date'].content }}</div>
+        <div class="posted-by">by {{ fields['field_bp_authors'].content }}</div>
         <div class="body">{{ fields['body'].content }}</div>
     </div>

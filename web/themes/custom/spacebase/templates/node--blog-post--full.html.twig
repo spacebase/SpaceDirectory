@@ -86,6 +86,10 @@
     <h1>{{ label }}</h1>
     <aside class="blog-sidebar">
       
+    {% if content.field_bp_medium[0]['#url'] is not empty %}
+    <div class="read-medium"><a href="{{ content.field_bp_medium[0]['#url'] }}" target="_blank" class="btn btn-block btn-black">Read on Medium <i class="fas fa-external-link-alt"></i></a></div>
+    {% endif %}
+      
     
     {% if content.field_bp_authors['#items'] is not empty %}
     <h2>Author(s)</h2>
