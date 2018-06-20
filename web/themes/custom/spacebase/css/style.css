@@ -8382,45 +8382,47 @@ body.page-node-type-blog-post .text {
     body.page-node-type-blog-post .text {
       width: 70%; } }
 
-@media screen and (min-width: 768px) {
-  .blog-list .read-medium {
-    position: absolute;
-    top: 0;
-    right: 0; } }
-@media screen and (max-width: 767px) {
-  .blog-list .read-medium {
-    margin: 10px 0 15px;
-    text-align: center; } }
-.blog-list .views-row {
-  padding: 20px 0;
-  border-bottom: 1px solid #f0f0f0; }
-  .blog-list .views-row:last-child {
-    border-bottom: none; }
-  .blog-list .views-row .image {
-    margin: 0 0 20px 0; }
-    @media screen and (min-width: 768px) {
-      .blog-list .views-row .image {
-        float: left;
-        margin: 0 20px 0 0; } }
-    @media screen and (max-width: 767px) {
-      .blog-list .views-row .image img {
-        margin: 0 auto 15px; } }
+.blog-list {
+  position: relative; }
   @media screen and (min-width: 768px) {
-    .blog-list .views-row .text {
-      margin: 0 0 0 380px; } }
-  .blog-list .views-row .text h2 {
-    margin: 0 0 10px;
-    font-size: 24px; }
-  .blog-list .views-row .text .post-date {
-    margin: 0 0 0 15px;
-    font-size: 12px;
-    font-weight: 500; }
-  .blog-list .views-row .text .posted-by {
-    font-size: 12px;
-    font-weight: 500;
-    margin: 0 0 15px; }
-  .blog-list .views-row .text .body {
-    font-size: 16px;
-    padding: 15px 0 0;
-    border-top: 1px solid #f0f0f0;
-    margin: 15px 0 0; }
+    .blog-list .read-medium {
+      position: absolute;
+      top: 0;
+      right: 0; } }
+  @media screen and (max-width: 767px) {
+    .blog-list .read-medium {
+      margin: 10px 0 15px;
+      text-align: center; } }
+  .blog-list .views-row {
+    padding: 20px 0;
+    border-bottom: 1px solid #f0f0f0; }
+    .blog-list .views-row:last-child {
+      border-bottom: none; }
+    .blog-list .views-row .image {
+      margin: 0 0 20px 0; }
+      @media screen and (min-width: 768px) {
+        .blog-list .views-row .image {
+          float: left;
+          margin: 0 20px 0 0; } }
+      @media screen and (max-width: 767px) {
+        .blog-list .views-row .image img {
+          margin: 0 auto 15px; } }
+    @media screen and (min-width: 768px) {
+      .blog-list .views-row .text {
+        margin: 0 0 0 380px; } }
+    .blog-list .views-row .text h2 {
+      margin: 0 0 10px;
+      font-size: 24px; }
+    .blog-list .views-row .text .post-date {
+      margin: 0 0 0 15px;
+      font-size: 12px;
+      font-weight: 500; }
+    .blog-list .views-row .text .posted-by {
+      font-size: 12px;
+      font-weight: 500;
+      margin: 0 0 15px; }
+    .blog-list .views-row .text .body {
+      font-size: 16px;
+      padding: 15px 0 0;
+      border-top: 1px solid #f0f0f0;
+      margin: 15px 0 0; }

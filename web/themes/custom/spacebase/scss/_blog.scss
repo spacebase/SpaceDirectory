@@ -50,6 +50,7 @@ body.page-node-type-blog-post{
 }
 
 .blog-list{
+  position: relative;
   .read-medium{
     @media screen and (min-width: 768px){
       position: absolute;

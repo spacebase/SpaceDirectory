@@ -569,7 +569,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<h1>SpaceBase Blog</h1>\n<div class=\"read-medium\">\n<a href=\"#\" target=\"_blank\" class=\"btn btn-small btn-black\">Read on Medium <i class=\"fas fa-external-link-alt\"></i></a>\n</div>"
+            value: "<h1>SpaceBase Blog</h1>\n<div class=\"read-medium\">\n<a href=\"https://medium.com/spacebase\" target=\"_blank\" class=\"btn btn-small btn-black\">Read on Medium <i class=\"fas fa-external-link-alt\"></i></a>\n</div>"
             format: raw_html
           plugin_id: text
       footer: {  }
