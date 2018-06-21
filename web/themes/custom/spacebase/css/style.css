@@ -6786,23 +6786,23 @@ body[class^="user-reset"] {
   margin: 0 0 10px;
   font-size: 18px; }
 
-.join-login .cta-join {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.1em;
-  margin-bottom: 5px; }
-@media screen and (min-width: 768px) {
-  .join-login {
-    float: right;
-    margin: -25px -25px 0 20px;
-    text-align: center;
-    padding: 8px 15px;
-    background: #cacfd4;
-    border-radius: 10px; } }
-@media screen and (max-width: 767px) {
-  .join-login {
-    margin: 0 0 20px;
-    text-align: center; } }
+.join-login {
+  text-align: center;
+  padding: 8px 15px;
+  background: #cacfd4;
+  border-radius: 10px; }
+  .join-login .cta-join {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.1em;
+    margin-bottom: 5px; }
+  @media screen and (min-width: 768px) {
+    .join-login {
+      float: right;
+      margin: -25px -25px 0 20px; } }
+  @media screen and (max-width: 767px) {
+    .join-login {
+      margin: 0 0 20px; } }
 
 .navbar-header {
   float: none; }

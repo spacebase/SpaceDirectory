@@ -98,6 +98,10 @@ body[class^="user-reset"]{
 }
 
 .join-login{
+  text-align: center;
+  padding: 8px 15px;
+  background: lighten($grey-accent,10%);
+  border-radius: 10px;
   .cta-join{
     font-weight: 500;
     font-size: 12px;
@@ -107,13 +111,8 @@ body[class^="user-reset"]{
   @media screen and (min-width: 768px) {
     float: right;
     margin: -25px -25px 0 20px;
-    text-align: center;
-    padding: 8px 15px;
-    background: lighten($grey-accent,10%);
-    border-radius: 10px;
   }
   @media screen and (max-width: 767px) {
     margin: 0 0 20px;
-    text-align: center;
   }
 }
