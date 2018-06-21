@@ -58,6 +58,10 @@
   }
 }
 
+body[class^="events-year"],
+body[class^="events-month"],
+body[class^="events-week"],
+body[class^="events-day"],
 body.user-login,
 body.user-register,
 body.user-password,
@@ -90,5 +94,26 @@ body[class^="user-reset"]{
   h2.block-title{
     margin: 0 0 10px;
     font-size: 18px;
+  }
+}
+
+.join-login{
+  .cta-join{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.1em;
+    margin-bottom: 5px;
+  }
+  @media screen and (min-width: 768px) {
+    float: right;
+    margin: -25px -25px 0 20px;
+    text-align: center;
+    padding: 8px 15px;
+    background: lighten($grey-accent,10%);
+    border-radius: 10px;
+  }
+  @media screen and (max-width: 767px) {
+    margin: 0 0 20px;
+    text-align: center;
   }
 }

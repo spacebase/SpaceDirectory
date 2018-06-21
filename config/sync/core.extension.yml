@@ -10,13 +10,12 @@ module:
   cer: 0
   ckeditor: 0
   color: 0
-  colorbox: 0
   comment: 0
   config: 0
   config_direct_save: 0
   contact: 0
   contextual: 0
-  csv_serialization: 0
+  crop: 0
   ctools: 0
   datetime: 0
   dblog: 0
@@ -31,13 +30,12 @@ module:
   filter: 0
   fontawesome: 0
   gnode: 0
-  google_analytics: 0
   group: 0
   help: 0
   history: 0
   image: 0
+  image_widget_crop: 0
   link: 0
-  mail_edit: 0
   mailgun: 0
   mailsystem: 0
   markup: 0
@@ -53,7 +51,6 @@ module:
   options: 0
   page_cache: 0
   path: 0
-  publishcontent: 0
   quickedit: 0
   rdf: 0
   rest: 0
@@ -79,7 +76,6 @@ module:
   update: 0
   user: 0
   views_block_filter_block: 0
-  views_bulk_operations: 0
   views_templates: 0
   views_ui: 0
   menu_link_content: 1
