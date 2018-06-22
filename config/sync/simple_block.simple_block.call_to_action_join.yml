@@ -5,7 +5,7 @@ dependencies:
   config:
     - filter.format.raw_html
 id: call_to_action_join
-title: 'Join SpaceBase'
+title: 'Join SpaceBase to add event'
 content:
-  value: "<div class=\"join-login\">\r\n<div class=\"cta-join\">Want to contribute? <br>Join SpaceBase or log in.</div>\r\n<a href=\"/user/login\" class=\"btn btn-secondary btn-xsmall\">Sign In</a>\r\n<a href=\"/user/register\" class=\"btn btn-primary btn-xsmall\">Join</a>\r\n</div>"
+  value: "<div class=\"join-login\">\r\n<div class=\"cta-join\">To contribute an event:</div>\r\n<a href=\"/user/login\" class=\"btn btn-secondary btn-xsmall\">Sign In</a>\r\n<a href=\"/user/register\" class=\"btn btn-primary btn-xsmall\">Join</a>\r\n</div>"
   format: raw_html
