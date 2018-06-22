@@ -58,15 +58,15 @@
   }
 }
 
-body[class^="events-year"],
-body[class^="events-month"],
-body[class^="events-week"],
-body[class^="events-day"],
+body[class*="events-year"],
+body[class*="events-month"],
+body[class*="events-week"],
+body[class*="events-day"],
 body.user-login,
 body.user-register,
 body.user-password,
 body.user-edit,
-body[class^="user-reset"]{
+body[class*="user-reset"]{
   background: #000 url(../images/earth-from-space-1.jpg) center top no-repeat;
   background-attachment: fixed;
   background-size: cover;

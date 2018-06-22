@@ -6392,6 +6392,8 @@ body.navbar-is-fixed-top {
 .region-content img {
   max-width: 100%;
   height: auto; }
+.region-content a {
+  font-weight: 500; }
 
 .main-container {
   padding-top: 100px;
@@ -6754,15 +6756,15 @@ form .table > thead > tr > th {
     font-weight: 500;
     color: #3f4147; }
 
-body[class^="events-year"],
-body[class^="events-month"],
-body[class^="events-week"],
-body[class^="events-day"],
+body[class*="events-year"],
+body[class*="events-month"],
+body[class*="events-week"],
+body[class*="events-day"],
 body.user-login,
 body.user-register,
 body.user-password,
 body.user-edit,
-body[class^="user-reset"] {
+body[class*="user-reset"] {
   background: #000 url(../images/earth-from-space-1.jpg) center top no-repeat;
   background-attachment: fixed;
   background-size: cover; }
