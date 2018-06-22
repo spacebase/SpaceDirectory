@@ -12,6 +12,14 @@ effects:
   df8b6aaf-d0e8-4acb-abdd-1ec50de368c2:
     uuid: df8b6aaf-d0e8-4acb-abdd-1ec50de368c2
     id: crop_crop
-    weight: 2
+    weight: -9
     data:
       crop_type: event_and_blog_header
+  fa4e8ed7-0f39-427a-a1dd-620f203863f1:
+    uuid: fa4e8ed7-0f39-427a-a1dd-620f203863f1
+    id: image_scale
+    weight: 2
+    data:
+      width: 1140
+      height: null
+      upscale: false
