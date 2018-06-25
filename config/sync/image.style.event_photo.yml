@@ -1,14 +1,25 @@
 uuid: 2045b77b-d578-48f4-95ba-7e3e35fb59da
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - crop.type.event_and_blog_header
+  module:
+    - crop
 name: event_photo
 label: 'Event Photo'
 effects:
-  19343868-04f2-456b-bee4-458443639c0c:
-    uuid: 19343868-04f2-456b-bee4-458443639c0c
-    id: image_scale_and_crop
-    weight: 1
+  df8b6aaf-d0e8-4acb-abdd-1ec50de368c2:
+    uuid: df8b6aaf-d0e8-4acb-abdd-1ec50de368c2
+    id: crop_crop
+    weight: -9
     data:
-      width: 1140
-      height: 500
+      crop_type: event_and_blog_header
+  fa4e8ed7-0f39-427a-a1dd-620f203863f1:
+    uuid: fa4e8ed7-0f39-427a-a1dd-620f203863f1
+    id: image_scale
+    weight: 2
+    data:
+      width: 1100
+      height: null
+      upscale: false

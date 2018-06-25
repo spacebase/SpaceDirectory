@@ -66,6 +66,8 @@
 
         {% if logged_in %}
           <a href="/node/add/event" class="add-button pull-right"><i class="fas fa-plus-circle"></i> <span class="hidden">Add event</span></a>
+        {% else %}
+        {{ drupal_block('simple_block:call_to_action_join', wrapper=false ) }}
         {% endif %}
 
         <h1>{{ title }}</h1>
