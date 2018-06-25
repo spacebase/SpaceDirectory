@@ -16,10 +16,10 @@ Feature: Test organizations
       #And I wait for 3 seconds
       #TODO troubleshoot getting JS is not supported by Behat\Mink\Driver\GoutteDriver
 
-    #And I fill in the following:
-    #  | field_home_location_user[0][address][address_line1] | 90 Cable St |
-    #  | field_home_location_user[0][address][address_line2] | Te Aro |
-    #  | field_home_location_user[0][address][locality] | Wellington |
+      #And I fill in the following:
+      #  | field_home_location_user[0][address][address_line1] | 90 Cable St |
+      #  | field_home_location_user[0][address][address_line2] | Te Aro |
+      #  | field_home_location_user[0][address][locality] | Wellington |
 
     And I press the "edit-submit" button
     And I wait until the page loads
@@ -33,15 +33,15 @@ Feature: Test organizations
     Given users:
       | name           | password | username      |
       | Kurt UserAtest | passw0rd | KurtuserAtest |
-    # logged in as a user with permission for the organization using the URL below
+    # logged in as a user with org-admin permission for the organization using the URL below
     Given I am logged in as "Kurt UserAtest"
 
     # can't use the following because the button isn't identifiable by any of these: id|name|title|alt|value
     # And I am on "/group/95/resources#Communication"
     # When I press the "btn btn-primary btn-small pull-right" button
-
+    And I should not see "Join SpaceBase, then join the organizations you are interested in"
     # Instead, going straight to the add resource page...
-    And I am on "group/91/content/create/group_node%3Aresources?destination=/group/91/resources"
+    And I am on "/group/91/content/create/group_node%3Aresources?destination=/group/91/resources"
 
     #TODO Troubleshoot filling in this form, and clicking "90"
     When I fill in the following:
