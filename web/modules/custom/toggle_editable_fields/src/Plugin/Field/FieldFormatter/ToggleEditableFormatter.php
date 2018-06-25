@@ -98,7 +98,7 @@ class ToggleEditableFormatter extends FormatterBase implements ContainerFactoryP
       'offstyle' => 'default',
       'height' => NULL,
       'width' => NULL,
-      'toggle' => FALSE,
+      'toggle' => TRUE,
     ] + parent::defaultSettings();
   }
 
@@ -209,7 +209,7 @@ class ToggleEditableFormatter extends FormatterBase implements ContainerFactoryP
 
     $elements['toggle'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t('Use the Bootstrap toggle this module is named for?'),
+      '#title' => $this->t('Use the Bootstrap toggle that this module is named for? Unset to use a basic checkbox.'),
       '#default_value' => $this->getSetting('toggle'),
     ];
 
@@ -229,7 +229,6 @@ class ToggleEditableFormatter extends FormatterBase implements ContainerFactoryP
     $summary[] = $this->t('Off state style: @offstyle', ['@offstyle' => $this->getBoostrapToogleParameters($this->getSetting('offstyle'))]);
     $summary[] = $this->t('Box height: @height', ['@height' => ($this->getSetting('height') ?: $this->t('Default'))]);
     $summary[] = $this->t('Box width: @width', ['@width' => ($this->getSetting('width') ?: $this->t('Default'))]);
-    $summary[] = $this->t('Use Bootstrap Toggle: @toggle', ['@toggle' => ($this->getSetting('toggle'))]);
 
     return $summary;
   }
@@ -239,47 +238,17 @@ class ToggleEditableFormatter extends FormatterBase implements ContainerFactoryP
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
-
     foreach ($items as $delta => $item) {
       // We create an instance of element form to edit field first and,
       // initialize Form object with item definition to make a form id dynamic.
+      $form_object = $this->classResolver->getInstanceFromDefinition(AjaxToggleForm::class);
+      $form_object->setFieldItem($item, $this->getSettings());
 
-      // #Pins-field-access
-      // Only return the form at all if they can edit it.
-      // ( SpaceBase diverged from ToggleEditableForm here,
-      //   the module wants to print an un-editable form.
-      //   #ToDo: config this, and contribute it?
-      //
-      //if ( $node->get($fieldname)->access('edit') ) {
-      $fieldname = $this->fieldDefinition->getName();
-      $node = $items->getParent()->getValue();
-      if ( $node->$fieldname->access('edit') ) {
-        // (Also checks the container->parent node's access
-
-        $form_object = $this->classResolver->getInstanceFromDefinition(AjaxToggleForm::class);
-        $form_object->setFieldItem($item, $this->getSettings());
-
-        $form_state = new FormState();
-        $elements[$delta] = $this->formBuilder->buildForm($form_object, $form_state);
-      }
+      $form_state = new FormState();
+      $elements[$delta] = $this->formBuilder->buildForm($form_object, $form_state);
     }
 
-    // Problem: passing null array gets altered to have explanations, and
-    // then gets printed with css.
-    if (!empty($elements)){
-      return $elements;
-    } else {
-      // At least in dev environments, blank elements get descriptive markup,
-      // but we need an "if." @ToDo Might be a way to do cut this in the theme
-      // and just return null if empty.  nbd/theme might change anyway
-      return [
-        $delta => array
-        (
-          '#prefix' => '<p class="cannot_edit">',
-          '#suffix' => '</p>'
-        ),
-      ];
-    }
+    return $elements;
   }
 
 }

@@ -37,17 +37,13 @@
     'view',
     'view-' ~ id|clean_class,
     'view-id-' ~ id,
+    'clearfix',
     'view-display-id-' ~ display_id,
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
 
-  
-  {% if member_add_button %}
-    <a href="{{member_add_button}}" class="btn btn-xs btn-success
-      pull-right">Add member</a>
-  {% endif %}
 
 
 
@@ -76,11 +72,22 @@
   {% if rows %}
     <div class="view-content">
       {{ rows }}
+      
+  
+    {% if member_invite_button %}
+      <div class="add-member">
+      <a href="/invite"><i class="dblock fas fa-plus-circle"></i> <span class="text-center">Invite New Members</span></a>
+      </div>
+    {% endif %}
     </div>
   {% elseif empty %}
     <div class="view-empty">
       {{ empty }}
     </div>
+  {% endif %}
+
+  {% if member_add_button %}
+      <a href="{{member_add_button}}" class="btn btn-primary btn-small add-new-member"><i class="fas fa-plus-circle"></i> Add New Member</a>
   {% endif %}
 
   {% if pager %}

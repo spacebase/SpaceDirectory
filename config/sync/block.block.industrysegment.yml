@@ -1,0 +1,28 @@
+uuid: 610bbbbf-12d3-4ea8-ae77-8463256027b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.industry_segment
+  module:
+    - facets
+    - system
+  theme:
+    - spacebase
+id: industrysegment
+theme: spacebase
+region: sidebar_first
+weight: -11
+provider: null
+plugin: 'facet_block:industry_segment'
+settings:
+  id: 'facet_block:industry_segment'
+  label: 'Industry Segment'
+  provider: facets
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: /search/organizations
+    negate: false
+    context_mapping: {  }

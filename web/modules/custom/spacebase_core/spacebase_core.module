@@ -8,6 +8,7 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
+use Drupal\Core\Link;
 use Drupal\views\Views;
 use Drupal\group\Entity\GroupContent;
 
@@ -88,14 +89,11 @@ function spacebase_core_preprocess_field__comment(&$variables) {
 }
 
 
-
-
 /** Implements hook_preprocess_node
  *
  * Link Forum nodes back to their Organization
  * (This could also go in theme if preferred)
  */
-
 function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
 
   // 1. Forum threads should send people back to either the forum or
@@ -134,30 +132,22 @@ function spacebase_core_preprocess_node__group_forum_topic(&$variables) {
 
 /** Implements hook_preprocess_page
  *
- * Send the group id to page--org-profile template.
- * This page might be a view (forum, members) or custom (resources)
- * with the gid in the url -- the view can handle these pages directly,
- * or it might be a node from which the group
- * must be extracted.
+ * Send the group id to page--org-profile templates,
+ * which are used often, including for things like confirming the delete
+ * of a forum entry.
  *
- * OrgMenuBlock does something similar.
  */
-//Just putting this empty function blasts the group profile
-//without an error message.
-//function spacebase_core_preprocess_page__group_forum_topic(&$variables) {
-// fails, block disappears.
 function spacebase_core_preprocess_page(&$variables) {
-  if (isset($variables['node']) && $variables['node']->getType == 'group_forum_topic') {
-    //How is this firing when I try to create a new basic page
+  if (isset($variables['node']) &&
+            $variables['node']->get('type')->target_id ==  'group_forum_topic') {
+    // $variables['node']->getType == 'group_forum_topic' ... doesn't work, just on the delete confirm page,
+    // The above clunky version works everywhere so far:
     $group = _group_from_node($variables['node']);
     $variables['groupid'] = $group->id();
   }
 }
 
-
-
 // @ToDo: these use statements from example, probably not all needed:
-
 // Use statements to support hook_entity_field_access.
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Session\AccountInterface;
@@ -174,23 +164,29 @@ use Drupal\Core\Entity\EntityInterface;
 /**
  * Implements hook_entity_field_access().
  *
- * #Pins-field-access - Only group Admins can set the pins
+ * #Pins-field-access - Only group Admins can set the pins.
  *
  */
 
 function spacebase_core_entity_field_access($operation, \Drupal\Core\Field\FieldDefinitionInterface $field_definition, \Drupal\Core\Session\AccountInterface $account, \Drupal\Core\Field\FieldItemListInterface $items = NULL) {
 
+  // @ToDo: TestTheAccess by returning here, and making sure it fails in AjaxToggleForm.
+  $result = AccessResult::neutral();
 
   // Caching: unfortunately, group membership means we need to know
-  // if this user is an Admin of any groups, user-specific caches/
-  // @ToDo: does it matter that we cache all the other fields?
-  $result = AccessResult::neutral();
+  // if this user is an Admin of any groups, so user-specific cache:
   $result->addCacheContexts(['user']);
 
   // Edit the pin? Matches ability to edit the group (not the node)
-  // Forbid access to this field except for admins
+  // Forbid access to this field except for admins. Note that the
+  // toggle module wants to disable fields that users can view-not-edit ...
+  // We want to forbid those fields entirely.
   if ($field_definition->getName() == 'field_pin_to_top') {
-    if ($operation == 'edit') {
+    if ($operation == 'update') {
+      // 'edit' or  'update' coming from line 256 in ToggleEditableFormatter,
+      // which was originally 'edit' but should have been update.
+
+
       // Need the node, to get the group, to see if $account is an Admin
       if ($items) {
         $node = $items->getEntity();
@@ -221,19 +217,22 @@ function spacebase_core_entity_field_access($operation, \Drupal\Core\Field\Field
  * One of a few preprocesses that _set_the_group_links for a template
  */
 function spacebase_core_preprocess_views_view(&$variables) {
-  if ($variables['id'] == "group_forum" && $variables['display_id'] == 'page_1') {
+  if ($variables['id'] == "group_forum") {    // page_1, block_3
     $view = $variables['view'];
     $group = Drupal\group\Entity\Group::load($view->args[0]);
     _set_the_group_links($variables, $group);
   }
   if ($variables['id'] == "group_members" && $variables['display_id'] == 'page_1') {
     // Add member link on members page
-    $gid = \Drupal::routeMatch()->getParameter('group');
+    $gid = (int) \Drupal::routeMatch()->getParameter('group');
     $group = Drupal\group\Entity\Group::load($gid);
     $account = \Drupal::currentUser();
 
     if ($group->hasPermission('administer members', $account)) {
       // Don't send classes or text to the themer; send destination.
+      $variables['member_invite_button'] = true;
+    }
+    if ($account->hasPermission('bypass group access')) {
       $variables['member_add_button'] = '/group/' . $gid .
         '/content/add/group_membership?destination=/group/' . $gid . '/members';
     }
@@ -253,6 +252,23 @@ function spacebase_core_preprocess_views_view_fields(&$variables) {
   }
 }
 
+/**
+ * Implements hook_preprocess_HOOK() for views-view-field.html.twig.
+ *
+ * Make the views-created name ("first last") an aliased link.
+ */
+function spacebase_core_preprocess_views_view_field(&$variables) {
+  $view = $variables['view'];
+  if ($view->id() == 'sitewide_search') {
+    $field = $variables['field'];
+    if ($field->field == 'name') {
+      $text = $variables['output'];
+      $user = $variables['row']->_object->getValue();
+      $url = $user->toURL();
+      $variables['output'] = Link::fromTextAndUrl($text, $url);
+    }
+  }
+}
 
 /** Implements hook_preprocess_group() on behalf of spacebase_core.module.
  *
@@ -354,12 +370,15 @@ function _set_the_group_links(&$variables, $group) {
   if ($group->hasPermission('administer members', $account)) {
     // @ToDo: review cache implications
     $variables['group_links']['group_manage_members'] = '/group/' . $group->id() . '/members';
-    // If they can administer members, do they have pending applicants?
-    $name = 'group_members';
-    $display_id = 'page_2';
-    $result = views_get_view_result($name, $display_id, $group->id());
-    if ( count($result) > 0 ) {
-      $variables['group_links']['group_manage_applicants'] =  '/group/' . $group->id() . '/applicants';
+
+    $ids = \Drupal::entityQuery('group_content')
+      ->condition('type','group_content_type_569a59a77cd78')
+      ->condition('gid', $group->id())
+      ->condition('group_roles', NULL, 'IS NULL')
+      ->execute();
+
+    if ($ids) {
+      $variables['group_links']['group_manage_applicants'] =  '/group/' . $group->id() . '/members';
     }
   }
 
@@ -381,11 +400,16 @@ function _set_the_group_links(&$variables, $group) {
 
   /* Leave and join depend on membership status AND permission */
   if ($group->getMember($account)) {
-
+    // Leave
     if ($group->hasPermission('leave group', $account)) {
       $url =new Url('entity.group.leave', ['group' => $group->id()]);
       $variables['group_links']['leave'] = $url->toString();
     }
+    // Pending (can still Leave). Site-Admins won't get this.
+    if (!$group->hasPermission('view group_membership content', $account)) {
+      $variables['group_links']['pending'] = TRUE;
+    }
+    
   } elseif ($group->hasPermission('join group', $account)) {
     $url = new Url('entity.group.join', ['group' => $group->id()]);
     $variables['group_links']['join'] = $url->toString();
@@ -401,6 +425,17 @@ function _set_the_group_links(&$variables, $group) {
   $view->setArguments([$group->id()]);
   $view->execute();
   $variables['resource_total'] = $view->total_rows;
+
+  /* Is this group owned by User 1, needing a real owner? */
+  if ( $owner = $group->getOwner()->id() == 1 ) {
+    //ONLY Logged in spacebase site members can see
+    if ($account->id() > 0 ) {
+      $variables['group_seeks_owner'] = true;
+      $variables['group_name'] = $group->label();
+    }
+  }
+
+
 
 }
 
@@ -437,29 +472,76 @@ function _prep_resources() {
   return $var;
 }
 
-
-
-
 /**
  * Implements hook_form_alter() on behalf of spacebase_core.module.
  */
 function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-
   if ($form_id == 'user_register_form') {
     $form['actions']['submit']['#submit'][] = 'spacebase_core_user_registration_submit';
   }
   else if ($form['#id'] == 'user-form' ) {
     $form['actions']['submit']['#submit'][] = 'spacebase_core_user_form_submit';
   }
+  // Add a new member to an Organization / Edit
+  // for Org admin editing an Org-Member or Applicant
+  else if ($form['#id'] == 'group-content-group-content-type-569a59a77cd78-add-form' ||
+           $form['#id'] == "group-content-group-content-type-569a59a77cd78-edit-form") {
+    $form['org-owner'] = array(
+      '#type' => 'checkbox',
+      '#title' => t("Make this user the org's owner."),
+      '#required' => FALSE,
+      '#access' => \Drupal::currentUser()->hasPermission('bypass group access')
+    );
+    $form['path']['#access'] = false;
+    // Can't edit Admin, Verified, etc. This might come back?
+    //$form['group_roles']['#access'] = FALSE;
+    $form['actions']['submit']['#submit'][] = 'spacebase_core_org_owner_submit';
+    $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_edit_user_submit';
+
+
+  }
   else if ($form['#id'] == 'group-content-group-content-type-569a59a77cd78-group-join-form' ) {
     $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_join_submit';
   }
+
+  // The confirmation page mid- deleting a user. Just changing message (description)
+  else if ($form_id == "group_content_group_content_type_569a59a77cd78_delete_form") {
+    // module is not a class, so stick with t()
+    $uid = $form_state->getFormObject()->getEntity()->entity_id->target_id;
+    $user = \Drupal\user\Entity\User::load($uid)->label();
+    $gid = $form_state->getFormObject()->getEntity()->gid->target_id;
+    $group = \Drupal\group\Entity\Group::load($gid)->label();
+    $form['description']['#markup'] = t("Are you sure you want to delete <em>@user</em> from <em>@group?</em>",
+      ['@user' => $user, '@group'=>$group]);
+  }
   else if ($form['#id'] == 'views-exposed-form-sitewide-search-search') {
-    $form['keywords']['#attributes']['placeholder'] = 'Search';
     $path = \Drupal::service('path.current')->getPath();
-    $form['#action'] = '/search';
-    if (strpos($path, '/search/') === 0) {
-      $form['#action'] = $path;
+    switch ($path) {
+      case '/search/organizations':
+        $form['#action'] = $path;
+        $form['keywords']['#attributes']['placeholder'] = 'Search organizations';
+        $form['sf'] = [
+          '#title' => 'Text Fields',
+          '#type' => 'checkboxes',
+          '#options' => [
+            'group_name' => 'Name',
+            'group_description' => 'Description'
+          ],
+          '#default_value' => ['group_name'],
+          'group_name' => [
+            '#disabled' => TRUE,
+            '#attributes' => ['checked' => 'checked'],
+          ],
+        ];
+        break;
+      case '/search/people':
+        $form['#action'] = $path;
+        $form['keywords']['#attributes']['placeholder'] = 'Search people';
+        break;
+      default:
+        $form['#action'] = '/search';
+        $form['keywords']['#attributes']['placeholder'] = 'Search site';
+        break;
     }
   }
   else if ($form_id == 'node_resources_edit_form' ||
@@ -482,6 +564,25 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
   }
 }
 
+function spacebase_core_views_pre_view(Drupal\views\ViewExecutable $view) {
+  if ($view->id() == 'sitewide_search') {
+    // We will always search group name. Can't use default_value with disabled checkbox
+    // @TODO https://www.drupal.org/project/drupal/issues/2911473
+    $_GET['sf']['group_name'] = 'group_name';
+
+    if (!empty($_GET['sf'])) {
+      $filters = $view->display_handler->getOption('filters');
+      if ($filters['search_api_fulltext']) {
+        unset($filters['search_api_fulltext']['fields']);
+        foreach ($_GET['sf'] as $key) {
+          $filters['search_api_fulltext']['fields'][$key] = $key;
+        }
+        $view->display_handler->overrideOption('filters', $filters);
+      }
+    }
+  }
+}
+
 /** Submit function to redirect to resources to specific Tab
  * The resource "Tab" can be set in the form, so destination in link insuff.
  */
@@ -498,6 +599,48 @@ function spacebase_core_resources_tab_redirect(&$form, FormStateInterface $form_
   \Drupal::request()->query->remove('destination');
 }
 
+
+
+/** Submit function when you make someone the Organization Owner
+ *  Default was to go back to edit page again.
+ */
+function spacebase_core_org_owner_submit(&$form, FormStateInterface $form_state) {
+  if ($form_state->getValue('org-owner')) {
+    $uid = $form_state->getValue('entity_id')[0]['target_id'];
+    $user =  \Drupal\user\Entity\User::load($uid);
+    $group_content_membership = $form_state->getFormObject()->getEntity();
+    $group = $group_content_membership->getGroup();
+
+    // Make uid the owner of the group
+    $group->setOwner($user);
+    $group->save();
+
+    // Do we want to auto-provide admin role? Ask Rich. For now, code is here, yes.
+    $group_content_membership->group_roles->setValue('organization_group-admin');
+    $group_content_membership->save(); // returns 2, SAVED_UPDATED, if working. Add test?
+
+    // Remove our main Admin, uid=1
+    // I don't check if uid=1 is a non-owning member, that's not a case today.
+    // removeMember Does nothing if not a member.
+    // Changing owners between real people will not remove the Admin status of the past owner,
+    // do that by hand if desired.
+    $group->removeMember(\Drupal\user\Entity\User::load(1));
+  }
+}
+
+/** Submit function to redirect users (always Org-Admins) to the org after editing a user.
+ *
+ * Similar to spacebase_core_organization_join_submit, but goes to member page.
+ *
+ */
+function spacebase_core_organization_edit_user_submit(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $group_content_membership = $form_state->getFormObject()->getEntity();
+  $group = $group_content_membership->getGroup();
+
+  // Redirect
+  $url = url::fromUserInput("/group/" . $group->id() . "/members");
+  $form_state->setRedirectUrl($url);
+}
 
 /** Submit function to redirect user to profile after edit
  *  Default was to go back to edit page again.
@@ -522,9 +665,13 @@ function spacebase_core_organization_join_submit(&$form, \Drupal\Core\Form\FormS
   $form_state->setRedirect('entity.group.canonical', ['group' => $group->id()]);
 
   // And add the role 'verified,' @ToSpec/ToDo this only if the $group blocks autoverify
+  /* No longer autoverify 20190516 This might become an option in the future,
+   * leaving for the moment 
   $group_content_membership->group_roles->setValue('organization_group-verified');
   $group_content_membership->save(); // returns 2, SAVED_UPDATED, if working. Add test?
+ */
 }
+
 
 
 function spacebase_core_user_registration_submit(&$form, FormStateInterface $form_state) {
@@ -546,6 +693,10 @@ function spacebase_core_theme($existing, $type, $theme, $path) {
         'people_count' => '',
       ],
     ],
+    'org_advanced_search' => array(
+      'variables' => array('links' => array(), 'active' => ''),
+      'template' => 'block--org-advanced-search',
+    ),
     // Imitate the forum view with twig-tweak driven variant
     // Have to use underscores
     // What is theme name? What is template?
@@ -567,5 +718,4 @@ function spacebase_core_theme($existing, $type, $theme, $path) {
     ],
   ];
 }
-
 

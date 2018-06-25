@@ -1,0 +1,19 @@
+uuid: 0971d9d3-7a78-4924-9747-050ade9d9eef
+langcode: en
+status: true
+dependencies:
+  module:
+    - address
+    - node
+id: node.field_evt_location
+field_name: field_evt_location
+entity_type: node
+type: address
+settings: {  }
+module: address
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

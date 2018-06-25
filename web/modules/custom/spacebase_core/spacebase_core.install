@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Truncate fontyourface_font
+ */
+function spacebase_core_update_8001() {
+  foreach (array('languages_supported', 'font_classification') as $vocab) {
+    $tids = \Drupal::entityQuery('taxonomy_term')
+      ->condition('vid', $vocab)
+      ->execute();
+
+    $controller = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+    $entities = $controller->loadMultiple($tids);
+    $controller->delete($entities);
+  }
+
+  if (db_table_exists('fontyourface_font')) {
+    db_query("TRUNCATE fontyourface_font");
+  }
+}

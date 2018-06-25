@@ -75,6 +75,7 @@
     'clearfix',
   ]
 %}
+
 <article{{ attributes.addClass(classes) }}>
   <div class="admin-links">
     {# 1 of 3 admin-links: others are view/group_forum block and page,
@@ -87,9 +88,8 @@
     {% if (admin_links_q.edit) %}
     <a href="/node/{{ node.id }}/edit" id="behat-edit-discussion"><i class="fas fa-edit"></i></a>
     {% endif %}
-
     {% if (admin_links_q.delete) %}
-    <a href="/node/{{ node.id }}/delete"><i class="fas fa-trash-alt"></i></a>
+    <a href="/node/{{ node.id }}/delete?destination={{group_url}}/forum"><i class="fas fa-trash-alt"></i></a>
     {% endif %}
   </div>
 

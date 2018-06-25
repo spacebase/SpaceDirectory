@@ -26,6 +26,10 @@
     <a href="/user/register" class="btn btn-primary btn-block">Join SpaceBase</a>
   {% elseif group_links.leave %}
     <a href="{{group_links.leave}}"  class="btn btn-primary btn-block">Leave organization</a>
+    {% if group_links.pending %}
+      <br/>
+      <span class="btn btn-info btn-block">Membership Pending</span>
+    {%endif %}
   {% elseif group_links.join  %}
     <a href="{{group_links.join}}" class="btn btn-primary btn-block">Join Organization</a>
   {% endif %}
@@ -35,3 +39,17 @@
   {% endif %}
 
   </span>
+  
+  {# add logic to only show for orgs that are owned by admin, update email address if needed #}
+  {% if group_seeks_owner %}
+    <div class="claim">
+        The SpaceBase research team found this organization: 
+<a target="_email"
+href="mailto:feedback@spacebase.co?subject=Claim Organization&body=SpaceBase
+ Staff, %0D%0A%0D%0AThe organization “{{ group_name }}” should be under the 
+ownership of: %0D%0A%0D%0AHere's how you can verify that: %0D%0A%0D%0A ">recommend a new owner.</a>
+    </div>
+    {# fields.label.content comes with twig comments, 
+       so created new variable.#}  
+  {% endif %}
+

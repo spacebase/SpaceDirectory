@@ -1,13 +1,14 @@
 <?php
 
 if ($_SERVER['LANDO'] == 'ON') {
+  $lando_info = json_decode(getenv('LANDO_INFO'), TRUE);
   $databases['default']['default'] = [
     'driver' => 'mysql',
-    'database' => getenv('DB_NAME'),
-    'username' => getenv('DB_USER'),
-    'password' => getenv('DB_PASSWORD'),
-    'host' => getenv('DB_HOST'),
-    'port' => getenv('DB_PORT'),
+    'database' => $lando_info['database']['creds']['database'],
+    'username' => $lando_info['database']['creds']['user'],
+    'password' => $lando_info['database']['creds']['password'],
+    'host' => $lando_info['database']['internal_connection']['host'],
+    'port' => $lando_info['database']['internal_connection']['port'],
   ];
 
   $config['search_api.server.default_solr_server']['backend_config']['connector_config']['core'] = 'drupal';
@@ -16,4 +17,7 @@ if ($_SERVER['LANDO'] == 'ON') {
   $config['search_api.server.default_solr_server']['backend_config']['connector_config']['port'] = '8983';
 
   $settings['hash_salt'] = md5(getenv('LANDO_HOST_IP'));
+
+  $config['stage_file_proxy.settings']['origin'] = 'https://spacebase.co';
+  $config['stage_file_proxy.settings']['hotlink'] = TRUE;
 }

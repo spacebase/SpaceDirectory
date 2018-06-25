@@ -34,9 +34,9 @@ function spacebase_views_pre_render(\Drupal\views\ViewExecutable $view) {
     }
   }
 }
+
 /* @ToDo: combine with similar function in spacebase_core in one place? */
 function spacebase_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
     $content_type = $node->bundle();
     $suggestions[] = 'page__'.$content_type;
@@ -49,3 +49,19 @@ function spacebase_preprocess_node(&$variables) {
     $variables['comment_count'] = $variables['node']->get('field_reply')->comment_count;
   }
 }
+
+function spacebase_preprocess_html(&$variables) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path_alias = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  $path_alias = ltrim($path_alias, '/');
+  $variables['attributes']['class'][] = \Drupal\Component\Utility\Html::cleanCssIdentifier($path_alias);
+}
+
+function spacebase_preprocess_page(&$vars) {
+    if(isset($vars['node'])) {
+        $vars['title'] = $vars['node']->title->value;
+    }
+    else{
+       $vars['title'] =$vars['page']['#title'];
+    }
+ }

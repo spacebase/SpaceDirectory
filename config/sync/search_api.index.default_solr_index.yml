@@ -13,6 +13,7 @@ dependencies:
     - field.storage.group.field_image
     - field.storage.group.field_website
     - field.storage.group.field_headquarters_location
+    - field.storage.group.field_industry_segment
     - field.storage.user.field_bio_user
     - field.storage.user.field_email_user
     - field.storage.user.field_first_name_user
@@ -56,7 +57,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: solr_text_ngram
-    boost: !!float 8
+    boost: !!float 21
   content_created:
     label: 'Authored on'
     datasource_id: 'entity:node'
@@ -108,7 +109,7 @@ field_settings:
     label: Description
     datasource_id: 'entity:group'
     property_path: field_description
-    type: text
+    type: solr_text_omit_norms
     dependencies:
       config:
         - field.storage.group.field_description
@@ -212,12 +213,20 @@ field_settings:
     datasource_id: 'entity:group'
     property_path: label
     type: solr_text_ngram
-    boost: !!float 8
+    boost: !!float 21
+  field_industry_segment:
+    label: 'Industry Segment'
+    datasource_id: 'entity:group'
+    property_path: field_industry_segment
+    type: integer
+    dependencies:
+      config:
+        - field.storage.group.field_industry_segment
   user_bio:
     label: Bio
     datasource_id: 'entity:user'
     property_path: field_bio_user
-    type: text
+    type: solr_text_omit_norms
     dependencies:
       config:
         - field.storage.user.field_bio_user
@@ -249,7 +258,7 @@ field_settings:
     datasource_id: 'entity:user'
     property_path: field_first_name_user
     type: solr_text_ngram
-    boost: !!float 3
+    boost: !!float 21
     dependencies:
       config:
         - field.storage.user.field_first_name_user
@@ -266,7 +275,7 @@ field_settings:
     datasource_id: 'entity:user'
     property_path: field_last_name_user
     type: solr_text_ngram
-    boost: !!float 3
+    boost: !!float 21
     dependencies:
       config:
         - field.storage.user.field_last_name_user
@@ -328,9 +337,6 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
-  add_url:
-    weights:
-      preprocess_index: -30
   aggregated_field:
     weights:
       add_properties: 20
@@ -338,9 +344,22 @@ processor_settings:
     weights:
       preprocess_index: -6
       preprocess_query: -4
-  entity_status:
+  highlight:
+    highlight: always
+    highlight_partial: true
+    excerpt: true
+    excerpt_length: 300
+    exclude_fields:
+      - rendered_item
+      - content_title
+      - group_name
+      - user_bio
+      - user_first_name
+      - user_last_name
+    prefix: '<strong>'
+    suffix: '</strong>'
     weights:
-      preprocess_index: -10
+      postprocess_query: 0
   html_filter:
     all_fields: false
     fields:
@@ -387,6 +406,12 @@ processor_settings:
     weights:
       preprocess_index: -20
       preprocess_query: -20
+  entity_status:
+    weights:
+      preprocess_index: -10
+  add_url:
+    weights:
+      preprocess_index: -30
   rendered_item:
     weights:
       add_properties: 0

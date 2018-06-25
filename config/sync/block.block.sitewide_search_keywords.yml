@@ -5,13 +5,12 @@ dependencies:
   config:
     - views.view.sitewide_search
   module:
-    - system
     - views
   theme:
     - spacebase
 id: sitewide_search_keywords
 theme: spacebase
-region: topbar
+region: navigation
 weight: 0
 provider: null
 plugin: 'views_exposed_filter_block:sitewide_search-search'
@@ -21,9 +20,4 @@ settings:
   provider: views
   label_display: visible
   views_label: ''
-visibility:
-  request_path:
-    id: request_path
-    pages: "/search\r\n/search/*"
-    negate: false
-    context_mapping: {  }
+visibility: {  }

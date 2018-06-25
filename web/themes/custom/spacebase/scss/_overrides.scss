@@ -102,6 +102,9 @@ body.navbar-is-fixed-top{
     max-width: 100%;
     height: auto;
   }
+  a{
+    font-weight: 500;
+  }
 }
 
 .main-container{
@@ -131,6 +134,14 @@ body.navbar-is-fixed-top{
 .btn-small{
   padding: 4px 10px;
   font-size: 16px;
+}
+
+.btn-xsmall{
+  padding: 4px 10px;
+  font-size: 11px;
+  i{
+    margin-right: 2px;
+  }
 }
 
 .btn-primary{
@@ -193,6 +204,25 @@ body.navbar-is-fixed-top{
   font-size: 13px;
 }
 
+.add-button{
+  font-size: 30px;
+  color: $brand-secondary;
+  position: relative;
+  &:active,&:focus,&:hover{
+    color: lighten($brand-secondary,5%) !important;
+    span.hidden{
+      display: block !important;
+      font-size: 10px;
+      font-weight: 500;
+      position: absolute;
+      line-height: 10px;
+      bottom: -15px;
+      left: 0;
+      text-align: center;
+    }
+  }
+}
+
 h1, h2, h3, h4, h5, h6{
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
@@ -201,11 +231,41 @@ h1, h2, h3, h4, h5, h6{
 h1{
   font-size: 32px;
   margin: 0 0 1em;
+  .count{
+    background: $brand-primary;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 8px;
+    height: 20px;
+    line-height: 16px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 10px;
+    text-align: center;
+    min-width: 40px;
+    vertical-align: middle;
+  }
 }
 
 h2{
   font-size: 26px;
   margin: 0 0 1em;
+  .count{
+    background: $brand-primary;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 8px;
+    height: 20px;
+    line-height: 16px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 10px;
+    text-align: center;
+    min-width: 40px;
+    vertical-align: middle;
+  }
 }
 
 h3{
@@ -234,6 +294,7 @@ h4{
   border-radius: 2px;
   border: none;
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  display: inline-block;
   li{
     margin-right: 4px;
     a{
@@ -295,7 +356,14 @@ form{
   }
 }
 
-.pagination{
+.pagination, .pager ul{
+  &:after{
+    clear: both;
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
   > li{
     > a, > span{
       display: inline-block;
@@ -328,6 +396,12 @@ form{
       a{
         width: auto;
       }
+    }
+    &.pager__item--previous{
+      float: left;
+    }
+    &.pager__item--next{
+      float: right;
     }
   }
   .active{
@@ -384,6 +458,54 @@ form{
   margin-top: 50px;
 }
 
+.ui-dialog {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.8);
+  border: none !important;
+  border-radius: 2px;
+  padding: 0;
+  .ui-dialog-titlebar {
+    border-radius: 2px 2px 0 0;
+    background: $brand-primary;
+    border: none;
+    color: #fff;
+    .ui-dialog-titlebar-close {
+      background: transparent;
+      border: none;
+      color: #fff;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      &:before {
+        content: "\f00d";
+        color: #fff;
+        display: block;
+        font-family: 'Font Awesome\ 5 Free';
+        text-align: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+      }
+    }
+  }
+  .ui-dialog-content {
+    padding: 30px;
+  }
+  .ui-dialog-buttonpane {
+    background: $grey-bg;
+    border: none !important;
+    text-align: right;
+    padding: 10px;
+    button {
+      margin: 0 0 0 15px;
+    }
+  }
+}
+.dblock{
+  display: block;
+}
 /* Org Resources: Taxonomy term input includes description */
 .field--name-field-tab .form-item-field-tab {
   .descrip p {

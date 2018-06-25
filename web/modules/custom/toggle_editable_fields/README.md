@@ -1,39 +1,61 @@
-## About Toggle Editable Fields
+CONTENTS OF THIS FILE
+---------------------
 
-SpaceBase's version is a fork: using this module but with very heavy changes.
-There may be some pieces that can be contributed back; but our use case varies
-quite a bit.
+ * Introduction
+ * Requirements
+ * Installation
+ * Configuration
+ * Maintainers
 
 
+INTRODUCTION
+------------
 
-It provides a toggle formatter to edit fields in it view representation 
-for Boolean field type.
+The Toggle Editable Fields module is a formatter to transform "classic" boolean
+field formatter to toggle editable field directly on 'view' display or on views
+lists.
 
-### How to install:
-1. Download this module
-2. [Download Bootstrap Toggle Plugin] and place it in the libraries 
-folder (named `bootstrap-toggle`) or use bower 
-if you are composer user.
-3. Install `toggle_editable_fields` the
- [usual way].
-4. Create a boolean field
-5. On display choose `Toggle Editable Formatter` as formatter and 
-configure settings as you want.
-6. Enjoy ! You can now switch the state of your field in
- every place (view/entity view etc...).
+ * For a full description of the module visit:
+   https://www.drupal.org/project/toggle_editable_fields
 
-### Project page:
-[drupal.org project page](https://www.drupal.org/project/toggle_editable_fields)
+ * To submit bug reports and feature suggestions, or to track changes visit:
+   https://www.drupal.org/project/issues/toggle_editable_fields
 
-### Maintainers:
-+ Alexandre Mallet (@woprrr) drupal.org/u/woprrr
 
-### Get in touch:
- - IRC: #drupal-contribute @ Freenode / slack
- 
-### Thanks:
- The development of this module is sponsored by [Neolynk].
+REQUIREMENTS
+------------
 
-[Download Bootstrap Toggle Plugin]: https://github.com/minhur/bootstrap-toggle/
-[usual way]: https://drupal.org/documentation/install/modules-themes/modules-8
-[Neolynk]: http://www.neolynk.fr
+This module requires the following library:
+
+ * Bootstrap Toggle Plugin - https://github.com/minhur/bootstrap-toggle/
+
+
+INSTALLATION
+------------
+
+Install the Toggle Editable Fields module as you would normally install a
+contributed Drupal module. Visit https://www.drupal.org/node/1897420 for further
+information.
+
+
+CONFIGURATION
+-------------
+
+    1. Download Bootstrap Toggle Plugin and place it in the libraries folder
+       (named `bootstrap-toggle`) or use bower if there is a Composer workflow.
+    2. Navigate to Administration > Extend and enable the module.
+    3. Create a boolean field.
+    4. On display choose `Toggle Editable Formatter` as formatter and configure
+       the settings.
+    5. The user can now switch the state of the field in every place
+       (view/entity view etc...).
+
+
+MAINTAINERS
+-----------
+
+ * Alexandre Mallet (woprrr) - https://www.drupal.org/u/woprrr
+
+Supporting organization:
+
+ * NeoLynk - https://www.drupal.org/neolynk

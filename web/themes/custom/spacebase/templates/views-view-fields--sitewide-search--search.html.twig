@@ -67,6 +67,9 @@ group_join_status_link_field
         <div class="location">
             {{ fields['group_location_locality'].content }}
         </div>
+        <div class="hidden small">
+            {{ fields['search_api_excerpt'].content }}
+        </div>
     </div>
 {% elseif fields['search_api_datasource'].raw == 'entity:user' %}
 
@@ -75,7 +78,7 @@ group_join_status_link_field
     </div>
 
     <div class="profile-text">
-        <h2>{{ fields['user_last_name'].content }}</h2>
+        <h2>{{ fields['name'].content }}</h2>
         <div class="quote">
             {{ fields['field_tagline_user'].content }}
         </div>
@@ -84,3 +87,7 @@ group_join_status_link_field
         </div>
     </div>
 {% endif %}
+
+<div class="hidden relevance">
+    {{ fields['search_api_relevance'].content }}
+</div>

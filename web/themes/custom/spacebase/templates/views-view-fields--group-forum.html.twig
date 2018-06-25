@@ -32,7 +32,7 @@
  */
 #}
 <div class="admin-links">
-  {% if 'cannot_edit' not in fields.field_pin_to_top.content.__toString() %}
+  {% if 'disabled' not in fields.field_pin_to_top.content.__toString() %}
     <span class="pin"><i class="fas fa-thumbtack {% if 'Pinned' in fields.field_pin_to_top_1.content|striptags %}pinned{% endif %}"></i>{{ fields.field_pin_to_top.content }}</span>
   {% endif %}
   {{ fields.edit_node.content }}
