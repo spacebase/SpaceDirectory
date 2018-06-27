@@ -2101,10 +2101,8 @@ display:
     display_options:
       display_extenders: {  }
       access:
-        type: role
-        options:
-          role:
-            authenticated: authenticated
+        type: none
+        options: {  }
       defaults:
         access: false
         header: false
@@ -3113,7 +3111,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user.roles
       tags:
         - 'config:field.storage.group_content.field_organization_role'
         - 'config:field.storage.group_content.group_roles'
