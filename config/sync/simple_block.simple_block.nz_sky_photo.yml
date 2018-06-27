@@ -1,0 +1,11 @@
+uuid: cfcfe107-a4f2-4d99-a832-7663f964eac2
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+id: nz_sky_photo
+title: 'New Zealand from above'
+content:
+  value: '<img alt="New Zealand from above" data-align="center" data-entity-type="file" data-entity-uuid="807139ee-cd6e-414e-8e61-1a73f1f5dc63" src="/sites/default/files/inline-images/nz-from-above.jpg" />'
+  format: basic_html

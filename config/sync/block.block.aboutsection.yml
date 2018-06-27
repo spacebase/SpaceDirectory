@@ -5,6 +5,7 @@ dependencies:
   content:
     - 'block_content:side_by_side:d3adafa4-4939-4e34-ab8b-17bb7a9428e3'
   module:
+    - block_content
     - system
   theme:
     - spacebase

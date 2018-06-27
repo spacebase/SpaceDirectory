@@ -116,3 +116,10 @@ body[class*="user-reset"]{
     margin: 0 0 20px;
   }
 }
+
+.pullout{
+  margin: 0 -50px;
+  @media screen and (max-width: 767px) {
+    margin: 0 -35px;
+  }
+}
