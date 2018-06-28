@@ -41,8 +41,10 @@ body.page-node-type-blog-post{
   }
   .text{
     font-size: 1.2em;
+    font-weight: 300;
     margin: 0 0 40px;
     clear: left;
+    line-height: 1.8em;
     @media screen and (min-width: 768px){
       width: 70%;
     }
@@ -51,15 +53,18 @@ body.page-node-type-blog-post{
 
 .blog-list{
   position: relative;
-  .read-medium{
-    @media screen and (min-width: 768px){
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-    @media screen and (max-width: 767px){
-      margin: 10px 0 15px;
-      text-align: center;
+  .view-header{
+    position: relative;
+    .read-medium{
+      @media screen and (min-width: 768px){
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      @media screen and (max-width: 767px){
+        margin: 10px 0 15px;
+        text-align: center;
+      }
     }
   }
   .views-row{

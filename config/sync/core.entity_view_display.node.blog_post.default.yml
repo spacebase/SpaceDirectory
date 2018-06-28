@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.blog_post.field_bp_image
     - field.field.node.blog_post.field_bp_medium
     - field.field.node.blog_post.field_bp_post_date
+    - image.style.blog_photo
     - node.type.blog_post
   module:
     - image
@@ -38,7 +39,7 @@ content:
     weight: 1
     label: hidden
     settings:
-      image_style: ''
+      image_style: blog_photo
       image_link: ''
     third_party_settings: {  }
     type: image
