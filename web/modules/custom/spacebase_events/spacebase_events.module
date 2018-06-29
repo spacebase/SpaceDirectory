@@ -34,13 +34,6 @@ function spacebase_events_preprocess_calendar_pager(&$vars) {
 /**
  * Creates a set of mode links for a given view
  */
-function spacebase_events_preprocess_calendar_day_overlap(&$vars) {
-  spacebase_events_process_hour_labels($vars['rows']['items']);
-}
-
-/**
- * Creates a set of mode links for a given view
- */
 function spacebase_events_preprocess_calendar_week_overlap(&$vars) {
   $arg = $vars['view']->args[0];
   $date = new DateTime('now', new DateTimeZone('Pacific/Auckland'));
@@ -48,26 +41,6 @@ function spacebase_events_preprocess_calendar_week_overlap(&$vars) {
   foreach ($vars['day_names'] as $key => $value) {
     $vars['day_names'][$key]['data'] = "{$date->format('D')} {$date->format('j')}";
     $date->add(new DateInterval('P1D'));
-  }
-  spacebase_events_process_hour_labels($vars['items']);
-}
-
-/**
- * Formats calendar hour columns
- */
-function spacebase_events_process_hour_labels(&$items) {
-  foreach ($items as $start => $item) {
-    $hour = (string) $items[$start]['hour'];
-    if ($hour > 11) {
-      $items[$start]['ampm'] .= 'pm';
-      if ($hour > 12) {
-        $hour -= 12;
-      }
-    }
-    else {
-      $items[$start]['ampm'] .= 'am';
-    }
-    $items[$start]['hour'] = ltrim($hour, '0') . ':00';
   }
 }
 
