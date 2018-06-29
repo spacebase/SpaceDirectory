@@ -12,7 +12,7 @@ field_name: field_evt_start
 entity_type: node
 bundle: event
 label: Start
-description: ''
+description: 'Please enter the NZST local date time.'
 required: true
 translatable: false
 default_value: {  }
