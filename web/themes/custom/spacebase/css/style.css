@@ -8992,6 +8992,8 @@ article.forum-comment {
 body.about h1 {
   text-align: center;
   font-size: 44px; }
+  body.about h1.page-title {
+    display: none; }
 body.about h2 {
   text-align: center;
   font-size: 40px;
