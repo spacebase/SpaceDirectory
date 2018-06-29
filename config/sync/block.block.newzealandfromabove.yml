@@ -1,0 +1,28 @@
+uuid: fbbbaec6-acef-4654-8db0-177cb66dbf78
+langcode: en
+status: true
+dependencies:
+  config:
+    - simple_block.simple_block.nz_sky_photo
+  module:
+    - simple_block
+    - system
+  theme:
+    - spacebase
+id: newzealandfromabove
+theme: spacebase
+region: content
+weight: 0
+provider: null
+plugin: 'simple_block:nz_sky_photo'
+settings:
+  id: 'simple_block:nz_sky_photo'
+  label: 'New Zealand from above'
+  provider: simple_block
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /about
+    negate: false
+    context_mapping: {  }
