@@ -4,3 +4,9 @@ sb-search:
     js/sb-search.js: {}
   dependencies:
     - core/jquery
+chart-alter:
+  version: 1.x
+  js:
+    js/chart-alter.js: {}
+  dependencies:
+    - core/jquery

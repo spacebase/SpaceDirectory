@@ -8,13 +8,13 @@ dependencies:
     - field.field.group.organization_group.field_image
     - field.field.group.organization_group.field_industry_segment
     - field.field.group.organization_group.field_linkedin
+    - field.field.group.organization_group.field_map_address
     - field.field.group.organization_group.field_website
     - group.type.organization_group
-    - image.style.profile_photo
+    - image.style.member_thumb_small
   module:
     - address
     - image
-    - link
     - text
 id: group.organization_group.default
 targetEntityType: group
@@ -22,14 +22,15 @@ bundle: organization_group
 mode: default
 content:
   field_description:
-    weight: 2
+    weight: 1
     label: hidden
-    settings: {  }
+    settings:
+      trim_length: 120
     third_party_settings: {  }
-    type: text_default
+    type: text_summary_or_trimmed
     region: content
   field_headquarters_location:
-    weight: 3
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -39,52 +40,24 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: profile_photo
-      image_link: ''
+      image_style: member_thumb_small
+      image_link: content
     third_party_settings: {  }
     type: image
     region: content
   field_industry_segment:
-    weight: 6
+    weight: 3
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_linkedin:
-    weight: 4
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
-    region: content
-  field_website:
-    weight: 5
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
-    region: content
-  label:
-    label: hidden
-    type: string
-    weight: 1
-    region: content
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
 hidden:
   changed: true
   created: true
+  field_linkedin: true
+  field_map_address: true
+  field_website: true
+  label: true
   uid: true

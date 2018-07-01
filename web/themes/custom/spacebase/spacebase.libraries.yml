@@ -28,6 +28,9 @@ parallax:
 global-scripts:
   js:
     js/custom.js: {}
+  dependencies:
+    - core/jquery.ui.tabs
+   
     
 fonts:
   css:

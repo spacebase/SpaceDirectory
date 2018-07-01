@@ -6839,7 +6839,8 @@ body[class*="user-reset"] {
 
 .navbar {
   background: rgba(0, 0, 0, 0.8);
-  border: none; }
+  border: none;
+  z-index: 1030 !important; }
   .navbar.navbar-inverse .menu {
     float: none !important;
     padding: 0 !important; }
@@ -8720,6 +8721,150 @@ article.forum-comment {
   .node-group-forum-topic-form .form-item-title-0-value label, .node-group-forum-topic-form .field--name-body label {
     display: none; }
 
+/**
+ * Map and Chart styles
+ */
+.leaflet-popup-content .field--name-field-image {
+  float: right;
+  padding: 0 0 .5em .5em; }
+.leaflet-popup-content h2 {
+  font-size: 13px;
+  margin-bottom: 0px; }
+.leaflet-popup-content p {
+  margin: 9px 0; }
+
+h1.map-title {
+  z-index: 998;
+  display: block;
+  background: #56abc2;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-align: center;
+  pointer-events: none;
+  position: relative; }
+  @media screen and (min-width: 768px) {
+    h1.map-title {
+      font-size: 44px;
+      padding: 10px 30px;
+      margin: 80px 0 0; } }
+  @media screen and (max-width: 767px) {
+    h1.map-title {
+      font-size: 22px;
+      padding: 5px 10px;
+      margin: 85px 0 0; } }
+
+#maps-charts-row {
+  position: relative;
+  margin: 0 !important;
+  background: #abd3de;
+  overflow: hidden;
+  padding-top: 0 !important; }
+  @media screen and (min-width: 768px) {
+    #maps-charts-row {
+      padding-bottom: 0 !important; }
+      #maps-charts-row .chart-tabs {
+        position: static; }
+      #maps-charts-row .tabs {
+        position: absolute;
+        top: 16px;
+        right: 25px;
+        width: 290px;
+        z-index: 1001; }
+      #maps-charts-row .charts {
+        width: 300px;
+        position: absolute;
+        top: 45px;
+        right: 20px;
+        bottom: 30px;
+        border-radius: 2px;
+        background: #fff; }
+      #maps-charts-row .map #leaflet-map {
+        height: 60vh !important;
+        min-height: 500px !important; } }
+  @media screen and (max-width: 767px) {
+    #maps-charts-row .chart-tabs {
+      position: relative;
+      z-index: 1002; }
+    #maps-charts-row .tabs {
+      margin-top: -31px !important;
+      z-index: 1001;
+      margin-right: 8px !important;
+      margin-left: 8px !important; }
+    #maps-charts-row .charts {
+      background: #fff;
+      border-radius: 2px 2px 0 0;
+      margin-right: 5px !important;
+      margin-left: 5px !important; }
+    #maps-charts-row .map #leaflet-map {
+      height: 60vh !important; } }
+  #maps-charts-row .chart-tabs {
+    background: none;
+    border: none;
+    padding: 0; }
+  #maps-charts-row .tabs {
+    z-index: 1000;
+    padding: 0 !important;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+    border: none; }
+    #maps-charts-row .tabs li {
+      display: inline-block;
+      margin: 0 3px 0 0;
+      padding: 0;
+      border: none; }
+      #maps-charts-row .tabs li a {
+        background: #e2e1e1;
+        border: none;
+        display: inline-block;
+        padding: 7px 10px;
+        color: #3f4147;
+        font-weight: 500;
+        border-radius: 2px 2px 0 0;
+        font-size: 12px;
+        outline: none; }
+      #maps-charts-row .tabs li.ui-state-active {
+        border: none; }
+        #maps-charts-row .tabs li.ui-state-active a {
+          background: #fff; }
+  #maps-charts-row .charts {
+    z-index: 999;
+    padding: 10px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2); }
+  #maps-charts-row .map .view-filters {
+    display: none; }
+  #maps-charts-row .leaflet-popup-content {
+    font-family: 'Montserrat', sans-serif;
+    max-width: 200px; }
+    #maps-charts-row .leaflet-popup-content h2 {
+      display: none; }
+    #maps-charts-row .leaflet-popup-content .field--name-field-image {
+      float: none;
+      padding: 0 0 5px 0;
+      position: relative; }
+      #maps-charts-row .leaflet-popup-content .field--name-field-image img {
+        border-radius: 50%;
+        margin: 0 auto; }
+    #maps-charts-row .leaflet-popup-content .field--name-label {
+      font-weight: 500;
+      font-size: 14px;
+      text-align: center; }
+      #maps-charts-row .leaflet-popup-content .field--name-label a {
+        color: #325ce6; }
+    #maps-charts-row .leaflet-popup-content .field--name-field-headquarters-location {
+      clear: both;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 5px; }
+    #maps-charts-row .leaflet-popup-content .field--name-field-industry-segment {
+      padding-top: 5px;
+      border-top: 1px solid #f0f0f0;
+      text-align: center; }
+
+.front .views-exposed-form,
+#maps-charts-row .views-exposed-form {
+  display: none; }
+
 .resources-overview {
   list-style: none;
   padding: 10px 0px 15px;
@@ -9070,3 +9215,5 @@ body.about .sb-timeline {
         body.about .sb-timeline .col-md-4 h3 {
           font-size: 24px;
           text-align: left; } }
+
+/*# sourceMappingURL=style.css.map */

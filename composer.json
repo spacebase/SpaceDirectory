@@ -13,10 +13,43 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "c3js/c3",
+                "version": "v0.4.18",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "c3"
+                },
+                "dist": {
+                    "url": "https://github.com/c3js/c3/archive/v0.4.18.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "d3/d3",
+                "version": "v3.5.17",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "d3"
+                },
+                "dist": {
+                    "url": "https://github.com/d3/d3/archive/v3.5.17.zip",
+                    "type": "zip"
+                },
+                "require": {
+                    "composer/installers": "~1.0"
+                }
+            }
         }
     ],
     "require": {
-        "composer/installers": "^1.0.20",
+        "composer/installers": "^1.5",
         "cweagans/composer-patches": "^1.0",
         "drupal-composer/drupal-scaffold": "^2.0.1",
         "drupal/address": "^1.4",
@@ -63,7 +96,15 @@
         "drupal/stage_file_proxy": "^1.0@alpha",
         "drupal/views_bulk_operations": "^2.3",
         "drupal/publishcontent": "^1.0",
-        "drupal/image_widget_crop": "^2.1"
+        "drupal/image_widget_crop": "^2.1",
+        "drupal/leaflet": "^1.0@beta",
+        "drupal/geocoder": "^2.0@beta",
+        "drupal/geofield": "^1.0@beta",
+        "drupal/charts": "^3.0@alpha",
+        "c3js/c3": "0.4.18",
+        "d3/d3": "3.5.17",
+        "drupal/leaflet_more_maps": "^1.0@alpha",
+        "drupal/leaflet_markercluster": "^1.0@alpha"
     },
     "require-dev": {
         "behat/mink": "~1.7",
@@ -115,6 +156,9 @@
             ],
             "drush/contrib/{$name}": [
                 "type:drupal-drush"
+            ],
+            "web/libraries/{$name}": [
+              "type:drupal-library"
             ]
         },
         "patches": {
@@ -129,6 +173,9 @@
           },
           "drupal/search_api" : {
             "Facets are lost by Views on keyword search": "https://www.drupal.org/files/issues/facets-lost-by-keyword-search-2378945-8.x-19.patch"
+          },
+          "drupal/leaflet" : {
+            "Leaflet maps in views zoom settings": "https://www.drupal.org/files/issues/2018-04-28/leaflet-views-zoom-2762903-9.patch"
           }
         }
     },
