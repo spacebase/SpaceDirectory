@@ -1,0 +1,28 @@
+uuid: 469ad8b9-71e5-41f8-bacc-54cf30bcbf35
+langcode: en
+status: true
+dependencies:
+  config:
+    - simple_block.simple_block.map_home
+  module:
+    - simple_block
+    - system
+  theme:
+    - spacebase
+id: maphome
+theme: spacebase
+region: content
+weight: -16
+provider: null
+plugin: 'simple_block:map_home'
+settings:
+  id: 'simple_block:map_home'
+  label: 'Map Home'
+  provider: simple_block
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

@@ -8746,12 +8746,12 @@ h1.map-title {
     h1.map-title {
       font-size: 44px;
       padding: 10px 30px;
-      margin: 80px 0 0; } }
+      margin: 0; } }
   @media screen and (max-width: 767px) {
     h1.map-title {
       font-size: 22px;
       padding: 5px 10px;
-      margin: 85px 0 0; } }
+      margin: 0; } }
 
 #maps-charts-row {
   position: relative;
@@ -9215,5 +9215,3 @@ body.about .sb-timeline {
         body.about .sb-timeline .col-md-4 h3 {
           font-size: 24px;
           text-align: left; } }
-
-/*# sourceMappingURL=style.css.map */
