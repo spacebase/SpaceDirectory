@@ -7,7 +7,7 @@ use Drupal\group\Entity\GroupContent;
  * by resaving all groups after creating geocoding geofield.
  * (Too small to need to use the batch API / ignore $sandbox)
  */
-function spacebase_core_update_8021(&$sandbox) {
+function spacebase_core_update_8022(&$sandbox) {
   $limit = 20; // batch 20 at a time
   if (!isset($sandbox['progress'])) {
     // The count of nodes visited so far.
