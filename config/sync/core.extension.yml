@@ -8,6 +8,8 @@ module:
   calendar: 0
   calendar_datetime: 0
   cer: 0
+  charts: 0
+  charts_c3: 0
   ckeditor: 0
   color: 0
   colorbox: 0
@@ -31,6 +33,11 @@ module:
   file: 0
   filter: 0
   fontawesome: 0
+  geocoder: 0
+  geocoder_address: 0
+  geocoder_field: 0
+  geocoder_geofield: 0
+  geofield: 0
   gnode: 0
   google_analytics: 0
   group: 0
@@ -38,6 +45,10 @@ module:
   history: 0
   image: 0
   image_widget_crop: 0
+  leaflet: 0
+  leaflet_markercluster: 0
+  leaflet_more_maps: 0
+  leaflet_views: 0
   link: 0
   mail_edit: 0
   mailgun: 0
@@ -70,6 +81,7 @@ module:
   spacebase_events: 0
   spacebase_orgs: 0
   spacebase_search: 0
+  stage_file_proxy: 0
   system: 0
   taxonomy: 0
   text: 0

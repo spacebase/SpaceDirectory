@@ -1,8 +1,9 @@
-uuid: 0a682d87-b46a-4407-9058-9d93f4a4466b
+uuid: 72c8d695-b8b4-4c7b-ba5c-dc6f34379e0a
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.group.map_display
     - field.field.group.organization_group.field_description
     - field.field.group.organization_group.field_headquarters_location
     - field.field.group.organization_group.field_image
@@ -11,79 +12,60 @@ dependencies:
     - field.field.group.organization_group.field_map_address
     - field.field.group.organization_group.field_website
     - group.type.organization_group
-    - image.style.thumbnail
+    - image.style.member_list
   module:
     - address
-    - geofield
     - image
-    - link
     - text
-id: group.organization_group.default
+id: group.organization_group.map_display
 targetEntityType: group
 bundle: organization_group
-mode: default
+mode: map_display
 content:
   field_description:
     weight: 2
+    label: hidden
     settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
+      trim_length: 120
     third_party_settings: {  }
-    type: text_textarea_with_summary
+    type: text_summary_or_trimmed
     region: content
   field_headquarters_location:
     weight: 3
-    settings:
-      default_country: null
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
   field_image:
-    weight: 1
+    weight: 0
+    label: hidden
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      image_style: member_list
+      image_link: content
     third_party_settings: {  }
-    type: image_image
+    type: image
     region: content
   field_industry_segment:
-    weight: 6
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_linkedin:
     weight: 4
+    label: above
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      link: true
     third_party_settings: {  }
-    type: link_default
-    region: content
-  field_map_address:
-    weight: 7
-    settings:
-      html5_geolocation: false
-    third_party_settings: {  }
-    type: geofield_latlon
-    region: content
-  field_website:
-    weight: 5
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
+    type: entity_reference_label
     region: content
   label:
-    type: string_textfield
-    weight: 0
+    type: string
+    weight: 1
     region: content
+    label: hidden
     settings:
-      size: 60
-      placeholder: ''
+      link_to_entity: true
     third_party_settings: {  }
 hidden:
-  path: true
+  changed: true
+  created: true
+  field_linkedin: true
+  field_map_address: true
+  field_website: true
   uid: true

@@ -138,6 +138,8 @@
         $(this).siblings('.region-sidebar-first').toggleClass('opened');
       });
       
+      $('.chart-tabs').tabs();
+      
     }
   };
 
