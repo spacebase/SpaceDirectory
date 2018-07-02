@@ -1,0 +1,8 @@
+uuid: 735bbc05-83af-4b04-bb6e-ef3c1b0b9afd
+langcode: en
+status: true
+dependencies: {  }
+id: time_only
+label: 'Time Only'
+locked: false
+pattern: 'g:i a T'
