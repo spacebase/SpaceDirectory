@@ -36,6 +36,20 @@ h1.map-title{
   }
 }
 
+body.map{
+  .main-container{
+    @media screen and (min-width:768px){
+      padding-top: 80px !important;
+    }
+    @media screen and (max-width:767px){
+      padding-top: 85px !important;
+    }
+  }
+  h1.page-title{
+    display: none;
+  }
+}
+
 #maps-charts-row {
   position: relative;
   margin: 0 !important;
@@ -65,7 +79,7 @@ h1.map-title{
     }
     .map{
       #leaflet-map{
-        height: 60vh !important;
+        height: calc(100vh - 223px) !important;
         min-height: 500px !important;
       }
     }
@@ -174,6 +188,21 @@ h1.map-title{
       padding-top: 5px;
       border-top: 1px solid $line;
       text-align: center;
+    }
+  }
+}
+
+
+body.path-frontpage{
+
+  #maps-charts-row {
+    @media screen and (min-width:768px){
+      .map{
+        #leaflet-map{
+          height: calc(60vh) !important;
+          min-height: 500px !important;
+        }
+      }
     }
   }
 }

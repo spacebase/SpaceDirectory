@@ -7,5 +7,5 @@ dependencies:
 id: map_home
 title: 'Map Home'
 content:
-  value: "\r\n        <h1 class=\"map-title\">New Zealand Space Directory</h1>\r\n        <div id=\"maps-charts-row\" class=\"clearfix\" style=\"padding-top: 2em;\r\nmargin-top: 2em\":>\r\n          <div class=\"map\">\r\n           {{ drupal_view('organizations_nz_overview_map', 'views_block_filter_block_plugin_display_block_1') }}\r\n          </div>\r\n          <div class=\"chart-tabs\">\r\n            <ul class=\"tabs\">\r\n              <li><a href=\"#tab-orgs\">Organisations</a></li>\r\n              <li><a href=\"#tab-events\">Events</a></li>\r\n            </ul>\r\n            <div class=\"charts\" id=\"tab-orgs\">\r\n            {{ drupal_view('organizations_by_field_and_city', 'views_block_filter_bpdb_1') }}\r\n            <p><a href=\"/\" class=\"reset btn btn-block btn-small btn-black\">Reset map</a></p>\r\n            </div>\r\n            <div class=\"charts\" id=\"tab-events\">\r\n              <p>Events coming soon</p>\r\n            </div>\r\n          </div>\r\n        </div>"
+  value: 'map block'
   format: raw_html
