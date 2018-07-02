@@ -6425,13 +6425,14 @@ body.navbar-is-fixed-top {
     margin-right: 2px; }
 
 .btn-primary {
-  background-color: #3bba50; }
+  background-color: #3bba50;
+  color: #fff !important; }
   .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
     background-color: #49c55e !important; }
 
 .btn-secondary {
   background-color: #325ce6;
-  color: #fff; }
+  color: #fff !important; }
   .btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover {
     background-color: #496ee9 !important;
     color: #fff; }
@@ -6446,7 +6447,7 @@ body.navbar-is-fixed-top {
 .btn-gray {
   background-color: #bcc2c8;
   border: 1px solid transparent;
-  color: #fff; }
+  color: #fff !important; }
   .btn-gray:active, .btn-gray:focus, .btn-gray:hover {
     background-color: #cacfd4;
     border: 1px solid transparent;
@@ -6455,7 +6456,7 @@ body.navbar-is-fixed-top {
 .btn-black {
   background-color: #333539;
   border: 1px solid transparent;
-  color: #fff; }
+  color: #fff !important; }
   .btn-black:active, .btn-black:focus, .btn-black:hover {
     background-color: #3f4147;
     border: 1px solid transparent;

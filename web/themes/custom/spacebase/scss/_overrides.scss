@@ -146,6 +146,7 @@ body.navbar-is-fixed-top{
 
 .btn-primary{
   background-color: $brand-secondary;
+  color: #fff !important;
   &:active,&:focus,&:hover{
     background-color: lighten($brand-secondary,5%) !important;
   }
@@ -153,7 +154,7 @@ body.navbar-is-fixed-top{
 
 .btn-secondary{
   background-color: $brand-primary;
-  color: #fff;
+  color: #fff !important;
   &:active,&:focus,&:hover{
     background-color: lighten($brand-primary,5%) !important;
     color: #fff;
@@ -172,7 +173,7 @@ body.navbar-is-fixed-top{
 .btn-gray{
   background-color: lighten($grey-accent,5%);
   border: 1px solid transparent;
-  color: #fff;
+  color: #fff !important;
   &:active,&:focus,&:hover{
     background-color: lighten($grey-accent,10%);
     border: 1px solid transparent;
@@ -183,7 +184,7 @@ body.navbar-is-fixed-top{
 .btn-black{
   background-color: darken($text,5%);
   border: 1px solid transparent;
-  color: #fff;
+  color: #fff !important;
   &:active,&:focus,&:hover{
     background-color: $text;
     border: 1px solid transparent;
