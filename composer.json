@@ -174,9 +174,6 @@
           },
           "drupal/search_api" : {
             "Facets are lost by Views on keyword search": "https://www.drupal.org/files/issues/facets-lost-by-keyword-search-2378945-8.x-19.patch"
-          },
-          "drupal/leaflet" : {
-            "Leaflet maps in views zoom settings": "https://www.drupal.org/files/issues/2018-04-28/leaflet-views-zoom-2762903-9.patch"
           }
         }
     },
