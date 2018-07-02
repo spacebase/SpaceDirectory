@@ -55,25 +55,30 @@
    * This seems to still exist and re-bind as the map is reloaded (new
    * leaflet.feature's are triggered.)  @ToDo: isn't bind deprecated; use on?
    */
-  console.log("Bind click to leaflet.");
-  Drupal.behaviors.spacebase_core = {
-    attach: function (context, settings) {
-      $(document).bind('leaflet.feature', function(e, lFeature, feature) {
-        console.log("click bound to leaflet feature");
-        lFeature.on('click', function(e) {
-          // Get the city
-          var regex = /locality">([\w\d\s]*)<\/span/;
-          var city = lFeature._popup._content.match(regex); // null or Array, need [1]
-          if (city !== null) {
-            // exposed filter id's change after click, thus twisty effort to id:
-            $('input[name="city"]').val(city[1]);
-            $('#views-exposed-form-organizations-by-field-and-city-views-block-filter-bpdb-1 button').click();
-          }
-        })
-      });
 
-    }
-  }
+  /** Add a click function to features added to the map.
+   * Note: This fires the first time the map appears and when ajax generates
+   * a new view/map. It was previously encased in:
+   *
+   *   Drupal.behaviors.spacebase_core = {
+   *     attach: function (context, settings) {
+   *
+   * but that didn't run the first time.
+   */ 
+  jQuery(document).bind('leaflet.feature', function(e, lFeature, feature) {
+    lFeature.on('click', function(e) {
+      // Get the city
+      var regex = /locality">([\w\d\s]*)<\/span/;
+      var city = lFeature._popup._content.match(regex); // null or Array, need [1]
+      if (city !== null) {
+        // exposed filter id's change after click, thus twisty effort to id:
+        jQuery('input[name="city"]').val(city[1]);
+        jQuery('#views-exposed-form-organizations-by-field-and-city-views-block-filter-bpdb-1 button').click();
+      }
+    })
+  });
+
+
 
   /** When ajax reloads the charts from clicking cities on the map,
    * make the chart clickable again: */
