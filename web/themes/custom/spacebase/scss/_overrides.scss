@@ -180,6 +180,17 @@ body.navbar-is-fixed-top{
   }
 }
 
+.btn-black{
+  background-color: darken($text,5%);
+  border: 1px solid transparent;
+  color: #fff;
+  &:active,&:focus,&:hover{
+    background-color: $text;
+    border: 1px solid transparent;
+    color: #fff;
+  }
+}
+
 .btn-circle{
   background: $brand-secondary;
   border-radius: 50%;
