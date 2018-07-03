@@ -27,12 +27,26 @@ h1.map-title{
   @media screen and (min-width:768px){
     font-size: 44px;
     padding: 10px 30px;
-    margin: 80px 0 0;
+    margin: 0;
   }
   @media screen and (max-width:767px){
     font-size: 22px;
     padding: 5px 10px;
-    margin: 85px 0 0;
+    margin: 0;
+  }
+}
+
+body.map{
+  .main-container{
+    @media screen and (min-width:768px){
+      padding-top: 80px !important;
+    }
+    @media screen and (max-width:767px){
+      padding-top: 85px !important;
+    }
+  }
+  h1.page-title{
+    display: none;
   }
 }
 
@@ -65,7 +79,7 @@ h1.map-title{
     }
     .map{
       #leaflet-map{
-        height: 60vh !important;
+        height: calc(100vh - 223px) !important;
         min-height: 500px !important;
       }
     }
@@ -174,6 +188,21 @@ h1.map-title{
       padding-top: 5px;
       border-top: 1px solid $line;
       text-align: center;
+    }
+  }
+}
+
+
+body.path-frontpage{
+
+  #maps-charts-row {
+    @media screen and (min-width:768px){
+      .map{
+        #leaflet-map{
+          height: calc(60vh) !important;
+          min-height: 500px !important;
+        }
+      }
     }
   }
 }
