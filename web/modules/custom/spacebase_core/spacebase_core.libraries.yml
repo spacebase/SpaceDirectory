@@ -7,6 +7,9 @@ sb-search:
 leaflet-gesture-handling:
   js:
     js/leaflet-gesture-handling.js: {}
+  dependencies:
+    - leaflet/leaflet
+    - leaflet/leaflet-drupal
   css:
     component:
       css/leaflet-gesture-handling.min.css: {}
@@ -16,3 +19,4 @@ chart-map-alter:
     js/chart-map-alter.js: {}
   dependencies:
     - core/jquery
+      spacebase_core/leaflet-gesture-handling
