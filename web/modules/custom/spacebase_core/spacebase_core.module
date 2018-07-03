@@ -144,12 +144,13 @@ function spacebase_core_preprocess_page(&$variables) {
     // The above clunky version works everywhere so far:
     $group = _group_from_node($variables['node']);
     $variables['groupid'] = $group->id();
-  } elseif ($variables['is_front']) {
+  } elseif ($variables['is_front']) {   /* @ToDo: this is momentarily correct, but maybe switch to views alter? */
     // Add javascript to the chart
-    $variables['#attached']['library'][] = 'spacebase_core/chart-alter';
-
+    $variables['#attached']['library'][] = 'spacebase_core/leaflet-gesture-handling';
+    $variables['#attached']['library'][] = 'spacebase_core/chart-map-alter';
   }
 }
+
 
 // @ToDo: these use statements from example, probably not all needed:
 // Use statements to support hook_entity_field_access.

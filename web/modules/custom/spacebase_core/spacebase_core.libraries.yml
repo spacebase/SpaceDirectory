@@ -4,9 +4,15 @@ sb-search:
     js/sb-search.js: {}
   dependencies:
     - core/jquery
-chart-alter:
+leaflet-gesture-handling:
+  js:
+    js/leaflet-gesture-handling.js: {}
+  css:
+    component:
+      css/leaflet-gesture-handling.min.css: {}
+chart-map-alter:
   version: 1.x
   js:
-    js/chart-alter.js: {}
+    js/chart-map-alter.js: {}
   dependencies:
     - core/jquery
