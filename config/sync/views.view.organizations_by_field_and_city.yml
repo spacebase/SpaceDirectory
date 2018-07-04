@@ -52,7 +52,7 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: none
+        type: some
         options:
           items_per_page: null
           offset: 0
@@ -525,11 +525,17 @@ display:
         filters: false
         filter_groups: false
         use_ajax: false
+        pager: false
       filter_groups:
         operator: AND
         groups:
           1: AND
       use_ajax: true
+      pager:
+        type: some
+        options:
+          items_per_page: '9'
+          offset: '0'
     cache_metadata:
       max-age: -1
       contexts:

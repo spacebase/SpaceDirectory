@@ -7310,7 +7310,7 @@ body.nav-open {
 
 .parallax-window {
   background-color: transparent;
-  padding: 20vh 0 20vh;
+  padding: 15vh 0 15vh;
   text-align: center;
   color: #fff;
   font-size: 30px; }
@@ -9158,48 +9158,48 @@ body.map h1.page-title {
       .member-grid.pending #edit-actions button:active, .member-grid.pending #edit-actions button:focus, .member-grid.pending #edit-actions button:hover {
         background: #5dcb6f; }
 
-body.about h1 {
+body.about .main-container h1 {
   text-align: center;
   font-size: 44px; }
-  body.about h1.page-title {
+  body.about .main-container h1.page-title {
     display: none; }
-body.about h2 {
+body.about .main-container h2 {
   text-align: center;
   font-size: 40px;
   margin: 40px 0; }
-body.about .page .field--name-body {
+body.about .main-container .page .field--name-body {
   font-size: 18px;
   line-height: 30px;
   text-align: center; }
-  body.about .page .field--name-body p {
+  body.about .main-container .page .field--name-body p {
     max-width: 770px;
     margin: 0 auto; }
-body.about .member-grid .view-content {
+body.about .main-container .member-grid .view-content {
   max-width: 770px;
   margin: 0 auto; }
   @media screen and (max-width: 1199px) {
-    body.about .member-grid .view-content {
+    body.about .main-container .member-grid .view-content {
       max-width: 650px; } }
   @media screen and (max-width: 991px) {
-    body.about .member-grid .view-content {
+    body.about .main-container .member-grid .view-content {
       max-width: 430px; } }
   @media screen and (max-width: 479px) {
-    body.about .member-grid .view-content {
+    body.about .main-container .member-grid .view-content {
       max-width: 215px; } }
 @media screen and (max-width: 768px) {
-  body.about .block-simple-blocknz-sky-photo img {
+  body.about .main-container .block-simple-blocknz-sky-photo img {
     margin: 0 -25px 10px; } }
-body.about .sb-timeline {
+body.about .main-container .sb-timeline {
   background: url(../images/timeline-arrow.png) right 20px no-repeat;
   padding: 120px 60px 30px;
   margin: 60px 30px 30px;
   position: relative; }
   @media screen and (max-width: 991px) {
-    body.about .sb-timeline {
+    body.about .main-container .sb-timeline {
       padding: 80px 0 20px 90px;
       margin: 50px -10px 30px -25px;
       background: url(../images/timeline-arrow-vertical.png) 20px bottom no-repeat; } }
-  body.about .sb-timeline:before {
+  body.about .main-container .sb-timeline:before {
     content: '';
     display: block;
     position: absolute;
@@ -9209,13 +9209,13 @@ body.about .sb-timeline {
     height: 80px;
     background: url(../images/timeline-logo.png) left top no-repeat; }
     @media screen and (max-width: 991px) {
-      body.about .sb-timeline:before {
+      body.about .main-container .sb-timeline:before {
         left: 0;
         top: -4px; } }
-  body.about .sb-timeline .col-md-4 {
+  body.about .main-container .sb-timeline .col-md-4 {
     position: relative;
     padding: 0 15px; }
-    body.about .sb-timeline .col-md-4:before {
+    body.about .main-container .sb-timeline .col-md-4:before {
       content: '';
       display: block;
       position: absolute;
@@ -9227,16 +9227,16 @@ body.about .sb-timeline {
       height: 32px;
       border-radius: 50%;
       background: #325ce6; }
-    body.about .sb-timeline .col-md-4 h3 {
+    body.about .main-container .sb-timeline .col-md-4 h3 {
       font-size: 36px;
       text-align: center; }
     @media screen and (max-width: 991px) {
-      body.about .sb-timeline .col-md-4 {
+      body.about .main-container .sb-timeline .col-md-4 {
         padding: 15px 0; }
-        body.about .sb-timeline .col-md-4:before {
+        body.about .main-container .sb-timeline .col-md-4:before {
           left: -47px;
           top: 12px; }
-        body.about .sb-timeline .col-md-4 h3 {
+        body.about .main-container .sb-timeline .col-md-4 h3 {
           font-size: 24px;
           text-align: left; } }
 
