@@ -144,8 +144,13 @@ function spacebase_core_preprocess_page(&$variables) {
     // The above clunky version works everywhere so far:
     $group = _group_from_node($variables['node']);
     $variables['groupid'] = $group->id();
+  } elseif ($variables['is_front']) {   /* @ToDo: this is momentarily correct, but maybe switch to views alter? */
+    // Add javascript to the chart
+    $variables['#attached']['library'][] = 'spacebase_core/leaflet-gesture-handling';
+    $variables['#attached']['library'][] = 'spacebase_core/chart-map-alter';
   }
 }
+
 
 // @ToDo: these use statements from example, probably not all needed:
 // Use statements to support hook_entity_field_access.
@@ -217,7 +222,11 @@ function spacebase_core_entity_field_access($operation, \Drupal\Core\Field\Field
  * One of a few preprocesses that _set_the_group_links for a template
  */
 function spacebase_core_preprocess_views_view(&$variables) {
-  if ($variables['id'] == "group_forum") {    // page_1, block_3
+  if ($variables['id'] == "organizations_by_field_and_city") {    // chart on home page needs title
+    $city = $variables['view']->exposed_data['city'];
+    $variables['title'] = $city ? t($city) : " "; // depend on other design if default desired
+  }
+  elseif ($variables['id'] == "group_forum") {    // page_1, block_3
     $view = $variables['view'];
     $group = Drupal\group\Entity\Group::load($view->args[0]);
     _set_the_group_links($variables, $group);

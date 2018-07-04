@@ -1,0 +1,20 @@
+uuid: d7b4069f-6ae4-4856-b61e-39237c9d80b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - geofield
+    - group
+id: group.field_map_address
+field_name: field_map_address
+entity_type: group
+type: geofield
+settings:
+  backend: geofield_backend_default
+module: geofield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

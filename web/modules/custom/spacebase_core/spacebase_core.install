@@ -1,5 +1,47 @@
 <?php
 
+use Drupal\group\Entity\GroupContent;
+
+/**
+ * Update the Organizations to have lat and long from address
+ * by resaving all groups after creating geocoding geofield.
+ * (Too small to need to use the batch API / ignore $sandbox)
+ */
+function spacebase_core_update_8023(&$sandbox) {
+  $limit = 20; // batch 20 at a time
+  if (!isset($sandbox['progress'])) {
+    // The count of nodes visited so far.
+    $sandbox['progress'] = 0;
+  }
+
+  //should work too: foreach (Group::loadMultiple() as $group) {
+  $storage = \Drupal::entityTypeManager()->getStorage('group');
+
+  $gids = $storage->getQuery()
+    ->condition('type', 'organization_group')
+    ->range($sandbox['progress'], $limit)
+    //->condition('id', 100, '<')
+    //->condition('uid', 1, '>')
+    ->execute();
+
+  // If none left, we're done
+  if (count($gids) > 0 ) {
+
+    foreach ($storage->loadMultiple($gids) as $group) {
+      /** @var \Drupal\group\Entity\GroupInterface $group */
+      /** All automatic: geocode the map address from the address: */
+      \Drupal::logger('spacebase_core')->notice('Resave group ' . $group->id());
+
+      $storage->save($group);
+    }
+    $sandbox['progress'] += count($gids);
+    $sandbox['#finished'] = $sandbox['progress']/200; // sloppy adequate just to see it
+  } else {
+    $sandbox['#finished'] = true;
+  }
+}
+
+
 /**
  * Truncate fontyourface_font
  */

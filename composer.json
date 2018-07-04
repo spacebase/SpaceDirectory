@@ -13,10 +13,43 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "c3js/c3",
+                "version": "v0.4.18",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "c3"
+                },
+                "dist": {
+                    "url": "https://github.com/c3js/c3/archive/v0.4.18.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "d3/d3",
+                "version": "v3.5.17",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "d3"
+                },
+                "dist": {
+                    "url": "https://github.com/d3/d3/archive/v3.5.17.zip",
+                    "type": "zip"
+                },
+                "require": {
+                    "composer/installers": "~1.0"
+                }
+            }
         }
     ],
     "require": {
-        "composer/installers": "^1.0.20",
+        "composer/installers": "^1.5",
         "cweagans/composer-patches": "^1.0",
         "drupal-composer/drupal-scaffold": "^2.0.1",
         "drupal/address": "^1.4",
@@ -25,19 +58,18 @@
         "drupal/config_direct_save": "^1.0",
         "drupal/config_installer": "^1.0",
         "drupal/console": "^1",
-        "drupal/core": "^8.5.3",
-        "drupal/empty_page": "^1.1",
+        "drupal/core": "^8.5.4",
+        "drupal/empty_page": "^2.0",
         "drupal/group": "1.x-dev",
         "drupal/migrate_source_csv": "^2.0",
-        "drupal/og": "1.x-dev",
         "drupal/pathauto": "^1.0",
         "drupal/search_api": "^1.6",
         "drupal/simple_block": "^1.0@beta",
         "drush/drush": "~8",
         "rvtraveller/qs-composer-installer": "^1.1",
         "webflo/drupal-core-strict": "^8",
-        "drupal/migrate_plus": "4.0-beta2",
-        "drupal/migrate_tools": "4.0-beta2",
+        "drupal/migrate_plus": "4.0-beta3",
+        "drupal/migrate_tools": "4.0-beta3",
         "drupal/adminimal_theme": "^1.3",
         "drupal/fontawesome": "^2.0",
         "drupal/fontyourface": "dev-3.x#4e7ac385ec74ca1506df727039607a369c02e9cc",
@@ -63,7 +95,16 @@
         "drupal/mail_edit": "1.x-dev",
         "drupal/stage_file_proxy": "^1.0@alpha",
         "drupal/views_bulk_operations": "^2.3",
-        "drupal/publishcontent": "^1.0"
+        "drupal/publishcontent": "^1.0",
+        "drupal/image_widget_crop": "^2.1",
+        "drupal/leaflet": "^1.0@beta",
+        "drupal/geocoder": "^2.0@beta",
+        "drupal/geofield": "^1.0@beta",
+        "drupal/charts": "^3.0@alpha",
+        "c3js/c3": "0.4.18",
+        "d3/d3": "3.5.17",
+        "drupal/leaflet_more_maps": "^1.0@alpha",
+        "drupal/leaflet_markercluster": "^1.0@alpha"
     },
     "require-dev": {
         "behat/mink": "~1.7",
@@ -115,12 +156,12 @@
             ],
             "drush/contrib/{$name}": [
                 "type:drupal-drush"
+            ],
+            "web/libraries/{$name}": [
+              "type:drupal-library"
             ]
         },
         "patches": {
-          "drupal/block_type_templates": {
-            "Template order specificity wrong": "https://www.drupal.org/files/issues/block_type_templates-fix_specificity-2924207.patch"
-          },
           "drupal/group": {
             "Fix: Group creators get duplicate entries": "https://www.drupal.org/files/issues/duplicate-members-on-group-create-fixed-2923297-3.patch"
           },
@@ -128,7 +169,8 @@
               "Calendar Pager not rendering contextual filters": "https://www.drupal.org/files/issues/2018-04-04/calendar-pager_not_rendering_contextual_filters-2810739-4.patch",
               "Calendar not display because of : .size() deprecated": "https://www.drupal.org/files/issues/2938872-replace-size-by-length_0.patch",
               "Year display header always shows current year after using pager": "https://www.drupal.org/files/issues/year_display_header_always_shows_current_year-2915266-02.patch",
-              "ISO-8601 Week and Year": "https://www.drupal.org/files/issues/2018-06-11/iso_8601_week_and_year-2917145-4.patch"
+              "ISO-8601 Week and Year": "https://www.drupal.org/files/issues/2018-06-11/iso_8601_week_and_year-2917145-4.patch",
+              "Timezones": "https://www.drupal.org/files/issues/2018-03-20/2604546-26.patch"
           },
           "drupal/search_api" : {
             "Facets are lost by Views on keyword search": "https://www.drupal.org/files/issues/facets-lost-by-keyword-search-2378945-8.x-19.patch"

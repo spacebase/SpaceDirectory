@@ -8,11 +8,13 @@ dependencies:
     - field.field.group.organization_group.field_image
     - field.field.group.organization_group.field_industry_segment
     - field.field.group.organization_group.field_linkedin
+    - field.field.group.organization_group.field_map_address
     - field.field.group.organization_group.field_website
     - group.type.organization_group
     - image.style.thumbnail
   module:
     - address
+    - geofield
     - image
     - link
     - text
@@ -58,6 +60,13 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_map_address:
+    weight: 7
+    settings:
+      html5_geolocation: false
+    third_party_settings: {  }
+    type: geofield_latlon
     region: content
   field_website:
     weight: 5

@@ -21,14 +21,14 @@ settings:
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
-  max_resolution: 1100x1100
-  min_resolution: 1100x500
+  max_resolution: 2000x2000
+  min_resolution: 1140x500
   alt_field: true
   alt_field_required: true
   title_field: false
   title_field_required: false
   default_image:
-    uuid: 03cd8192-78b2-433c-b824-b334842cc15a
+    uuid: ''
     alt: 'Space Events'
     title: ''
     width: 1100

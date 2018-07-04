@@ -1,0 +1,74 @@
+uuid: 5459a1d6-d65d-42c6-9f0e-a057196a22f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.blog_post.body
+    - field.field.node.blog_post.field_bp_authors
+    - field.field.node.blog_post.field_bp_image
+    - field.field.node.blog_post.field_bp_medium
+    - field.field.node.blog_post.field_bp_post_date
+    - image.style.blog_photo
+    - node.type.blog_post
+  module:
+    - image
+    - link
+    - text
+    - user
+id: node.blog_post.default
+targetEntityType: node
+bundle: blog_post
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_bp_authors:
+    weight: 3
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_bp_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: blog_photo
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_bp_medium:
+    weight: 5
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_bp_post_date:
+    weight: 4
+    label: hidden
+    settings:
+      date_format: custom
+      custom_date_format: 'l, F j, Y - g:i a'
+      timezone: ''
+    third_party_settings: {  }
+    type: timestamp
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,24 @@
+uuid: b9ee7931-33e6-456a-8064-34b1241a3266
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.event_and_blog_header
+  module:
+    - crop
+name: event_list_thumb
+label: 'Event List Thumb'
+effects:
+  33c5e228-389a-48c7-a05e-fbe83253de79:
+    uuid: 33c5e228-389a-48c7-a05e-fbe83253de79
+    id: image_scale_and_crop
+    weight: -9
+    data:
+      width: 360
+      height: 162
+  c2cf0758-54e4-42ad-b61c-571bc68a51f7:
+    uuid: c2cf0758-54e4-42ad-b61c-571bc68a51f7
+    id: crop_crop
+    weight: -10
+    data:
+      crop_type: event_and_blog_header

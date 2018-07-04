@@ -5,4 +5,4 @@ dependencies: {  }
 id: full_display
 label: 'Full Display'
 locked: false
-pattern: 'l, j F, Y - g:i a'
+pattern: 'l, F jS, Y - g:i a T'

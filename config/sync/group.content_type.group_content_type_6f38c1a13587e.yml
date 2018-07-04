@@ -1,0 +1,19 @@
+uuid: e7900cf6-2115-4c51-9e7a-8d2def4ce98e
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.organization_group
+    - node.type.blog_post
+  module:
+    - gnode
+    - node
+id: group_content_type_6f38c1a13587e
+label: 'Organization group: Group node (Blog Post)'
+description: 'Adds <em class="placeholder">Blog Post</em> content to groups both publicly and privately.'
+group_type: organization_group
+content_plugin: 'group_node:blog_post'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false

@@ -1,0 +1,23 @@
+uuid: 2f5beced-98a3-4920-a9aa-b7dffff20474
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bp_medium
+    - node.type.blog_post
+  module:
+    - link
+id: node.blog_post.field_bp_medium
+field_name: field_bp_medium
+entity_type: node
+bundle: blog_post
+label: 'Medium Link'
+description: 'Link to this post on Medium'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link
