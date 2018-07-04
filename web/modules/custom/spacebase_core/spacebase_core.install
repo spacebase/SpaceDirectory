@@ -5,9 +5,10 @@ use Drupal\group\Entity\GroupContent;
 /**
  * Update the Organizations to have lat and long from address
  * by resaving all groups after creating geocoding geofield.
- * (Too small to need to use the batch API / ignore $sandbox)
+ * (High index number comes from having run the same update
+ * repeatedly for a variety of reasons.)
  */
-function spacebase_core_update_8023(&$sandbox) {
+function spacebase_core_update_8024(&$sandbox) {
   $limit = 20; // batch 20 at a time
   if (!isset($sandbox['progress'])) {
     // The count of nodes visited so far.
