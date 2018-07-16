@@ -1,0 +1,26 @@
+uuid: 6ed634a6-539b-4e9e-b822-1f219222f375
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.sb_video.body
+    - node.type.sb_video
+  module:
+    - text
+    - user
+id: node.sb_video.default
+targetEntityType: node
+bundle: sb_video
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }
