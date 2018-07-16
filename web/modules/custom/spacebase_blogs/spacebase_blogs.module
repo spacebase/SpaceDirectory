@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains spacebase_blogs.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function spacebase_blogs_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the spacebase_blogs module.
+    case 'help.page.spacebase_blogs':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Blog functionality for Spacebase.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

@@ -1,0 +1,19 @@
+uuid: 04f4e8a9-05c8-46d9-9fc0-3489d398ba46
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.organization_group
+    - node.type.sb_project
+  module:
+    - gnode
+    - node
+id: group_content_type_8a63361be5c0a
+label: 'Organization group: Group node (Project)'
+description: 'Adds <em class="placeholder">Project</em> content to groups both publicly and privately.'
+group_type: organization_group
+content_plugin: 'group_node:sb_project'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false
