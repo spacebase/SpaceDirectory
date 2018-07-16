@@ -1,0 +1,26 @@
+uuid: 75e7f6da-0ea8-46c4-affc-66061f18de32
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.sb_project.body
+    - node.type.sb_project
+  module:
+    - text
+    - user
+id: node.sb_project.default
+targetEntityType: node
+bundle: sb_project
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

@@ -1,0 +1,22 @@
+uuid: 9b63795a-4afb-4d96-84ac-1052dab45cde
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.sb_project
+  module:
+    - text
+id: node.sb_project.body
+field_name: body
+entity_type: node
+bundle: sb_project
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary
