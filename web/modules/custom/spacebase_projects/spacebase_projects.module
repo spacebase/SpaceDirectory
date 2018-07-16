@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains spacebase_projects.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function spacebase_projects_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the spacebase_projects module.
+    case 'help.page.spacebase_projects':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Project functionality for Spacebase') . '</p>';
+      return $output;
+
+    default:
+  }
+}

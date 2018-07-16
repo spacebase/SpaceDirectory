@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains spacebase_news.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function spacebase_news_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the spacebase_news module.
+    case 'help.page.spacebase_news':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('News functionality for Spacebase') . '</p>';
+      return $output;
+
+    default:
+  }
+}

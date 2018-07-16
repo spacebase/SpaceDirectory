@@ -79,9 +79,12 @@ module:
   simple_block: 0
   spacebase_core: 0
   spacebase_events: 0
+  spacebase_facebook: 0
+  spacebase_news: 0
   spacebase_orgs: 0
+  spacebase_projects: 0
   spacebase_search: 0
-  stage_file_proxy: 0
+  spacebase_videos: 0
   system: 0
   taxonomy: 0
   text: 0

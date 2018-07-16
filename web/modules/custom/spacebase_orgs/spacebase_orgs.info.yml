@@ -1,5 +1,5 @@
 name: 'Spacebase Organizations'
 type: module
-description: 'Spacebase Organizations functionality'
+description: 'Organization functionality for Spacebase.'
 core: 8.x
 package: 'Spacebase'
