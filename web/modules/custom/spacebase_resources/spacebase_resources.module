@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains spacebase_resources.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function spacebase_resources_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the spacebase_resources module.
+    case 'help.page.spacebase_resources':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Resource functionality for Spacebase.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

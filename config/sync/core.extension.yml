@@ -84,6 +84,7 @@ module:
   spacebase_news: 0
   spacebase_orgs: 0
   spacebase_projects: 0
+  spacebase_resources: 0
   spacebase_search: 0
   spacebase_users: 0
   spacebase_videos: 0
