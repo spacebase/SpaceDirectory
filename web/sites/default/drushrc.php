@@ -19,6 +19,7 @@ if (PHP_SAPI === 'cli' && getenv('PLATFORM_ROUTES') && getenv('PLATFORM_APPLICAT
       break;
     }
   }
-} else {
-  $options['uri'] = "http://space-base.lndo.site";
+} 
+else {
+  $options['uri'] = "http://spacebase.lndo.site";
 }
