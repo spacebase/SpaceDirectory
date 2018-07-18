@@ -36,7 +36,7 @@ Feature: Test search
 
   Scenario: Org Search using city and industry facets
     Given I am on "search/organizations?keywords=space"
-    When I follow "wellington"
+    When I follow "city-wellington"
     And I wait until the page loads
     Then I should see "SpaceBase"
     And I follow "Outreach and Education"

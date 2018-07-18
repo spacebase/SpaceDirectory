@@ -82,14 +82,14 @@
        which handle most of the access. #}
 
     {% if (admin_links_q.show_pin) %}
-    <span class="pin">{{ content.field_pin_to_top }}<i class="fas fa-thumbtack pinned"></i>
+    <span class="pin">{{ content.field_pin_to_top }}<i name="forum-pin-discussion" class="fas fa-thumbtack pinned"></i>
     {% endif %}
 
     {% if (admin_links_q.edit) %}
-    <a href="/node/{{ node.id }}/edit" id="behat-edit-discussion"><i class="fas fa-edit"></i></a>
+    <a href="/node/{{ node.id }}/edit" name="forum-edit-discussion"><i class="fas fa-edit"></i></a>
     {% endif %}
     {% if (admin_links_q.delete) %}
-    <a href="/node/{{ node.id }}/delete?destination={{group_url}}/forum"><i class="fas fa-trash-alt"></i></a>
+    <a href="/node/{{ node.id }}/delete?destination={{group_url}}/forum" name="forum-delete-discussion"><i class="fas fa-trash-alt"></i></a>
     {% endif %}
   </div>
 
