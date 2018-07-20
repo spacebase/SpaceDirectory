@@ -1,0 +1,9 @@
+uuid: f4478c03-3486-4000-bcc3-b3915c1b9748
+langcode: en
+status: true
+dependencies: {  }
+id: node__sb_project
+label: 'Content: Project'
+tags:
+  title: '[current-page:title] | Project at [site:name]'
+  og_type: project

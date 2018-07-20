@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.event.field_evt_location
     - field.field.node.event.field_evt_registration
     - field.field.node.event.field_evt_start
+    - field.field.node.event.field_metatags
     - image.style.event_photo
     - node.type.event
   module:
@@ -17,6 +18,7 @@ dependencies:
     - datetime
     - image
     - link
+    - metatag
     - text
     - user
 id: node.event.default
@@ -88,6 +90,13 @@ content:
       format_type: full_display
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_metatags:
+    weight: 108
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
     region: content
   links:
     weight: 100

@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.sb_news_article.body
+    - field.field.node.sb_news_article.field_metatags_news
     - node.type.sb_news_article
   module:
+    - metatag
     - text
     - user
 id: node.sb_news_article.default
@@ -20,7 +22,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_metatags_news:
+    weight: 102
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

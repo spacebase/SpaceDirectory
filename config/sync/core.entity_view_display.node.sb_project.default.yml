@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.sb_project.body
+    - field.field.node.sb_project.field_metatags_project
     - node.type.sb_project
   module:
+    - metatag
     - text
     - user
 id: node.sb_project.default
@@ -19,6 +21,13 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_metatags_project:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
     region: content
   links:
     weight: 100

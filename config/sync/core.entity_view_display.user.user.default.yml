@@ -10,6 +10,7 @@ dependencies:
     - field.field.user.user.field_intro
     - field.field.user.user.field_last_name_user
     - field.field.user.user.field_linkedin_user
+    - field.field.user.user.field_metatags
     - field.field.user.user.field_position
     - field.field.user.user.field_tagline_user
     - field.field.user.user.field_terms
@@ -21,6 +22,7 @@ dependencies:
     - image
     - link
     - markup
+    - metatag
     - text
     - user
 _core:
@@ -78,6 +80,13 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
+  field_metatags:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
     region: content
   field_position:
     weight: 10

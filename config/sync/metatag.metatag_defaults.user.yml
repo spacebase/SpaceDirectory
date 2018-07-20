@@ -1,0 +1,19 @@
+uuid: 52b87cae-cb81-429c-a689-7274ad6653d3
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: e3453dXHFW5TM24d8Odhumgwd8hIZVPvQv98wnGM7Ro
+id: user
+label: User
+tags:
+  title: '[user:field_first_name_user] [user:field_last_name_user] | People at [site:name]'
+  canonical_url: '[user:url]'
+  geo_placename: '[user:field_home_location_user:locality] [user:field_home_location_user:country_name]'
+  description: '[user:field_bio_user]'
+  geo_region: '[user:field_home_location_user:country_code]'
+  image_src: '[user:user_picture:large]'
+  og_type: profile
+  og_locality: '[user:field_home_location_user:locality]'
+  og_description: 'Profile at SpaceBase for [user:field_first_name_user] [user:field_last_name_user] '
+  og_country_name: '[user:field_home_location_user:country_name]'

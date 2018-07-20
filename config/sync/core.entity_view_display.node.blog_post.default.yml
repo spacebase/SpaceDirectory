@@ -8,11 +8,13 @@ dependencies:
     - field.field.node.blog_post.field_bp_image
     - field.field.node.blog_post.field_bp_medium
     - field.field.node.blog_post.field_bp_post_date
+    - field.field.node.blog_post.field_metatags_blog
     - image.style.blog_photo
     - node.type.blog_post
   module:
     - image
     - link
+    - metatag
     - text
     - user
 id: node.blog_post.default
@@ -65,6 +67,13 @@ content:
       timezone: ''
     third_party_settings: {  }
     type: timestamp
+    region: content
+  field_metatags_blog:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
     region: content
   links:
     weight: 0

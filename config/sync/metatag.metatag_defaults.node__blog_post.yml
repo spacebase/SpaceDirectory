@@ -1,0 +1,15 @@
+uuid: 8820cb7e-bf7c-4102-8617-a33e99f4b7fe
+langcode: en
+status: true
+dependencies: {  }
+id: node__blog_post
+label: 'Content: Blog Post'
+tags:
+  title: '[current-page:title] | Blog | [site:name]'
+  image_src: '[node:field_bp_image]'
+  article_modified_time: '[node:changed]'
+  article_published_time: '[node:field_bp_post_date]'
+  og_type: blog
+  og_image: '[node:field_bp_image:blog_photo:url]'
+  article_section: Blog
+  article_author: '[node:field_bp_authors]'
