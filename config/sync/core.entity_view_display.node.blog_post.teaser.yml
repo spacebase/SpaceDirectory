@@ -27,4 +27,6 @@ content:
     region: content
 hidden:
   field_bp_authors: true
+  field_bp_image: true
+  field_bp_medium: true
   field_bp_post_date: true

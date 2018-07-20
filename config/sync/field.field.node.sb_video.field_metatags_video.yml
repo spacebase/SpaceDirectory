@@ -1,0 +1,23 @@
+uuid: 9c3f16e7-b1bf-4189-8f84-5344c0f71d2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatags_video
+    - node.type.sb_video
+  module:
+    - metatag
+id: node.sb_video.field_metatags_video
+field_name: field_metatags_video
+entity_type: node
+bundle: sb_video
+label: Metatags
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'a:0:{}'
+default_value_callback: ''
+settings: {  }
+field_type: metatag

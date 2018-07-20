@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.sb_project.body
+    - field.field.node.sb_project.field_metatags_project
     - node.type.sb_project
   module:
+    - metatag
     - path
     - text
 id: node.sb_project.default
@@ -28,6 +30,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_metatags_project:
+    weight: 122
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
   path:
     type: path
     weight: 30

@@ -1,0 +1,15 @@
+uuid: 4d46cd78-9862-4244-af20-513e8d091c06
+langcode: en
+status: true
+dependencies: {  }
+id: group__organization_group
+label: 'Group: Organization group'
+tags:
+  geo_position: '[group:field_map_address]'
+  title: '[current-page:title] | Organizations at [site:name]'
+  geo_placename: '[group:field_headquarters_location]'
+  description: "[group:field_description]\r\n\r\n"
+  geo_region: '[group:field_headquarters_location:country_code]'
+  image_src: '[group:field_image]'
+  abstract: '[group:field_description]'
+  og_image: '[group:field_image]'

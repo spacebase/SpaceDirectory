@@ -10,6 +10,7 @@ dependencies:
     - field.field.user.user.field_intro
     - field.field.user.user.field_last_name_user
     - field.field.user.user.field_linkedin_user
+    - field.field.user.user.field_metatags
     - field.field.user.user.field_position
     - field.field.user.user.field_tagline_user
     - field.field.user.user.field_terms
@@ -20,6 +21,7 @@ dependencies:
     - address
     - image
     - link
+    - metatag
     - path
     - text
     - user
@@ -88,6 +90,12 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  field_metatags:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
   field_position:
     weight: 7
     settings:
@@ -111,6 +119,9 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  google_analytics:
+    weight: 3
     region: content
   language:
     weight: 1

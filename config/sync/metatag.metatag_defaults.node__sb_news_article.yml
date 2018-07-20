@@ -1,0 +1,9 @@
+uuid: cf5e78e8-7667-4c7e-ba20-6a214e71de37
+langcode: en
+status: true
+dependencies: {  }
+id: node__sb_news_article
+label: 'Content: News Article'
+tags:
+  title: '[current-page:title] | News at [site:name]'
+  og_type: news

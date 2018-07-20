@@ -1,0 +1,23 @@
+uuid: 9eb1de50-b766-47ee-961c-a4a2ce6137b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_metatags
+    - group.type.organization_group
+  module:
+    - metatag
+id: group.organization_group.field_metatags
+field_name: field_metatags
+entity_type: group
+bundle: organization_group
+label: Metatags
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'a:0:{}'
+default_value_callback: ''
+settings: {  }
+field_type: metatag

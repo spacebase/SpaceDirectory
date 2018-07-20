@@ -1,0 +1,9 @@
+uuid: 16793ef0-db73-4281-9397-cfc9c95b14f7
+langcode: en
+status: true
+dependencies: {  }
+id: node__sb_video
+label: 'Content: Video'
+tags:
+  title: '[current-page:title] | [site:name] Video'
+  og_type: video

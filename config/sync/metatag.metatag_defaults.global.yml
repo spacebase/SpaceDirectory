@@ -1,0 +1,18 @@
+uuid: 9b635c18-6712-4b5f-bb6e-c3655efdf089
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Global
+tags:
+  title: '[current-page:title] | [site:name]'
+  canonical_url: '[current-page:url]'
+  geo_placename: 'New Zealand'
+  description: 'SpaceBase is co-creating a global Space Ecosystem to serve entrepreneurs in emerging space industries - starting in New Zealand. We want to democratize space: to provide access to training, networking, technical services, and investment opportunities.'
+  geo_region: NZ
+  image_src: /sites/default/files/inline-images/rocketlab-launch-platform.jpg
+  abstract: 'SpaceBase is co-creating a global Space Ecosystem to serve entrepreneurs in emerging space industries - starting in New Zealand. '
+  og_image: /sites/default/files/inline-images/rocketlab-launch-platform.jpg
+  og_site_name: SpaceBase

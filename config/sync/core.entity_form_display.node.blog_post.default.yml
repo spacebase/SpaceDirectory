@@ -8,11 +8,13 @@ dependencies:
     - field.field.node.blog_post.field_bp_image
     - field.field.node.blog_post.field_bp_medium
     - field.field.node.blog_post.field_bp_post_date
+    - field.field.node.blog_post.field_metatags_blog
     - image.style.blog_photo
     - node.type.blog_post
   module:
     - image_widget_crop
     - link
+    - metatag
     - path
     - text
 id: node.blog_post.default
@@ -71,6 +73,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_timestamp
+    region: content
+  field_metatags_blog:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
     region: content
   path:
     type: path

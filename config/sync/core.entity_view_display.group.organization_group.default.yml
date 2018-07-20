@@ -9,12 +9,14 @@ dependencies:
     - field.field.group.organization_group.field_industry_segment
     - field.field.group.organization_group.field_linkedin
     - field.field.group.organization_group.field_map_address
+    - field.field.group.organization_group.field_metatags
     - field.field.group.organization_group.field_website
     - group.type.organization_group
     - image.style.member_thumb_small
   module:
     - address
     - image
+    - metatag
     - text
 id: group.organization_group.default
 targetEntityType: group
@@ -52,6 +54,13 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_metatags:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
     region: content
 hidden:
   changed: true

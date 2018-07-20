@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.sb_video.body
+    - field.field.node.sb_video.field_metatags_video
     - node.type.sb_video
   module:
+    - metatag
     - text
     - user
 id: node.sb_video.default
@@ -19,6 +21,13 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_metatags_video:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
     region: content
   links:
     weight: 100
