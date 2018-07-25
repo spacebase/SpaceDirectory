@@ -140,6 +140,13 @@
       
       $('.chart-tabs').tabs();
       
+      $('.home-slides .view-content').flexslider({
+        useCSS : false,
+        animation: "slide",
+        controlsContainer: $(".custom-controls-container"),
+        customDirectionNav: $(".custom-navigation a")
+      });
+      
     }
   };
 

@@ -31,5 +31,6 @@ libraries:
   - 'spacebase/global-styling'
   - 'spacebase/bootstrap-scripts'
   - 'spacebase/parallax'
+  - 'spacebase/flexslider'
   - 'spacebase/global-scripts'
   - 'spacebase/fonts'
