@@ -23,7 +23,7 @@
       default_row_class ? 'views-row',
     ]
   %}
-  <li{{ row.attributes.addClass(row_classes) }}>
+  <li {{ row.attributes.addClass(row_classes) }}>
     {{- row.content -}}
   </li>
 {% endfor %}
