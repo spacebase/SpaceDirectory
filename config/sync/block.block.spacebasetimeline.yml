@@ -12,7 +12,7 @@ dependencies:
 id: spacebasetimeline
 theme: spacebase
 region: content
-weight: 0
+weight: -8
 provider: null
 plugin: 'simple_block:spacebase_timeline'
 settings:
