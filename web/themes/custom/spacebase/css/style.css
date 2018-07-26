@@ -6822,6 +6822,23 @@ body[class*="user-reset"] {
     .pullout {
       margin: 0 -35px; } }
 
+.media_embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 20px;
+  height: auto;
+  overflow: hidden;
+  margin: 50px 0 50px 0;
+  clear: both;
+  width: auto; }
+
+.media_embed iframe, .media_embed object, .media_embed embed, .media_embed blockquote {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
 .navbar-header {
   float: none; }
 
