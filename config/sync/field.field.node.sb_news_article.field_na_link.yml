@@ -1,0 +1,23 @@
+uuid: ce58faef-2589-4ced-b0be-7ce340f3c97e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_na_link
+    - node.type.sb_news_article
+  module:
+    - link
+id: node.sb_news_article.field_na_link
+field_name: field_na_link
+entity_type: node
+bundle: sb_news_article
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link
