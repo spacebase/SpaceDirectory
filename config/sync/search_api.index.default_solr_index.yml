@@ -30,51 +30,6 @@ name: 'Sitewide Search'
 description: 'Site Search Index. Includes content, groups and users.'
 read_only: false
 field_settings:
-  rendered_item:
-    label: 'Rendered item'
-    property_path: rendered_item
-    type: text
-    configuration:
-      roles:
-        anonymous: anonymous
-      view_mode:
-        'entity:node':
-          article: search_index
-          page: search_index
-  node_grants:
-    label: 'Node access information'
-    property_path: search_api_node_grants
-    type: string
-    indexed_locked: true
-    type_locked: true
-    hidden: true
-  url:
-    label: URI
-    property_path: search_api_url
-    type: string
-  content_title:
-    label: Title
-    datasource_id: 'entity:node'
-    property_path: title
-    type: solr_text_ngram
-    boost: !!float 21
-  content_created:
-    label: 'Authored on'
-    datasource_id: 'entity:node'
-    property_path: created
-    type: date
-  content_changed:
-    label: Changed
-    datasource_id: 'entity:node'
-    property_path: changed
-    type: date
-  content_status:
-    label: 'Publishing status'
-    datasource_id: 'entity:node'
-    property_path: status
-    type: boolean
-    indexed_locked: true
-    type_locked: true
   content_author:
     label: 'Author name'
     datasource_id: 'entity:node'
@@ -83,6 +38,39 @@ field_settings:
     dependencies:
       module:
         - user
+  content_changed:
+    label: Changed
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
+  content_created:
+    label: 'Authored on'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+  content_nid:
+    label: ID
+    datasource_id: 'entity:node'
+    property_path: nid
+    type: integer
+  content_status:
+    label: 'Publishing status'
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+  content_title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: solr_text_ngram
+    boost: !!float 21
+  content_type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
   content_uid:
     label: 'Author ID'
     datasource_id: 'entity:node'
@@ -90,16 +78,14 @@ field_settings:
     type: integer
     indexed_locked: true
     type_locked: true
-  content_type:
-    label: 'Content type'
-    datasource_id: 'entity:node'
-    property_path: type
-    type: string
-  content_nid:
-    label: ID
-    datasource_id: 'entity:node'
-    property_path: nid
+  field_industry_segment:
+    label: 'Industry Segment'
+    datasource_id: 'entity:group'
+    property_path: field_industry_segment
     type: integer
+    dependencies:
+      config:
+        - field.storage.group.field_industry_segment
   group_created:
     label: 'Created on'
     datasource_id: 'entity:group'
@@ -113,16 +99,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.group.field_description
-  group_uid:
-    label: 'Group creator'
-    datasource_id: 'entity:group'
-    property_path: uid
-    type: integer
-  group_type:
-    label: 'Group type'
-    datasource_id: 'entity:group'
-    property_path: type
-    type: string
   group_id:
     label: ID
     datasource_id: 'entity:group'
@@ -136,50 +112,10 @@ field_settings:
     dependencies:
       config:
         - field.storage.group.field_image
-  group_website:
-    label: Website
-    datasource_id: 'entity:group'
-    property_path: field_website
-    type: string
-    dependencies:
-      config:
-        - field.storage.group.field_website
-  group_location_name:
-    label: 'Headquarters Location » The additional name.'
-    datasource_id: 'entity:group'
-    property_path: 'field_headquarters_location:additional_name'
-    type: string
-    dependencies:
-      config:
-        - field.storage.group.field_headquarters_location
-  group_location_dependent_locality:
-    label: 'Headquarters Location » The dependent locality (i.e. neighbourhood).'
-    datasource_id: 'entity:group'
-    property_path: 'field_headquarters_location:dependent_locality'
-    type: string
-    dependencies:
-      config:
-        - field.storage.group.field_headquarters_location
   group_location_address_line1:
     label: 'Headquarters Location » The first line of the address block.'
     datasource_id: 'entity:group'
     property_path: 'field_headquarters_location:address_line1'
-    type: string
-    dependencies:
-      config:
-        - field.storage.group.field_headquarters_location
-  group_location_locality:
-    label: 'Headquarters Location » The locality (i.e. city).'
-    datasource_id: 'entity:group'
-    property_path: 'field_headquarters_location:locality'
-    type: string
-    dependencies:
-      config:
-        - field.storage.group.field_headquarters_location
-  group_location_postal_code:
-    label: 'Headquarters Location » The postal code.'
-    datasource_id: 'entity:group'
-    property_path: 'field_headquarters_location:postal_code'
     type: string
     dependencies:
       config:
@@ -208,20 +144,89 @@ field_settings:
     dependencies:
       config:
         - field.storage.group.field_headquarters_location
+  group_location_dependent_locality:
+    label: 'Headquarters Location » The dependent locality (i.e. neighbourhood).'
+    datasource_id: 'entity:group'
+    property_path: 'field_headquarters_location:dependent_locality'
+    type: string
+    dependencies:
+      config:
+        - field.storage.group.field_headquarters_location
+  group_location_locality:
+    label: 'Headquarters Location » The locality (i.e. city).'
+    datasource_id: 'entity:group'
+    property_path: 'field_headquarters_location:locality'
+    type: string
+    dependencies:
+      config:
+        - field.storage.group.field_headquarters_location
+  group_location_name:
+    label: 'Headquarters Location » The additional name.'
+    datasource_id: 'entity:group'
+    property_path: 'field_headquarters_location:additional_name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.group.field_headquarters_location
+  group_location_postal_code:
+    label: 'Headquarters Location » The postal code.'
+    datasource_id: 'entity:group'
+    property_path: 'field_headquarters_location:postal_code'
+    type: string
+    dependencies:
+      config:
+        - field.storage.group.field_headquarters_location
   group_name:
     label: 'Group Name'
     datasource_id: 'entity:group'
     property_path: label
     type: solr_text_ngram
     boost: !!float 21
-  field_industry_segment:
-    label: 'Industry Segment'
+  group_type:
+    label: 'Group type'
     datasource_id: 'entity:group'
-    property_path: field_industry_segment
+    property_path: type
+    type: string
+  group_uid:
+    label: 'Group creator'
+    datasource_id: 'entity:group'
+    property_path: uid
     type: integer
+  group_website:
+    label: Website
+    datasource_id: 'entity:group'
+    property_path: field_website
+    type: string
     dependencies:
       config:
-        - field.storage.group.field_industry_segment
+        - field.storage.group.field_website
+  mail:
+    label: Email
+    datasource_id: 'entity:user'
+    property_path: mail
+    type: string
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
+  rendered_item:
+    label: 'Rendered item'
+    property_path: rendered_item
+    type: text
+    configuration:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          article: search_index
+          page: search_index
+  url:
+    label: URI
+    property_path: search_api_url
+    type: string
   user_bio:
     label: Bio
     datasource_id: 'entity:user'
@@ -248,11 +253,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.user.field_email_user
-  mail:
-    label: Email
-    datasource_id: 'entity:user'
-    property_path: mail
-    type: string
   user_first_name:
     label: 'First Name'
     datasource_id: 'entity:user'
@@ -262,14 +262,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.user.field_first_name_user
-  user_picture:
-    label: Image
-    datasource_id: 'entity:user'
-    property_path: user_picture
-    type: integer
-    dependencies:
-      config:
-        - field.storage.user.user_picture
   user_last_name:
     label: 'Last Name'
     datasource_id: 'entity:user'
@@ -284,6 +276,19 @@ field_settings:
     datasource_id: 'entity:user'
     property_path: name
     type: string
+  user_picture:
+    label: Image
+    datasource_id: 'entity:user'
+    property_path: user_picture
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.user_picture
+  user_status:
+    label: 'User status'
+    datasource_id: 'entity:user'
+    property_path: status
+    type: boolean
   user_tagline:
     label: Tagline
     datasource_id: 'entity:user'
@@ -302,11 +307,6 @@ field_settings:
     datasource_id: 'entity:user'
     property_path: uid
     type: integer
-  user_status:
-    label: 'User status'
-    datasource_id: 'entity:user'
-    property_path: status
-    type: boolean
   user_website:
     label: Website
     datasource_id: 'entity:user'
@@ -316,14 +316,6 @@ field_settings:
       config:
         - field.storage.user.field_website_user
 datasource_settings:
-  'entity:node':
-    bundles:
-      default: false
-      selected:
-        - page
-    languages:
-      default: true
-      selected: {  }
   'entity:group':
     bundles:
       default: false
@@ -332,11 +324,23 @@ datasource_settings:
     languages:
       default: true
       selected: {  }
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - page
+        - sb_news_article
+    languages:
+      default: true
+      selected: {  }
   'entity:user':
     languages:
       default: true
       selected: {  }
 processor_settings:
+  add_url:
+    weights:
+      preprocess_index: -30
   aggregated_field:
     weights:
       add_properties: 20
@@ -344,15 +348,18 @@ processor_settings:
     weights:
       preprocess_index: -6
       preprocess_query: -4
+  entity_status:
+    weights:
+      preprocess_index: -10
   highlight:
     highlight: always
     highlight_partial: true
     excerpt: true
     excerpt_length: 300
     exclude_fields:
-      - rendered_item
       - content_title
       - group_name
+      - rendered_item
       - user_bio
       - user_first_name
       - user_last_name
@@ -367,36 +374,36 @@ processor_settings:
     title: true
     alt: true
     tags:
+      b: 2
       h1: 5
       h2: 3
       h3: 2
       string: 2
-      b: 2
     weights:
       preprocess_index: -3
       preprocess_query: -6
   ignorecase:
     all_fields: false
     fields:
-      - rendered_item
-      - url
-      - content_title
       - content_author
+      - content_title
       - content_type
       - group_description
-      - group_type
-      - group_website
-      - group_location_name
-      - group_location_dependent_locality
       - group_location_address_line1
-      - group_location_locality
-      - group_location_postal_code
       - group_location_address_line2
       - group_location_administrative_area
       - group_location_country_code
+      - group_location_dependent_locality
+      - group_location_locality
+      - group_location_name
+      - group_location_postal_code
+      - group_type
+      - group_website
+      - mail
+      - rendered_item
+      - url
       - user_bio
       - user_email
-      - mail
       - user_first_name
       - user_last_name
       - user_name
@@ -406,12 +413,6 @@ processor_settings:
     weights:
       preprocess_index: -20
       preprocess_query: -20
-  entity_status:
-    weights:
-      preprocess_index: -10
-  add_url:
-    weights:
-      preprocess_index: -30
   rendered_item:
     weights:
       add_properties: 0
