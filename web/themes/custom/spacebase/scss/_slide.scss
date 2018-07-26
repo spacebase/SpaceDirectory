@@ -3,6 +3,9 @@
   overflow: hidden;
   background: #000;
   z-index: 10;
+  .view-content{
+    position: relative;
+  }
   .flex-control-nav{
     bottom: 20px;
     z-index: 19;

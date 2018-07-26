@@ -9350,6 +9350,8 @@ body.page-node-type-blog-post .text {
   overflow: hidden;
   background: #000;
   z-index: 10; }
+  .home-slides .view-content {
+    position: relative; }
   .home-slides .flex-control-nav {
     bottom: 20px;
     z-index: 19; }
