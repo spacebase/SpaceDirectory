@@ -5,11 +5,13 @@ dependencies:
   config:
     - field.field.node.sb_video.body
     - field.field.node.sb_video.field_metatags_video
+    - field.field.node.sb_video.field_sb_video
     - node.type.sb_video
   module:
     - metatag
     - text
     - user
+    - video_embed_field
 id: node.sb_video.default
 targetEntityType: node
 bundle: sb_video
@@ -28,6 +30,17 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
+    region: content
+  field_sb_video:
+    weight: 103
+    label: above
+    settings:
+      responsive: true
+      width: 854
+      height: 480
+      autoplay: true
+    third_party_settings: {  }
+    type: video_embed_field_video
     region: content
   links:
     weight: 100
