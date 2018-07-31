@@ -118,7 +118,9 @@
         "symfony/css-selector": "~2.8",
         "overtrue/phplint": "^1.0",
         "drupal/drupal-extension": "^3.1",
-        "guzzlehttp/guzzle" : "^6.0@dev"
+        "guzzlehttp/guzzle" : "^6.0@dev",
+        "integratedexperts/behat-screenshot" : "^0.7",
+        "integratedexperts/behat-format-progress-fail": "^0.2"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
