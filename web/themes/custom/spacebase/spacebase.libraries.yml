@@ -24,6 +24,16 @@ parallax:
     js/parallax.js: {}
   dependencies:
     - core/jquery
+
+flexslider:
+  version: 2.x
+  js:
+    js/jquery.flexslider-min.js: {}
+  css:
+    theme:
+      css/flexslider.css: {}
+  dependencies:
+    - core/jquery
     
 global-scripts:
   js:

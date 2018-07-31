@@ -192,6 +192,28 @@ body.navbar-is-fixed-top{
   }
 }
 
+.btn-white{
+  background-color: #fff;
+  border: 1px solid transparent;
+  color: $text !important;
+  &:active,&:focus,&:hover{
+    background-color: #fff;
+    border: 1px solid transparent;
+    color: $text;
+  }
+}
+
+.btn-white-transparent{
+  background-color: rgba(255,255,255,0.8);
+  border: 1px solid transparent;
+  color: $text !important;
+  &:active,&:focus,&:hover{
+    background-color: rgba(255,255,255,1);
+    border: 1px solid transparent;
+    color: $text;
+  }
+}
+
 .btn-circle{
   background: $brand-secondary;
   border-radius: 50%;

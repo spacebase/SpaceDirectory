@@ -1,0 +1,53 @@
+uuid: 3ccc52f3-bc50-4ea5-919a-c139c698d75d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.slide.field_sl_button_text
+    - field.field.node.slide.field_sl_button_url
+    - field.field.node.slide.field_sl_image
+    - field.field.node.slide.field_sl_text
+    - node.type.slide
+  module:
+    - image
+    - text
+    - user
+id: node.slide.default
+targetEntityType: node
+bundle: slide
+mode: default
+content:
+  field_sl_button_text:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_sl_button_url:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_sl_image:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_sl_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  links: true

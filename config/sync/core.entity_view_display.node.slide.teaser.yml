@@ -1,0 +1,18 @@
+uuid: 6433b5e4-b9a7-4243-9a02-7e0a52ac7d20
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.slide
+  module:
+    - user
+id: node.slide.teaser
+targetEntityType: node
+bundle: slide
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden: {  }
