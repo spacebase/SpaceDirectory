@@ -10,6 +10,7 @@ default:
         - Drupal\DrupalExtension\Context\MinkContext
         - Drupal\DrupalExtension\Context\MessageContext
         - Drupal\DrupalExtension\Context\DrushContext
+        - IntegratedExperts\BehatScreenshotExtension\Context\ScreenshotContext
   extensions:
     Behat\MinkExtension:
       goutte: ~
@@ -25,3 +26,8 @@ default:
         message_selector: '.messages'
         error_message_selector: '.messages.messages-error'
         success_message_selector: '.messages.messages-status'
+    IntegratedExperts\BehatScreenshotExtension:
+      dir: %paths.base%/screenshots
+      fail: true
+      purge: true
+    IntegratedExperts\BehatFormatProgressFail\FormatExtension: ~

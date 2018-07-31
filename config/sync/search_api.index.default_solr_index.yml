@@ -9,6 +9,8 @@ dependencies:
     - node
     - group
   config:
+    - field.storage.node.body
+    - field.storage.node.field_na_authors
     - field.storage.group.field_description
     - field.storage.group.field_image
     - field.storage.group.field_website
@@ -100,6 +102,22 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: nid
     type: integer
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
+  field_na_authors:
+    label: Authors
+    datasource_id: 'entity:node'
+    property_path: field_na_authors
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_na_authors
   group_created:
     label: 'Created on'
     datasource_id: 'entity:group'
@@ -321,6 +339,7 @@ datasource_settings:
       default: false
       selected:
         - page
+        - sb_news_article
     languages:
       default: true
       selected: {  }
@@ -337,6 +356,9 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
+  add_url:
+    weights:
+      preprocess_index: -30
   aggregated_field:
     weights:
       add_properties: 20
@@ -344,6 +366,9 @@ processor_settings:
     weights:
       preprocess_index: -6
       preprocess_query: -4
+  entity_status:
+    weights:
+      preprocess_index: -10
   highlight:
     highlight: always
     highlight_partial: true
@@ -406,12 +431,6 @@ processor_settings:
     weights:
       preprocess_index: -20
       preprocess_query: -20
-  entity_status:
-    weights:
-      preprocess_index: -10
-  add_url:
-    weights:
-      preprocess_index: -30
   rendered_item:
     weights:
       add_properties: 0
