@@ -26,10 +26,9 @@ content:
   field_description:
     weight: 1
     label: hidden
-    settings:
-      trim_length: 120
+    settings: {  }
     third_party_settings: {  }
-    type: text_summary_or_trimmed
+    type: text_default
     region: content
   field_headquarters_location:
     weight: 2
