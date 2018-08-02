@@ -1,15 +1,5 @@
 <?php
 
-/** TEST
- *
- * 2 config issues to clean up, see
- * Bandaid
- * most emails to stephencataldo@gmail.com until it works well
- *
- * Soon: consider html emails.
- */
-
-
 /**
  * @file
  * Contains email_group_administrators.module.
@@ -125,10 +115,10 @@ function _email_who_what() {
          */
         global $base_url;
         \Drupal::logger('email_group_administrators')->notice("Base URL for this server is: " . $base_url);
-        // Bandaid: temp fix for config issues, when run by non-web cron
+        // TEST Bandaid: temp fix for config issues, when run by non-web cron
         // Not sure if needed, hard to test devel server.
         if (strpos($base_url, "default")!== false) {
-          $base_url = "https://spacebase.co/";
+          $base_url = "https://spacebase.co"; // Note: removed last '/' ...
         }
         $label = Drupal\Component\Utility\Html::escape($group->label()); 
         $msg = "<br/>" . $pending . " pending members for " . $label . " at " . $base_url . "/group/" . $group->id() . "/members#pending\n";
@@ -144,10 +134,7 @@ function _email_who_what() {
   foreach ($messages as $admin => $msg) {
     $account =  \Drupal\user\Entity\User::load($admin);
     $email = $account->getEmail();
-    //TEST
-    if (strpos($email, 'rich') === false && strpos($email, 'kurt') === false ) {
-      $email = 'stephencataldo@gmail.com'; // until live runs smooth! TESTING
-    }
+    //TEST: divert emails to programmer can go here
     $langcode = $account->getPreferredLangcode();
     $params = array();
     $params['account'] = $account;
