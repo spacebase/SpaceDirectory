@@ -11,11 +11,11 @@ dependencies:
 third_party_settings:
   geocoder_field:
     method: source
-    weight: '0'
+    weight: 0
     geocode_field: field_headquarters_location
     reverse_geocode_field: {  }
-    hidden: 0
-    disabled: 1
+    hidden: false
+    disabled: true
     plugins:
       - openstreetmap
     dumper: wkt
