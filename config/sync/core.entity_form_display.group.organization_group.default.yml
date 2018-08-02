@@ -15,7 +15,6 @@ dependencies:
     - image.style.thumbnail
   module:
     - address
-    - geofield
     - image
     - link
     - metatag
@@ -63,15 +62,8 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
-  field_map_address:
-    weight: 7
-    settings:
-      html5_geolocation: false
-    third_party_settings: {  }
-    type: geofield_latlon
-    region: content
   field_metatags:
-    weight: 8
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
@@ -93,5 +85,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  field_map_address: true
   path: true
   uid: true
