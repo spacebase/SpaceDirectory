@@ -5,8 +5,14 @@ dependencies:
   config:
     - field.field.node.sb_news_article.body
     - field.field.node.sb_news_article.field_metatags_news
+    - field.field.node.sb_news_article.field_na_author
+    - field.field.node.sb_news_article.field_na_image
+    - field.field.node.sb_news_article.field_na_link
+    - image.style.thumbnail
     - node.type.sb_news_article
   module:
+    - image
+    - link
     - metatag
     - path
     - text
@@ -35,6 +41,31 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
+    region: content
+  field_na_author:
+    weight: 124
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_na_image:
+    weight: 123
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_na_link:
+    weight: 125
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   path:
     type: path

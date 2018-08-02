@@ -54,6 +54,7 @@ module:
   mailgun: 0
   mailsystem: 0
   markup: 0
+  media: 0
   menu_link_attributes: 0
   menu_ui: 0
   metatag: 0
@@ -112,6 +113,8 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
+  video_embed_field: 0
+  video_embed_media: 0
   views_block_filter_block: 0
   views_bulk_operations: 0
   views_templates: 0
