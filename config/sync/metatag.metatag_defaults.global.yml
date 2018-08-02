@@ -12,7 +12,7 @@ tags:
   geo_placename: 'New Zealand'
   description: 'SpaceBase is co-creating a global Space Ecosystem to serve entrepreneurs in emerging space industries - starting in New Zealand. We want to democratize space: to provide access to training, networking, technical services, and investment opportunities.'
   geo_region: NZ
-  image_src: /sites/default/files/inline-images/rocketlab-launch-platform.jpg
+  image_src: /themes/custom/spacebase/images/sb-placeholder.jpg
   abstract: 'SpaceBase is co-creating a global Space Ecosystem to serve entrepreneurs in emerging space industries - starting in New Zealand. '
-  og_image: /sites/default/files/inline-images/rocketlab-launch-platform.jpg
+  og_image: /themes/custom/spacebase/images/sb-placeholder.jpg
   og_site_name: SpaceBase
