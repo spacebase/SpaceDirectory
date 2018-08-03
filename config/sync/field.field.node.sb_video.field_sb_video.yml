@@ -1,4 +1,4 @@
-uuid: d7d3e903-5a38-4284-9d87-fff58f47ade8
+uuid: fb1bbf1b-4bd9-4e3b-b3ff-5373a2d440e7
 langcode: en
 status: true
 dependencies:
@@ -12,8 +12,8 @@ field_name: field_sb_video
 entity_type: node
 bundle: sb_video
 label: Video
-description: 'Embed a YouTube.'
-required: false
+description: 'Video from YouTube or Vimeo.'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
