@@ -385,7 +385,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: Video
+      title: Videos
       header: {  }
       footer: {  }
       empty: {  }
