@@ -3,32 +3,32 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.sb_news_article.body
     - field.field.node.sb_news_article.field_metatags_news
     - field.field.node.sb_news_article.field_na_author
     - field.field.node.sb_news_article.field_na_authors
     - field.field.node.sb_news_article.field_na_image
     - field.field.node.sb_news_article.field_na_link
     - field.field.node.sb_news_article.field_na_post_date
+    - field.field.node.sb_news_article.field_summary
     - image.style.blog_photo
     - node.type.sb_news_article
   module:
     - image
     - link
-    - text
     - user
 id: node.sb_news_article.default
 targetEntityType: node
 bundle: sb_news_article
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 1
-    settings: {  }
-    third_party_settings: {  }
+  field_na_author:
+    type: entity_reference_label
+    weight: 3
     region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
   field_na_image:
     type: image
     weight: 0
@@ -50,9 +50,15 @@ content:
       url_plain: false
       rel: '0'
     third_party_settings: {  }
+  field_summary:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
 hidden:
   field_metatags_news: true
-  field_na_author: true
   field_na_authors: true
   field_na_post_date: true
   links: true

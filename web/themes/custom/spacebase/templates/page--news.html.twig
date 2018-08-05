@@ -66,6 +66,11 @@
         {# Content #}
         {% block content %}
           <a id="main-content"></a>
+        {% if logged_in %}
+          <a href="/node/add/sb_news_article" class="add-button pull-right"><i class="fas fa-plus-circle"></i> <span class="hidden">Add news</span></a>
+        {% else %}
+        {{ drupal_block('simple_block:call_to_action_join', wrapper=false ) }}
+        {% endif %}
           <h1>{{ title }}</h1>
           {{ page.content }}
         {% endblock %}

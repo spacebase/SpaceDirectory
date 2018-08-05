@@ -11,7 +11,7 @@ dependencies:
     - user
     - video_embed_field
 id: sb_video
-label: Video
+label: Videos
 module: views
 description: ''
 tag: ''
@@ -388,7 +388,20 @@ display:
       title: Videos
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: '<p>No videos posted yet. </p>'
+            format: raw_html
+          plugin_id: text
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
@@ -411,7 +424,7 @@ display:
     display_options:
       display_extenders:
         metatag_display_extender: {  }
-      path: video
+      path: videos
     cache_metadata:
       max-age: -1
       contexts:

@@ -3,13 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.sb_news_article.body
     - field.field.node.sb_news_article.field_metatags_news
     - field.field.node.sb_news_article.field_na_author
     - field.field.node.sb_news_article.field_na_authors
     - field.field.node.sb_news_article.field_na_image
     - field.field.node.sb_news_article.field_na_link
     - field.field.node.sb_news_article.field_na_post_date
+    - field.field.node.sb_news_article.field_summary
     - image.style.thumbnail
     - node.type.sb_news_article
   module:
@@ -17,21 +17,11 @@ dependencies:
     - link
     - metatag
     - path
-    - text
 id: node.sb_news_article.default
 targetEntityType: node
 bundle: sb_news_article
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 3
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-    third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
     weight: 9
@@ -60,6 +50,14 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
+  field_summary:
+    weight: 3
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   path:
     type: path
     weight: 6

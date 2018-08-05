@@ -80,7 +80,11 @@
     <div class="media-top">
       <div class="container">
         {{ content.field_sb_video }}
-        <h1>{{ label }}</h1>
+        <h1 class="col-sm-8">{{ label }}</h1>
+        <div class="posted col-sm-4">
+          {% set date = node.createdtime|date('F j, Y') %}
+            {% trans %}Posted by {{ author_name }} on {{ date }}{% endtrans %}
+        </div>
       </div>
     </div>
     <div class="container">
