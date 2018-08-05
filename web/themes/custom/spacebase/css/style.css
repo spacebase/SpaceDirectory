@@ -9488,6 +9488,14 @@ body.page-node-type-blog-post .text {
           font-weight: 800;
           margin: 0 0 10px; }
 
+.video-list .col-sm-4 {
+  margin: 0 0 40px; }
+.video-list h2 {
+  margin: 0 0 10px;
+  font-size: 20px; }
+.video-list .posted {
+  font-size: 14px; }
+
 .page-node-type-sb-video .main-container {
   padding-top: 0; }
 
