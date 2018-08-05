@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b1fb38334aeeea18b40b10920995928",
+    "content-hash": "72414704b143d2a3d1abe65d133125e9",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1709,7 +1709,7 @@
                 },
                 "drupal": {
                     "version": "8.x-3.11",
-                    "datestamp": "1520792884",
+                    "datestamp": "1532095085",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1825,6 +1825,7 @@
                     }
                 },
                 "patches_applied": {
+                    "Year display header always shows current year after using pager": "https://www.drupal.org/files/issues/year_display_header_always_shows_current_year-2915266-02.patch",
                     "ISO-8601 Week and Year": "https://www.drupal.org/files/issues/2018-06-11/iso_8601_week_and_year-2917145-4.patch",
                     "Timezones": "https://www.drupal.org/files/issues/2018-03-20/2604546-26.patch"
                 }
@@ -2002,7 +2003,7 @@
                 },
                 "drupal": {
                     "version": "8.x-3.0-alpha10",
-                    "datestamp": "1527184381",
+                    "datestamp": "1531880324",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -3146,7 +3147,7 @@
                 },
                 "drupal": {
                     "version": "8.x-2.3",
-                    "datestamp": "1529608724",
+                    "datestamp": "1531922921",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4405,7 +4406,7 @@
                 },
                 "drupal": {
                     "version": "8.x-4.0-beta3",
-                    "datestamp": "1519400285",
+                    "datestamp": "1531143824",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -4652,7 +4653,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.8",
-                    "datestamp": "1523872384",
+                    "datestamp": "1531985581",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4976,7 +4977,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.1",
-                    "datestamp": "1527112080",
+                    "datestamp": "1513810384",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4985,7 +4986,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
@@ -5046,7 +5047,7 @@
                 },
                 "drupal": {
                     "version": "8.x-2.0",
-                    "datestamp": "1523708073",
+                    "datestamp": "1531889025",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5072,6 +5073,67 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/twig_tweak",
                 "issues": "https://www.drupal.org/project/issues/twig_tweak"
+            }
+        },
+        {
+            "name": "drupal/video_embed_field",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/video_embed_field",
+                "reference": "8.x-2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/video_embed_field-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "e864f090b3cb9405376ca324d81ace83613e2019"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "require-dev": {
+                "drupal/colorbox": "*",
+                "drupal/media_entity": "*",
+                "drupal/media_entity_embeddable_video": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x",
+                    "datestamp": "1523338084",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    },
+                    "package": "Field types"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Sam152",
+                    "homepage": "https://www.drupal.org/user/1485048"
+                },
+                {
+                    "name": "jec006",
+                    "homepage": "https://www.drupal.org/user/855980"
+                },
+                {
+                    "name": "plopesc",
+                    "homepage": "https://www.drupal.org/user/282415"
+                }
+            ],
+            "description": "A pluggable field type for storing videos from external video hosts such as Vimeo and YouTube.",
+            "homepage": "https://www.drupal.org/project/video_embed_field",
+            "support": {
+                "source": "http://cgit.drupalcode.org/video_embed_field"
             }
         },
         {
@@ -9213,7 +9275,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -10246,6 +10308,101 @@
                 "webtest"
             ],
             "time": "2017-06-30T04:02:48+00:00"
+        },
+        {
+            "name": "integratedexperts/behat-format-progress-fail",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/integratedexperts/behat-format-progress-fail.git",
+                "reference": "ea26bdc518afb558cd8a94687cb1bce14a989801"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/integratedexperts/behat-format-progress-fail/zipball/ea26bdc518afb558cd8a94687cb1bce14a989801",
+                "reference": "ea26bdc518afb558cd8a94687cb1bce14a989801",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": ">=3.3.1"
+            },
+            "require-dev": {
+                "escapestudios/symfony2-coding-standard": "~2.0",
+                "phpunit/phpunit": "~4.5",
+                "squizlabs/php_codesniffer": "2.*",
+                "symfony/process": "~2.1|~3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "IntegratedExperts\\BehatFormatProgressFail": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Skrypnyk",
+                    "email": "alex.designworks@gmail.com"
+                },
+                {
+                    "name": "Alexander Sharkov",
+                    "email": "blade.didan@gmail.com"
+                }
+            ],
+            "description": "Behat context for formatting steps test.",
+            "time": "2017-06-29T05:30:21+00:00"
+        },
+        {
+            "name": "integratedexperts/behat-screenshot",
+            "version": "0.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/integratedexperts/behat-screenshot.git",
+                "reference": "37f2c9c43122c188ce604d1555968b6deaa422dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/integratedexperts/behat-screenshot/zipball/37f2c9c43122c188ce604d1555968b6deaa422dc",
+                "reference": "37f2c9c43122c188ce604d1555968b6deaa422dc",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": "^3.3.1",
+                "behat/mink-selenium2-driver": "^1.3",
+                "symfony/finder": "^3.2|^4.0"
+            },
+            "require-dev": {
+                "behat/mink": "~1.5",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+                "escapestudios/symfony2-coding-standard": "~2.0",
+                "integratedexperts/behat-phpserver": "^0.1",
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "IntegratedExperts\\BehatScreenshot": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Skrypnyk",
+                    "email": "alex.designworks@gmail.com"
+                },
+                {
+                    "name": "Alexander Sharkov",
+                    "email": "blade.didan@gmail.com"
+                }
+            ],
+            "description": "Behat Context to capture screenshots from failed tests",
+            "time": "2018-05-30T06:56:55+00:00"
         },
         {
             "name": "jcalderonzumba/gastonjs",
