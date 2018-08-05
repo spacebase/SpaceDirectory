@@ -4,9 +4,14 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
+    - field.storage.node.field_na_image
+    - field.storage.node.field_na_link
     - field.storage.node.field_na_post_date
+    - image.style.blog_thumb
     - search_api.index.default_solr_index
   module:
+    - image
+    - link
     - search_api
     - text
 id: news
@@ -65,21 +70,22 @@ display:
             next: ››
       style:
         type: default
+        options:
+          grouping: {  }
+          row_class: clearfix
+          default_row_class: true
       row:
         type: fields
       fields:
-        rendered_item:
-          table: search_api_index_default_solr_index
-          field: rendered_item
-          id: rendered_item
-          entity_type: null
-          entity_field: null
-          plugin_id: search_api
+        field_na_link:
+          id: field_na_link
+          table: search_api_datasource_default_solr_index_entity_node
+          field: field_na_link
           relationship: none
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -111,7 +117,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -119,10 +125,105 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          link_to_item: false
-          use_highlighting: false
+          click_sort_column: uri
+          type: link_separate
+          settings:
+            trim_length: 80
+            url_only: false
+            url_plain: false
+            rel: '0'
+            target: _blank
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
           multi_type: separator
-          multi_separator: ', '
+          separator: ', '
+          field_api_classes: false
+          field_rendering: false
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          entity_type: node
+          plugin_id: search_api_field
+        field_na_image:
+          id: field_na_image
+          table: search_api_datasource_default_solr_index_entity_node
+          field: field_na_image
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: true
+            path: '{{ field_na_link }}'
+            absolute: false
+            external: true
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: _blank
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: '0'
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: div
+          element_wrapper_class: news-thumb
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image
+          settings:
+            image_style: blog_thumb
+            image_link: ''
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          entity_type: node
+          plugin_id: search_api_field
         title:
           id: title
           table: search_api_datasource_default_solr_index_entity_node
@@ -135,10 +236,10 @@ display:
           alter:
             alter_text: false
             text: ''
-            make_link: false
-            path: ''
+            make_link: true
+            path: '{{ field_na_link }}'
             absolute: false
-            external: false
+            external: true
             replace_spaces: false
             path_case: none
             trim_whitespace: false
@@ -147,7 +248,7 @@ display:
             link_class: ''
             prefix: ''
             suffix: ''
-            target: ''
+            target: _blank
             nl2br: false
             max_length: 0
             word_boundary: true
@@ -204,8 +305,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: 'Posted {{ field_na_post_date }}'
             make_link: false
             path: ''
             absolute: false
@@ -230,14 +331,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: h3
-          element_class: ''
-          element_label_type: ''
+          element_type: div
+          element_class: post-date
+          element_label_type: '0'
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -245,8 +346,8 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: html_date
-            custom_date_format: ''
+            date_format: custom
+            custom_date_format: 'F j, Y'
             timezone: ''
           group_column: value
           group_columns: {  }
@@ -338,6 +439,61 @@ display:
             multi_separator: ', '
           entity_type: node
           plugin_id: search_api_field
+        rendered_item:
+          table: search_api_index_default_solr_index
+          field: rendered_item
+          id: rendered_item
+          entity_type: null
+          entity_field: null
+          plugin_id: search_api
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          link_to_item: false
+          use_highlighting: false
+          multi_type: separator
+          multi_separator: ', '
       filters:
         content_type:
           id: content_type
@@ -422,6 +578,7 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      css_class: news-list
     cache_metadata:
       max-age: -1
       contexts:
@@ -430,6 +587,8 @@ display:
         - url.query_args
       tags:
         - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_na_image'
+        - 'config:field.storage.node.field_na_link'
         - 'config:field.storage.node.field_na_post_date'
   page_1:
     display_plugin: page
@@ -437,7 +596,8 @@ display:
     display_title: Page
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       path: news
     cache_metadata:
       max-age: -1
@@ -447,4 +607,6 @@ display:
         - url.query_args
       tags:
         - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_na_image'
+        - 'config:field.storage.node.field_na_link'
         - 'config:field.storage.node.field_na_post_date'

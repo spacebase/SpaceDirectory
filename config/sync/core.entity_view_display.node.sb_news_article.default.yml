@@ -5,9 +5,16 @@ dependencies:
   config:
     - field.field.node.sb_news_article.body
     - field.field.node.sb_news_article.field_metatags_news
+    - field.field.node.sb_news_article.field_na_author
+    - field.field.node.sb_news_article.field_na_authors
+    - field.field.node.sb_news_article.field_na_image
+    - field.field.node.sb_news_article.field_na_link
+    - field.field.node.sb_news_article.field_na_post_date
+    - image.style.blog_photo
     - node.type.sb_news_article
   module:
-    - metatag
+    - image
+    - link
     - text
     - user
 id: node.sb_news_article.default
@@ -18,20 +25,34 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_metatags_news:
-    weight: 102
+  field_na_image:
+    type: image
+    weight: 0
+    region: content
     label: hidden
-    settings: {  }
+    settings:
+      image_style: blog_photo
+      image_link: ''
     third_party_settings: {  }
-    type: metatag_empty_formatter
+  field_na_link:
+    type: link
+    weight: 2
     region: content
-  links:
-    weight: 100
-    region: content
-    settings: {  }
+    label: hidden
+    settings:
+      trim_length: 80
+      target: _blank
+      url_only: false
+      url_plain: false
+      rel: '0'
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_metatags_news: true
+  field_na_author: true
+  field_na_authors: true
+  field_na_post_date: true
+  links: true
