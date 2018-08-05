@@ -104,5 +104,6 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_na_author: true
   field_na_authors: true
   field_na_post_date: true
