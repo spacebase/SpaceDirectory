@@ -570,7 +570,19 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: search_api_boolean
-      sorts: {  }
+      sorts:
+        content_created:
+          id: content_created
+          table: search_api_index_default_solr_index
+          field: content_created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
       title: News
       header: {  }
       footer: {  }
