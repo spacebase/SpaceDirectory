@@ -1,6 +1,3 @@
 email_admin_pending:
   subject: 'Action needed: SpaceBase Organization with applicants pending'
   body: "[user:field_first_name_user],\r\n\r\nYou have some pending members to moderate at SpaceBase:\r\n\r\n[LIST]\r\n\r\n\r\nIf you <em>accept members</em> they will be allowed to participate. If necessary, you can also reject an applicant.\r\n\r\n"
-new_content_summary:
-  subject: 'Daily Summary: New Content at [site:name]'
-  body: "[user:display-name],\r\n\r\nDaily summary of your new content follows:\r\n\r\n[LIST]"

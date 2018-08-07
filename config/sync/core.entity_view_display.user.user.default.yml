@@ -11,6 +11,7 @@ dependencies:
     - field.field.user.user.field_last_name_user
     - field.field.user.user.field_linkedin_user
     - field.field.user.user.field_metatags
+    - field.field.user.user.field_notification_prefs
     - field.field.user.user.field_position
     - field.field.user.user.field_tagline_user
     - field.field.user.user.field_terms
@@ -138,3 +139,4 @@ content:
     label: hidden
 hidden:
   field_intro: true
+  field_notification_prefs: true

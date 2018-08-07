@@ -11,7 +11,8 @@ use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\views\Views;
 use Drupal\group\Entity\GroupContent;
-
+use Drupal\user\Entity\User;
+use Drupal\Component\Render\PlainTextOutput;
 
 
 /**
@@ -728,3 +729,419 @@ function spacebase_core_theme($existing, $type, $theme, $path) {
   ];
 }
 
+/**
+ * spacebase_core_queue_new_content_notifications
+ *
+ * Load the queue, waits < one minute for cron, then:
+ *  - send emails to all the new content for anyone who wants immediate emails.
+ *  - stores messages per user for daily summaries.
+ */
+function spacebase_core_queue_content_notifications($module, $key, $node) {
+  /** @var QueueFactory $queue_factory */
+  $queue_factory = \Drupal::service('queue');
+  /** @var QueueInterface $queue */
+  $queue = $queue_factory->get('spacebase_content_notifications');
+  $item = new \stdClass();
+  $item->nid = $node->id();
+  $item->module = $module;
+  $item->key = $key;
+  $queue->createItem($item);
+}
+/**
+ * spacebase_core_queue_new_content_notifications
+ *
+ * Load the queue, waits < one minute for cron, then:
+ *  - send emails to all the new content for anyone who wants immediate emails.
+ *  - stores messages per user for daily summaries.
+ */
+function spacebase_core_queue_content_notification_summaries($module, $user, $key, $node) {
+  /** @var QueueFactory $queue_factory */
+  $queue_factory = \Drupal::service('queue');
+  /** @var QueueInterface $queue */
+  $queue = $queue_factory->get('spacebase_content_notification_summaries');
+  $item = new \stdClass();
+  $item->uid = $user->id();
+  $item->module = $module;
+  $item->key = $key;
+  $queue->createItem($item);
+}
+
+/**
+ * spacebase_core_send_new_content_notifications
+ *
+ * Currently called (other options should work) after node_insert
+ * puts new nodes into queues — by the time the queue is called,
+ * we know whether that node is part of an Organization and so email
+ * Org Admins, or part of the Site and so email Site Admins.
+ */
+use Drupal\Core\Queue\QueueFactory;
+use Drupal\Core\Queue\QueueInterface;
+use Drupal\Core\Datetime\DrupalDateTime;
+
+function spacebase_core_send_new_content_notifications($module, $key, $node)
+{
+  $params['node'] = $node;
+  $params['module'] = $module;
+
+  // Find the recipients who want their mail now,
+  // and the mail template key: either Org Admins or Site Admins.
+  $recipients = [];
+  $temp = GroupContent::loadByEntity($node); // {array}[0] for empty
+  $group_content = array_shift($temp);
+
+  if (isset($group_content)) {
+    $group = $group_content->getGroup();
+    $params['group'] = $group;
+    $params['link'] = $group->toUrl()->setAbsolute()->toString();
+    $key .= '_org';  // ex: new_content_news_org
+
+    // get ids for admins in the group as objects
+    foreach ($group->getMembers() as $membership) {
+      foreach ($membership->getRoles() as $rid => $role) {
+        if ($rid == 'organization_group-admin') {
+          $user = $membership->getUser();
+          // @ToSpec: _notify_me might want the group, not node type
+          if (_notify_me($user, 'now', $node->getType())) {
+            $recipients[] = $user;
+          }
+        }
+      }
+    }
+  } else {  // Posted Site-wide
+    $params['link'] = $node->toUrl()->setAbsolute()->toString();
+
+    /** email-google-group spec change:
+     *  "I want to get a copy of every email that the system sends all the time.
+     * Multiple copies would be fine." => send Site emails to uid 1 and uid 1 to
+     * a google group. Older code worked on localhost and commented out, expect it to return.
+     * All changes are in this file, marked by #email-google-group
+     */
+    /*** spec 1 code:
+    $config = \Drupal::config($module . '.settings');
+    $uids = $config->get('rcv-content-notification');
+     ****/
+    $uids = array(1);   // See #email-google-group
+    if (isset($uids)) {    // $uids null turns into anon, not ok.
+      foreach (User::loadMultiple($uids) as $user) {
+        if (_notify_me($user, 'now', $node->getType())) {
+          $recipients[] = $user;
+        }
+      }
+    }
+
+
+  }
+
+  // Notify now: emails to the $recipients with the correct $key
+  foreach ($recipients as $account) {
+    $langcode = $account->getPreferredLangcode();
+    $email = $account->getEmail();
+    $params['account'] = $account;
+    $result = \Drupal::service('plugin.manager.mail')->mail('spacebase_core', $key, $email, $langcode, $params);
+  }
+}
+
+
+/**
+ * function _spacebase_core_send_new_content_summaries()
+ *
+ * Fired by cron once a day, sends the summaries.
+ */
+function _spacebase_core_send_new_content_summaries() {
+
+  // @ToDo: This might be replaced with a hook that draws the same data that is
+  // currently in hook_node_insert.
+  $notification_config = [
+    'blog_post' => [
+      'module' => 'spacebase_blogs',
+      'key' => 'new_content_blogs',
+      'display' => 'Blogs'
+    ],
+    'event' => [
+      'module' => 'spacebase_events',
+      'key' => 'new_content_events',
+      'display' => 'Events'
+    ],
+    'sb_news_article' => [
+      'module' => 'spacebase_news',
+      'key' => 'new_content_news',
+      'display' => 'News articles'
+    ],
+    'sb_project' => [
+      'module' => 'spacebase_projects',
+      'key' => 'new_content_projects',
+      'display' => 'Projects'
+    ],
+    'resources' => [
+      'module' => 'spacebase_resources',
+      'key' => 'new_content_resources',
+      'display' => 'Resources'
+    ],
+    'sb_video' => [
+      'module' => 'spacebase_videos',
+      'key' => 'new_content_videos',
+      'display' => 'Videos'
+    ],
+  ];
+
+
+
+  // Show summaries for yesterday. 
+  // Uses site timezone format.
+  $date = new DrupalDateTime('1 day ago'); // Runs just after midnight for yeste
+  $day_start = strtotime($date->format('Y-m-d 00:00:00'));
+  $day_end = strtotime($date->format('Y-m-d 23:59:59'));
+  $nids = \Drupal::entityQuery('node')
+    ->condition('created', array($day_start, $day_end), 'BETWEEN')
+    ->condition('status', 1)
+    ->execute();
+
+  // TEST ... cut this log out once working
+/*
+  \Drupal::logger('spacebase_core')->notice('In _spacebase_core_send_new_content_summaries: ' .
+    "| Date: " . strtotime($date->format('Y-m-d H:m:s')) .
+     " or " . $date->format('Y-m-d H:m:s') .
+    "| day_start: " .  $day_start . " or " . $date->format('Y-m-d 00:00:00') .
+    "| day_end: " . $day_end . " or " . $date->format('Y-m-d 23:59:59') .
+    "| Plain e: " . $date->format('Y-m-d H:m:s e') .
+    "| Plain P: " . $date->format('Y-m-d H:m:s P') .
+    "| short"  . $date->format('short')
+   );
+*/
+
+  $nodes = entity_load_multiple('node', $nids);
+  $summaries = [];
+  foreach ($nodes as $node) {
+    $temp = GroupContent::loadByEntity($node); // {array}[0] for empty
+    $group_content = array_shift($temp);
+
+    // !!! This seems like a spot to call a hook, so that the content modules do
+    // something similar to hook_insert.  @ToDo
+    $type = $node->getType();
+    $module = $notification_config[$type]['module'];
+
+
+    if (isset($group_content)) {
+      $group = $group_content->getGroup();
+      $params['group'] = $group;
+
+      // get ids for admins in the group as objects
+      foreach ($group->getMembers() as $membership) {
+        foreach ($membership->getRoles() as $rid => $role) {
+          if ($rid == 'organization_group-admin') {
+            $user = $membership->getUser();
+            if (_notify_me($user, 'daily', $type)) {
+              $summaries[$user->id()]['group'][$type][] = _get_notification_line($node, $type, $group);
+            }
+          }
+        }
+      }
+    } else {  // Posted Site-wide
+      /** #email-google-group override
+      $config = \Drupal::config($module . '.settings');
+      $uids = $config->get('rcv-content-notification');
+       **/
+      $uids = array(1); // Note: (1,83) would make uid 83 also rcv Site emails
+      if ($uids !== null) {
+        foreach (User::loadMultiple($uids) as $user) {
+          if (_notify_me($user, 'daily', $type)) {
+            $summaries[$user->id()]['site'][$type][] = _get_notification_line($node);
+          }
+        }
+      } else {
+        \Drupal::logger('spacebase_core')->notice('No users set in rcv-content-notification for ' . $module);
+      }
+    }
+
+    //Note: $node->getOwner(); = we should block content you create yourself? @ToDo
+  }
+
+  // _generate_email_list and send email to each user 
+  foreach ($summaries as $uid => $user_summary) {
+    // Send emails to users
+    $params['list'] = _generate_email_list($user_summary, $notification_config);
+    $account = User::load($uid);
+    $email = $account->getEmail();
+    /** #email-google-group @ToDo**/
+    if ($uid == 1) {
+      $email = 'all-editor-mail@spacebase.co';
+    }
+    $params['account'] = $account;
+    $params['node'] = 'na';
+    $key = 'new_content_summary';
+    $langcode = $account->getPreferredLangcode();
+
+    // unlike 'now' emails that go to their content_type module,
+    // summaries use a template here:
+    $params['module'] = 'spacebase_core';
+    \Drupal::logger('spacebase_core')->notice('In _spacebase_core_send_new_content_summaries: ' . $key . ", " . $email );
+    // @ToDo: could put this into a queue instead of sending immediately.
+    $result = \Drupal::service('plugin.manager.mail')->mail('spacebase_core', $key, $email, $langcode, $params);
+  }
+}
+
+/**
+ * Implements hook_mail_edit_keys().
+ * Make it available to mail_edit to edit the template.
+ */
+function spacebase_core_mail_edit_templates() {
+  return [
+    'spacebase_core.emails' => [
+      'new_content_summary' => t('Org and Site admins new content summary.'),
+    ],
+  ];
+}
+
+
+/**
+ * function _notify_me($user, $when, $type)
+ *
+ * Boolean: notify this user for this time ('now' || 'daily') for this type.
+ * @ToDo Nothing implemented to check for $type yet. spec's needed.
+ */
+function _notify_me($user, $when, $type) {
+  $prefs = $user->field_notification_prefs->getValue();
+  foreach ($prefs as $pref) {
+    if ($pref['value'] == $when) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * _get_notification_line($node)
+ *
+ * Gets one line for the daily summary, for that node.
+ * @ToDo: HTML or Text Emails
+ */
+function _get_notification_line($node, $type=null, $group=null) {
+  if (isset($group) && $type == 'resources') {
+    return $node->getTitle() . ": " . $group->toUrl()->setAbsolute()->toString();
+  } else {
+    return $node->getTitle() . ": " . $node->toUrl()->setAbsolute()->toString();
+  }
+}
+
+
+
+
+
+/**
+ * Implements hook_mail().
+ */
+function spacebase_core_mail($key, &$message, $params) {
+  $token_service = \Drupal::token();
+  $langcode = $message['langcode'];
+  $token_variables = [
+    'user' => $params['account'],
+    'node' => $params['node']
+  ];
+  if (isset($params['group'])) {
+    $token_variables['group'] = $params['group'];
+  }
+  $mail_config = \Drupal::config($params['module'] . '.emails');
+  $token_options = ['langcode' => $langcode,'clear' => TRUE];
+  $body = $token_service->replace($mail_config->get($key . '.body'), $token_variables, $token_options);
+  // if it's a summary email, insert the LIST into the template
+  if (isset($params['list'])) {
+    $message['body'][] = str_replace('[LIST]', $params['list'], $body);
+  } else {
+    $message['body'][] = $body;
+  }
+  $message['subject'] .= PlainTextOutput::renderFromHtml($token_service->replace($mail_config->get($key . '.subject'), $token_variables, $token_options));
+}
+
+
+/** _generate_email_list($user_summary)
+ *
+ * Generate the summary list for one user.
+ * @ToDo: return the site and group lists separately, so that the $headers text can go in the email template.
+ */
+function _generate_email_list($user_summary, $notification_config) {
+
+  // Prep the List of content:
+  $headers = array(
+    'site'=>'New Site-Wide Content',
+    'group'=>'New Content in Your Groups'
+  );
+
+  $list = '';
+  foreach ($headers as $k=>$h2) {
+    if (isset($user_summary[$k])) {
+      $list .= "<p><strong>$h2</strong></p>\n\r";
+      foreach ($user_summary[$k] as $type => $contents) {
+        $list .= $notification_config[$type]['display'] . ":\n\r";
+        foreach ($contents as $line) {
+          $list .= "- " . $line . "\n\r";
+        }
+      }
+    }
+  }
+  return $list;
+}
+
+
+
+/**
+ * Implements hook_cron().
+ *
+ * Similar to email_group_administrators... but not the same.
+ * Cron runs often. Send an email right after midnight: don't let it drift.
+ * Send emails a maximum of once every 24 hours (easily changed below)
+ * Current variant loosely aims for midnight
+ * by running only during am hours,
+ * and no more than once every 13 hours.
+ * Not clear what the ideal use case is, 4:50 pm might make more sense?
+ */
+function spacebase_core_cron() {
+
+  $windowMin = 0; // The earliest hour ok for this cron to send summaries
+  $windowMax = 3; // how long might cron not run, in hours, before we give up.
+                  // @ToRefactor: this, and email_group_administators, 
+                  // could put work in queue
+                  // instead of use window and $next_execution time ?
+  $request_time = \Drupal::time()->getRequestTime();  // timestamp
+  // @ToRefactor: this and _spacebase_core_send_new_content_summaries both deal in
+  // times and timezones, not sure it's ready to flex to any server time yet.
+  $hour = \Drupal::service('date.formatter')->format(
+    $request_time, 'custom', 'H');
+  $interval = 3600 * (1 + $windowMax - $windowMin); // or 24 - Max + Min
+
+
+  // TEST = run this every cron for testing?
+  $TEST = 0; // 24 * 3600;;
+  //$windowMax = 24;
+
+
+  // Run this during a window after midnight NZ (or adjust to different hours)
+  if ($windowMin <= $hour && $hour <= $windowMax) {
+    $cron_config = \Drupal::configFactory()->getEditable('spacebase_core.settings');
+
+    //## Access config to send only occassionally
+    // Check that it hasn't run in the last (24 - windowDiff) hours
+    $next_execution = \Drupal::state()->get('spacebase_core.next_execution');
+    \Drupal::logger('spacebase_core')->notice('CRON Next execution is ' . $next_execution);
+
+    $next_execution = !empty($next_execution) ? $next_execution : 0;
+    //\Drupal::state()->set('spacebase_core.next_execution', REQUEST_TIME);
+
+    \Drupal::logger('spacebase_core')->notice('CRON Request, hours is '. $hour . ', Time is ' . $request_time .  ',  after an interval of ' . $interval . ' seconds.');
+
+    if ( ($request_time + $TEST) >= $next_execution ) {
+
+      //TEST
+      \Drupal::logger('spacebase_core')->notice('CRON execution occuring at ' . $request_time);
+
+      // Do It Now
+      _spacebase_core_send_new_content_summaries();
+
+      // Set the earliest time to run this again outside the window.
+      // Might go back to this. But 24 hours seems non-configurable right now.
+      // $interval = $cron_config->get('content_notifications_interval');
+      // Default to an hourly min time between emails.
+      \Drupal::state()->set('spacebase_core.next_execution', $request_time + $interval);
+
+    }
+  }
+}

@@ -1,0 +1,6 @@
+new_content_resources_org:
+  subject: 'New content added: a resource in ''[group:title]'' at [site:name]'
+  body: "[user:display-name],\r\n\r\nA new resource was created for [group:title] at [site:name]:\r\n[node:title]"
+new_content_resources:
+  subject: 'New content: resouce at [site:name]'
+  body: "[user:display-name],\r\n\r\nA new reource was added to [site:name]:\r\n\r\n[node:title]"

@@ -34,6 +34,7 @@ function email_group_administrators_help($route_name, RouteMatchInterface $route
 }
 
 
+
 /**
  * Implements hook_cron().
  *
@@ -176,7 +177,7 @@ function email_group_administrators_mail($key, &$message, $params) {
   $token_service = \Drupal::token();
   $langcode = $message['langcode'];
   $token_variables = ['user' => $params['account']];
-  $mail_config = \Drupal::config('spacebase_core.emails'); // note: called .mail in user module, .emails in docs
+  $mail_config = \Drupal::config('email_group_administrators_mail.emails'); // note: called .mail in user module, .emails in docs
   // Note: might get rid of tokens, and do our own lighter-weight name replacement system similar to [LIST]
   $token_options = ['langcode' => $langcode,'clear' => TRUE];
   $text = $token_service->replace($mail_config->get($key . '.body'), $token_variables, $token_options);
@@ -191,9 +192,12 @@ function email_group_administrators_mail($key, &$message, $params) {
  * Implements hook_mail_edit_keys().
  * Make it available to mail_edit to edit the template
  */
-function spacebase_core_mail_edit_templates() {
+/**
+ * Implements hook_mail_edit_templates().
+ */
+function email_group_administrators_mail_edit_templates() {
   return [
-    'spacebase_core.emails' => [
+    'email_group_administrators.emails' => [
       'email_admin_pending' => t('Orgs admins notice when applicants pending'),
     ],
   ];
