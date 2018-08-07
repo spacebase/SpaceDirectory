@@ -46,7 +46,7 @@ class SearchController extends ControllerBase {
   private function searchReturn() {
     return [
       '#theme' => 'sb_search_page',
-      '#keywords' => $_GET['keywords'] ?: '',
+      '#keywords' => !empty($_GET['keywords']) ? $_GET['keywords'] : '',
       '#fullpage' => TRUE,
     ];
   }
