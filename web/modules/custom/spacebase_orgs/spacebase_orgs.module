@@ -6,6 +6,17 @@
  */
 
 use Drupal\Component\Render\PlainTextOutput;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter()
+ */
+function spacebase_orgs_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'group_organization_group_add_form') {
+    $form['actions']['submit']['#value'] = t('Create Organization');
+  }
+}
+
 
 function spacebase_orgs_preprocess_views_view_fields(&$variables) {
   if ($variables['view']->id() == 'group_members' && $variables['view']->current_display == 'page_1') {
