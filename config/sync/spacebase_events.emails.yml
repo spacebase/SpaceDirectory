@@ -1,0 +1,6 @@
+new_content_events_org:
+  subject: 'New event added to ''[group:title]'' at [site:name]'
+  body: "[user:display-name],\r\n\r\nA new event was created for [group:title] at [site:name]:\r\n[node:title]"
+new_content_events:
+  subject: 'New content: event at [site:name]'
+  body: "[user:display-name],\r\n\r\nA new event was created at [site:name]:\r\n\r\n[node:title]"
