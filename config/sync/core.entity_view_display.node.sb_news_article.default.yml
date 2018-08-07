@@ -68,4 +68,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_na_authors: true
+  field_na_post_date: true
