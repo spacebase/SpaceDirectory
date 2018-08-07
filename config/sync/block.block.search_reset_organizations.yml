@@ -1,0 +1,28 @@
+uuid: 5cb67aa2-3e62-4ff8-8359-9fd7c874da14
+langcode: en
+status: true
+dependencies:
+  config:
+    - simple_block.simple_block.research_search_orgs
+  module:
+    - simple_block
+    - system
+  theme:
+    - spacebase
+id: search_reset_organizations
+theme: spacebase
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'simple_block:research_search_orgs'
+settings:
+  id: 'simple_block:research_search_orgs'
+  label: 'Search Reset Organizations'
+  provider: simple_block
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /search/organizations
+    negate: false
+    context_mapping: {  }

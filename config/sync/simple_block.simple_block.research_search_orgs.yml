@@ -1,0 +1,11 @@
+uuid: 132e9f26-dab9-4c25-b727-8e2e4cfb7f01
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+id: research_search_orgs
+title: 'Reset Search'
+content:
+  value: "<p class=\"text-center\"><a class=\"btn btn-info btn-small\" href=\"/search/organizations\">Reset Search</a></p>\r\n"
+  format: full_html
