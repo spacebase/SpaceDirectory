@@ -8198,7 +8198,7 @@ label {
     margin: 4px 6px 0 0; }
 .region-sidebar-first .form-actions,
 .region-sidebar-second .form-actions {
-  display: block; }
+  display: none; }
   .region-sidebar-first .form-actions button,
   .region-sidebar-second .form-actions button {
     display: block;

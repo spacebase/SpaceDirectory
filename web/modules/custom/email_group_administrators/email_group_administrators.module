@@ -1,15 +1,5 @@
 <?php
 
-/** TEST
- *
- * 2 config issues to clean up, see
- * Bandaid
- * most emails to stephencataldo@gmail.com until it works well
- *
- * Soon: consider html emails.
- */
-
-
 /**
  * @file
  * Contains email_group_administrators.module.
@@ -32,6 +22,7 @@ function email_group_administrators_help($route_name, RouteMatchInterface $route
       return $output;
   }
 }
+
 
 
 /**
@@ -125,10 +116,10 @@ function _email_who_what() {
          */
         global $base_url;
         \Drupal::logger('email_group_administrators')->notice("Base URL for this server is: " . $base_url);
-        // Bandaid: temp fix for config issues, when run by non-web cron
+        // TEST Bandaid: temp fix for config issues, when run by non-web cron
         // Not sure if needed, hard to test devel server.
         if (strpos($base_url, "default")!== false) {
-          $base_url = "https://spacebase.co/";
+          $base_url = "https://spacebase.co"; // Note: removed last '/' ...
         }
         $label = Drupal\Component\Utility\Html::escape($group->label()); 
         $msg = "<br/>" . $pending . " pending members for " . $label . " at " . $base_url . "/group/" . $group->id() . "/members#pending\n";
@@ -144,10 +135,7 @@ function _email_who_what() {
   foreach ($messages as $admin => $msg) {
     $account =  \Drupal\user\Entity\User::load($admin);
     $email = $account->getEmail();
-    //TEST
-    if (strpos($email, 'rich') === false && strpos($email, 'kurt') === false ) {
-      $email = 'stephencataldo@gmail.com'; // until live runs smooth! TESTING
-    }
+    //TEST: divert emails to programmer can go here
     $langcode = $account->getPreferredLangcode();
     $params = array();
     $params['account'] = $account;
@@ -176,7 +164,7 @@ function email_group_administrators_mail($key, &$message, $params) {
   $token_service = \Drupal::token();
   $langcode = $message['langcode'];
   $token_variables = ['user' => $params['account']];
-  $mail_config = \Drupal::config('spacebase_core.emails'); // note: called .mail in user module, .emails in docs
+  $mail_config = \Drupal::config('email_group_administrators_mail.emails'); // note: called .mail in user module, .emails in docs
   // Note: might get rid of tokens, and do our own lighter-weight name replacement system similar to [LIST]
   $token_options = ['langcode' => $langcode,'clear' => TRUE];
   $text = $token_service->replace($mail_config->get($key . '.body'), $token_variables, $token_options);
@@ -191,9 +179,12 @@ function email_group_administrators_mail($key, &$message, $params) {
  * Implements hook_mail_edit_keys().
  * Make it available to mail_edit to edit the template
  */
-function spacebase_core_mail_edit_templates() {
+/**
+ * Implements hook_mail_edit_templates().
+ */
+function email_group_administrators_mail_edit_templates() {
   return [
-    'spacebase_core.emails' => [
+    'email_group_administrators.emails' => [
       'email_admin_pending' => t('Orgs admins notice when applicants pending'),
     ],
   ];

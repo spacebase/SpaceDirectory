@@ -1,0 +1,6 @@
+new_content_videos_org:
+  subject: 'New video added to  ''[group:title]'' at [site:name]'
+  body: "[user:display-name],\r\n\r\nA new video was added to [group:title] at [site:name]:\r\n[node:title]"
+new_content_videos:
+  subject: 'New content: video at [site:name]'
+  body: "[user:display-name],\r\n\r\nA new video was added to [site:name]:\r\n\r\n[node:title]"

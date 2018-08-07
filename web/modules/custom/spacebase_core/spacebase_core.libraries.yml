@@ -1,9 +1,3 @@
-sb-search:
-  version: 1.x
-  js:
-    js/sb-search.js: {}
-  dependencies:
-    - core/jquery
 leaflet-gesture-handling:
   js:
     js/leaflet-gesture-handling.js: {}

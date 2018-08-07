@@ -1,0 +1,6 @@
+new_content_projects_org:
+  subject: 'New project added in ''[group:title]'' at [site:name]'
+  body: "[user:display-name],\r\n\r\nA new project was created for [group:title] at [site:name]:\r\n\r\n[node:title]"
+new_content_projects:
+  subject: 'New content: project at [site:name]'
+  body: "[user:display-name],\r\n\r\nA new project was created at [site:name]:\r\n\r\n[node:title]"

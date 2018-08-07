@@ -1,0 +1,6 @@
+nocaptcha_recaptcha:
+  settings:
+    nocaptcha_site_key: ''
+    theme: light
+_core:
+  default_config_hash: inVIigz3ROtt2EOYQPKAnpLhveBmR3bUs-GeUCB1BVk
