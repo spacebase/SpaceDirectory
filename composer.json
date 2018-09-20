@@ -58,7 +58,7 @@
         "drupal/config_direct_save": "^1.0",
         "drupal/config_installer": "^1.0",
         "drupal/console": "^1",
-        "drupal/core": "^8.5.4",
+        "drupal/core": "^8.6.1",
         "drupal/empty_page": "^2.0",
         "drupal/group": "1.x-dev",
         "drupal/migrate_source_csv": "^2.0",
@@ -173,8 +173,6 @@
             "Fix: Group creators get duplicate entries": "https://www.drupal.org/files/issues/duplicate-members-on-group-create-fixed-2923297-3.patch"
           },
           "drupal/calendar": {
-              "Calendar Pager not rendering contextual filters": "https://www.drupal.org/files/issues/2018-04-04/calendar-pager_not_rendering_contextual_filters-2810739-4.patch",
-              "Calendar not display because of : .size() deprecated": "https://www.drupal.org/files/issues/2938872-replace-size-by-length_0.patch",
               "Year display header always shows current year after using pager": "https://www.drupal.org/files/issues/year_display_header_always_shows_current_year-2915266-02.patch",
               "ISO-8601 Week and Year": "https://www.drupal.org/files/issues/2018-06-11/iso_8601_week_and_year-2917145-4.patch",
               "Timezones": "https://www.drupal.org/files/issues/2018-03-20/2604546-26.patch"
