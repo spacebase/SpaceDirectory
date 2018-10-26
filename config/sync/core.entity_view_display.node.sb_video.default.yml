@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.sb_video.field_sb_video
     - node.type.sb_video
   module:
-    - metatag
     - text
     - user
     - video_embed_field
@@ -20,20 +19,13 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 1
     settings: {  }
     third_party_settings: {  }
-    region: content
-  field_metatags_video:
-    weight: 102
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: metatag_empty_formatter
     region: content
   field_sb_video:
-    weight: 103
-    label: above
+    weight: 2
+    label: hidden
     settings:
       responsive: true
       width: 854
@@ -43,6 +35,9 @@ content:
     type: video_embed_field_video
     region: content
   links:
-    weight: 100
+    weight: 0
     region: content
-hidden: {  }
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_metatags_video: true

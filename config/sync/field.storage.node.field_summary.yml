@@ -1,16 +1,16 @@
-uuid: 3371865c-1720-4ede-93e2-1baa945f2528
+uuid: 353856a7-aaec-4b9c-b688-2e89d5fdf648
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - video_embed_field
-id: node.field_sb_video
-field_name: field_sb_video
+id: node.field_summary
+field_name: field_summary
 entity_type: node
-type: video_embed_field
-settings: {  }
-module: video_embed_field
+type: string_long
+settings:
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

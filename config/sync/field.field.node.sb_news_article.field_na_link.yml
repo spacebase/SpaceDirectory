@@ -1,4 +1,4 @@
-uuid: ce58faef-2589-4ced-b0be-7ce340f3c97e
+uuid: aa044c58-42a0-4760-97fc-f4151f178344
 langcode: en
 status: true
 dependencies:
@@ -12,12 +12,12 @@ field_name: field_na_link
 entity_type: node
 bundle: sb_news_article
 label: Link
-description: ''
-required: false
+description: 'Link for news article.'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   link_type: 17
-  title: 1
+  title: 0
 field_type: link
