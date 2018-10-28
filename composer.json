@@ -179,7 +179,11 @@
           },
           "drupal/search_api" : {
             "Facets are lost by Views on keyword search": "https://www.drupal.org/files/issues/facets-lost-by-keyword-search-2378945-8.x-19.patch"
+          },
+          "drupal/nocaptcha_recaptcha" : {
+            "Validator has json_decode error": "./web/validator_json_decode_error-2981948-1.patch"
           }
+
         }
     },
     "replace": {
