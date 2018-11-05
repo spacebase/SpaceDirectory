@@ -110,7 +110,10 @@
         "drupal/video_embed_media": "^2.0",
         "drupal/video_embed_field": "^2.0",
         "drupal/nocaptcha_recaptcha": "1.x-dev",
-        "drupal/ds": "^3.1"
+        "drupal/ds": "^3.1",
+        "drupal/admin_toolbar": "^1.24",
+        "drupal/focal_point": "^1.0@beta",
+        "drupal/image_effects": "^2.1"
     },
     "require-dev": {
         "behat/mink": "~1.7",
