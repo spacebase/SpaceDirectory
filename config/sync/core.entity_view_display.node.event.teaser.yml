@@ -23,3 +23,4 @@ hidden:
   field_evt_location: true
   field_evt_registration: true
   field_evt_start: true
+  field_metatags: true

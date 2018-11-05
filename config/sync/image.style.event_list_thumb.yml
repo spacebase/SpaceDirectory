@@ -16,6 +16,7 @@ effects:
     data:
       width: 360
       height: 162
+      anchor: center-center
   c2cf0758-54e4-42ad-b61c-571bc68a51f7:
     uuid: c2cf0758-54e4-42ad-b61c-571bc68a51f7
     id: crop_crop

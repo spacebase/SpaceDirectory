@@ -1,7 +1,0 @@
-uuid: 780f0ed8-315e-409f-9596-e8cf16350ff1
-langcode: en
-status: false
-dependencies: {  }
-formId: node_group_forum_topic_form
-captchaType: default
-label: null
