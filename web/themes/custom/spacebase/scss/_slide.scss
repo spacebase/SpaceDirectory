@@ -70,7 +70,8 @@
     position: relative;
     z-index: 11;
     .slide-background{
-      background-position: right bottom;
+      // background-position: right bottom;
+      background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
       position: absolute;
