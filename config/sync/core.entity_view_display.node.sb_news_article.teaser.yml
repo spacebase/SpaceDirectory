@@ -28,3 +28,4 @@ hidden:
   field_na_image: true
   field_na_link: true
   field_na_post_date: true
+  field_summary: true

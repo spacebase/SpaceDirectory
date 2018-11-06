@@ -7,7 +7,6 @@ module:
   breakpoint: 0
   calendar: 0
   calendar_datetime: 0
-  captcha: 0
   cer: 0
   charts: 0
   charts_c3: 0
@@ -44,6 +43,7 @@ module:
   group: 0
   help: 0
   history: 0
+  honeypot: 0
   image: 0
   image_widget_crop: 0
   leaflet: 0
@@ -71,7 +71,6 @@ module:
   migrate_process_extra_plus: 0
   migrate_source_csv: 0
   migrate_tools: 0
-  nocaptcha_recaptcha: 0
   node: 0
   options: 0
   page_cache: 0
