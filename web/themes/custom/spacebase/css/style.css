@@ -9473,7 +9473,8 @@ body.page-node-type-blog-post .text {
       .home-slides .single-slide .slide-content .text {
         color: #fff !important;
         font-size: 20px;
-        margin-bottom: 30px; }
+        margin-bottom: 30px;
+        text-shadow: #252525 1px 1px 12px; }
         .home-slides .single-slide .slide-content .text h2 {
           font-size: 36px;
           font-weight: 800;
