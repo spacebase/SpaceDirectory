@@ -93,6 +93,9 @@ module:
   serialization: 0
   shortcut: 0
   simple_block: 0
+  social_api: 0
+  social_auth: 0
+  social_auth_google: 0
   spacebase_blogs: 0
   spacebase_core: 0
   spacebase_events: 0
