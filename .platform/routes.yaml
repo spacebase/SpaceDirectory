@@ -37,7 +37,3 @@
 "https://beta.{default}/":
     type: redirect
     to: "https://{default}/"
-
-"https://ensz4qdpjmziw.us.platform.sh/":
-    type: redirect
-    to: "https://spacebase.co/"
