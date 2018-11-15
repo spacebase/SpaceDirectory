@@ -1,11 +1,11 @@
 (function ($, Drupal, drupalSettings) {
 
   'use strict';
-  
+
   Drupal.behaviors.generalFunctions = {
     attach: function (context, settings) {
-      
-    
+
+
       var clickTap = $.support.touch ? "tap" : "click";
 /*
       $('a[href*="#"]:not([href="#"])').click(function() {
@@ -20,12 +20,12 @@
           }
         }
       });
-*/      
+*/
       window.FontAwesomeConfig = {
         searchPseudoElements: true
       }
-    
-     
+
+
       $('.navbar-collapse').on('show.bs.collapse', function () {
         $(this).addClass('open');
         $('body').addClass('nav-open');
@@ -35,11 +35,11 @@
         $('body').removeClass('nav-open');
         $('.body-overlay').hide();
       });
-      
+
       $('.body-overlay').on(clickTap, function () {
         $(".navbar-toggle").click();
       });
-      
+
       $('.nav-link').on(clickTap, function (e) {
         e.stopImmediatePropagation();
         if($('.user-dropdown').is(":visible")){
@@ -51,16 +51,16 @@
           e.stopPropagation();
           return false;
         }
-        
+
       });
-      
+
       $('.search-icon').on(clickTap, function (e) {
         e.stopPropagation();
         $('.navbar').find('.block-views-exposed-filter-blocksitewide-search-search').slideToggle(200);
         $(this).toggleClass('active');
         return false;
       });
-      
+
       $('.leave-reply').on(clickTap, function (e) {
         e.stopPropagation();
         $('.comment-form').slideDown(400);
@@ -68,7 +68,7 @@
         $('.close-comment').fadeIn(200);
         return false;
       });
-      
+
       $('.close-comment').on(clickTap, function (e) {
         e.stopPropagation();
         $('.comment-form').slideUp(400);
@@ -76,13 +76,13 @@
         $(this).hide();
         return false;
       });
-      
+
       $('.icon-blocks').on(clickTap, function (e) {
         e.stopImmediatePropagation();
         $('.user-dropdown').fadeOut(300);
         $('.main-nav').find('.region-navdropdown').fadeToggle(300);
       });
-      
+
       $(document).click(function(e){
         $('.user-dropdown').fadeOut(300);
         $('.main-nav').find('.region-navdropdown').fadeOut(300);
@@ -102,29 +102,29 @@
             .removeClass('pull-xs-left pull-xs-center pull-xs-right')
           	.addClass( 'pull-xs-' + position );
         };
-    
+
         $tabs.find('>li').removeClass('next prev');
         $prev.addClass('prev');
         $next.addClass('next');
-        
+
         updateDropdownMenu( $prev, 'left' );
         updateDropdownMenu( $current, 'center' );
         updateDropdownMenu( $next, 'right' );
       });
-      
+
       $(function() {
         // Javascript to enable link to tab
         var url = document.location.toString();
         if (url.match('#')) {
           $('.nav-tabs-responsive a[href="#'+url.split('#')[1]+'"]').tab('show') ;
         }
-      
+
         // Change hash for page-reload
         $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
           window.location.hash = e.target.hash;
         });
       });
-      
+
       $('.admin-links').find('.fa-thumbtack').on(clickTap,function(){
         $(this).parent().find('.checkbox-toggle').click();
         if ($(this).parent().find('.checkbox-toggle').is(":checked")){
@@ -137,16 +137,27 @@
       $('.filter-button').on(clickTap,function(){
         $(this).siblings('.region-sidebar-first').toggleClass('opened');
       });
-      
+
       $('.chart-tabs').tabs();
-      
+
       $('.home-slides .view-content').flexslider({
         useCSS : false,
         animation: "slide",
         controlsContainer: $(".custom-controls-container"),
         customDirectionNav: $(".custom-navigation a")
       });
-      
+
+    }
+  };
+
+  Drupal.behaviors.moveSocialLoginBlock = {
+    attach: function (context, settings) {
+      $('.user-register', context).each(function () {
+
+          $('#block-sociallogins').appendTo('.user-register-form .field--type-markup')
+
+      });
+
     }
   };
 

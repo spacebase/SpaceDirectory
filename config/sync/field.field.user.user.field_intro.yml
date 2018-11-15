@@ -20,6 +20,6 @@ default_value:
 default_value_callback: ''
 settings:
   markup:
-    value: "<h1>Sign up for SpaceBase!</h1>\r\n\r\n<p>Use the form below to become a member of our community</p>\r\n\r\n<p>&nbsp;</p>\r\n"
+    value: "<h1>Sign up for SpaceBase!</h1>\r\n\r\n<p>Use the form below to become a member of our community</p>\r\n"
     format: full_html
 field_type: markup
