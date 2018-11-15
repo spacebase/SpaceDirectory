@@ -154,7 +154,7 @@
     attach: function (context, settings) {
       $('.user-register', context).each(function () {
 
-          $('#block-sociallogins').appendTo('.user-register-form .field--type-markup')
+          $('#block-sociallogins').appendTo('.user-register-form .field--name-field-intro.field--type-markup')
 
       });
 
