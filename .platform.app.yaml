@@ -82,6 +82,9 @@ web:
                     allow: true
                 '^/sitemap\.xml$':
                     allow: true
+                # Allow access to the Google API verification file
+                '^/google.*\.html$':
+                    allow: true
 
                 # Deny direct access to configuration files.
                 '^/sites/sites\.php$':

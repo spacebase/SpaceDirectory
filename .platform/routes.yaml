@@ -37,4 +37,3 @@
 "https://beta.{default}/":
     type: redirect
     to: "https://{default}/"
-
