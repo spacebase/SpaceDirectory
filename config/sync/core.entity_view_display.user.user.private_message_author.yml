@@ -1,0 +1,51 @@
+uuid: 90e31b7d-ebc1-4d44-8eb4-f1af8d63a066
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.private_message_author
+    - field.field.user.user.field_bio_user
+    - field.field.user.user.field_email_user
+    - field.field.user.user.field_first_name_user
+    - field.field.user.user.field_home_location_user
+    - field.field.user.user.field_intro
+    - field.field.user.user.field_last_name_user
+    - field.field.user.user.field_linkedin_user
+    - field.field.user.user.field_metatags
+    - field.field.user.user.field_notification_prefs
+    - field.field.user.user.field_position
+    - field.field.user.user.field_tagline_user
+    - field.field.user.user.field_terms
+    - field.field.user.user.field_website_user
+    - field.field.user.user.user_picture
+  module:
+    - user
+_core:
+  default_config_hash: 5VkjdDDe_kM-giLC61z36ACn6Z2eMjaH63Rh6adWWpw
+id: user.user.private_message_author
+targetEntityType: user
+bundle: user
+mode: private_message_author
+content:
+  linked_username:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_bio_user: true
+  field_email_user: true
+  field_first_name_user: true
+  field_home_location_user: true
+  field_intro: true
+  field_last_name_user: true
+  field_linkedin_user: true
+  field_metatags: true
+  field_notification_prefs: true
+  field_position: true
+  field_tagline_user: true
+  field_terms: true
+  field_website_user: true
+  member_for: true
+  private_message_link: true
+  user_picture: true

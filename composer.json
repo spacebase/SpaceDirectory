@@ -110,7 +110,8 @@
         "drupal/video_embed_media": "^2.0",
         "drupal/video_embed_field": "^2.0",
         "drupal/nocaptcha_recaptcha": "1.x-dev",
-        "drupal/honeypot": "^1.29"
+        "drupal/honeypot": "^1.29",
+        "drupal/private_message": "^2.0"
     },
     "require-dev": {
         "behat/mink": "~1.7",
@@ -183,8 +184,10 @@
           },
           "drupal/nocaptcha_recaptcha" : {
             "Validator has json_decode error": "./web/validator_json_decode_error-2981948-1.patch"
-          }
-
+          },
+            "drupal/private_message": {
+                "8.x-2.0-beta15: Call to undefined method": "https://www.drupal.org/files/issues/2018-07-09/private-message-2984541-0.patch"
+            }
         }
     },
     "replace": {

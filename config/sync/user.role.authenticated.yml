@@ -21,6 +21,7 @@ permissions:
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
+  - 'use private messaging system'
   - 'use text format basic_html'
   - 'view empty pages'
   - 'view own unpublished content'
