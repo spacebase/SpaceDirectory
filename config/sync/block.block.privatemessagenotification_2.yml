@@ -1,0 +1,27 @@
+uuid: add4eeb5-d4bd-4995-be9b-4a54d18584c1
+langcode: en
+status: true
+dependencies:
+  module:
+    - private_message
+    - system
+  theme:
+    - spacebase
+id: privatemessagenotification_2
+theme: spacebase
+region: navigation
+weight: 0
+provider: null
+plugin: private_message_notification_block
+settings:
+  id: private_message_notification_block
+  label: 'Private Message Notification'
+  provider: private_message
+  label_display: visible
+  ajax_refresh_rate: 15
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
