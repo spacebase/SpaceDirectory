@@ -2,10 +2,7 @@ uuid: 012ed057-47c1-486b-98a6-8e6bc1c6d1f1
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic_block:86788d80-6fa0-4c35-851e-bc55075748d9'
   module:
-    - block_content
     - system
   theme:
     - spacebase
