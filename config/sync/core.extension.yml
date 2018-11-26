@@ -1,5 +1,7 @@
 module:
   address: 0
+  admin_toolbar: 0
+  admin_toolbar_tools: 0
   automated_cron: 0
   block: 0
   block_content: 0
@@ -11,6 +13,7 @@ module:
   charts: 0
   charts_c3: 0
   ckeditor: 0
+  coffee: 0
   color: 0
   colorbox: 0
   comment: 0
@@ -43,9 +46,9 @@ module:
   group: 0
   help: 0
   history: 0
-  honeypot: 0
   image: 0
   image_widget_crop: 0
+  layout_discovery: 0
   leaflet: 0
   leaflet_markercluster: 0
   leaflet_more_maps: 0
@@ -88,14 +91,11 @@ module:
   schema_web_site: 0
   search_api: 0
   search_api_db: 0
-  search_api_db_defaults: 0
   search_api_solr: 0
   serialization: 0
   shortcut: 0
   simple_block: 0
-  social_api: 0
-  social_auth: 0
-  social_auth_google: 0
+  smart_trim: 0
   spacebase_blogs: 0
   spacebase_core: 0
   spacebase_events: 0
@@ -104,7 +104,6 @@ module:
   spacebase_orgs: 0
   spacebase_projects: 0
   spacebase_resources: 0
-  spacebase_search: 0
   spacebase_users: 0
   spacebase_videos: 0
   system: 0
@@ -123,8 +122,10 @@ module:
   views_bulk_operations: 0
   views_templates: 0
   views_ui: 0
+  ds: 1
   menu_link_content: 1
   pathauto: 1
+  ds_extras: 2
   views: 10
   empty_page: 1000
   standard: 1000

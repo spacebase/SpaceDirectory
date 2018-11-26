@@ -1,26 +1,24 @@
 uuid: 68e8c441-9c9f-413d-ab3f-3f4174af1af9
 langcode: en
-status: true
+status: false
 dependencies:
   module:
-    - search_api_solr
-    - user
-    - search_api
     - node
+    - user
+    - search_api_solr
     - group
+    - search_api
   config:
-    - field.storage.node.body
-    - field.storage.node.field_na_authors
+    - field.storage.group.field_industry_segment
     - field.storage.group.field_description
     - field.storage.group.field_image
-    - field.storage.group.field_website
     - field.storage.group.field_headquarters_location
-    - field.storage.group.field_industry_segment
+    - field.storage.group.field_website
     - field.storage.user.field_bio_user
     - field.storage.user.field_email_user
     - field.storage.user.field_first_name_user
-    - field.storage.user.user_picture
     - field.storage.user.field_last_name_user
+    - field.storage.user.user_picture
     - field.storage.user.field_tagline_user
     - field.storage.user.field_website_user
     - search_api.server.default_solr_server
@@ -39,22 +37,33 @@ field_settings:
     type: string
     dependencies:
       module:
+        - node
+        - user
         - user
   content_changed:
     label: Changed
     datasource_id: 'entity:node'
     property_path: changed
     type: date
+    dependencies:
+      module:
+        - node
   content_created:
     label: 'Authored on'
     datasource_id: 'entity:node'
     property_path: created
     type: date
+    dependencies:
+      module:
+        - node
   content_nid:
     label: ID
     datasource_id: 'entity:node'
     property_path: nid
     type: integer
+    dependencies:
+      module:
+        - node
   content_status:
     label: 'Publishing status'
     datasource_id: 'entity:node'
@@ -62,17 +71,26 @@ field_settings:
     type: boolean
     indexed_locked: true
     type_locked: true
+    dependencies:
+      module:
+        - node
   content_title:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
     type: solr_text_ngram
     boost: !!float 21
+    dependencies:
+      module:
+        - node
   content_type:
     label: 'Content type'
     datasource_id: 'entity:node'
     property_path: type
     type: string
+    dependencies:
+      module:
+        - node
   content_uid:
     label: 'Author ID'
     datasource_id: 'entity:node'
@@ -80,6 +98,9 @@ field_settings:
     type: integer
     indexed_locked: true
     type_locked: true
+    dependencies:
+      module:
+        - node
   field_industry_segment:
     label: 'Industry Segment'
     datasource_id: 'entity:group'
@@ -93,6 +114,9 @@ field_settings:
     datasource_id: 'entity:group'
     property_path: created
     type: date
+    dependencies:
+      module:
+        - group
   group_description:
     label: Description
     datasource_id: 'entity:group'
@@ -106,6 +130,9 @@ field_settings:
     datasource_id: 'entity:group'
     property_path: id
     type: integer
+    dependencies:
+      module:
+        - group
   group_image:
     label: Image
     datasource_id: 'entity:group'
@@ -184,16 +211,25 @@ field_settings:
     property_path: label
     type: solr_text_ngram
     boost: !!float 21
+    dependencies:
+      module:
+        - group
   group_type:
     label: 'Group type'
     datasource_id: 'entity:group'
     property_path: type
     type: string
+    dependencies:
+      module:
+        - group
   group_uid:
     label: 'Group creator'
     datasource_id: 'entity:group'
     property_path: uid
     type: integer
+    dependencies:
+      module:
+        - group
   group_website:
     label: Website
     datasource_id: 'entity:group'
@@ -207,6 +243,9 @@ field_settings:
     datasource_id: 'entity:user'
     property_path: mail
     type: string
+    dependencies:
+      module:
+        - user
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
@@ -242,11 +281,17 @@ field_settings:
     datasource_id: 'entity:user'
     property_path: changed
     type: date
+    dependencies:
+      module:
+        - user
   user_created:
     label: Created
     datasource_id: 'entity:user'
     property_path: created
     type: date
+    dependencies:
+      module:
+        - user
   user_email:
     label: Email
     datasource_id: 'entity:user'
@@ -278,6 +323,9 @@ field_settings:
     datasource_id: 'entity:user'
     property_path: name
     type: string
+    dependencies:
+      module:
+        - user
   user_picture:
     label: Image
     datasource_id: 'entity:user'
@@ -291,6 +339,9 @@ field_settings:
     datasource_id: 'entity:user'
     property_path: status
     type: boolean
+    dependencies:
+      module:
+        - user
   user_tagline:
     label: Tagline
     datasource_id: 'entity:user'
@@ -304,11 +355,17 @@ field_settings:
     datasource_id: 'entity:user'
     property_path: timezone
     type: string
+    dependencies:
+      module:
+        - user
   user_uid:
     label: 'User ID'
     datasource_id: 'entity:user'
     property_path: uid
     type: integer
+    dependencies:
+      module:
+        - user
   user_website:
     label: Website
     datasource_id: 'entity:user'

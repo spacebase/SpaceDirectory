@@ -2,38 +2,21 @@ uuid: 1310978e-0933-4223-9330-3fe205d8f416
 langcode: en
 status: true
 dependencies:
-  module:
-    - group
-    - search_api
-    - user
   config:
     - field.storage.user.field_first_name_user
     - field.storage.user.field_last_name_user
     - field.storage.user.field_tagline_user
     - search_api.server.default_server
+  module:
+    - group
+    - search_api
+    - node
+    - user
 id: sapecebase_user_content
 name: Sapecebase_user_content
 description: ''
 read_only: false
 field_settings:
-  label_1:
-    label: Title
-    datasource_id: 'entity:group'
-    property_path: label
-    type: text
-  gid:
-    label: 'Parent group'
-    datasource_id: 'entity:group_content'
-    property_path: gid
-    type: integer
-  label:
-    label: 'Parent group » Group » Title'
-    datasource_id: 'entity:group_content'
-    property_path: 'gid:entity:label'
-    type: text
-    dependencies:
-      module:
-        - group
   field_first_name_user:
     label: 'First Name'
     datasource_id: 'entity:user'
@@ -58,6 +41,32 @@ field_settings:
     dependencies:
       config:
         - field.storage.user.field_tagline_user
+  gid:
+    label: 'Parent group'
+    datasource_id: 'entity:group_content'
+    property_path: gid
+    type: integer
+    dependencies:
+      module:
+        - group
+  label:
+    label: 'Parent group » Group » Title'
+    datasource_id: 'entity:group_content'
+    property_path: 'gid:entity:label'
+    type: text
+    dependencies:
+      module:
+        - group
+        - group
+        - group
+  label_1:
+    label: Title
+    datasource_id: 'entity:group'
+    property_path: label
+    type: text
+    dependencies:
+      module:
+        - group
 datasource_settings:
   'entity:group':
     bundles:
@@ -68,8 +77,21 @@ datasource_settings:
       selected: {  }
   'entity:group_content':
     bundles:
+      default: false
+      selected: {  }
+    languages:
       default: true
       selected: {  }
+  'entity:node':
+    bundles:
+      default: true
+      selected:
+        - event
+        - page
+        - partner
+        - sb_news_article
+        - sb_project
+        - sb_video
     languages:
       default: true
       selected: {  }
@@ -94,48 +116,73 @@ processor_settings:
   html_filter:
     all_fields: true
     fields:
-      - label_1
-      - label
       - field_first_name_user
       - field_last_name_user
       - field_tagline_user
+      - label
+      - label_1
     title: true
     alt: true
     tags:
+      b: 2
       h1: 5
       h2: 3
       h3: 2
       strong: 2
-      b: 2
     weights:
       preprocess_index: -15
       preprocess_query: -15
   ignorecase:
     all_fields: true
     fields:
-      - label_1
-      - label
       - field_first_name_user
       - field_last_name_user
       - field_tagline_user
+      - label
+      - label_1
     weights:
       preprocess_index: -20
       preprocess_query: -20
   rendered_item: {  }
-  tokenizer:
-    all_fields: true
+  stemmer:
+    all_fields: false
     fields:
-      - label_1
-      - label
       - field_first_name_user
       - field_last_name_user
       - field_tagline_user
+      - label
+      - label_1
+    exceptions:
+      mexican: mexic
+      texan: texa
+    weights:
+      preprocess_index: 0
+      preprocess_query: 0
+  tokenizer:
+    all_fields: true
+    fields:
+      - field_first_name_user
+      - field_last_name_user
+      - field_tagline_user
+      - label
+      - label_1
     spaces: ''
     overlap_cjk: 1
     minimum_word_size: '3'
     weights:
       preprocess_index: -6
       preprocess_query: -6
+  transliteration:
+    all_fields: true
+    fields:
+      - field_first_name_user
+      - field_last_name_user
+      - field_tagline_user
+      - label
+      - label_1
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
 tracker_settings:
   default:
     indexing_order: fifo

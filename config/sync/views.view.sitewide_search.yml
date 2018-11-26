@@ -48,7 +48,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Search
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -1341,7 +1341,20 @@ display:
             label: ''
           plugin_id: search_api
       title: Search
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'testing if this view is active'
+            format: basic_html
+          plugin_id: text
       footer: {  }
       empty: {  }
       relationships: {  }
@@ -1353,7 +1366,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          default_action: 'not found'
+          default_action: empty
           exception:
             value: ''
             title_enable: false
@@ -1379,6 +1392,33 @@ display:
           plugin_id: search_api
       display_extenders: {  }
       css_class: org-list
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+      tags:
+        - 'config:field.storage.group.field_description'
+        - 'config:field.storage.group.field_image'
+        - 'config:field.storage.group.field_industry_segment'
+        - 'config:field.storage.user.field_first_name_user'
+        - 'config:field.storage.user.field_home_location_user'
+        - 'config:field.storage.user.field_last_name_user'
+        - 'config:field.storage.user.field_tagline_user'
+        - 'config:field.storage.user.user_picture'
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: SearchPage2
+    position: 2
+    display_options:
+      display_extenders:
+        metatag_display_extender: {  }
+      path: search2
+      exposed_block: true
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:

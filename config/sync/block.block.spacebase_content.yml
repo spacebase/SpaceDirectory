@@ -11,7 +11,7 @@ _core:
 id: spacebase_content
 theme: spacebase
 region: content
-weight: -17
+weight: -15
 provider: null
 plugin: system_main_block
 settings:

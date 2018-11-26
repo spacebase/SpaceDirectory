@@ -1,6 +1,6 @@
 uuid: a5e35f91-a39b-40a6-9dc3-6006bf34af91
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - search_api.index.default_index
@@ -68,9 +68,20 @@ display:
         type: search_api
         options:
           view_modes:
+            'entity:group':
+              organization_group: search_result
             'entity:node':
               article: search_result
+              blog_post: search_result
+              event: search_result
+              group_forum_topic: search_result
               page: search_result
+              partner: search_result
+              resources: search_result
+              sb_news_article: search_result
+              sb_project: search_result
+              sb_video: search_result
+              slide: search_result
       filters:
         search_api_fulltext:
           id: search_api_fulltext
@@ -157,7 +168,8 @@ display:
     display_title: Page
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       path: search/content
     cache_metadata:
       contexts:

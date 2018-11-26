@@ -1,0 +1,10 @@
+uuid: 59641992-491b-41f6-a127-8daa18ae139c
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+id: group.search_result
+label: 'Search result'
+targetEntityType: group
+cache: true

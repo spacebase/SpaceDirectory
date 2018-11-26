@@ -11,19 +11,19 @@ dependencies:
     - spacebase
 id: exposedformsitewide_searchsearch
 theme: spacebase
-region: sidebar_first
-weight: -13
+region: content
+weight: -18
 provider: null
 plugin: 'views_exposed_filter_block:sitewide_search-search'
 settings:
   id: 'views_exposed_filter_block:sitewide_search-search'
   label: ''
   provider: views
-  label_display: '0'
+  label_display: visible
   views_label: ''
 visibility:
   request_path:
     id: request_path
-    pages: /search/organizations
-    negate: false
+    pages: ''
+    negate: true
     context_mapping: {  }

@@ -1,0 +1,108 @@
+uuid: 56aa861a-5d32-4981-a602-8f58732ca483
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.group.search_result
+    - field.field.group.organization_group.field_description
+    - field.field.group.organization_group.field_headquarters_location
+    - field.field.group.organization_group.field_image
+    - field.field.group.organization_group.field_industry_segment
+    - field.field.group.organization_group.field_linkedin
+    - field.field.group.organization_group.field_map_address
+    - field.field.group.organization_group.field_metatags
+    - field.field.group.organization_group.field_website
+    - group.type.organization_group
+  module:
+    - ds
+    - smart_trim
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - label
+        - field_description
+id: group.organization_group.search_result
+targetEntityType: group
+bundle: organization_group
+mode: search_result
+content:
+  field_description:
+    type: smart_trim
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      trim_length: 300
+      trim_type: chars
+      trim_suffix: ''
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      summary_handler: trim
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  label:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: true
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: h2
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+hidden:
+  changed: true
+  created: true
+  field_headquarters_location: true
+  field_image: true
+  field_industry_segment: true
+  field_linkedin: true
+  field_map_address: true
+  field_metatags: true
+  field_website: true
+  uid: true

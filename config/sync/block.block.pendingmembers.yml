@@ -10,7 +10,7 @@ dependencies:
 id: pendingmembers
 theme: spacebase
 region: content
-weight: -7
+weight: -6
 provider: null
 plugin: org_pending_members_block
 settings:
