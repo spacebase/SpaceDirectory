@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.search_3
   module:
+    - system
     - views
   theme:
     - spacebase
@@ -20,4 +21,9 @@ settings:
   provider: views
   label_display: '0'
   views_label: ''
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '/search*'
+    negate: true
+    context_mapping: {  }

@@ -2,21 +2,30 @@ uuid: 1310978e-0933-4223-9330-3fe205d8f416
 langcode: en
 status: true
 dependencies:
+  module:
+    - group
+    - node
+    - search_api
+    - user
   config:
+    - field.storage.node.body
     - field.storage.user.field_first_name_user
     - field.storage.user.field_last_name_user
     - field.storage.user.field_tagline_user
     - search_api.server.default_server
-  module:
-    - group
-    - search_api
-    - node
-    - user
 id: sapecebase_user_content
 name: Sapecebase_user_content
 description: ''
 read_only: false
 field_settings:
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
   field_first_name_user:
     label: 'First Name'
     datasource_id: 'entity:user'
@@ -67,6 +76,14 @@ field_settings:
     dependencies:
       module:
         - group
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
 datasource_settings:
   'entity:group':
     bundles:
@@ -84,8 +101,9 @@ datasource_settings:
       selected: {  }
   'entity:node':
     bundles:
-      default: true
+      default: false
       selected:
+        - blog_post
         - event
         - page
         - partner
@@ -116,11 +134,13 @@ processor_settings:
   html_filter:
     all_fields: true
     fields:
+      - body
       - field_first_name_user
       - field_last_name_user
       - field_tagline_user
       - label
       - label_1
+      - title
     title: true
     alt: true
     tags:
@@ -135,11 +155,13 @@ processor_settings:
   ignorecase:
     all_fields: true
     fields:
+      - body
       - field_first_name_user
       - field_last_name_user
       - field_tagline_user
       - label
       - label_1
+      - title
     weights:
       preprocess_index: -20
       preprocess_query: -20
@@ -161,6 +183,7 @@ processor_settings:
   tokenizer:
     all_fields: true
     fields:
+      - body
       - field_first_name_user
       - field_last_name_user
       - field_tagline_user
@@ -175,11 +198,13 @@ processor_settings:
   transliteration:
     all_fields: true
     fields:
+      - body
       - field_first_name_user
       - field_last_name_user
       - field_tagline_user
       - label
       - label_1
+      - title
     weights:
       preprocess_index: -20
       preprocess_query: -20

@@ -27,23 +27,33 @@ dependencies:
 third_party_settings:
   ds:
     layout:
-      id: layout_twocol
-      library: layout_discovery/twocol
-      disable_css: false
+      id: ds_2col_stacked
+      library: ds/ds_2col_stacked
+      disable_css: true
       entity_classes: all_classes
-      settings: {  }
+      settings:
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
     regions:
-      top:
-        - 'dynamic_token_field:user-full_name'
-      first:
+      left:
         - user_picture
-      second:
+      right:
+        - 'dynamic_token_field:user-full_name'
         - field_bio_user
         - field_tagline_user
     fields:
       'dynamic_token_field:user-full_name':
         plugin_id: 'dynamic_token_field:user-full_name'
-        weight: 0
+        weight: 1
         label: hidden
         formatter: default
         ft:
@@ -87,7 +97,7 @@ content:
       trim_length: 300
     third_party_settings: {  }
     type: text_summary_or_trimmed
-    region: second
+    region: right
   field_tagline_user:
     weight: 3
     label: hidden
@@ -95,11 +105,11 @@ content:
       trim_length: 600
     third_party_settings: {  }
     type: text_trimmed
-    region: second
+    region: right
   user_picture:
     type: image
-    weight: 1
-    region: first
+    weight: 0
+    region: left
     settings:
       image_style: member_thumb_small
       image_link: content
