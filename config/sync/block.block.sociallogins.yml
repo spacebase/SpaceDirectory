@@ -1,23 +1,23 @@
-uuid: cd356f5b-7717-4f0a-9a29-4b12409d1da5
+uuid: 012ed057-47c1-486b-98a6-8e6bc1c6d1f1
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:parallax_block:317b0ea6-d569-409d-af15-f0eff23c0aea'
+    - 'block_content:basic_block:86788d80-6fa0-4c35-851e-bc55075748d9'
   module:
     - block_content
     - system
   theme:
     - spacebase
-id: homepagewelcome
+id: sociallogins
 theme: spacebase
 region: content
-weight: -14
+weight: -16
 provider: null
-plugin: 'block_content:317b0ea6-d569-409d-af15-f0eff23c0aea'
+plugin: 'block_content:86788d80-6fa0-4c35-851e-bc55075748d9'
 settings:
-  id: 'block_content:317b0ea6-d569-409d-af15-f0eff23c0aea'
-  label: 'Home Page Welcome'
+  id: 'block_content:86788d80-6fa0-4c35-851e-bc55075748d9'
+  label: 'Social logins'
   provider: block_content
   label_display: '0'
   status: true
@@ -26,6 +26,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
+    pages: "/user/login\r\n/user/register"
     negate: false
     context_mapping: {  }

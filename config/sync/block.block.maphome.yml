@@ -12,7 +12,7 @@ dependencies:
 id: maphome
 theme: spacebase
 region: content
-weight: -16
+weight: -15
 provider: null
 plugin: 'simple_block:map_home'
 settings:

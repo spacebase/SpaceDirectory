@@ -12,7 +12,7 @@ dependencies:
 id: aboutsection
 theme: spacebase
 region: content
-weight: -13
+weight: -12
 provider: null
 plugin: 'block_content:d3adafa4-4939-4e34-ab8b-17bb7a9428e3'
 settings:

@@ -13,7 +13,7 @@ dependencies:
 id: joinusrow
 theme: spacebase
 region: content
-weight: -14
+weight: -13
 provider: null
 plugin: 'block_content:fe604a33-62d5-4d83-bc01-c13f5a3f9da0'
 settings:
