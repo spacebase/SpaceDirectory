@@ -1,6 +1,6 @@
 uuid: 436ef7b5-f7e0-4514-846c-d09309df1e40
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.sitewide_search
