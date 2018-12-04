@@ -201,7 +201,7 @@ display:
             use_operator: false
             operator: search_api_fulltext_op
             identifier: search_api_fulltext
-            required: true
+            required: false
             remember: false
             multiple: false
             remember_roles:
@@ -388,4 +388,3 @@ display:
         - url.query_args
       tags:
         - 'config:field.storage.user.field_first_name_user'
-
