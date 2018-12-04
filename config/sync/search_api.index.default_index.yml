@@ -2,15 +2,14 @@ uuid: c710e02a-d122-4941-9e5c-0c0b710511b8
 langcode: en
 status: false
 dependencies:
-  module:
-    - node
-    - user
-    - search_api
-    - group
   config:
     - field.storage.node.field_tags
     - search_api.server.default_server
     - core.entity_view_mode.node.search_index
+  module:
+    - user
+    - search_api
+    - node
 _core:
   default_config_hash: CeQvQFFCLtBV14W1topZP19nFUlS3bSckwuryffgkgk
 id: default_index
@@ -18,47 +17,12 @@ name: 'Default content index'
 description: 'Default content index created by the Database Search Defaults module'
 read_only: false
 field_settings:
-  author:
-    label: 'Author name'
+  title:
+    label: Title
     datasource_id: 'entity:node'
-    property_path: 'uid:entity:name'
-    type: string
-    dependencies:
-      module:
-        - node
-        - user
-        - user
-  changed:
-    label: Changed
-    datasource_id: 'entity:node'
-    property_path: changed
-    type: date
-    dependencies:
-      module:
-        - node
-  created:
-    label: 'Authored on'
-    datasource_id: 'entity:node'
-    property_path: created
-    type: date
-    dependencies:
-      module:
-        - node
-  field_tags:
-    label: Tags
-    datasource_id: 'entity:node'
-    property_path: field_tags
-    type: integer
-    dependencies:
-      config:
-        - field.storage.node.field_tags
-  node_grants:
-    label: 'Node access information'
-    property_path: search_api_node_grants
-    type: string
-    indexed_locked: true
-    type_locked: true
-    hidden: true
+    property_path: title
+    type: text
+    boost: !!float 8
   rendered_item:
     label: 'Rendered item'
     property_path: rendered_item
@@ -70,6 +34,16 @@ field_settings:
         'entity:node':
           article: search_index
           page: search_index
+  created:
+    label: 'Authored on'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+  changed:
+    label: Changed
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
   status:
     label: 'Publishing status'
     datasource_id: 'entity:node'
@@ -77,34 +51,27 @@ field_settings:
     type: boolean
     indexed_locked: true
     type_locked: true
-    dependencies:
-      module:
-        - node
   sticky:
     label: 'Sticky at top of lists'
     datasource_id: 'entity:node'
     property_path: sticky
     type: boolean
-    dependencies:
-      module:
-        - node
-  title:
-    label: Title
+  field_tags:
+    label: Tags
     datasource_id: 'entity:node'
-    property_path: title
-    type: text
-    boost: !!float 8
+    property_path: field_tags
+    type: integer
     dependencies:
-      module:
-        - node
-  type:
-    label: 'Content type'
+      config:
+        - field.storage.node.field_tags
+  author:
+    label: 'Author name'
     datasource_id: 'entity:node'
-    property_path: type
+    property_path: 'uid:entity:name'
     type: string
     dependencies:
       module:
-        - node
+        - user
   uid:
     label: 'Author ID'
     datasource_id: 'entity:node'
@@ -112,17 +79,19 @@ field_settings:
     type: integer
     indexed_locked: true
     type_locked: true
-    dependencies:
-      module:
-        - node
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
 datasource_settings:
-  'entity:group':
-    bundles:
-      default: true
-      selected: {  }
-    languages:
-      default: true
-      selected: {  }
   'entity:node':
     bundles:
       default: true
@@ -153,11 +122,11 @@ processor_settings:
     title: true
     alt: true
     tags:
-      b: 2
       h1: 5
       h2: 3
       h3: 2
       string: 2
+      b: 2
     all_fields: false
   ignorecase:
     weights:
@@ -173,8 +142,8 @@ processor_settings:
       pre_index_save: -10
   stopwords:
     weights:
-      postprocess_query: -10
       preprocess_query: -10
+      postprocess_query: -10
     fields:
       - rendered_item
       - title
