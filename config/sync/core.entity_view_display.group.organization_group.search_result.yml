@@ -91,21 +91,12 @@ content:
             lb-col: false
             classes: {  }
   label:
-    type: smart_trim
+    type: string
     weight: 1
     region: right
     label: hidden
     settings:
-      trim_length: 600
-      trim_type: chars
-      trim_suffix: ''
-      wrap_output: false
-      wrap_class: trimmed
-      more_link: false
-      more_class: more-link
-      more_text: More
-      summary_handler: full
-      trim_options: {  }
+      link_to_entity: true
     third_party_settings:
       ds:
         ft:
