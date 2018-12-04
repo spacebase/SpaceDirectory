@@ -8067,63 +8067,6 @@ body.path-search.topbar-open .main-container {
       margin: 4px 10px 0 0;
       vertical-align: top; }
 
-@media screen and (min-width: 980px) {
-  .path-search .region-content .views-exposed-form fieldset.form-item {
-    position: absolute;
-    left: 0;
-    top: 78px;
-    width: 260px; }
-  .path-search .region-content .views-element-container {
-    margin-left: 300px; } }
-.path-search .region-content .views-exposed-form {
-  margin-top: 20PX;
-  margin-bottom: 30px; }
-  .path-search .region-content .views-exposed-form fieldset.form-item {
-    display: block;
-    border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
-    .path-search .region-content .views-exposed-form fieldset.form-item legend {
-      margin-bottom: 0px;
-      padding: 35px 35px 10px 35px;
-      background: white;
-      border: 0px; }
-    .path-search .region-content .views-exposed-form fieldset.form-item .fieldset-wrapper {
-      padding: 0px 35px 35px 35px;
-      background: white; }
-    .path-search .region-content .views-exposed-form fieldset.form-item .form-checkboxes .form-item {
-      display: block;
-      margin-bottom: 5px; }
-      .path-search .region-content .views-exposed-form fieldset.form-item .form-checkboxes .form-item input[type="checkbox"] {
-        margin-right: 6px; }
-.path-search .region-content .views-element-container {
-  padding: 35px;
-  background: #fff;
-  margin-bottom: 35px;
-  border-radius: 2px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
-  .path-search .region-content .views-element-container .view-header {
-    padding-bottom: 20px; }
-  .path-search .region-content .views-element-container .views-row {
-    padding: 15px 0;
-    border-bottom: 2px solid #f0f0f0; }
-    .path-search .region-content .views-element-container .views-row:first-child {
-      border-top: 2px solid #f0f0f0; }
-    .path-search .region-content .views-element-container .views-row h2 {
-      margin-bottom: 12px; }
-    .path-search .region-content .views-element-container .views-row .field--name-user-picture {
-      margin-bottom: 10px; }
-    .path-search .region-content .views-element-container .views-row .field--name-field-image img {
-      border-radius: 100%; }
-  .path-search .region-content .views-element-container .ds-2col-stacked {
-    display: flex;
-    flex-wrap: wrap; }
-    .path-search .region-content .views-element-container .ds-2col-stacked .group-header {
-      flex: 1 0 100%; }
-    .path-search .region-content .views-element-container .ds-2col-stacked .group-left {
-      padding-right: 20px; }
-    .path-search .region-content .views-element-container .ds-2col-stacked .group-right {
-      flex: 1 1; }
-
 .form-group {
   max-width: 100%; }
 
@@ -9646,44 +9589,6 @@ body.page-node-type-blog-post .text {
     padding-right: 55px; }
 
 .user-register #block-sociallogins {
-  margin: 0 0 60px 0; }
-
-.region-navigation .views-exposed-form {
-  float: left;
-  margin-top: 10px; }
-  .region-navigation .views-exposed-form input[type="text"] {
-    margin: 5px 0;
-    border-radius: 2px 0 0 2px; }
-  .region-navigation .views-exposed-form button[type="submit"] {
-    margin-left: 0px;
-    text-indent: -9999px;
-    position: relative;
-    padding: 10px 22px;
-    border: 1px solid #3bba50;
-    font-size: 16px;
-    border-radius: 0px 2px 2px 0px; }
-    .region-navigation .views-exposed-form button[type="submit"]:after {
-      font-family: 'Font Awesome\ 5 Free';
-      content: '\f002';
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-font-smoothing: antialiased;
-      display: inline-block;
-      font-weight: 900;
-      font-style: normal;
-      font-variant: normal;
-      text-rendering: auto;
-      line-height: 1;
-      font-size: 24px;
-      line-height: 42px;
-      height: 42px;
-      width: 30px;
-      color: #fff;
-      text-align: center;
-      text-indent: 0;
-      position: absolute;
-      top: 0;
-      left: 8px; }
-.region-navigation fieldset.form-item {
-  display: none; }
+  margin: 0 0 20px 0; }
 
 /*# sourceMappingURL=style.css.map */
