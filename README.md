@@ -1,48 +1,58 @@
-# Drupal project template for Platform.sh
+<!-- @file Instructions for subtheming using the Sass Starterkit. -->
+<!-- @defgroup sub_theming_sass -->
+<!-- @ingroup sub_theming -->
+# Sass Starterkit
 
-This project provides a starter kit for Drupal 8 projects hosted on [Platform.sh](http://platform.sh). It
-is very closely based on the [Drupal Composer project](https://github.com/drupal-composer/drupal-project).
+Below are instructions on how to create a Bootstrap sub-theme using a Sass
+preprocessor.
 
-## Starting a new project
+- [Prerequisites](#prerequisites)
+- [Additional Setup](#setup)
+- [Overrides](#overrides)
 
-To start a new Drupal 8 project on Platform.sh, you have 2 options:
+## Prerequisites
+- Read the @link getting_started Getting Started @endlink and @link sub_theming Sub-theming @endlink documentation topics.
+- You must understand the basic concept of using the [Sass] CSS pre-processor.
+- You must use a **[local Sass compiler](https://www.google.com/search?q=sass+compiler)**.
+- You must use the [Bootstrap Framework Source Files] ending in the `.scss`
+  extension, not files ending in `.css`.
 
-1. Create a new project through the Platform.sh user interface and select "start
-   new project from a template".  Then select Drupal 8 as the template. That will
-   create a new project using this repository as a starting point.
+## Additional Setup {#setup}
+Download and extract the **latest** 3.x.x version of
+[Bootstrap Framework Source Files] into the root of your new sub-theme. After
+it has been extracted, the directory should be renamed (if needed) so it reads
+`./THEMENAME/bootstrap`.
 
-2. Take an existing project, add the necessary Platform.sh files, and push it
-   to a Platform.sh Git repository. This template includes examples of how to
-   set up a Drupal 8 site.  (See the "differences" section below.)
+If for whatever reason you have an additional `bootstrap` directory wrapping the
+first `bootstrap` directory (e.g. `./THEMENAME/bootstrap/bootstrap`), remove the
+wrapping `bootstrap` directory. You will only ever need to touch these files if
+or when you upgrade your version of the [Bootstrap Framework].
 
-## Using as a reference
+{.alert.alert-warning} **WARNING:** Do not modify the files inside of
+`./THEMENAME/bootstrap` directly. Doing so may cause issues when upgrading the
+[Bootstrap Framework] in the future.
 
-You can also use this repository as a reference for your own Drupal projects, and borrow whatever code is needed.  The most important parts are the [`.platform.app.yaml`](/.platform.app.yaml) file and the [`.platform`](/.platform) directory.
+## Overrides {#overrides}
+The `./THEMENAME/scss/_default-variables.scss` file is generally where you will
+spend the majority of your time providing any default variables that should be
+used by the [Bootstrap Framework] instead of its own.
 
-Also see:
+The `./THEMENAME/scss/overrides.scss` file contains various Drupal overrides to
+properly integrate with the [Bootstrap Framework]. It may contain a few
+enhancements, feel free to edit this file as you see fit.
 
-* [`settings.php`](/web/sites/default/settings.php) - The customized `settings.php` file works for both Platform.sh and local development, setting only those values that are needed in both.  You can add additional values as documented in `default.settings.php` as desired.
-* [`settings.platformsh.php`](/web/sites/default/settings.platformsh.php) - This file contains Platform.sh-specific code to map environment variables into Drupal configuration.  You can add to it as needed.  See [the documentation](https://docs.platform.sh/frameworks/drupal8.html) for more examples of common snippets to include here.
-* [`scripts/platformsh`](/scripts/platformsh) - This directory contains our update script to keep this repository in sync with the Drupal Composer project.  It may be safely ignored or removed.
+The `./THEMENAME/scss/style.scss` file is the glue that combines:
+`_default-variables.scss`, [Bootstrap Framework Source Files] and the 
+`overrides.scss` file together. Generally, you will not need to modify this
+file unless you need to add or remove files to be imported. This is the file
+that you should compile to `./THEMENAME/css/style.css` (note the same file
+name, using a different extension of course).
 
-## Managing a Drupal site built with Composer
+#### See also:
+- @link theme_settings Theme Settings @endlink
+- @link templates Templates @endlink
+- @link plugins Plugin System @endlink
 
-Nothing is easier than managing a Composer-based Drupal site on Platform.sh. See [Drupal 8 and Composer](https://docs.platform.sh/frameworks/drupal8.html) for details. For example adding a single module to your Drupal installation is as simple as:
-
-```sh
-composer require drupal/devel
-git commit -am 'Add the Devel module'
-git push
-```
-
-## How does this starter kit differ from vanilla Drupal from Drupal.org?
-
-1. The `vendor` directory (where non-Drupal code lives) and the `config` directory
-   (used for syncing configuration from development to production) are outside
-   the web root. This is a bit more secure as those files are now not web-accessible.
-
-2. The `settings.php` and `settings.platformsh.php` files are provided by
-   default. The `settings.platformsh.php` file automatically sets up the database connection on Platform.sh, and allows controlling Drupal configuration from environment variables.
-
-3. We include recommended `.platform.app.yaml` and `.platform` files that should suffice
-   for most use cases. You are free to tweak them as needed for your particular site.
+[Bootstrap Framework]: http://getbootstrap.com
+[Bootstrap Framework Source Files]: https://github.com/twbs/bootstrap-sass
+[Sass]: http://sass-lang.com
