@@ -15,14 +15,38 @@ dependencies:
     - image.style.member_thumb_small
   module:
     - address
+    - geocoder_geofield
     - image
+    - link
     - metatag
+    - smart_trim
     - text
+    - user
 id: group.organization_group.default
 targetEntityType: group
 bundle: organization_group
 mode: default
 content:
+  changed:
+    type: timestamp
+    weight: 0
+    region: content
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+  created:
+    type: timestamp
+    weight: 0
+    region: content
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
   field_description:
     weight: 1
     label: hidden
@@ -54,6 +78,27 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_linkedin:
+    type: link_separate
+    weight: 0
+    region: content
+    label: above
+    settings:
+      trim_length: 80
+      rel: ''
+      target: ''
+      url_only: false
+      url_plain: false
+    third_party_settings: {  }
+  field_map_address:
+    type: geocoder_geofield_reverse_geocode
+    weight: 0
+    region: content
+    label: above
+    settings:
+      dumper: wkt
+      plugins: {  }
+    third_party_settings: {  }
   field_metatags:
     weight: 4
     label: above
@@ -61,11 +106,40 @@ content:
     third_party_settings: {  }
     type: metatag_empty_formatter
     region: content
-hidden:
-  changed: true
-  created: true
-  field_linkedin: true
-  field_map_address: true
-  field_website: true
-  label: true
-  uid: true
+  field_website:
+    type: link_separate
+    weight: 0
+    region: content
+    label: above
+    settings:
+      trim_length: 80
+      rel: ''
+      target: ''
+      url_only: false
+      url_plain: false
+    third_party_settings: {  }
+  label:
+    type: smart_trim
+    weight: 0
+    region: content
+    label: above
+    settings:
+      trim_length: 600
+      trim_type: chars
+      trim_suffix: ''
+      wrap_output: false
+      wrap_class: trimmed
+      more_link: false
+      more_class: more-link
+      more_text: More
+      summary_handler: full
+      trim_options: {  }
+    third_party_settings: {  }
+  uid:
+    type: author
+    weight: 0
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
