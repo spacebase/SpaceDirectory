@@ -1,0 +1,11 @@
+id: full_name
+label: 'Full Name'
+ui_limit: ''
+properties:
+  content:
+    value: '<a href="[user:url]">[user:field_first_name_user] [user:field_last_name_user]</a>'
+    format: raw_html
+type: token
+type_label: 'Token field'
+entities:
+  user: user
