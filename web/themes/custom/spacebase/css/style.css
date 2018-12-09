@@ -9686,4 +9686,8 @@ body.page-node-type-blog-post .text {
 .region-navigation fieldset.form-item {
   display: none; }
 
+.region-navigation .block-private-message-notification-block {
+  float: right;
+  margin-top: 12px; }
+
 /*# sourceMappingURL=style.css.map */
