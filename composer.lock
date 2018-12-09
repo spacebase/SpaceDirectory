@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5da606002e51f9e7b891077cd02a5abf",
+    "content-hash": "b54f65a1eacfd6702ddd40147c5a066a",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5199,7 +5199,8 @@
                     }
                 },
                 "patches_applied": {
-                    "8.x-2.0-beta15: Call to undefined method": "https://www.drupal.org/files/issues/2018-07-09/private-message-2984541-0.patch"
+                    "8.x-2.0-beta15: Call to undefined method": "https://www.drupal.org/files/issues/2018-07-09/private-message-2984541-0.patch",
+                    "8.x-2.0-beta15: Undefiend index #id": "https://www.drupal.org/files/issues/2018-07-03/private-message-2961332-2.0.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -10214,6 +10215,11 @@
         {
             "name": "webflo/drupal-core-strict",
             "version": "8.0.0-beta15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webflo/drupal-core-strict.git",
+                "reference": "1eb044b722ebe44bc6af86a03888415d7f31c057"
+            },
             "type": "metapackage",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
