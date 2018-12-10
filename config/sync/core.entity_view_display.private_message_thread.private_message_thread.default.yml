@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - ds
     - private_message
 _core:
   default_config_hash: UW70Shyu4Z_hAePqer7HsVOLh52E0vjLlb8dJaPT3hg
@@ -13,9 +14,9 @@ mode: default
 content:
   delete_link:
     weight: -100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   members:
     label: above
     type: private_message_thread_member_formatter
@@ -24,7 +25,16 @@ content:
     settings:
       display_type: entity
       entity_display_mode: private_message_author
-    third_party_settings: {  }
+      members_prefix: 'You and'
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
   private_message_form:
     weight: 2
     region: content
@@ -40,6 +50,15 @@ content:
       ajax_previous_load_count: 5
       ajax_refresh_rate: 20
       message_order: asc
-    third_party_settings: {  }
+      view_mode: default
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
 hidden:
   last_message: true

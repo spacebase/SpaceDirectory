@@ -24,7 +24,7 @@ content:
     weight: 0
     region: content
     settings:
-      display_type: label
+      display_type: entity
       entity_display_mode: private_message_author
     third_party_settings: {  }
 hidden:

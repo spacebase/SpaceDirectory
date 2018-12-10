@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - ds
     - private_message
     - text
 _core:
@@ -37,7 +38,14 @@ content:
     settings:
       view_mode: private_message_author
       link: false
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
   timestamp:
     weight: 0
     region: content

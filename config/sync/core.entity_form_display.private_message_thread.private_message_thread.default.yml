@@ -14,9 +14,10 @@ content:
   members:
     type: private_message_thread_member_widget
     settings:
-      match_operator: CONTAINS
       size: 60
       placeholder: ''
+      max_members: '1'
+      match_operator: CONTAINS
     weight: -3
     region: content
     third_party_settings: {  }

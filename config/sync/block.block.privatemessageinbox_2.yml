@@ -20,7 +20,7 @@ settings:
   label_display: visible
   thread_count: 5
   ajax_load_count: 5
-  ajax_refresh_rate: 15
+  ajax_refresh_rate: 20
 visibility:
   request_path:
     id: request_path

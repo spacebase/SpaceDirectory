@@ -11,7 +11,7 @@ dependencies:
 id: sitewide_search_keywords
 theme: spacebase
 region: navigation
-weight: 0
+weight: -15
 provider: null
 plugin: 'views_exposed_filter_block:sitewide_search-search'
 settings:

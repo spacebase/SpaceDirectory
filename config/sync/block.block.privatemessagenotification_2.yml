@@ -10,7 +10,7 @@ dependencies:
 id: privatemessagenotification_2
 theme: spacebase
 region: navigation
-weight: 0
+weight: -20
 provider: null
 plugin: private_message_notification_block
 settings:
