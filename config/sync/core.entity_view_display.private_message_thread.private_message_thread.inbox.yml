@@ -14,7 +14,7 @@ bundle: private_message_thread
 mode: inbox
 content:
   last_message:
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -26,8 +26,20 @@ content:
     settings:
       display_type: entity
       entity_display_mode: private_message_author
+      members_prefix: 'You and'
+    third_party_settings: {  }
+  private_messages:
+    type: private_message_thread_message_formatter
+    weight: 1
+    region: content
+    label: above
+    settings:
+      message_count: 5
+      ajax_previous_load_count: 5
+      message_order: asc
+      ajax_refresh_rate: 20
+      view_mode: default
     third_party_settings: {  }
 hidden:
   delete_link: true
   private_message_form: true
-  private_messages: true

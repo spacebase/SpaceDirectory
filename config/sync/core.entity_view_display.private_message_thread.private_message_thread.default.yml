@@ -13,14 +13,14 @@ bundle: private_message_thread
 mode: default
 content:
   delete_link:
-    weight: -100
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
   members:
     label: above
     type: private_message_thread_member_formatter
-    weight: 0
+    weight: 1
     region: content
     settings:
       display_type: entity
@@ -36,13 +36,13 @@ content:
             lb-col: false
             classes: {  }
   private_message_form:
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   private_messages:
     type: private_message_thread_message_formatter
-    weight: 1
+    weight: 2
     region: content
     label: above
     settings:

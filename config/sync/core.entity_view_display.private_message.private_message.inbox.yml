@@ -26,11 +26,10 @@ content:
     type: timestamp
   message:
     label: visually_hidden
-    type: text_trimmed
+    type: text_default
     weight: 2
     region: content
-    settings:
-      trim_length: 200
+    settings: {  }
     third_party_settings: {  }
   owner:
     label: inline

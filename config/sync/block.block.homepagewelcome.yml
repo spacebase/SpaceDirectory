@@ -12,7 +12,7 @@ dependencies:
 id: homepagewelcome
 theme: spacebase
 region: content
-weight: -14
+weight: -17
 provider: null
 plugin: 'block_content:317b0ea6-d569-409d-af15-f0eff23c0aea'
 settings:

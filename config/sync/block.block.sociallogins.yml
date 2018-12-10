@@ -9,7 +9,7 @@ dependencies:
 id: sociallogins
 theme: spacebase
 region: content
-weight: -16
+weight: -19
 provider: null
 plugin: 'block_content:86788d80-6fa0-4c35-851e-bc55075748d9'
 settings:

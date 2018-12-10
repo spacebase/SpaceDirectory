@@ -18,10 +18,10 @@ settings:
   label: 'Private Message Notification'
   provider: private_message
   label_display: visible
-  ajax_refresh_rate: 15
+  ajax_refresh_rate: 20
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
-    negate: false
+    pages: "/private_messages\r\n/private_messages/*"
+    negate: true
     context_mapping: {  }
