@@ -9690,4 +9690,7 @@ body.page-node-type-blog-post .text {
   float: right;
   margin-top: 12px; }
 
+.block-private-message .user--view-mode-private-message-author {
+  display: inline-block; }
+
 /*# sourceMappingURL=style.css.map */
