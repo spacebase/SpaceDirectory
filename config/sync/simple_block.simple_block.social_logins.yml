@@ -1,0 +1,11 @@
+uuid: 7de22b94-a0fb-4004-921d-eadf31d51595
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+id: social_logins
+title: 'Social logins'
+content:
+  value: "<p>or</p>\r\n\r\n<p><a class=\"button google\" href=\"/user/login/google\">Sign in with Google</a></p>\r\n"
+  format: full_html
