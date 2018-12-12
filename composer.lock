@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a4b55b138167b3017e54d43551905996",
+    "content-hash": "6cf8047cdd2de87dfcd49bfe71b0750b",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3987,7 +3987,8 @@
                     }
                 },
                 "patches_applied": {
-                    "8.x-1.29: honeypot defeated": "https://www.drupal.org/files/issues/2018-08-10/2811189-14.patch"
+                    "8.x-1.29: honeypot defeated": "https://www.drupal.org/files/issues/2018-08-10/2811189-14.patch",
+                    "8.x-1.29: Server side token": "https://www.drupal.org/files/issues/2018-11-29/3002022-37.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
