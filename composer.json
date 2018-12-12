@@ -192,8 +192,10 @@
           },
           "drupal/nocaptcha_recaptcha" : {
             "Validator has json_decode error": "./web/validator_json_decode_error-2981948-1.patch"
+          },
+          "drupal/honeypot" : {
+              "8.x-1.29: honeypot defeated": "https://www.drupal.org/files/issues/2018-08-10/2811189-14.patch"
           }
-
         }
     },
     "replace": {
