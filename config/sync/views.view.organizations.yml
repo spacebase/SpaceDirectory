@@ -660,9 +660,19 @@ display:
           empty: false
           tokenize: false
           content:
-            value: 'Download the organizations as a CSV file.'
+            value: '<p><a href="/admin/exports/organizations.csv">Download the organizations as a CSV file.</a></p>'
             format: basic_html
           plugin_id: text
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: '<p>Displaying @start - @end of @total</p>'
+          plugin_id: result
       footer: {  }
       empty: {  }
       relationships:
@@ -701,22 +711,8 @@ display:
       display_extenders:
         metatag_display_extender: {  }
       path: admin/exports/organizations
-      header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content:
-            value: '<p><a href="/admin/exports/organizations.csv">Download the organizations as a CSV file.</a></p>'
-            format: basic_html
-          plugin_id: text
       defaults:
-        header: false
+        header: true
         style: false
         row: false
       style:
@@ -763,22 +759,8 @@ display:
       display_extenders:
         metatag_display_extender: {  }
       path: admin/spacebase_nz_orgs
-      header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content:
-            value: '<a href="/admin/exports/organizations.csv">Download the organizations as a CSV file.</a>'
-            format: basic_html
-          plugin_id: text
       defaults:
-        header: false
+        header: true
       display_description: ''
     cache_metadata:
       max-age: -1
