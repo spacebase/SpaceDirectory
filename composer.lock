@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4306612bfa560f0eec822426a7060ef6",
+    "content-hash": "5aeee22786d5eceafbace99cda8496a1",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1592,17 +1592,17 @@
         },
         {
             "name": "drupal/admin_toolbar",
-            "version": "1.24.0",
+            "version": "1.25.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/admin_toolbar",
-                "reference": "8.x-1.24"
+                "reference": "8.x-1.25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-8.x-1.24.zip",
-                "reference": "8.x-1.24",
-                "shasum": "682ffa443a1e339583022eb6adbb00c1103ea6d4"
+                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-8.x-1.25.zip",
+                "reference": "8.x-1.25",
+                "shasum": "bc24929d5e49932518797c1228e647e98b03542b"
             },
             "require": {
                 "drupal/core": "*"
@@ -1613,8 +1613,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.24",
-                    "datestamp": "1527523080",
+                    "version": "8.x-1.25",
+                    "datestamp": "1542915180",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1704,7 +1704,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
@@ -1716,10 +1716,72 @@
                     "homepage": "https://www.drupal.org/user/139189"
                 }
             ],
-            "description": "Drupal administration theme with modern minimalist design.",
             "homepage": "https://www.drupal.org/project/adminimal_theme",
             "support": {
                 "source": "http://cgit.drupalcode.org/adminimal_theme"
+            }
+        },
+        {
+            "name": "drupal/better_exposed_filters",
+            "version": "3.0.0-alpha5",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/better_exposed_filters",
+                "reference": "8.x-3.0-alpha5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-8.x-3.0-alpha5.zip",
+                "reference": "8.x-3.0-alpha5",
+                "shasum": "8dbcff4b3bcd24f753d5d1ba6a523442a3690a76"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-3.0-alpha5",
+                    "datestamp": "1540513084",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "chr.fritsch",
+                    "homepage": "https://www.drupal.org/user/2103716"
+                },
+                {
+                    "name": "jkopel",
+                    "homepage": "https://www.drupal.org/user/66207"
+                },
+                {
+                    "name": "mikeker",
+                    "homepage": "https://www.drupal.org/user/192273"
+                },
+                {
+                    "name": "mortona2k",
+                    "homepage": "https://www.drupal.org/user/1029484"
+                },
+                {
+                    "name": "rlhawk",
+                    "homepage": "https://www.drupal.org/user/352283"
+                }
+            ],
+            "description": "Provides advanced options (such as links, checkboxes, or jQueryUI widgets) for exposed Views elements.",
+            "homepage": "https://www.drupal.org/project/better_exposed_filters",
+            "support": {
+                "source": "http://cgit.drupalcode.org/better_exposed_filters"
             }
         },
         {
@@ -1965,7 +2027,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.x-dev",
-                    "datestamp": "1530790124",
+                    "datestamp": "1515077885",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -2235,6 +2297,77 @@
             "time": "2018-09-21T14:22:49+00:00"
         },
         {
+            "name": "drupal/coffee",
+            "version": "1.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/coffee",
+                "reference": "8.x-1.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/coffee-8.x-1.0-beta2.zip",
+                "reference": "8.x-1.0-beta2",
+                "shasum": "92631b9ea65298a057cc4143e0939bb156ef5e8d"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev",
+                    "dev-8.x-1.x": "8.1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta2",
+                    "datestamp": "1477414741",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Mol",
+                    "homepage": "https://www.drupal.org/u/michaelmol",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Marco",
+                    "homepage": "https://www.drupal.org/u/willzyx",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Oliver Köhler",
+                    "homepage": "https://www.drupal.org/u/nebel54",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Alli Price",
+                    "homepage": "https://www.drupal.org/u/heylookalive",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "See other contributors",
+                    "homepage": "https://www.drupal.org/node/1356930/committers",
+                    "role": "contributor"
+                }
+            ],
+            "description": "Provides an Alfred like search box to navigate within your site.",
+            "homepage": "https://drupal.org/project/coffee",
+            "support": {
+                "source": "https://cgit.drupalcode.org/coffee",
+                "issues": "https://drupal.org/project/issues/coffee",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
             "name": "drupal/colorbox",
             "version": "1.4.0",
             "source": {
@@ -2331,7 +2464,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
@@ -2886,6 +3019,59 @@
             "time": "2018-11-07T14:45:40+00:00"
         },
         {
+            "name": "drupal/core_views_facets",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/core_views_facets",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/core_views_facets-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "f73fc66dc550df18f50b2aa30ad76352cbdf3655"
+            },
+            "require": {
+                "drupal/core": "*",
+                "drupal/facets": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1536691380",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "See all contributors",
+                    "homepage": "https://www.drupal.org/node/2666804/committers"
+                },
+                {
+                    "name": "slasher13",
+                    "homepage": "https://www.drupal.org/user/3054025"
+                }
+            ],
+            "description": "The Core Views Facets module allows site builders to easily create and manage faceted views interfaces.",
+            "homepage": "https://www.drupal.org/project/core_views_facets",
+            "support": {
+                "source": "git://git.drupal.org/project/core_views_facets.git",
+                "issues": "https://www.drupal.org/project/issues/facets"
+            }
+        },
+        {
             "name": "drupal/crop",
             "version": "1.5.0",
             "source": {
@@ -3049,10 +3235,6 @@
                     "name": "Daniel Wehner (dawehner)",
                     "homepage": "https://www.drupal.org/u/dawehner",
                     "role": "Maintainer"
-                },
-                {
-                    "name": "joelpittet",
-                    "homepage": "https://www.drupal.org/user/160302"
                 },
                 {
                     "name": "merlinofchaos",
@@ -3361,145 +3543,18 @@
             }
         },
         {
-            "name": "drupal/file_mdm",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/file_mdm",
-                "reference": "8.x-1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/file_mdm-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "7f354aec6f89e3141c2aa1fb3747ad5d4578c13f"
-            },
-            "require": {
-                "drupal/core": "~8.0",
-                "lsolesen/pel": "0.9.6",
-                "phenx/php-font-lib": "0.5",
-                "php": ">=5.6"
-            },
-            "require-dev": {
-                "drupal/image_effects": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1488273785",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "mondrake",
-                    "homepage": "https://www.drupal.org/user/1307444"
-                }
-            ],
-            "description": "Provides a service to manage file metadata.",
-            "homepage": "https://www.drupal.org/project/file_mdm",
-            "support": {
-                "source": "http://cgit.drupalcode.org/file_mdm"
-            }
-        },
-        {
-            "name": "drupal/file_mdm_exif",
-            "version": "1.1.0",
-            "require": {
-                "drupal/core": "~8.0",
-                "drupal/file_mdm": "self.version"
-            },
-            "require-dev": {
-                "drupal/image_effects": "*"
-            },
-            "type": "metapackage",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1488273785",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "mondrake",
-                    "homepage": "https://www.drupal.org/user/1307444"
-                }
-            ],
-            "description": "Provides a file metadata plugin for EXIF image information.",
-            "homepage": "https://www.drupal.org/project/file_mdm",
-            "support": {
-                "source": "http://cgit.drupalcode.org/file_mdm"
-            }
-        },
-        {
-            "name": "drupal/file_mdm_font",
-            "version": "1.1.0",
-            "require": {
-                "drupal/core": "~8.0",
-                "drupal/file_mdm": "self.version"
-            },
-            "require-dev": {
-                "drupal/image_effects": "*"
-            },
-            "type": "metapackage",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1488273785",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "mondrake",
-                    "homepage": "https://www.drupal.org/user/1307444"
-                }
-            ],
-            "description": "Provides a file metadata plugin for TTF/OTF/WOFF font information.",
-            "homepage": "https://www.drupal.org/project/file_mdm",
-            "support": {
-                "source": "http://cgit.drupalcode.org/file_mdm"
-            }
-        },
-        {
             "name": "drupal/focal_point",
-            "version": "dev-1.x",
+            "version": "1.0.0-beta6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/focal_point",
-                "reference": "970050020c3d220592728d0b437c4e01874647a0"
+                "reference": "8.x-1.0-beta6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/focal_point-8.x-1.0-beta6.zip",
+                "reference": "8.x-1.0-beta6",
+                "shasum": "b06d3540ee49113e266191b2dba3af5d82990f38"
             },
             "require": {
                 "drupal/core": "*",
@@ -3514,11 +3569,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta6+5-dev",
-                    "datestamp": "1531317525",
+                    "version": "8.x-1.0-beta6",
+                    "datestamp": "1519932484",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -3536,8 +3591,7 @@
             "homepage": "https://www.drupal.org/project/focal_point",
             "support": {
                 "source": "http://cgit.drupalcode.org/focal_point"
-            },
-            "time": "2018-10-30T19:11:00+00:00"
+            }
         },
         {
             "name": "drupal/fontawesome",
@@ -4010,126 +4064,6 @@
             }
         },
         {
-            "name": "drupal/image_effects",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/image_effects",
-                "reference": "8.x-2.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/image_effects-8.x-2.1.zip",
-                "reference": "8.x-2.1",
-                "shasum": "375f55fe52c7bed1c0c19275f323f72611773d80"
-            },
-            "require": {
-                "drupal/core": ">=8.2.0",
-                "drupal/file_mdm_exif": "^1",
-                "drupal/file_mdm_font": "^1"
-            },
-            "conflict": {
-                "drupal/imagemagick": "<2.3"
-            },
-            "require-dev": {
-                "drupal/imagemagick": "*",
-                "drupal/jquery_colorpicker": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-2.x": "2.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-2.1",
-                    "datestamp": "1524304984",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "mondrake",
-                    "homepage": "https://www.drupal.org/user/1307444"
-                },
-                {
-                    "name": "slashrsm",
-                    "homepage": "https://www.drupal.org/user/744628"
-                }
-            ],
-            "description": "Provides effects and operations for the Image API.",
-            "homepage": "https://www.drupal.org/project/image_effects",
-            "support": {
-                "source": "http://cgit.drupalcode.org/image_effects"
-            }
-        },
-        {
-            "name": "drupal/image_effects",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/image_effects",
-                "reference": "8.x-2.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/image_effects-8.x-2.1.zip",
-                "reference": "8.x-2.1",
-                "shasum": "375f55fe52c7bed1c0c19275f323f72611773d80"
-            },
-            "require": {
-                "drupal/core": ">=8.2.0",
-                "drupal/file_mdm_exif": "^1",
-                "drupal/file_mdm_font": "^1"
-            },
-            "conflict": {
-                "drupal/imagemagick": "<2.3"
-            },
-            "require-dev": {
-                "drupal/imagemagick": "*",
-                "drupal/jquery_colorpicker": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-2.x": "2.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-2.1",
-                    "datestamp": "1524304984",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "mondrake",
-                    "homepage": "https://www.drupal.org/user/1307444"
-                },
-                {
-                    "name": "slashrsm",
-                    "homepage": "https://www.drupal.org/user/744628"
-                }
-            ],
-            "description": "Provides effects and operations for the Image API.",
-            "homepage": "https://www.drupal.org/project/image_effects",
-            "support": {
-                "source": "http://cgit.drupalcode.org/image_effects"
-            }
-        },
-        {
             "name": "drupal/image_widget_crop",
             "version": "2.2.0",
             "source": {
@@ -4531,7 +4465,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
@@ -4711,7 +4645,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0",
-                    "datestamp": "1507195827",
+                    "datestamp": "1507134244",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4838,7 +4772,7 @@
                 },
                 "drupal": {
                     "version": "8.x-4.0-beta3",
-                    "datestamp": "1535381280",
+                    "datestamp": "1519400592",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -5005,7 +4939,7 @@
                 },
                 "drupal": {
                     "version": "8.x-4.0-beta3",
-                    "datestamp": "1531143824",
+                    "datestamp": "1519400285",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -5385,7 +5319,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.2",
-                    "datestamp": "1529312013",
+                    "datestamp": "1509546906",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5463,7 +5397,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
@@ -5475,6 +5409,267 @@
             "homepage": "https://www.drupal.org/project/simple_block",
             "support": {
                 "source": "http://cgit.drupalcode.org/simple_block"
+            }
+        },
+        {
+            "name": "drupal/smart_trim",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/smart_trim",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/smart_trim-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "5f1c0f15914208e0ad2ec5cce1d6419040596fc0"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1516301286",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Casias (markie)",
+                    "homepage": "https://www.drupal.org/u/markie",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "chrisjlee",
+                    "homepage": "https://www.drupal.org/user/760600"
+                },
+                {
+                    "name": "drywall",
+                    "homepage": "https://www.drupal.org/user/192591"
+                },
+                {
+                    "name": "jsenich",
+                    "homepage": "https://www.drupal.org/user/58871"
+                },
+                {
+                    "name": "markie",
+                    "homepage": "https://www.drupal.org/user/206687"
+                },
+                {
+                    "name": "newsignature",
+                    "homepage": "https://www.drupal.org/user/765518"
+                }
+            ],
+            "description": "Provides a more robust alternative to 'summary or trimmed' textfield format.",
+            "homepage": "https://drupal.org/project/smart_trim",
+            "support": {
+                "source": "https://cgit.drupalcode.org/smart_trim",
+                "issues": "https://drupal.org/project/issues/smart_trim"
+            }
+        },
+        {
+            "name": "drupal/social_api",
+            "version": "2.0.0-beta4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/social_api",
+                "reference": "8.x-2.0-beta4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/social_api-8.x-2.0-beta4.zip",
+                "reference": "8.x-2.0-beta4",
+                "shasum": "ff0da3506f242ae326fe6606c6517cc45c8976f2"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "league/oauth2-client": "~2.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0-beta4",
+                    "datestamp": "1519320184",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Getulio Sánchez (gvso)",
+                    "homepage": "https://www.drupal.org/u/gvso",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Himansh Dixit (himanshu-dixit)",
+                    "homepage": "https://www.drupal.org/user/3510098",
+                    "email": "hudixt@gmail.com"
+                },
+                {
+                    "name": "e0ipso",
+                    "homepage": "https://www.drupal.org/user/550110"
+                },
+                {
+                    "name": "gvso",
+                    "homepage": "https://www.drupal.org/user/3101285"
+                },
+                {
+                    "name": "himanshu-dixit",
+                    "homepage": "https://www.drupal.org/user/3513954"
+                }
+            ],
+            "description": "Harmonizes social networking services in Drupal",
+            "homepage": "https://www.drupal.org/project/social_api",
+            "support": {
+                "source": "http://cgit.drupalcode.org/social_api",
+                "issues": "https://www.drupal.org/project/issues/social_api"
+            }
+        },
+        {
+            "name": "drupal/social_auth",
+            "version": "2.0.0-beta4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/social_auth",
+                "reference": "8.x-2.0-beta4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/social_auth-8.x-2.0-beta4.zip",
+                "reference": "8.x-2.0-beta4",
+                "shasum": "4eb07ab075d8a9af695b7f75056f341cce3879c4"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/social_api": "^2"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0-beta4",
+                    "datestamp": "1524016745",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Getulio Valentin Sánchez (gvso)",
+                    "homepage": "https://www.drupal.org/user/3510098",
+                    "email": "valentin2507@gmail.com"
+                },
+                {
+                    "name": "Himansh Dixit (himanshu-dixit)",
+                    "homepage": "https://www.drupal.org/user/550110",
+                    "email": "hudixt@gmail.com"
+                },
+                {
+                    "name": "gvso",
+                    "homepage": "https://www.drupal.org/user/3101285"
+                },
+                {
+                    "name": "himanshu-dixit",
+                    "homepage": "https://www.drupal.org/user/3513954"
+                }
+            ],
+            "description": "Social Auth ",
+            "homepage": "https://www.drupal.org/project/social_auth",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/social_auth",
+                "issues": "https://www.drupal.org/project/issues/social_auth"
+            }
+        },
+        {
+            "name": "drupal/social_auth_google",
+            "version": "2.0.0-beta3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/social_auth_google",
+                "reference": "8.x-2.0-beta3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/social_auth_google-8.x-2.0-beta3.zip",
+                "reference": "8.x-2.0-beta3",
+                "shasum": "eb37fe990ad86440590bef3455591ecde2a36ae2"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/social_auth": "^2",
+                "league/oauth2-google": "^2.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0-beta3",
+                    "datestamp": "1519177985",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Getulio Valentin Sánchez (gvso)",
+                    "homepage": "https://www.drupal.org/user/3101285",
+                    "email": "valentin2507@gmail.com"
+                },
+                {
+                    "name": "Himanshu Dixit (himanshu-dixit)",
+                    "homepage": "https://www.drupal.org/user/3513954",
+                    "email": "hudixt@gmail.com"
+                }
+            ],
+            "description": "Social Auth integration for Google.",
+            "homepage": "https://www.drupal.org/project/social_auth_google",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/social_auth_google",
+                "issues": "https://www.drupal.org/project/issues/social_auth_google"
             }
         },
         {
@@ -5585,7 +5780,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
@@ -6834,59 +7029,122 @@
             "time": "2018-02-06T08:27:03+00:00"
         },
         {
-            "name": "lsolesen/pel",
-            "version": "0.9.6",
+            "name": "league/oauth2-client",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/lsolesen/pel.git",
-                "reference": "c9e3919f5db3b85c3c422d4f8d448dbcb2a87a23"
+                "url": "https://github.com/thephpleague/oauth2-client.git",
+                "reference": "aa2e3df188f0bfd87f7880cc880e906e99923580"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lsolesen/pel/zipball/c9e3919f5db3b85c3c422d4f8d448dbcb2a87a23",
-                "reference": "c9e3919f5db3b85c3c422d4f8d448dbcb2a87a23",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/aa2e3df188f0bfd87f7880cc880e906e99923580",
+                "reference": "aa2e3df188f0bfd87f7880cc880e906e99923580",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.0.0"
+                "guzzlehttp/guzzle": "^6.0",
+                "paragonie/random_compat": "^1|^2",
+                "php": "^5.6|^7.0"
             },
             "require-dev": {
-                "ext-gd": "*",
-                "phpunit/phpunit": "5.7.*",
-                "satooshi/php-coveralls": "1.0.*",
-                "squizlabs/php_codesniffer": "3.0.0RC3"
+                "eloquent/liberator": "^2.0",
+                "eloquent/phony-phpunit": "^1.0|^3.0",
+                "jakub-onderka/php-parallel-lint": "^0.9.2",
+                "phpunit/phpunit": "^5.7|^6.0",
+                "squizlabs/php_codesniffer": "^2.3|^3.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "lsolesen\\pel\\": "src/"
+                    "League\\OAuth2\\Client\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Lars Olesen",
-                    "email": "lars@intraface.dk",
-                    "homepage": "http://intraface.dk",
+                    "name": "Alex Bilbie",
+                    "email": "hello@alexbilbie.com",
+                    "homepage": "http://www.alexbilbie.com",
                     "role": "Developer"
                 },
                 {
-                    "name": "Martin Geisler",
-                    "email": "martin@geisler.net",
-                    "homepage": "http://geisler.net",
-                    "role": "Developer"
+                    "name": "Woody Gilk",
+                    "homepage": "https://github.com/shadowhand",
+                    "role": "Contributor"
                 }
             ],
-            "description": "PHP Exif Library. A library for reading and writing Exif headers in JPEG and TIFF images using PHP.",
-            "homepage": "http://lsolesen.github.com/pel/",
+            "description": "OAuth 2.0 Client Library",
             "keywords": [
-                "exif",
-                "image"
+                "Authentication",
+                "SSO",
+                "authorization",
+                "identity",
+                "idp",
+                "oauth",
+                "oauth2",
+                "single sign on"
             ],
-            "time": "2017-02-03T11:58:58+00:00"
+            "time": "2018-01-13T05:27:58+00:00"
+        },
+        {
+            "name": "league/oauth2-google",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/oauth2-google.git",
+                "reference": "c0faed29ec6d665ce3234e01f62029516cee4c02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-google/zipball/c0faed29ec6d665ce3234e01f62029516cee4c02",
+                "reference": "c0faed29ec6d665ce3234e01f62029516cee4c02",
+                "shasum": ""
+            },
+            "require": {
+                "league/oauth2-client": "^2.0"
+            },
+            "require-dev": {
+                "eloquent/phony": "^0.14.6",
+                "phpunit/phpunit": "^5.7",
+                "satooshi/php-coveralls": "^2.0",
+                "squizlabs/php_codesniffer": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth2\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Woody Gilk",
+                    "email": "woody.gilk@gmail.com",
+                    "homepage": "http://shadowhand.me"
+                }
+            ],
+            "description": "Google OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+            "keywords": [
+                "Authentication",
+                "authorization",
+                "client",
+                "google",
+                "oauth",
+                "oauth2"
+            ],
+            "time": "2018-03-19T17:28:55+00:00"
         },
         {
             "name": "mailgun/mailgun-php",
@@ -7195,43 +7453,6 @@
             "description": "GeoPHP is a open-source native PHP library for doing geometry operations. It is written entirely in PHP and can therefore run on shared hosts. It can read and write a wide variety of formats: WKT (including EWKT), WKB (including EWKB), GeoJSON, KML, GPX, GeoRSS). It works with all Simple-Feature geometries (Point, LineString, Polygon, GeometryCollection etc.) and can be used to get centroids, bounding-boxes, area, and a wide variety of other useful information.",
             "homepage": "https://github.com/phayes/geoPHP",
             "time": "2014-12-02T06:11:22+00:00"
-        },
-        {
-            "name": "phenx/php-font-lib",
-            "version": "0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PhenX/php-font-lib.git",
-                "reference": "19ad2bebc35be028fcc0221025fcbf3d436a3962"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/PhenX/php-font-lib/zipball/19ad2bebc35be028fcc0221025fcbf3d436a3962",
-                "reference": "19ad2bebc35be028fcc0221025fcbf3d436a3962",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "FontLib\\": "src/FontLib"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Ménager",
-                    "email": "fabien.menager@gmail.com"
-                }
-            ],
-            "description": "A library to read, parse, export and make subsets of different types of font files.",
-            "homepage": "https://github.com/PhenX/php-font-lib",
-            "time": "2017-02-11T10:58:43+00:00"
         },
         {
             "name": "php-http/client-common",
@@ -10040,7 +10261,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -10957,6 +11178,199 @@
             "time": "2017-12-06T20:35:40+00:00"
         },
         {
+            "name": "drupal/file_mdm",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/file_mdm",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/file_mdm-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "7f354aec6f89e3141c2aa1fb3747ad5d4578c13f"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "lsolesen/pel": "0.9.6",
+                "phenx/php-font-lib": "0.5",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "drupal/image_effects": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1488273785",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "mondrake",
+                    "homepage": "https://www.drupal.org/user/1307444"
+                }
+            ],
+            "description": "Provides a service to manage file metadata.",
+            "homepage": "https://www.drupal.org/project/file_mdm",
+            "support": {
+                "source": "http://cgit.drupalcode.org/file_mdm"
+            }
+        },
+        {
+            "name": "drupal/file_mdm_exif",
+            "version": "1.1.0",
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/file_mdm": "self.version"
+            },
+            "require-dev": {
+                "drupal/image_effects": "*"
+            },
+            "type": "metapackage",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1488273785",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "mondrake",
+                    "homepage": "https://www.drupal.org/user/1307444"
+                }
+            ],
+            "description": "Provides a file metadata plugin for EXIF image information.",
+            "homepage": "https://www.drupal.org/project/file_mdm",
+            "support": {
+                "source": "http://cgit.drupalcode.org/file_mdm"
+            }
+        },
+        {
+            "name": "drupal/file_mdm_font",
+            "version": "1.1.0",
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/file_mdm": "self.version"
+            },
+            "require-dev": {
+                "drupal/image_effects": "*"
+            },
+            "type": "metapackage",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1488273785",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "mondrake",
+                    "homepage": "https://www.drupal.org/user/1307444"
+                }
+            ],
+            "description": "Provides a file metadata plugin for TTF/OTF/WOFF font information.",
+            "homepage": "https://www.drupal.org/project/file_mdm",
+            "support": {
+                "source": "http://cgit.drupalcode.org/file_mdm"
+            }
+        },
+        {
+            "name": "drupal/image_effects",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/image_effects",
+                "reference": "8.x-2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/image_effects-8.x-2.1.zip",
+                "reference": "8.x-2.1",
+                "shasum": "375f55fe52c7bed1c0c19275f323f72611773d80"
+            },
+            "require": {
+                "drupal/core": ">=8.2.0",
+                "drupal/file_mdm_exif": "^1",
+                "drupal/file_mdm_font": "^1"
+            },
+            "conflict": {
+                "drupal/imagemagick": "<2.3"
+            },
+            "require-dev": {
+                "drupal/imagemagick": "*",
+                "drupal/jquery_colorpicker": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.1",
+                    "datestamp": "1543319281",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "mondrake",
+                    "homepage": "https://www.drupal.org/user/1307444"
+                },
+                {
+                    "name": "slashrsm",
+                    "homepage": "https://www.drupal.org/user/744628"
+                }
+            ],
+            "description": "Provides effects and operations for the Image API.",
+            "homepage": "https://www.drupal.org/project/image_effects",
+            "support": {
+                "source": "http://cgit.drupalcode.org/image_effects"
+            }
+        },
+        {
             "name": "fabpot/goutte",
             "version": "v3.2.3",
             "source": {
@@ -11281,6 +11695,61 @@
             "time": "2016-12-01T10:57:30+00:00"
         },
         {
+            "name": "lsolesen/pel",
+            "version": "0.9.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lsolesen/pel.git",
+                "reference": "c9e3919f5db3b85c3c422d4f8d448dbcb2a87a23"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lsolesen/pel/zipball/c9e3919f5db3b85c3c422d4f8d448dbcb2a87a23",
+                "reference": "c9e3919f5db3b85c3c422d4f8d448dbcb2a87a23",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "ext-gd": "*",
+                "phpunit/phpunit": "5.7.*",
+                "satooshi/php-coveralls": "1.0.*",
+                "squizlabs/php_codesniffer": "3.0.0RC3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "lsolesen\\pel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Lars Olesen",
+                    "email": "lars@intraface.dk",
+                    "homepage": "http://intraface.dk",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Martin Geisler",
+                    "email": "martin@geisler.net",
+                    "homepage": "http://geisler.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Exif Library. A library for reading and writing Exif headers in JPEG and TIFF images using PHP.",
+            "homepage": "http://lsolesen.github.com/pel/",
+            "keywords": [
+                "exif",
+                "image"
+            ],
+            "time": "2017-02-03T11:58:58+00:00"
+        },
+        {
             "name": "mikey179/vfsStream",
             "version": "v1.6.5",
             "source": {
@@ -11378,6 +11847,43 @@
                 "syntax"
             ],
             "time": "2018-06-19T06:30:45+00:00"
+        },
+        {
+            "name": "phenx/php-font-lib",
+            "version": "0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PhenX/php-font-lib.git",
+                "reference": "19ad2bebc35be028fcc0221025fcbf3d436a3962"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PhenX/php-font-lib/zipball/19ad2bebc35be028fcc0221025fcbf3d436a3962",
+                "reference": "19ad2bebc35be028fcc0221025fcbf3d436a3962",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FontLib\\": "src/FontLib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                }
+            ],
+            "description": "A library to read, parse, export and make subsets of different types of font files.",
+            "homepage": "https://github.com/PhenX/php-font-lib",
+            "time": "2017-02-11T10:58:43+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -12420,7 +12926,9 @@
         "drupal/leaflet_more_maps": 15,
         "drupal/leaflet_markercluster": 15,
         "drupal/nocaptcha_recaptcha": 20,
-        "drupal/focal_point": 20,
+        "drupal/coffee": 10,
+        "drupal/better_exposed_filters": 15,
+        "drupal/focal_point": 10,
         "guzzlehttp/guzzle": 20
     },
     "prefer-stable": true,

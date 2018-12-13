@@ -1,0 +1,12 @@
+uuid: 5c871cf2-aeab-4c9b-86f7-fe8745a04644
+langcode: en
+status: true
+dependencies: {  }
+id: search_api__views_page__search_3__page_1
+name: 'search_api:views_page__search_3__page_1'
+filter_key: search3_facet1
+url_processor: query_string
+breadcrumb:
+  active: false
+  before: true
+  group: false

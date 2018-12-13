@@ -111,10 +111,16 @@
         "drupal/video_embed_field": "^2.0",
         "drupal/nocaptcha_recaptcha": "1.x-dev",
         "drupal/honeypot": "^1.29",
+        "drupal/social_api": "^2.0",
+        "drupal/social_auth": "^2.0",
+        "drupal/social_auth_google": "^2.0",
+        "drupal/coffee": "^1.0@beta",
+        "drupal/admin_toolbar": "^1.25",
         "drupal/ds": "^3.1",
-        "drupal/admin_toolbar": "^1.24",
-        "drupal/focal_point": "1.x-dev",
-        "drupal/image_effects": "^2.1"
+        "drupal/smart_trim": "^1.1",
+        "drupal/core_views_facets": "^1.0",
+        "drupal/better_exposed_filters": "^3.0@alpha",
+        "drupal/focal_point": "^1.0@beta"
     },
     "require-dev": {
         "behat/mink": "~1.7",

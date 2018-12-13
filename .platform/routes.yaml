@@ -21,15 +21,6 @@
       # Base the cache on the session cookie. Ignore all other cookies.
       cookies: ['/^SS?ESS/']
 
-"http://spacebase.co/":
-    type: upstream
-    upstream: "app:http"
-    cache:
-      enabled: true
-
-      # Base the cache on the session cookie. Ignore all other cookies.
-      cookies: ['/^SS?ESS/']
-
 "https://www.{default}/":
     type: redirect
     to: "https://{default}/"
@@ -38,3 +29,19 @@
     type: redirect
     to: "https://{default}/"
 
+# Redirect all non-https connections to the equivalent https one.
+"http://{default}/":
+  type: redirect
+  to: "https://{default}/"
+
+"http://spacebase.co/":
+  type: redirect
+  to: "https://spacebase.co/"
+
+"http://www.{default}/":
+  type: redirect
+  to: "https://{default}/"
+
+"http://beta.{default}/":
+  type: redirect
+  to: "https://{default}/"

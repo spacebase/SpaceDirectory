@@ -24,3 +24,5 @@ database.sql.gz
 web/sites/*/settings.local.php
 
 .env
+.directory
+*.gz

@@ -67,3 +67,13 @@ body {
   }
 }
 
+// Navbar is not fixed on the frontpage for the slideshow to be visible
+body.path-frontpage,
+body.toolbar-fixed.toolbar-horizontal.toolbar-tray-open {
+    .navbar.navbar-fixed-top {
+        position: relative;
+        top: 0;
+        margin-bottom: 0px;
+        background: black;
+    }
+}

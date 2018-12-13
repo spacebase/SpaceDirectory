@@ -12,7 +12,7 @@ dependencies:
 id: home_slides
 theme: spacebase
 region: content
-weight: -17
+weight: -19
 provider: null
 plugin: 'views_block:slides-home_slides'
 settings:

@@ -1,0 +1,11 @@
+uuid: 3bf4f436-9389-42b4-8260-50bb070faf9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+id: test_everywhere_block
+title: 'Test Everywhere Block'
+content:
+  value: "<p>This is to test if they have hacked the block system to pieces</p>\r\n"
+  format: basic_html
