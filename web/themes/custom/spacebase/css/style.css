@@ -6092,6 +6092,9 @@ body.toolbar-fixed.toolbar-horizontal.toolbar-tray-open .navbar.navbar-fixed-top
   margin-bottom: 0px;
   background: black; }
 
+body.path-frontpage.nav-open .navbar.navbar-fixed-top {
+  left: 0 !important; }
+
 /**
  * Node styling.
  */

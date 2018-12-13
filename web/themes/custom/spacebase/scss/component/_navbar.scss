@@ -77,3 +77,9 @@ body.toolbar-fixed.toolbar-horizontal.toolbar-tray-open {
         background: black;
     }
 }
+
+body.path-frontpage.nav-open{
+    .navbar.navbar-fixed-top {
+        left: 0 !important;
+    }
+}
