@@ -7,8 +7,10 @@ dependencies:
     - field.field.node.slide.field_sl_button_url
     - field.field.node.slide.field_sl_image
     - field.field.node.slide.field_sl_text
+    - image.style.slide
     - node.type.slide
   module:
+    - ds
     - image
     - text
     - user
@@ -37,9 +39,16 @@ content:
     weight: 3
     label: hidden
     settings:
-      image_style: ''
+      image_style: slide
       image_link: ''
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     type: image
     region: content
   field_sl_text:

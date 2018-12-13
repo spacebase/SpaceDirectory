@@ -120,7 +120,8 @@
         "drupal/smart_trim": "^1.1",
         "drupal/core_views_facets": "^1.0",
         "drupal/better_exposed_filters": "^3.0@alpha",
-        "drupal/password_policy": "3.x-dev"
+        "drupal/password_policy": "3.x-dev",
+        "drupal/focal_point": "^1.0@beta"
     },
     "require-dev": {
         "behat/mink": "~1.7",
