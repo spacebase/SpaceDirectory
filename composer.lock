@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5aeee22786d5eceafbace99cda8496a1",
+    "content-hash": "d7513012df86a0cac6dd0b4b4f27e42e",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5026,6 +5026,65 @@
                 "issues": "https://www.drupal.org/project/issues/nocaptcha_recaptcha"
             },
             "time": "2016-09-13T10:04:17+00:00"
+        },
+        {
+            "name": "drupal/password_policy",
+            "version": "dev-3.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/password_policy",
+                "reference": "176dd7eca67bbce80ca16e37fa3e94323647bf0d"
+            },
+            "require": {
+                "drupal/core": "*",
+                "drupal/ctools": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-3.0-alpha4+11-dev",
+                    "datestamp": "1538683981",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "AohRveTPV",
+                    "homepage": "https://www.drupal.org/user/2760115"
+                },
+                {
+                    "name": "deekayen",
+                    "homepage": "https://www.drupal.org/user/972"
+                },
+                {
+                    "name": "miglius",
+                    "homepage": "https://www.drupal.org/user/18741"
+                },
+                {
+                    "name": "nerdstein",
+                    "homepage": "https://www.drupal.org/user/1557710"
+                },
+                {
+                    "name": "shrop",
+                    "homepage": "https://www.drupal.org/user/14767"
+                }
+            ],
+            "description": "Sets up constraints and expiration of passwords.",
+            "homepage": "https://www.drupal.org/project/password_policy",
+            "support": {
+                "source": "http://cgit.drupalcode.org/password_policy"
+            },
+            "time": "2018-12-07T16:11:36+00:00"
         },
         {
             "name": "drupal/pathauto",
@@ -12928,6 +12987,7 @@
         "drupal/nocaptcha_recaptcha": 20,
         "drupal/coffee": 10,
         "drupal/better_exposed_filters": 15,
+        "drupal/password_policy": 20,
         "drupal/focal_point": 10,
         "guzzlehttp/guzzle": 20
     },
