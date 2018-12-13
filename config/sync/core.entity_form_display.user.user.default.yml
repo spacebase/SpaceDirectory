@@ -9,9 +9,11 @@ dependencies:
     - field.field.user.user.field_home_location_user
     - field.field.user.user.field_intro
     - field.field.user.user.field_last_name_user
+    - field.field.user.user.field_last_password_reset
     - field.field.user.user.field_linkedin_user
     - field.field.user.user.field_metatags
     - field.field.user.user.field_notification_prefs
+    - field.field.user.user.field_password_expiration
     - field.field.user.user.field_position
     - field.field.user.user.field_tagline_user
     - field.field.user.user.field_terms
@@ -20,6 +22,7 @@ dependencies:
     - image.style.thumbnail
   module:
     - address
+    - datetime
     - image
     - link
     - metatag
@@ -83,6 +86,12 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_last_password_reset:
+    type: datetime_default
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_linkedin_user:
     weight: 11
     settings:
@@ -102,6 +111,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_password_expiration:
+    type: boolean_checkbox
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
     region: content
   field_position:
     weight: 7
