@@ -1,0 +1,10 @@
+uuid: fbc99cfa-ea86-4115-b831-ca04e65d15fb
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.full_name
+label: 'Full name'
+targetEntityType: user
+cache: true
