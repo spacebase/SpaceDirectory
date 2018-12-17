@@ -60,10 +60,13 @@ display:
       pager:
         type: mini
         options:
-          items_per_page: 10
+          items_per_page: 100
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: '‹‹ prev'
+            next: 'next ››'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -72,9 +75,6 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
       style:
         type: default
         options:
@@ -88,12 +88,9 @@ display:
           view_mode: default
       fields:
         label:
+          id: label
           table: groups_field_data
           field: label
-          id: label
-          entity_type: null
-          entity_field: label
-          plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
@@ -130,7 +127,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -140,7 +137,8 @@ display:
           hide_alter_empty: true
           click_sort_column: value
           type: string
-          settings: {  }
+          settings:
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -151,6 +149,9 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: null
+          entity_field: label
+          plugin_id: field
         uid:
           id: uid
           table: groups_field_data
@@ -223,7 +224,7 @@ display:
           relationship: uid
           group_type: group
           admin_label: ''
-          label: 'First Name'
+          label: 'First name'
           exclude: false
           alter:
             alter_text: false
@@ -286,7 +287,7 @@ display:
           relationship: uid
           group_type: group
           admin_label: ''
-          label: 'Last Name'
+          label: 'Last name'
           exclude: false
           alter:
             alter_text: false
@@ -349,7 +350,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Industry Segment'
+          label: 'Industry segment'
           exclude: false
           alter:
             alter_text: false
@@ -660,9 +661,19 @@ display:
           empty: false
           tokenize: false
           content:
-            value: 'Download the organizations as a CSV file.'
+            value: '<p><a href="/admin/exports/organizations.csv">Download the organizations as a CSV file.</a></p>'
             format: basic_html
           plugin_id: text
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: '<p>Displaying @start - @end of @total</p>'
+          plugin_id: result
       footer: {  }
       empty: {  }
       relationships:
@@ -698,8 +709,60 @@ display:
     display_title: Page
     position: 2
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
+      path: admin/exports/organizations
+      defaults:
+        header: true
+        style: false
+        row: false
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline:
+            label: label
+            uid: uid
+            field_first_name_user: field_first_name_user
+            field_last_name_user: field_last_name_user
+            field_industry_segment: field_industry_segment
+            field_linkedin: field_linkedin
+            field_website: field_website
+            field_headquarters_location_locality: field_headquarters_location_locality
+            field_headquarters_location_country_code: field_headquarters_location_country_code
+          separator: ', '
+          hide_empty: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - user.permissions
+      tags:
+        - 'config:field.storage.group.field_industry_segment'
+        - 'config:field.storage.group.field_linkedin'
+        - 'config:field.storage.group.field_website'
+        - 'config:field.storage.user.field_first_name_user'
+        - 'config:field.storage.user.field_last_name_user'
+  page_2:
+    display_plugin: page
+    id: page_2
+    display_title: Groups
+    position: 2
+    display_options:
+      display_extenders:
+        metatag_display_extender: {  }
       path: admin/spacebase_nz_orgs
+      defaults:
+        header: true
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -719,8 +782,9 @@ display:
     display_title: 'REST fields export'
     position: 1
     display_options:
-      display_extenders: {  }
-      path: admin/spacebase_nz_orgs
+      display_extenders:
+        metatag_display_extender: {  }
+      path: admin/exports/organizations.csv
       pager:
         type: none
         options:
@@ -728,7 +792,6 @@ display:
       style:
         type: serializer
         options:
-          uses_fields: false
           formats:
             csv: csv
       row:

@@ -37,6 +37,7 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  focal_point: 0
   fontawesome: 0
   geocoder: 0
   geocoder_address: 0
@@ -80,6 +81,13 @@ module:
   node: 0
   options: 0
   page_cache: 0
+  password_policy: 0
+  password_policy_character_types: 0
+  password_policy_characters: 0
+  password_policy_consecutive: 0
+  password_policy_history: 0
+  password_policy_length: 0
+  password_policy_username: 0
   path: 0
   publishcontent: 0
   quickedit: 0
