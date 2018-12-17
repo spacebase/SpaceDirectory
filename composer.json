@@ -119,9 +119,7 @@
         "drupal/ds": "^3.1",
         "drupal/smart_trim": "^1.1",
         "drupal/core_views_facets": "^1.0",
-        "drupal/better_exposed_filters": "^3.0@alpha",
-        "drupal/password_policy": "3.x-dev",
-        "drupal/focal_point": "^1.0@beta"
+        "drupal/better_exposed_filters": "^3.0@alpha"
     },
     "require-dev": {
         "behat/mink": "~1.7",
@@ -194,11 +192,8 @@
           },
           "drupal/nocaptcha_recaptcha" : {
             "Validator has json_decode error": "./web/validator_json_decode_error-2981948-1.patch"
-          },
-          "drupal/honeypot" : {
-              "8.x-1.29: honeypot defeated": "https://www.drupal.org/files/issues/2018-08-10/2811189-14.patch",
-              "8.x-1.29: Server side token": "https://www.drupal.org/files/issues/2018-11-29/3002022-37.patch"
           }
+
         }
     },
     "replace": {

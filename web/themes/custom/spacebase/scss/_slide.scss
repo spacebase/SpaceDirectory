@@ -66,12 +66,11 @@
     }
   }
   .single-slide{
-    height: 75vh !important;
+    height: 80vh !important;
     position: relative;
     z-index: 11;
     .slide-background{
-      // background-position: right bottom;
-      background-position: center;
+      background-position: right bottom;
       background-repeat: no-repeat;
       background-size: cover;
       position: absolute;
@@ -80,16 +79,6 @@
       right: 0;
       bottom: 0;
       z-index: 12;
-      // Adding gradient with css because it's so easy!
-      &:after {
-          content: '';
-          width:100%;
-          height: 50%;
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.5) 100%);
-      }
     }
     .slide-content{
       position: absolute;
@@ -108,27 +97,19 @@
         left: 40px;
         padding-right: 40px;
       }
-      @media screen and (min-width: 991px) {
-        max-width: calc(100% - 300px);
-      }
       .text{
         color: #fff !important;
         font-size: 20px;
         margin-bottom: 30px;
-        text-shadow: #252525 1px 1px 12px;
         h2{
           font-size: 36px;
           font-weight: 800;
           margin: 0 0 10px;
         }
-        h3 {
+        h3{
           font-size: 30px;
           font-weight: 800;
           margin: 0 0 10px;
-        }
-        a {
-            color: #56abc2;
-            font-weight: 700;
         }
       }
     }

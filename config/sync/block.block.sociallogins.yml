@@ -1,11 +1,11 @@
-uuid: a93e2d24-a3f2-4666-9442-0549003aa5ab
+uuid: 012ed057-47c1-486b-98a6-8e6bc1c6d1f1
 langcode: en
 status: true
 dependencies:
-  config:
-    - simple_block.simple_block.social_logins
+  content:
+    - 'block_content:basic_block:86788d80-6fa0-4c35-851e-bc55075748d9'
   module:
-    - simple_block
+    - block_content
     - system
   theme:
     - spacebase
@@ -14,12 +14,15 @@ theme: spacebase
 region: content
 weight: -16
 provider: null
-plugin: 'simple_block:social_logins'
+plugin: 'block_content:86788d80-6fa0-4c35-851e-bc55075748d9'
 settings:
-  id: 'simple_block:social_logins'
+  id: 'block_content:86788d80-6fa0-4c35-851e-bc55075748d9'
   label: 'Social logins'
-  provider: simple_block
+  provider: block_content
   label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
 visibility:
   request_path:
     id: request_path

@@ -33,10 +33,9 @@ content:
     weight: 3
     label: hidden
     settings:
-      view_mode: full_name
-      link: false
+      link: true
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    type: entity_reference_label
     region: content
   field_bp_image:
     weight: 1
