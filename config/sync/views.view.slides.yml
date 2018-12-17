@@ -7,7 +7,6 @@ dependencies:
     - field.storage.node.field_sl_button_url
     - field.storage.node.field_sl_image
     - field.storage.node.field_sl_text
-    - image.style.slide
     - node.type.slide
   module:
     - image
@@ -181,7 +180,7 @@ display:
           click_sort_column: target_id
           type: image_url
           settings:
-            image_style: slide
+            image_style: ''
           group_column: ''
           group_columns: {  }
           group_rows: true

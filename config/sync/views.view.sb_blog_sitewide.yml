@@ -89,7 +89,7 @@ display:
         options:
           default_field_elements: true
           inline: {  }
-          separator: ' '
+          separator: ''
           hide_empty: false
       fields:
         field_bp_image:
@@ -335,9 +335,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: entity_reference_entity_view
+          type: entity_reference_label
           settings:
-            view_mode: full_name
+            link: true
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -346,7 +346,7 @@ display:
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ''
+          separator: ', '
           field_api_classes: false
           plugin_id: field
         body:
@@ -595,7 +595,6 @@ display:
       arguments: {  }
       display_extenders: {  }
       css_class: blog-list
-      group_by: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -616,8 +615,7 @@ display:
     display_title: 'Sitewide Blog'
     position: 1
     display_options:
-      display_extenders:
-        metatag_display_extender: {  }
+      display_extenders: {  }
       path: blog
       display_description: ''
     cache_metadata:

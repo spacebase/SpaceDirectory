@@ -6085,16 +6085,6 @@ body {
       margin-right: 0;
       padding-left: 0; } }
 
-body.path-frontpage .navbar.navbar-fixed-top,
-body.toolbar-fixed.toolbar-horizontal.toolbar-tray-open .navbar.navbar-fixed-top {
-  position: relative;
-  top: 0;
-  margin-bottom: 0px;
-  background: black; }
-
-body.path-frontpage.nav-open .navbar.navbar-fixed-top {
-  left: 0 !important; }
-
 /**
  * Node styling.
  */
@@ -6766,10 +6756,6 @@ form .table > thead > tr > th {
   content: '— '; }
 .field--name-field-tab .form-item-field-tab .descrip p {
   display: inline; }
-
-img {
-  max-width: 100%;
-  height: auto; }
 
 .button {
   display: inline-block;
@@ -9535,11 +9521,11 @@ body.page-node-type-blog-post .text {
       font-style: normal;
       font-variant: normal; }
   .home-slides .single-slide {
-    height: 75vh !important;
+    height: 80vh !important;
     position: relative;
     z-index: 11; }
     .home-slides .single-slide .slide-background {
-      background-position: center;
+      background-position: right bottom;
       background-repeat: no-repeat;
       background-size: cover;
       position: absolute;
@@ -9548,14 +9534,6 @@ body.page-node-type-blog-post .text {
       right: 0;
       bottom: 0;
       z-index: 12; }
-      .home-slides .single-slide .slide-background:after {
-        content: '';
-        width: 100%;
-        height: 50%;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 30%, rgba(0, 0, 0, 0.5) 100%); }
     .home-slides .single-slide .slide-content {
       position: absolute;
       display: block;
@@ -9573,14 +9551,10 @@ body.page-node-type-blog-post .text {
           bottom: 75px;
           left: 40px;
           padding-right: 40px; } }
-      @media screen and (min-width: 991px) {
-        .home-slides .single-slide .slide-content {
-          max-width: calc(100% - 300px); } }
       .home-slides .single-slide .slide-content .text {
         color: #fff !important;
         font-size: 20px;
-        margin-bottom: 30px;
-        text-shadow: #252525 1px 1px 12px; }
+        margin-bottom: 30px; }
         .home-slides .single-slide .slide-content .text h2 {
           font-size: 36px;
           font-weight: 800;
@@ -9589,9 +9563,6 @@ body.page-node-type-blog-post .text {
           font-size: 30px;
           font-weight: 800;
           margin: 0 0 10px; }
-        .home-slides .single-slide .slide-content .text a {
-          color: #56abc2;
-          font-weight: 700; }
 
 .video-list .col-sm-4 {
   margin: 0 0 40px; }
@@ -9678,12 +9649,8 @@ body.page-node-type-blog-post .text {
   margin: 0 0 60px 0; }
 
 .region-navigation .views-exposed-form {
-  display: none;
   float: left;
   margin-top: 10px; }
-  @media screen and (min-width: 768px) {
-    .region-navigation .views-exposed-form {
-      display: block; } }
   .region-navigation .views-exposed-form input[type="text"] {
     margin: 5px 0;
     border-radius: 2px 0 0 2px; }
