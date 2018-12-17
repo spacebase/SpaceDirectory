@@ -11,6 +11,12 @@
 @import 'overrides';
 
 
+// Image fix
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 // Custom CSS
 @import 'mixins';
 @import 'content';

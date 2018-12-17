@@ -1,0 +1,17 @@
+uuid: b0801b85-5cb0-42b0-a753-8bd06cc02b0e
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: slide
+label: 'Slideshow banner image'
+effects:
+  6a61d2c6-d475-44f2-a2e0-6cbff72c6398:
+    uuid: 6a61d2c6-d475-44f2-a2e0-6cbff72c6398
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1500
+      height: 900
+      crop_type: focal_point

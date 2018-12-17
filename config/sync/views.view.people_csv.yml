@@ -54,9 +54,23 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: none
+        type: mini
         options:
+          items_per_page: 100
           offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹‹ prev'
+            next: 'next ››'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
       style:
         type: default
         options:
@@ -66,34 +80,55 @@ display:
       row:
         type: fields
         options:
-          inline: {  }
-          separator: ''
-          hide_empty: false
           default_field_elements: true
+          inline:
+            name: name
+            field_first_name_user: field_first_name_user
+            field_last_name_user: field_last_name_user
+            mail: mail
+            field_home_location_user_country_code: field_home_location_user_country_code
+            field_home_location_user_locality: field_home_location_user_locality
+            field_linkedin_user: field_linkedin_user
+            created: created
+          separator: ', '
+          hide_empty: false
       fields:
         name:
           id: name
           table: users_field_data
           field: name
-          entity_type: user
-          entity_field: name
-          label: ''
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            trim: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            html: false
-          hide_empty: false
-          empty_zero: false
-          plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
+          label: Name
           exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
@@ -103,10 +138,13 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
+          hide_empty: false
+          empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: user_name
-          settings: {  }
+          settings:
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -117,6 +155,9 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: user
+          entity_field: name
+          plugin_id: field
         field_first_name_user:
           id: field_first_name_user
           table: user__field_first_name_user
@@ -124,7 +165,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'First name'
           exclude: false
           alter:
             alter_text: false
@@ -157,7 +198,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -187,7 +228,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Last name'
           exclude: false
           alter:
             alter_text: false
@@ -220,7 +261,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -250,7 +291,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Users Email'
+          label: Email
           exclude: false
           alter:
             alter_text: false
@@ -283,7 +324,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -307,56 +348,6 @@ display:
           entity_type: user
           entity_field: mail
           plugin_id: field
-        field_home_location_user_country_code:
-          id: field_home_location_user_country_code
-          table: user__field_home_location_user
-          field: field_home_location_user_country_code
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          display_name: true
-          plugin_id: country_code
         field_home_location_user_locality:
           id: field_home_location_user_locality
           table: user__field_home_location_user
@@ -364,7 +355,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: City
           exclude: false
           alter:
             alter_text: false
@@ -397,7 +388,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -407,14 +398,14 @@ display:
           hide_alter_empty: true
           display_name: true
           plugin_id: subdivision
-        field_linkedin_user:
-          id: field_linkedin_user
-          table: user__field_linkedin_user
-          field: field_linkedin_user
+        field_home_location_user_country_code:
+          id: field_home_location_user_country_code
+          table: user__field_home_location_user
+          field: field_home_location_user_country_code
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Country
           exclude: false
           alter:
             alter_text: false
@@ -447,7 +438,57 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          display_name: true
+          plugin_id: country_code
+        field_linkedin_user:
+          id: field_linkedin_user
+          table: user__field_linkedin_user
+          field: field_linkedin_user
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Linkedin
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -456,7 +497,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: uri
-          type: link_separate
+          type: link
           settings:
             trim_length: 80
             url_only: false
@@ -481,7 +522,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Created
           exclude: false
           alter:
             alter_text: false
@@ -514,7 +555,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -569,7 +610,30 @@ display:
           expose:
             label: ''
           granularity: second
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: '<p><a href="/admin/exports/users.csv">Download the users as a CSV file.</a></p>'
+            format: basic_html
+          plugin_id: text
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: '<p>Displaying @start - @end of @total</p>'
+          plugin_id: result
       footer: {  }
       empty: {  }
       relationships: {  }
@@ -580,6 +644,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - user.permissions
       tags:
         - 'config:field.storage.user.field_first_name_user'
@@ -591,13 +656,15 @@ display:
     display_title: Page
     position: 2
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       path: admin/exports/users
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - user.permissions
       tags:
         - 'config:field.storage.user.field_first_name_user'
