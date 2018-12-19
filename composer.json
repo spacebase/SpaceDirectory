@@ -197,7 +197,7 @@
           },
           "drupal/honeypot" : {
               "8.x-1.29: honeypot defeated": "https://www.drupal.org/files/issues/2018-08-10/2811189-14.patch",
-              "8.x-1.29: Server side token": "https://www.drupal.org/files/issues/2018-11-29/3002022-37.patch"
+              "8.x-1.29: Server side token": "https://www.drupal.org/files/issues/2018-12-13/3002022-45.patch"
           }
         }
     },
