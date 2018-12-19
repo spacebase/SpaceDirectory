@@ -28,3 +28,4 @@ form_settings:
   comment_comment_form: false
 _core:
   default_config_hash: 9bVDfWSa_In6VzTXmy04jJ_3ZQobihKjO9isuuUCPaw
+advanced_validation: true
