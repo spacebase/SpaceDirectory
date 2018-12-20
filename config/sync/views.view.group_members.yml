@@ -836,6 +836,8 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - route.group
+        - user.group_permissions
       tags:
         - 'config:field.storage.group_content.group_roles'
         - 'config:field.storage.user.field_first_name_user'
@@ -4049,6 +4051,8 @@ display:
         - url
         - url.query_args
         - user.roles
+        - route.group
+        - user.group_permissions
       tags:
         - 'config:field.storage.group_content.field_organization_role'
         - 'config:field.storage.group_content.group_roles'

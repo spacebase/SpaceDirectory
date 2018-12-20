@@ -6,7 +6,7 @@ unprotected_forms:
   - honeypot_settings_form
 protect_all_forms: true
 log: true
-element_name: url
+element_name: recovery-question
 time_limit: 5
 expire: 300
 form_settings:
@@ -28,3 +28,4 @@ form_settings:
   comment_comment_form: false
 _core:
   default_config_hash: 9bVDfWSa_In6VzTXmy04jJ_3ZQobihKjO9isuuUCPaw
+advanced_validation: true
