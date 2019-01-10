@@ -1,5 +1,5 @@
 @api
-Feature: Test organizations
+Feature: Test organizations. Status:WIP
   As a user with an account, I want to be able to create an organization and add resources.
 
   Scenario: Create organization

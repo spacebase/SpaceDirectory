@@ -25,14 +25,20 @@ Background:
       | name           | password  | username       |
       | Kurt UserAtest | passw0rd | kurtuseratest  |
     Given I am logged in as "Kurt UserAtest"
-    When I am on "/u/kurtuseratest"
+    When I am on "/u/kurt-useratest"
     Then I should see the link "Log out"
     And I should see "Bio"
 
     #change the following to reflect specs in #175
-    #the following presumes this user already exists
+    #the following presumes this user already exists... created above
     And I am on "https://spacebase.lndo.site/search?keywords=useratest"
     Then I should see "UserAtest"
+
+    
+    #  Scenario: See Bio page
+    #Given I am logged in as a user with the "Authenticated user" role
+    #And I am on "https://spacebase.lndo.site/search?keywords=UserAtest"
+
 
 
   Scenario: Edit own profile
@@ -41,10 +47,12 @@ Background:
       | name           | password  | username       |
       | Kurt UserAtest | passw0rd | kurtuseratest  |
     Given I am logged in as "Kurt UserAtest"
-    When I am on "/u/kurtuseratest"
+    When I am on "/u/kurt-useratest"
     Then I should see the link "Log out"
     And I should see "Bio"
     #TODO can't press Edit Profile button, so instead resorting to going directly to URL
+    # @ToDo -- why not above?
+    # @ToDo -- No no no....
     When I am on "/user/125/edit"
     #TODO and the following errors...
     And I fill in the following:
@@ -55,7 +63,7 @@ Background:
 
   Scenario: Anon cannot edit another profile
     Given I am an anonymous user
-    When I am on "/u/kurtuseratest"
+    When I am on "/u/kurt-useratest"
     Then I should not see the link "Log out"
     And I should see "Bio"
     And I am on "/user/125/edit"
@@ -64,7 +72,7 @@ Background:
 
   Scenario: Authenticated user cannot edit another profile
     Given I am logged in as a user with the "Authenticated user" role
-    When I am on "/u/kurtuseratest"
+    When I am on "/u/kurt-useratest"
     And I should see "Bio"
     And I am on "/user/125/edit"
     Then I should see "You are not authorized to access this page"
@@ -134,7 +142,7 @@ Background:
   Scenario: Anonymous visitor should not be able to edit a user
     Given I am not logged in
     # this user should already exists in the environment
-    When I am on "/u/kurtuseratest"
+    When I am on "/u/kurt-useratest"
     Then I should not see "Edit Profile"
     And I should not see "The requested page could not be found"
     And I should see "My Organizations"

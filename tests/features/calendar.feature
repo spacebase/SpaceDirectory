@@ -1,5 +1,5 @@
 @api
-Feature: Test calendar
+Feature: Test calendar. Status:main:clean.
   Anonymous user cannot update, but can read and search for all events.
   As an authenticated user, I should be able to create, read & search for events. Updating and deleting events is not allowed.
   As an org-owner, I should be able to accept/reject events.
@@ -17,6 +17,7 @@ Feature: Test calendar
     #Then I should see “Previous"
 
   Scenario: Anonymous user cannot create a site-wide event
+    # @ToDo: open grid menu
     Given I am on "/"
     When I click "Events"
     #TODO need access to the Add Event button
@@ -34,8 +35,7 @@ Feature: Test calendar
       | name           | password | username       |
       | Kurt UserAtest | passw0rd | kurtuseratest  |
     Given I am logged in as "Kurt UserAtest"
-    Given I am on "/"
-    When I click "Events"
+    Given I am on "/events/month"
     And I click "Add event"
     Then I should see "Title"
     And I should not see "You are not authorized to access this page"

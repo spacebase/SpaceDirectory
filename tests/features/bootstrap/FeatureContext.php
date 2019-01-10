@@ -68,4 +68,37 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
     throw new Exception('The request is timed out');
   }
 
+
+  /**
+   * Waits a while, for debugging or avoiding spam blocking
+   *
+   * @param int $seconds
+   *   How long to wait.
+   *
+   * @When I wait :seconds second(s)
+   */
+
+  public function IWait($seconds) {
+    sleep($seconds);
+  }
+
+  /**
+   * @Given I click the link containing element :arg1 
+   *
+   * Intended for fa graphic links
+   * Link is immediate parent
+   */
+  public function  iClickTheLinkContainingChildElement($selector)
+  {
+      $page = $this->getSession()->getPage();
+      $inner_element = $page->find('css', $selector);
+ 
+      if (empty($inner_element) || !$inner_element || empty($inner_element->getParent())) {
+          throw new Exception("No html element found for the selector ('$selector')");
+      }
+      $inner_element->getParent()->click();
+  }
+
+
 }
+
