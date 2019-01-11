@@ -13,8 +13,12 @@ default:
         - IntegratedExperts\BehatScreenshotExtension\Context\ScreenshotContext
   extensions:
     Behat\MinkExtension:
-      goutte: ~
-      selenium2: ~
+      sessions:
+        default:
+          goutte: ~
+        javascript:
+          selenium2:
+            wd_host: http://chromedriver:4444/wd/hub
     Drupal\DrupalExtension:
       blackbox: ~
       api_driver: 'drupal'
