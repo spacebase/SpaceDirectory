@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce359efda4fe767b8dc1d54973f76984",
+    "content-hash": "e35c8e196e1ad043cd09341b68ed86b7",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4333,6 +4333,9 @@
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "8.x-1.0-alpha3: Invalid agrument": "https://www.drupal.org/files/issues/lmm_2847024-9.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
