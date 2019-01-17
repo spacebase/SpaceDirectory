@@ -46,6 +46,39 @@
                     "composer/installers": "~1.0"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "billboardjs/billboard",
+                "version": "1.6.2",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "billboard"
+                },
+                "dist": {
+                    "url": "https://github.com/naver/billboard.js/archive/1.6.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "d3v4/d3",
+                "version": "4.9.1",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "d3v4"
+                },
+                "dist": {
+                    "url": "https://cdnjs.cloudflare.com/ajax/libs/d3/4.9.1/d3.js",
+                    "type": "file"
+                },
+                "require": {
+                    "composer/installers": "~1.0"
+                }
+            }
         }
     ],
     "require": {
@@ -121,7 +154,9 @@
         "drupal/core_views_facets": "^1.0",
         "drupal/better_exposed_filters": "^3.0@alpha",
         "drupal/password_policy": "3.x-dev",
-        "drupal/focal_point": "^1.0@beta"
+        "drupal/focal_point": "^1.0@beta",
+        "billboardjs/billboard": "1.6.2",
+        "d3v4/d3": "4.9.1"
     },
     "require-dev": {
         "behat/mink": "~1.7",

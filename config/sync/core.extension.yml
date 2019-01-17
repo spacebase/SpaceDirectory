@@ -12,6 +12,7 @@ module:
   calendar_datetime: 0
   cer: 0
   charts: 0
+  charts_billboard: 0
   charts_c3: 0
   ckeditor: 0
   coffee: 0
