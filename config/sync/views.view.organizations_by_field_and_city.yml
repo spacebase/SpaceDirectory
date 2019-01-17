@@ -8,7 +8,7 @@ dependencies:
     - taxonomy.vocabulary.industry_segment
   module:
     - charts
-    - charts_c3
+    - charts_billboard
     - group
     - taxonomy
     - views_block_filter_block
@@ -64,7 +64,8 @@ display:
               field: field_industry_segment
               rendered: true
               rendered_strip: false
-          library: c3
+          allow_advanced_rendering: 1
+          library: billboard
           type: pie
           label_field: field_industry_segment
           fields:
@@ -79,6 +80,7 @@ display:
           title_position: ''
           tooltips: 'TRUE'
           data_labels: ''
+          data_markers: 'FALSE'
           legend_position: bottom
           background: ''
           three_dimensional: 0
@@ -106,6 +108,11 @@ display:
           yaxis_labels_rotation: '0'
       row:
         type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
       fields:
         field_industry_segment:
           id: field_industry_segment
@@ -427,7 +434,8 @@ display:
     display_title: 'Block Display Filter Block'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       filters:
         type:
           id: type
@@ -478,7 +486,7 @@ display:
           type: textfield
           limit: true
           vid: industry_segment
-          hierarchy: false
+          hierarchy: 0
           error_message: true
           plugin_id: taxonomy_index_tid
         field_headquarters_location_locality:
