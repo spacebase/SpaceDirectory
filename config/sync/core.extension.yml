@@ -10,6 +10,8 @@ module:
   breakpoint: 0
   calendar: 0
   calendar_datetime: 0
+  captcha_questions: 0
+  captcha_questions_dblog: 0
   cer: 0
   charts: 0
   charts_c3: 0

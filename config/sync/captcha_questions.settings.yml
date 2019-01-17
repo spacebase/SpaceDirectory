@@ -1,0 +1,14 @@
+captcha_questions_form_ids:
+  user_register_form: user_register_form
+captcha_questions_question: 'Who was the first woman in space?'
+captcha_questions_answer: Mouse
+captcha_questions_answers:
+  - 'Valentina Tereshkova'
+captcha_questions_description: 'Please answer the question'
+captcha_questions_watchdog: 0
+captcha_questions_dblog: 1
+webform_node_types:
+  - webform
+_core:
+  default_config_hash: RWX3rp6Dl6Yvu_eqhePCyn3bgpH_JsrtyxXV4DNUWic
+add_form_name: ''
