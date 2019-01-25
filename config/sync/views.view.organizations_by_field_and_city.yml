@@ -8,7 +8,7 @@ dependencies:
     - taxonomy.vocabulary.industry_segment
   module:
     - charts
-    - charts_billboard
+    - charts_c3
     - group
     - taxonomy
     - views_block_filter_block
@@ -65,7 +65,7 @@ display:
               rendered: true
               rendered_strip: false
           allow_advanced_rendering: 1
-          library: billboard
+          library: c3
           type: pie
           label_field: field_industry_segment
           fields:
@@ -318,7 +318,8 @@ display:
     display_title: Block
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       filters:
         type:
           id: type
