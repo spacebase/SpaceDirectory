@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e35c8e196e1ad043cd09341b68ed86b7",
+    "content-hash": "a5472c14a7327f840ddaafc9e6f11e59",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -121,20 +121,6 @@
                 "stack"
             ],
             "time": "2017-12-20T14:37:45+00:00"
-        },
-        {
-            "name": "billboardjs/billboard",
-            "version": "1.6.2",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/naver/billboard.js/archive/1.6.2.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "billboard"
-            }
         },
         {
             "name": "c3js/c3",
@@ -654,23 +640,6 @@
             "type": "drupal-library",
             "extra": {
                 "installer-name": "d3"
-            }
-        },
-        {
-            "name": "d3v4/d3",
-            "version": "4.9.1",
-            "dist": {
-                "type": "file",
-                "url": "https://cdnjs.cloudflare.com/ajax/libs/d3/4.9.1/d3.js",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "d3v4"
             }
         },
         {
