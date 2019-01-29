@@ -9,9 +9,11 @@ dependencies:
     - field.field.user.user.field_home_location_user
     - field.field.user.user.field_intro
     - field.field.user.user.field_last_name_user
+    - field.field.user.user.field_last_password_reset
     - field.field.user.user.field_linkedin_user
     - field.field.user.user.field_metatags
     - field.field.user.user.field_notification_prefs
+    - field.field.user.user.field_password_expiration
     - field.field.user.user.field_position
     - field.field.user.user.field_tagline_user
     - field.field.user.user.field_terms
@@ -20,12 +22,47 @@ dependencies:
     - image.style.profile_photo
   module:
     - address
+    - ds
     - image
     - link
     - markup
     - metatag
     - text
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes: {  }
+        wrappers:
+          content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      content:
+        - user_picture
+        - field_intro
+        - field_notification_prefs
+        - field_last_password_reset
+        - field_password_expiration
+        - member_for
+        - field_first_name_user
+        - field_last_name_user
+        - field_tagline_user
+        - field_bio_user
+        - field_linkedin_user
+        - field_home_location_user
+        - field_email_user
+        - field_website_user
+        - field_position
+        - field_terms
+        - field_metatags
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
 id: user.user.default
@@ -139,4 +176,6 @@ content:
     label: hidden
 hidden:
   field_intro: true
+  field_last_password_reset: true
   field_notification_prefs: true
+  field_password_expiration: true

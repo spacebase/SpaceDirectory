@@ -7,9 +7,30 @@ dependencies:
     - field.field.node.sb_project.field_metatags_project
     - node.type.sb_project
   module:
+    - ds
     - metatag
     - text
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes: {  }
+        wrappers:
+          content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      content:
+        - links
+        - body
+        - field_metatags_project
 id: node.sb_project.default
 targetEntityType: node
 bundle: sb_project
@@ -32,4 +53,6 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }
