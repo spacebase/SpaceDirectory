@@ -1,0 +1,9 @@
+uuid: c24870fd-0e76-4781-a5ab-918f3bf152d6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: O11nB9Assnic6AhIuaeK_CQdh_zO0udxABDnUZJupis
+formId: user_register_form
+captchaType: riddler/Riddler
+label: user_register_form

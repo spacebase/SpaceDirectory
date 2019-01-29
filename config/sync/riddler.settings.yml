@@ -1,0 +1,9 @@
+riddles:
+  -
+    question: 'Who was the first woman in space?'
+    response: 'Valentina Tereshkova'
+  -
+    question: 'What planet does The Moon orbit?'
+    response: 'The Earth, Earth'
+_core:
+  default_config_hash: pKKCV0W4-r3Zf1QQzR2HDXAXmfH81248yrY2d9iR7S4
