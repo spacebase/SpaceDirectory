@@ -83,22 +83,101 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   }
 
   /**
-   * @Given I click the link containing element :arg1 
+   * @Then I click the link containing child element :arg1
    *
    * Intended for fa graphic links
    * Link is immediate parent
    */
-  public function  iClickTheLinkContainingChildElement($selector)
+  public function iClickTheLinkContainingChildElement($selector)
   {
       $page = $this->getSession()->getPage();
       $inner_element = $page->find('css', $selector);
  
-      if (empty($inner_element) || !$inner_element || empty($inner_element->getParent())) {
-          throw new Exception("No html element found for the selector ('$selector')");
+      if (empty($inner_element) || !$inner_element ) {
+        throw new Exception("No html element found for the selector ('$selector')");
+      } elseif (empty($inner_element->getParent())) {
+        throw new Exception("No parent element found for the selector ('$selector')");
       }
       $inner_element->getParent()->click();
   }
 
 
-}
+/**
+ * @When /^I visit "([^"]*)" node tab "([^"]*) of type "([^"]*)"$/
+ *
+ * ex: When I visit "Text Example" node of type "page" tab "edit"
+ * I visit "Test Event javascript, edited" node tab "edit" of type "event"
 
+public function iVisitNodeTabOfType($title, $tab, $type) {
+  $query = new entityFieldQuery();
+  $result = $query
+    ->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', strtolower($type))
+    ->propertyCondition('title', $title)
+    ->propertyCondition('status', NODE_PUBLISHED)
+    ->range(0, 1)
+    ->execute();
+
+  if (empty($result['node'])) {
+    $params = array(
+      '@title' => $title,
+      '@type' => $type,
+    );
+    throw new Exception(format_string("Node @title of @type not found.", $params));
+  }
+
+  $nid = key($result['node']);
+  // Use Drupal Context 'I am at'.
+  return new Given("I go to \"node/$nid/$tab\"");
+}
+ */
+
+
+
+/**
+ * @When /^I visit "([^"]*)" node$/
+ *
+ * ex: When I visit "Text Example" node of type "page" tab "edit"
+ * I visit "Test Event javascript, edited" node tab "edit" of type "event"
+ */
+  public function iVisitNode($title) {
+    $tab = "edit";
+    $type = "event";
+    $nodes = \Drupal::entityTypeManager()
+  ->getStorage('node')
+  ->loadByProperties(['title' => $title]);
+
+    if (empty($nodes)) {
+      $params = array(
+        '@title' => $title,
+        '@type' => $type,
+      );
+      throw new Exception(format_string("Node @title of @type not found.", $params));
+    }
+    $nid = key($nodes); // the key is the nid, or we have the whole node
+    // Use Drupal Context 'I am at'.
+    //return new Given("I go to \"node/$nid/$tab\"");
+    $this->getSession()->visit($this->locatePath("/node/$nid/$tab"));
+  }
+
+
+  /**
+   * Fills in specified field with date
+   * Example: When I fill in "field_ID" with date "now"
+   * Example: When I fill in "field_ID" with date "-7 days"
+   * Example: When I fill in "field_ID" with date "+7 days"
+   * Example: When I fill in "field_ID" with date "-/+0 weeks"
+   * Example: When I fill in "field_ID" with date "-/+0 years"
+   *
+   * @When /^(?:|I )fill in "(?P<field>(?:[^"]|\\")*)" with date "(?P<value>(?:[^"]|\\")*)"$/
+   */
+  public function iFillInWithDate($field, $value) {
+    $newDate = strtotime("$value");
+
+    $dateToSet = date("d/m/Y", $newDate);
+    // @ToDo: make sure this fails properly.
+    if ($this->getSession()->getPage()->fillField($field, $dateToSet)) {
+      throw new Exception("Failed to fill in the date");
+    }
+  }
+}

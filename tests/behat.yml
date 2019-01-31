@@ -21,6 +21,8 @@ default:
             wd_host: http://chromedriver:4444/wd/hub
     Drupal\DrupalExtension:
       blackbox: ~
+      region_map: 
+        tabs: '.tabs'
       api_driver: 'drupal'
       drush:
         alias: 'local'
