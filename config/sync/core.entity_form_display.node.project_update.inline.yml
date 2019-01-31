@@ -1,0 +1,57 @@
+uuid: 431cbded-dec4-4a80-b6a7-b595be6fca39
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.inline
+    - field.field.node.project_update.body
+    - field.field.node.project_update.field_project_aim_updates
+    - node.type.project_update
+  module:
+    - inline_entity_form
+    - text
+id: node.project_update.inline
+targetEntityType: node
+bundle: project_update
+mode: inline
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 1
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_project_aim_updates:
+    type: inline_entity_form_complex
+    weight: 2
+    region: content
+    settings:
+      form_mode: inline
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      match_operator: CONTAINS
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_existing: false
+      allow_duplicate: false
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

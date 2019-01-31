@@ -1,17 +1,17 @@
-uuid: a307c3f7-fc67-40cf-b2c8-40f95da2da46
+uuid: c21725f1-d844-466a-9d58-b1b737c30008
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.sb_project.body
-    - node.type.sb_project
+    - field.field.node.project_aim_update.body
+    - node.type.project_aim_update
   module:
     - text
     - user
-id: node.sb_project.teaser
+id: node.project_aim_update.teaser
 targetEntityType: node
-bundle: sb_project
+bundle: project_aim_update
 mode: teaser
 content:
   body:
@@ -24,6 +24,7 @@ content:
     region: content
   links:
     weight: 100
+    settings: {  }
+    third_party_settings: {  }
     region: content
-hidden:
-  field_metatags_project: true
+hidden: {  }

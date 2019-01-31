@@ -1,16 +1,16 @@
-uuid: 9b63795a-4afb-4d96-84ac-1052dab45cde
+uuid: 2a583554-0fde-48f6-ab54-217f2b31179b
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.body
-    - node.type.sb_project
+    - node.type.project
   module:
     - text
-id: node.sb_project.body
+id: node.project.body
 field_name: body
 entity_type: node
-bundle: sb_project
+bundle: project
 label: Body
 description: ''
 required: false

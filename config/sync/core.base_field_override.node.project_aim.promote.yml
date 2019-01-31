@@ -1,13 +1,13 @@
-uuid: db735d8e-a6df-4d13-900d-fdfcaebe98c5
+uuid: 14ec6298-c329-454c-8413-52bfdc64cb35
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.sb_project
-id: node.sb_project.promote
+    - node.type.project_aim
+id: node.project_aim.promote
 field_name: promote
 entity_type: node
-bundle: sb_project
+bundle: project_aim
 label: 'Promoted to front page'
 description: ''
 required: false

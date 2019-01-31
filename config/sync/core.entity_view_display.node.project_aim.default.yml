@@ -1,0 +1,52 @@
+uuid: b77d6ec7-5df1-403b-8bd4-888c31501fb0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.project_aim.field_project_aim_description
+    - node.type.project_aim
+  module:
+    - ds
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - node_title
+        - field_project_aim_description
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          wrapper: h3
+          class: ''
+          link: false
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+id: node.project_aim.default
+targetEntityType: node
+bundle: project_aim
+mode: default
+content:
+  field_project_aim_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  links: true

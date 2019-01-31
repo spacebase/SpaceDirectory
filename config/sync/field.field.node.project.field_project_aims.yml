@@ -1,0 +1,28 @@
+uuid: ecc8f84f-117d-42ce-9430-10c8221f70d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project_aims
+    - node.type.project
+    - node.type.project_aim
+id: node.project.field_project_aims
+field_name: field_project_aims
+entity_type: node
+bundle: project
+label: 'Project Aims'
+description: 'For referencing Project Aim entities.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      project_aim: project_aim
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

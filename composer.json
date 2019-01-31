@@ -122,7 +122,10 @@
         "drupal/better_exposed_filters": "^3.0@alpha",
         "drupal/password_policy": "3.x-dev",
         "drupal/focal_point": "^1.0@beta",
-        "drupal/paragraphs": "^1.5"
+        "drupal/paragraphs": "^1.5",
+        "drupal/auto_entitylabel": "^2.1@beta",
+        "drupal/inline_entity_form": "^1.0@RC",
+        "drupal/riddler": "^1.1"
     },
     "require-dev": {
         "behat/mink": "~1.7",

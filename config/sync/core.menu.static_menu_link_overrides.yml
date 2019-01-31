@@ -23,5 +23,23 @@ definitions:
     parent: ''
     expanded: false
     enabled: false
+  node__add__project_aim_update:
+    enabled: true
+    menu_name: admin
+    parent: admin_toolbar_tools.add_content
+    expanded: false
+    weight: 0
+  node__add__project_aim:
+    enabled: true
+    menu_name: admin
+    parent: admin_toolbar_tools.add_content
+    weight: 0
+    expanded: false
+  node__add__project_update:
+    enabled: true
+    menu_name: admin
+    parent: admin_toolbar_tools.add_content
+    weight: 0
+    expanded: false
 _core:
   default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM

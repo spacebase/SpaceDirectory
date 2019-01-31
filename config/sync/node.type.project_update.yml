@@ -1,0 +1,17 @@
+uuid: 365c3b12-eed6-47ec-864d-647423f0f80d
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Project Update'
+type: project_update
+description: 'For describing progress about a project. To be referenced from a project. Can also reference Project Aim Updates.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

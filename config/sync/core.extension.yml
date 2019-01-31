@@ -10,6 +10,7 @@ module:
   breakpoint: 0
   calendar: 0
   calendar_datetime: 0
+  captcha: 0
   cer: 0
   charts: 0
   charts_c3: 0
@@ -31,6 +32,7 @@ module:
   dynamic_page_cache: 0
   editor: 0
   email_group_administrators: 0
+  entity_reference_revisions: 0
   facets: 0
   facets_summary: 0
   field: 0
@@ -52,6 +54,7 @@ module:
   honeypot: 0
   image: 0
   image_widget_crop: 0
+  inline_entity_form: 0
   layout_discovery: 0
   leaflet: 0
   leaflet_markercluster: 0
@@ -93,6 +96,7 @@ module:
   quickedit: 0
   rdf: 0
   rest: 0
+  riddler: 0
   schema_article: 0
   schema_event: 0
   schema_metatag: 0
@@ -144,6 +148,7 @@ module:
   pathauto: 1
   ds_extras: 2
   views: 10
+  paragraphs: 11
   empty_page: 1000
   standard: 1000
 theme:

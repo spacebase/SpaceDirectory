@@ -1,0 +1,83 @@
+uuid: af0e411b-c559-48ad-8a09-7ca94525a21b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.project_aim_update.body
+    - field.field.node.project_aim_update.field_project_aim_progress
+    - field.field.node.project_aim_update.field_project_aim_reference
+    - node.type.project_aim_update
+  module:
+    - ds
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_3col_equal_width
+      library: ds/ds_3col_equal_width
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          left: div
+          middle: div
+          right: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      left:
+        - field_project_aim_reference
+        - node_post_date
+      middle:
+        - body
+      right:
+        - field_project_aim_progress
+    fields:
+      node_post_date:
+        plugin_id: node_post_date
+        weight: 1
+        label: above
+        formatter: ds_post_date_short
+id: node.project_aim_update.default
+targetEntityType: node
+bundle: project_aim_update
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: middle
+  field_project_aim_progress:
+    weight: 3
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: right
+  field_project_aim_reference:
+    weight: 0
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: entity_reference_label
+    region: left
+hidden:
+  links: true

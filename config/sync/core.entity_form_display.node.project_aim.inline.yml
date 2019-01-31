@@ -1,0 +1,36 @@
+uuid: 938bd392-bb61-4444-aef4-0ff9ef2b2fd2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.inline
+    - field.field.node.project_aim.field_project_aim_description
+    - node.type.project_aim
+id: node.project_aim.inline
+targetEntityType: node
+bundle: project_aim
+mode: inline
+content:
+  field_project_aim_description:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

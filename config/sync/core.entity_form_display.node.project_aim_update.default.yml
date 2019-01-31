@@ -1,18 +1,18 @@
-uuid: 6d7ce260-bafe-4791-b34e-bd9c6e4d9562
+uuid: cc85c8cc-4dc5-4fd9-97d3-89fe1a3e6edc
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.sb_project.body
-    - field.field.node.sb_project.field_metatags_project
-    - node.type.sb_project
+    - field.field.node.project_aim_update.body
+    - field.field.node.project_aim_update.field_project_aim_progress
+    - field.field.node.project_aim_update.field_project_aim_reference
+    - node.type.project_aim_update
   module:
-    - metatag
     - path
     - text
-id: node.sb_project.default
+id: node.project_aim_update.default
 targetEntityType: node
-bundle: sb_project
+bundle: project_aim_update
 mode: default
 content:
   body:
@@ -30,11 +30,21 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_metatags_project:
-    weight: 122
-    settings: {  }
+  field_project_aim_progress:
+    weight: 124
+    settings:
+      placeholder: ''
     third_party_settings: {  }
-    type: metatag_firehose
+    type: number
+    region: content
+  field_project_aim_reference:
+    weight: 122
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   path:
     type: path

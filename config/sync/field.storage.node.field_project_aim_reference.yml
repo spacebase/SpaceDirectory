@@ -1,16 +1,16 @@
-uuid: dc2e8c86-de55-41bd-9514-e4976e6c9044
+uuid: 7490c640-ecd1-427e-92aa-b8ae38e0f7b4
 langcode: en
 status: true
 dependencies:
   module:
-    - metatag
     - node
-id: node.field_metatags_project
-field_name: field_metatags_project
+id: node.field_project_aim_reference
+field_name: field_project_aim_reference
 entity_type: node
-type: metatag
-settings: {  }
-module: metatag
+type: entity_reference
+settings:
+  target_type: node
+module: core
 locked: false
 cardinality: 1
 translatable: true

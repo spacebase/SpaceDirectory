@@ -1,0 +1,30 @@
+uuid: ce4049e4-7d20-4d6d-a8e1-d13ccb871624
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.project_update.body
+    - node.type.project_update
+  module:
+    - text
+    - user
+id: node.project_update.teaser
+targetEntityType: node
+bundle: project_update
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }
