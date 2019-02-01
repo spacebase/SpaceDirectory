@@ -9,7 +9,7 @@ Feature: Test search. Status:main:clean-req:content
     And I enter "Space" for "edit-keywords"
     When I press the "edit-submit-sitewide-search" button
     Then I should see "Search results for"
-    And I should see "<strong>space</strong>";
+    And I should see "<strong>space</strong>"
 
 
 
