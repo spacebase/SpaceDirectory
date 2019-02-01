@@ -1,3 +1,4 @@
+@api
 Feature: Test home page. Status:main:clean.
   As a user, I want to be able to load the home page, check for very basic text.
 
