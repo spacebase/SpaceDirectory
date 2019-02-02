@@ -3,7 +3,6 @@ Feature: Test search. Status:main:clean-req:content
   As a User, I want to be able to search for content.
   req:content = searches for specific content SpaceBase expects to be there.
 
-  ## Wait for issue #310
   Scenario: Home Page Search
     Given I am on "/"
     And I enter "Space" for "edit-keywords"
