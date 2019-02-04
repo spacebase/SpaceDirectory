@@ -25,7 +25,7 @@ default:
         tabs: '.tabs'
       api_driver: 'drush'
       drush:
-        alias: 'local'
+        root: '/app/web'
       drupal:
         drupal_root: '/app/web'
       selectors:
@@ -37,3 +37,11 @@ default:
       fail: true
       purge: true
     IntegratedExperts\BehatFormatProgressFail\FormatExtension: ~
+pr-254:
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://pr-254-o4syfci-ensz4qdpjmziw.us.platform.sh"
+    Drupal\DrupalExtension:
+      api_driver: 'drush'
+      drush:
+        alias: 'pr-254'
