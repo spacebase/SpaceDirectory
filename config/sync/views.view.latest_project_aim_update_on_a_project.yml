@@ -393,10 +393,10 @@ display:
           id: nid
           table: node_field_data
           field: nid
-          relationship: none
+          relationship: field_project_aim_reference
           group_type: group
           admin_label: ''
-          default_action: default
+          default_action: empty
           exception:
             value: all
             title_enable: false
