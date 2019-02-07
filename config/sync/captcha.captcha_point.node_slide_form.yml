@@ -1,0 +1,7 @@
+uuid: 1ca11b82-73b2-465f-a1b5-b3f44c917fd1
+langcode: en
+status: false
+dependencies: {  }
+formId: node_slide_form
+captchaType: default
+label: null
