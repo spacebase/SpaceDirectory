@@ -1,0 +1,19 @@
+uuid: f2bddfb3-c101-4da0-b5b9-7dd113bd4abf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_misson
+    - group.type.project
+id: group.project.field_misson
+field_name: field_misson
+entity_type: group
+bundle: project
+label: Misson
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

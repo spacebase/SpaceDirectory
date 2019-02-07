@@ -10,7 +10,7 @@ id: group.project.field_project_group_aims
 field_name: field_project_group_aims
 entity_type: group
 bundle: project
-label: 'project group aims'
+label: 'Success Metrics'
 description: ''
 required: false
 translatable: false

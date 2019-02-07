@@ -10,7 +10,7 @@ id: group.project.field_project_group_updates
 field_name: field_project_group_updates
 entity_type: group
 bundle: project
-label: 'Project Group Updates'
+label: Reports
 description: ''
 required: false
 translatable: false

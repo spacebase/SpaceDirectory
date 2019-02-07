@@ -1,0 +1,22 @@
+uuid: 2ce55905-15fe-4a94-bc06-3790e6bc5138
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_description
+    - group.type.project
+  module:
+    - text
+id: group.project.field_description
+field_name: field_description
+entity_type: group
+bundle: project
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

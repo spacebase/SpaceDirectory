@@ -3,11 +3,18 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.group.project.field_description
+    - field.field.group.project.field_image
+    - field.field.group.project.field_industry_segment
+    - field.field.group.project.field_misson
+    - field.field.group.project.field_needs
     - field.field.group.project.field_project_group_aims
     - field.field.group.project.field_project_group_updates
     - group.type.project
   module:
     - ds
+    - image
+    - smart_trim
     - spacebase_core
 third_party_settings:
   ds:
@@ -32,10 +39,13 @@ third_party_settings:
       header:
         - label
         - uid
+        - field_misson
+        - field_industry_segment
       left:
-        - created
-        - changed
+        - field_image
+        - field_description
       right:
+        - field_needs
         - field_project_group_aims
       footer:
         - field_project_group_updates
@@ -44,28 +54,56 @@ targetEntityType: group
 bundle: project
 mode: default
 content:
-  changed:
-    type: timestamp
-    weight: 3
+  field_description:
+    type: smart_trim
+    weight: 5
     region: left
-    label: inline
+    label: above
     settings:
-      date_format: medium
-      custom_date_format: ''
-      timezone: ''
+      trim_length: 600
+      trim_type: chars
+      trim_suffix: ''
+      wrap_output: false
+      wrap_class: trimmed
+      more_link: false
+      more_class: more-link
+      more_text: More
+      summary_handler: full
+      trim_options: {  }
     third_party_settings: {  }
-  created:
-    type: timestamp
-    weight: 2
-    region: left
-    label: inline
-    settings:
-      date_format: medium
-      custom_date_format: ''
-      timezone: ''
-    third_party_settings: {  }
-  field_project_group_aims:
+  field_image:
     weight: 4
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: left
+  field_industry_segment:
+    type: sb_author_names
+    weight: 3
+    region: header
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_misson:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: header
+  field_needs:
+    weight: 6
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: right
+  field_project_group_aims:
+    weight: 7
     label: above
     settings:
       link: true
@@ -74,7 +112,7 @@ content:
     type: entity_reference_entity_view
     region: right
   field_project_group_updates:
-    weight: 5
+    weight: 8
     label: above
     settings:
       link: true
@@ -97,4 +135,6 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  changed: true
+  created: true

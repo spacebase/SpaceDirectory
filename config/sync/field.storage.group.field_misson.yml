@@ -1,0 +1,19 @@
+uuid: 82dbf0eb-1b56-4a70-8797-9ff2fb70e467
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+id: group.field_misson
+field_name: field_misson
+entity_type: group
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

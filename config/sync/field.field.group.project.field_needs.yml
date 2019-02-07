@@ -1,0 +1,19 @@
+uuid: 56c94983-2706-4f26-a429-0c72b653b209
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_needs
+    - group.type.project
+id: group.project.field_needs
+field_name: field_needs
+entity_type: group
+bundle: project
+label: Needs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
