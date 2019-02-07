@@ -1,0 +1,17 @@
+uuid: a1ebe6f4-c7c1-4e46-afe0-0feba35424d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.project
+  enforced:
+    config:
+      - user.role.editor
+id: project-0b0baeca9
+label: Editor
+weight: 3
+internal: true
+audience: outsider
+group_type: project
+permissions_ui: false
+permissions: {  }

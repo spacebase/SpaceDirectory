@@ -125,7 +125,8 @@
         "drupal/paragraphs": "^1.5",
         "drupal/auto_entitylabel": "^2.1@beta",
         "drupal/inline_entity_form": "^1.0@RC",
-        "drupal/riddler": "^1.1"
+        "drupal/riddler": "^1.1",
+        "drupal/views_field_view": "^1.0@beta"
     },
     "require-dev": {
         "behat/mink": "~1.7",

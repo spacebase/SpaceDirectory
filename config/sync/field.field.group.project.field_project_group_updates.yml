@@ -1,0 +1,28 @@
+uuid: 77b8caca-bd42-4844-aa88-3bae788e7fef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_project_group_updates
+    - group.type.project
+    - node.type.project_update
+id: group.project.field_project_group_updates
+field_name: field_project_group_updates
+entity_type: group
+bundle: project
+label: 'Project Group Updates'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      project_update: project_update
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
