@@ -23,7 +23,7 @@ default:
       blackbox: ~
       region_map: 
         tabs: '.tabs'
-      api_driver: 'drush'
+      api_driver: 'drupal'
       drush:
         root: '/app/web'
       drupal:
