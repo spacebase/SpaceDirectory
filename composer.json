@@ -184,24 +184,27 @@
             ]
         },
         "patches": {
-          "drupal/group": {
-            "Fix: Group creators get duplicate entries": "https://www.drupal.org/files/issues/duplicate-members-on-group-create-fixed-2923297-3.patch"
-          },
-          "drupal/calendar": {
-              "Year display header always shows current year after using pager": "https://www.drupal.org/files/issues/year_display_header_always_shows_current_year-2915266-02.patch",
-              "ISO-8601 Week and Year": "https://www.drupal.org/files/issues/2018-06-11/iso_8601_week_and_year-2917145-4.patch",
-              "Timezones": "https://www.drupal.org/files/issues/2018-03-20/2604546-26.patch"
-          },
-          "drupal/search_api" : {
-            "Facets are lost by Views on keyword search": "https://www.drupal.org/files/issues/facets-lost-by-keyword-search-2378945-8.x-19.patch"
-          },
-          "drupal/nocaptcha_recaptcha" : {
-            "Validator has json_decode error": "./web/validator_json_decode_error-2981948-1.patch"
-          },
-          "drupal/honeypot" : {
-              "8.x-1.29: honeypot defeated": "https://www.drupal.org/files/issues/2018-08-10/2811189-14.patch",
-              "8.x-1.29: Server side token": "https://www.drupal.org/files/issues/2018-12-13/3002022-45.patch"
-          }
+            "drupal/group": {
+                "Fix: Group creators get duplicate entries": "https://www.drupal.org/files/issues/duplicate-members-on-group-create-fixed-2923297-3.patch"
+            },
+            "drupal/calendar": {
+                "Year display header always shows current year after using pager": "https://www.drupal.org/files/issues/year_display_header_always_shows_current_year-2915266-02.patch",
+                "ISO-8601 Week and Year": "https://www.drupal.org/files/issues/2018-06-11/iso_8601_week_and_year-2917145-4.patch",
+                "Timezones": "https://www.drupal.org/files/issues/2018-03-20/2604546-26.patch"
+            },
+            "drupal/search_api" : {
+                "Facets are lost by Views on keyword search": "https://www.drupal.org/files/issues/facets-lost-by-keyword-search-2378945-8.x-19.patch"
+            },
+            "drupal/nocaptcha_recaptcha" : {
+                "Validator has json_decode error": "./web/validator_json_decode_error-2981948-1.patch"
+            },
+            "drupal/honeypot" : {
+                "8.x-1.29: honeypot defeated": "https://www.drupal.org/files/issues/2018-08-10/2811189-14.patch",
+                "8.x-1.29: Server side token": "https://www.drupal.org/files/issues/2018-12-13/3002022-45.patch"
+            },
+            "drupal/leaflet_more_maps": {
+                "8.x-1.0-alpha3: Invalid agrument": "https://www.drupal.org/files/issues/lmm_2847024-9.patch"
+            }
         }
     },
     "replace": {
