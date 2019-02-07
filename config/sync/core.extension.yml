@@ -32,7 +32,6 @@ module:
   dynamic_page_cache: 0
   editor: 0
   email_group_administrators: 0
-  entity_reference_revisions: 0
   facets: 0
   facets_summary: 0
   field: 0
@@ -95,7 +94,6 @@ module:
   quickedit: 0
   rdf: 0
   rest: 0
-  riddler: 0
   schema_article: 0
   schema_event: 0
   schema_metatag: 0
@@ -147,7 +145,6 @@ module:
   pathauto: 1
   ds_extras: 2
   views: 10
-  paragraphs: 11
   empty_page: 1000
   standard: 1000
 theme:

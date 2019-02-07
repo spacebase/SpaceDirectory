@@ -30,19 +30,10 @@ settings:
     organization:
       override: hidden
     addressLine1:
-      override: hidden
-    addressLine2:
-      override: hidden
-    postalCode:
-      override: hidden
-    sortingCode:
-      override: hidden
-    dependentLocality:
-      override: hidden
-    locality:
       override: optional
-    administrativeArea:
+    addressLine2:
+      override: optional
+    dependentLocality:
       override: optional
   fields: {  }
 field_type: address
-

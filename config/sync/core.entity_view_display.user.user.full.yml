@@ -33,7 +33,7 @@ third_party_settings:
     layout:
       id: ds_2col_stacked
       library: ds/ds_2col_stacked
-      disable_css: false
+      disable_css: true
       entity_classes: all_classes
       settings:
         wrappers:
@@ -48,28 +48,32 @@ third_party_settings:
         classes:
           layout_class: {  }
     regions:
-      header:
-        - 'dynamic_token_field:user-full_name'
       left:
         - user_picture
+        - 'dynamic_token_field:user-full_name'
         - field_position
-        - 'dynamic_block_field:user-user_content_view_block'
+        - field_home_location_user
+        - field_website_user
+        - field_linkedin_user
       right:
         - field_tagline_user
         - field_bio_user
-        - field_website_user
-        - field_home_location_user
-        - field_linkedin_user
-        - member_for
+        - 'dynamic_block_field:user-user_groups'
+        - 'dynamic_block_field:user-user_content_view_block'
     fields:
       'dynamic_block_field:user-user_content_view_block':
         plugin_id: 'dynamic_block_field:user-user_content_view_block'
-        weight: 3
+        weight: 9
         label: above
+        formatter: default
+      'dynamic_block_field:user-user_groups':
+        plugin_id: 'dynamic_block_field:user-user_groups'
+        weight: 8
+        label: hidden
         formatter: default
       'dynamic_token_field:user-full_name':
         plugin_id: 'dynamic_token_field:user-full_name'
-        weight: 0
+        weight: 1
         label: hidden
         formatter: default
         ft:
@@ -107,31 +111,38 @@ bundle: user
 mode: full
 content:
   field_bio_user:
-    weight: 5
-    label: hidden
+    weight: 7
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: right
   field_home_location_user:
-    weight: 7
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: address_default
-    region: right
+    region: left
   field_linkedin_user:
-    type: link_separate
-    weight: 8
-    region: right
-    label: above
+    type: link
+    weight: 5
+    region: left
+    label: hidden
     settings:
       trim_length: 80
-      rel: ''
-      target: ''
-      url_only: false
-      url_plain: false
-    third_party_settings: {  }
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
   field_position:
     weight: 2
     label: hidden
@@ -141,7 +152,7 @@ content:
     type: string
     region: left
   field_tagline_user:
-    weight: 4
+    weight: 6
     label: hidden
     settings: {  }
     third_party_settings:
@@ -150,7 +161,7 @@ content:
           id: expert
           settings:
             lb: ''
-            prefix: ''
+            prefix: '<div class="user-quote"><span class="quote-icon"><i class="fas fa-quote-left"></i></span>'
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
@@ -161,10 +172,11 @@ content:
             fis-cl: ''
             fis-at: ''
             fi: true
-            fi-el: h3
-            fi-cl: ''
+            fi-el: span
+            fi-cl: text
             fi-at: ''
-            suffix: ''
+            fi-def-at: true
+            suffix: '</div>'
             lbw: false
             lb-col: false
             ow: false
@@ -172,29 +184,51 @@ content:
             ow-def-cl: false
             fis: false
             fis-def-at: false
-            fi-def-at: false
     type: text_default
     region: right
   field_website_user:
-    weight: 6
+    weight: 4
     label: hidden
     settings:
-      trim_length: 80
+      trim_length: null
+      target: _blank
       url_only: false
       url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
+      rel: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: '<div class="website"><i class="fas fa-globe"></i>'
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: field-website
+            ow-at: ''
+            ow-def-at: true
+            ow-def-cl: true
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: true
+            suffix: '</div>'
+            lbw: false
+            lb-col: false
+            fis: false
+            fis-def-at: false
+            fi: false
     type: link
-    region: right
-  member_for:
-    weight: 9
-    region: right
-    settings: {  }
-    third_party_settings: {  }
+    region: left
   user_picture:
     type: image
-    weight: 1
+    weight: 0
     region: left
     settings:
       image_style: profile_photo
@@ -211,3 +245,4 @@ hidden:
   field_notification_prefs: true
   field_password_expiration: true
   field_terms: true
+  member_for: true
