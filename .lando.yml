@@ -12,6 +12,8 @@ services:
       - "mkdir /var/www/.platformsh && mkdir /var/www/.platformsh/bin"
       - "curl -fsSL -o /var/www/.platformsh/bin/platform https://github.com/platformsh/platformsh-cli/releases/download/v3.26.0/platform.phar"
       - "chmod ug+x /var/www/.platformsh/bin/platform"
+      - "mkdir -p ~/.drush/site-aliases"
+      - "ln -sf /app/drush/lando.aliases.drushrc.php ~/.drush/site-aliases/lando.drushrc.php"
     overrides:
           services:
             environment:

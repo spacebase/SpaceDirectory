@@ -25,14 +25,33 @@ Feature: Test organizations. Status:WIP
     And I wait 6 seconds
     And I press "Save group and membership"
     Then I should see "has been created."
-    
-    
-    And I save screenshot
-
-    # Add Discussion
     # you'll land on the Members page... Go to discussion forum and add one:
-    And I should see "Invite New Members"
-    Then I click "discussions"
+
+
+    #Scenario: Edit my own Organization. Note: doing this now jumps past a
+    #reported bug that aliases are not created. 
+    #  CLick the fa.edit: needed a new feature context, so wrote a function
+    #  in ./bootstrap/FeatureContext.php
+    Then I click the link containing child element ".fa-home"
+    Then I click "Edit Group"
+    When I fill in the following:
+      | edit-field-description-0-value | Description of Acme Test Org - Edited |
+      | field_industry_segment[] | 32 | 
+    And I wait 6 seconds
+    And I press "Save"
+    Then I should see "has been updated"
+
+
+    # Once the alias bug is fixed, move this up, before "Edit my own Org.."
+  Scenario: Test auto alias
+    Given I am on "/org/behat-test-org"
+    Then I should not see "The requested page could not be found."
+
+  Scenario: Add Discussion
+    Given I am logged in as "Behat TestFounder"
+    Given I am on "/org/behat-test-org"
+    Then I should see "Invite New Members"
+    And I click "discussions"
     And I should see "Welcome to your organization's discussion forum."
     Then I click "behat-new-post"
     # @ToDoDiscuss: there's no title on this page.
@@ -44,11 +63,10 @@ Feature: Test organizations. Status:WIP
     And I should see "Behat Test Discussion Title"
     # On the discussions page
     Then I should see "Welcome to your organization"
+
+  Scenario: Edit that discussion, authorized
     And I click "Behat Test Discussion Title"
-    #  TUTORIAL: I needed a new feature context, so wrote a function
-    #  in ./bootstrap/FeatureContext.php
     Then I click the link containing child element ".fa-edit"
-    # Editing the discussion
     And I fill in the following:
       | edit-title-0-value | Behat EDITED Test Discussion Title |
     And I wait 11 seconds
@@ -56,12 +74,9 @@ Feature: Test organizations. Status:WIP
     Then I should see "has been updated"
 
 
-    Given I am on "/org/behat-test-org"
-    Then I should not see "The requested page could not be found."
 
 
-    # Same scenario, looking at above content?
-    #Scenario: Authenticated User can see the above discussion
+  Scenario: Authenticated User can see the above discussion
     # Problem: log in as Authenticated takes me to that page.
     # Have to get back to this org! /org/
     Given I am logged in as a user with the "Authenticated user" role
@@ -71,20 +86,18 @@ Feature: Test organizations. Status:WIP
     Then I should see "Behat EDITED Test Discussion Title"
 
 
-    # Same scenario, does org alias fail?
-    #Scenario: View organization as basic user, via alias
+  Scenario: View organization as basic user, via alias, no Edit option
     Given I am logged in as a user with the "Authenticated user" role
-    #TODO need to find a way to identify the org created in previous scenario
     And I am on "/org/behat-test-org"
     Then I should see "Description"
     And I should see "Behat Test Org"
     And I should not see "Edit"
-    And I should see "screenshot"
 
   Scenario: Add resource to organization -- old test, not working, @ToDo
     Given I am logged in as "Behat TestFounder"
     # Make sure you don't see the info for anon users:
     And I should not see "Join SpaceBase, then join the organizations you are interested in"
+    And I am on "/org/behat-test-org"
 
     # can't use the following because the button isn't identifiable by any of these: id|name|title|alt|value
     # And I am on "/group/95/resources#Communication"
@@ -127,7 +140,7 @@ Feature: Test organizations. Status:WIP
     And I should see "screenshot"
 
 
-
+  @javascript
   Scenario: Owner can edit organization data
     # Have problems here... I think setting @api to drush 
     # has more reqs than drupal ... not sure though, maybe this old test
