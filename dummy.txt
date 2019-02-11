@@ -1,3 +1,0 @@
-This is a dummy text file to enable a new git commit.
-James Scott
-12 Feb 2019.
