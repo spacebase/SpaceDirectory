@@ -1,16 +1,16 @@
-uuid: 3a4e6fd9-ef9e-4b64-a59a-4d64c798c1b1
+uuid: 9938ae6a-9248-4e96-99ca-886dd7e6b56d
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.group.project.field_description
-    - field.field.group.project.field_image
-    - field.field.group.project.field_industry_segment
-    - field.field.group.project.field_misson
-    - field.field.group.project.field_needs
-    - field.field.group.project.field_project_group_aims
-    - field.field.group.project.field_project_group_updates
-    - group.type.project
+    - field.field.group.project_group.field_description
+    - field.field.group.project_group.field_image
+    - field.field.group.project_group.field_industry_segment
+    - field.field.group.project_group.field_misson
+    - field.field.group.project_group.field_needs
+    - field.field.group.project_group.field_project_group_aims
+    - field.field.group.project_group.field_project_group_updates
+    - group.type.project_group
   module:
     - ds
     - image
@@ -49,15 +49,13 @@ third_party_settings:
         - field_project_group_aims
       footer:
         - field_project_group_updates
-id: group.project.default
+id: group.project_group.default
 targetEntityType: group
-bundle: project
+bundle: project_group
 mode: default
 content:
   field_description:
-    type: smart_trim
     weight: 5
-    region: left
     label: above
     settings:
       trim_length: 600
@@ -71,6 +69,8 @@ content:
       summary_handler: full
       trim_options: {  }
     third_party_settings: {  }
+    type: smart_trim
+    region: left
   field_image:
     weight: 4
     label: above
@@ -81,12 +81,13 @@ content:
     type: image
     region: left
   field_industry_segment:
-    type: sb_author_names
     weight: 3
-    region: header
     label: above
-    settings: {  }
+    settings:
+      link: true
     third_party_settings: {  }
+    type: entity_reference_label
+    region: header
   field_misson:
     weight: 2
     label: above

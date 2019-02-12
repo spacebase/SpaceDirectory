@@ -1,15 +1,15 @@
-uuid: ef2a0684-25ba-4ff5-aad7-dc0ed8f9c956
+uuid: 9c2fac8a-c3e5-44fc-bcc9-237ffd07f191
 langcode: en
 status: true
 dependencies:
   config:
-    - group.type.project
+    - group.type.project_group
   module:
     - user
-id: project-group_membership
-label: 'Project: Group membership'
+id: project_group-group_membership
+label: 'Project group: Group membership'
 description: 'Adds users to groups as members.'
-group_type: project
+group_type: project_group
 content_plugin: group_membership
 plugin_config:
   group_cardinality: 0

@@ -1,0 +1,24 @@
+uuid: 11e66872-7566-4c5e-bec0-b8435c9af7ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.project_group
+id: project_group-admin
+label: Admin
+weight: 100
+internal: false
+audience: member
+group_type: project_group
+permissions_ui: true
+permissions:
+  - 'access content overview'
+  - 'administer group'
+  - 'delete group'
+  - 'edit group'
+  - 'view group'
+  - 'administer members'
+  - 'update own group_membership content'
+  - 'leave group'
+  - 'view group_membership content'
+  - 'access group_node overview'

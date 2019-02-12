@@ -1,14 +1,14 @@
-uuid: 9b2bc24d-5d87-4539-9c02-d22da80d46af
+uuid: 3aeb741c-8ff9-4309-930f-4ee08d533c61
 langcode: en
 status: true
 dependencies:
   config:
-    - group.type.project
-id: project-outsider
+    - group.type.project_group
+id: project_group-outsider
 label: Outsider
 weight: -101
 internal: true
 audience: outsider
-group_type: project
+group_type: project_group
 permissions_ui: true
 permissions: {  }

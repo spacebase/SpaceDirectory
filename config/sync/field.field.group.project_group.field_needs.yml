@@ -1,18 +1,18 @@
-uuid: 56c94983-2706-4f26-a429-0c72b653b209
+uuid: 7fd17eb5-dbae-4675-b229-829e9cca4df2
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.group.field_needs
-    - group.type.project
-id: group.project.field_needs
+    - group.type.project_group
+id: group.project_group.field_needs
 field_name: field_needs
 entity_type: group
-bundle: project
+bundle: project_group
 label: Needs
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

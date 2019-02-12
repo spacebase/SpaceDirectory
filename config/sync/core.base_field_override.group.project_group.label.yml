@@ -1,13 +1,13 @@
-uuid: 4943d653-f368-4b2a-8e8f-67f4b0a85274
+uuid: eb7aad10-a4df-4457-b849-c39efdcfc01e
 langcode: en
 status: true
 dependencies:
   config:
-    - group.type.project
-id: group.project.label
+    - group.type.project_group
+id: group.project_group.label
 field_name: label
 entity_type: group
-bundle: project
+bundle: project_group
 label: Title
 description: ''
 required: true

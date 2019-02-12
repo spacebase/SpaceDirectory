@@ -1,19 +1,19 @@
-uuid: ee03c7fc-a466-4c81-b3e4-9631ca34b916
+uuid: f33d33ae-613d-4ed0-a8da-170672386a44
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.group.field_project_group_aims
-    - group.type.project
+    - group.type.project_group
     - node.type.project_aim
-id: group.project.field_project_group_aims
+id: group.project_group.field_project_group_aims
 field_name: field_project_group_aims
 entity_type: group
-bundle: project
+bundle: project_group
 label: 'Success Metrics'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

@@ -1,14 +1,14 @@
-uuid: 38aac6ce-a82d-4317-b009-d3c5d4990579
+uuid: 96535bb4-68bd-49d0-a272-3041ca56b060
 langcode: en
 status: true
 dependencies:
   config:
-    - group.type.project
-id: project-member
+    - group.type.project_group
+id: project_group-member
 label: Member
 weight: -100
 internal: true
 audience: member
-group_type: project
+group_type: project_group
 permissions_ui: true
 permissions: {  }

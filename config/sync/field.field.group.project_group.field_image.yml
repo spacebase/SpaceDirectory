@@ -1,16 +1,16 @@
-uuid: 6df06ee1-7a04-46e5-8a5b-431ce207ffbb
+uuid: ac266b67-a344-4168-9f48-6e0c23c9fd3b
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.group.field_image
-    - group.type.project
+    - group.type.project_group
   module:
     - image
-id: group.project.field_image
+id: group.project_group.field_image
 field_name: field_image
 entity_type: group
-bundle: project
+bundle: project_group
 label: Image
 description: ''
 required: false

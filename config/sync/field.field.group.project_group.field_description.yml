@@ -1,16 +1,16 @@
-uuid: 2ce55905-15fe-4a94-bc06-3790e6bc5138
+uuid: 36a65da6-4121-414c-a01f-fa03b8d4134a
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.group.field_description
-    - group.type.project
+    - group.type.project_group
   module:
     - text
-id: group.project.field_description
+id: group.project_group.field_description
 field_name: field_description
 entity_type: group
-bundle: project
+bundle: project_group
 label: Description
 description: ''
 required: false

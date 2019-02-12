@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - group.type.project
+    - group.type.project_group
     - node.type.project_aim
   module:
     - group
@@ -381,7 +381,7 @@ display:
             fail: ignore
           validate_options:
             bundles:
-              project: project
+              project_group: project_group
             operation: view
             multiple: 0
             access: false
