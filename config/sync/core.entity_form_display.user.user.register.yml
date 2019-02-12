@@ -10,9 +10,11 @@ dependencies:
     - field.field.user.user.field_home_location_user
     - field.field.user.user.field_intro
     - field.field.user.user.field_last_name_user
+    - field.field.user.user.field_last_password_reset
     - field.field.user.user.field_linkedin_user
     - field.field.user.user.field_metatags
     - field.field.user.user.field_notification_prefs
+    - field.field.user.user.field_password_expiration
     - field.field.user.user.field_position
     - field.field.user.user.field_tagline_user
     - field.field.user.user.field_terms
@@ -22,9 +24,7 @@ dependencies:
   module:
     - address
     - image
-    - link
     - markup
-    - text
     - user
 _core:
   default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
@@ -38,15 +38,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_bio_user:
-    weight: 8
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textarea_with_summary
-    region: content
   field_first_name_user:
     weight: 2
     settings:
@@ -56,7 +47,7 @@ content:
     type: string_textfield
     region: content
   field_home_location_user:
-    weight: 9
+    weight: 7
     settings:
       default_country: null
     third_party_settings: {  }
@@ -76,20 +67,6 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_linkedin_user:
-    weight: 10
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
-  field_notification_prefs:
-    type: options_buttons
-    weight: 12
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_position:
     type: string_textfield
     weight: 6
@@ -98,28 +75,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_tagline_user:
-    weight: 7
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textfield
-    region: content
   field_terms:
     type: markup
-    weight: 13
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_website_user:
-    weight: 11
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
   google_analytics:
     weight: 4
     region: content
@@ -140,7 +101,14 @@ content:
     region: content
 hidden:
   contact: true
+  field_bio_user: true
   field_email_user: true
+  field_last_password_reset: true
+  field_linkedin_user: true
   field_metatags: true
+  field_notification_prefs: true
+  field_password_expiration: true
+  field_tagline_user: true
+  field_website_user: true
   language: true
   path: true

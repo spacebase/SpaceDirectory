@@ -33,7 +33,15 @@ settings:
       override: optional
     addressLine2:
       override: optional
+    postalCode:
+      override: hidden
+    sortingCode:
+      override: hidden
     dependentLocality:
+      override: hidden
+    locality:
+      override: optional
+    administrativeArea:
       override: optional
   fields: {  }
 field_type: address
