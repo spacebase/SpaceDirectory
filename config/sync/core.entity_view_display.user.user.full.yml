@@ -60,7 +60,19 @@ third_party_settings:
         - field_bio_user
         - 'dynamic_block_field:user-user_groups'
         - 'dynamic_block_field:user-user_content_view_block'
+        - 'dynamic_block_field:user-contributed_news_articles'
+        - 'dynamic_block_field:user-user_authored_content'
     fields:
+      'dynamic_block_field:user-contributed_news_articles':
+        plugin_id: 'dynamic_block_field:user-contributed_news_articles'
+        weight: 10
+        label: hidden
+        formatter: default
+      'dynamic_block_field:user-user_authored_content':
+        plugin_id: 'dynamic_block_field:user-user_authored_content'
+        weight: 11
+        label: hidden
+        formatter: default
       'dynamic_block_field:user-user_content_view_block':
         plugin_id: 'dynamic_block_field:user-user_content_view_block'
         weight: 9
