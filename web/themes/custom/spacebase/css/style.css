@@ -9719,4 +9719,9 @@ body.page-node-type-blog-post .text {
 .region-navigation fieldset.form-item {
   display: none; }
 
+.region-content .project-group .field--label {
+  display: none; }
+.region-content .project-group .project-aims, .region-content .project-group .project-reports {
+  margin-bottom: 50px; }
+
 /*# sourceMappingURL=style.css.map */

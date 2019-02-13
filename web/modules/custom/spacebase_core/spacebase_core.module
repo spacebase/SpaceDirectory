@@ -5,6 +5,20 @@
  * Contains spacebase_core.module.
  */
 
+// @ToDo: these use statements from example, probably not all needed:
+// Use statements to support hook_entity_field_access.
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Access\AccessResult;
+
+// Interfaces used by entities to declare "ownership".
+use Drupal\user\EntityOwnerInterface;
+use Drupal\user\UserInterface;
+
+// Use statements for hook_entity_test_access.
+use Drupal\Core\Entity\EntityInterface;
+
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
@@ -13,6 +27,10 @@ use Drupal\views\Views;
 use Drupal\group\Entity\GroupContent;
 use Drupal\user\Entity\User;
 use Drupal\Component\Render\PlainTextOutput;
+
+use Drupal\Core\Queue\QueueFactory;
+use Drupal\Core\Queue\QueueInterface;
+use Drupal\Core\Datetime\DrupalDateTime;
 
 
 /**
@@ -68,29 +86,13 @@ function spacebase_core_comment_links_alter(array &$links) {
     }
 }
 
-
-// @ToDo: these use statements from example, probably not all needed:
-// Use statements to support hook_entity_field_access.
-use Drupal\Core\Field\FieldDefinitionInterface;
-use Drupal\Core\Session\AccountInterface;
-use Drupal\Core\Field\FieldItemListInterface;
-use Drupal\Core\Access\AccessResult;
-
-// Interfaces used by entities to declare "ownership".
-use Drupal\user\EntityOwnerInterface;
-use Drupal\user\UserInterface;
-
-// Use statements for hook_entity_test_access.
-use Drupal\Core\Entity\EntityInterface;
-
 /**
  * Implements hook_entity_field_access().
  *
  * #Pins-field-access - Only group Admins can set the pins.
  *
  */
-
-function spacebase_core_entity_field_access($operation, \Drupal\Core\Field\FieldDefinitionInterface $field_definition, \Drupal\Core\Session\AccountInterface $account, \Drupal\Core\Field\FieldItemListInterface $items = NULL) {
+function spacebase_core_entity_field_access($operation, FieldDefinitionInterface $field_definition, AccountInterface $account, FieldItemListInterface $items = NULL) {
 
   // @ToDo: TestTheAccess by returning here, and making sure it fails in AjaxToggleForm.
   $result = AccessResult::neutral();
@@ -107,7 +109,6 @@ function spacebase_core_entity_field_access($operation, \Drupal\Core\Field\Field
     if ($operation == 'update') {
       // 'edit' or  'update' coming from line 256 in ToggleEditableFormatter,
       // which was originally 'edit' but should have been update.
-
 
       // Need the node, to get the group, to see if $account is an Admin
       if ($items) {
@@ -159,6 +160,10 @@ function spacebase_core_entity_field_access($operation, \Drupal\Core\Field\Field
  * they can be grabbed by any function, rather than locked into the
  * operations links function. See if as this evolves, something can be
  * contributed back... @ToDo-Later
+ *
+ *
+ * @param array $variables
+ * @param $group \Drupal\group\Entity\Group $group
  */
 function _set_the_group_links(&$variables, $group) {
 
@@ -172,10 +177,8 @@ function _set_the_group_links(&$variables, $group) {
   $account = \Drupal::currentUser(); //or $variables['user']; ?
   // Note: if users can administer a group, all permissions are true.
 
-
   /** Group tabs need url repeatedly. Just a shortcut */
   $variables['group_url'] = '/group/' . $group->id();
-
 
   /** Edit Group, Add Resource can be done by non-member admins.
    * If not, move inside getMember($account)
@@ -235,7 +238,7 @@ function _set_the_group_links(&$variables, $group) {
 
   // provide resource_type terms, for tabs in twig
   // @ToDo-Refactor replace other times this older version above is called with the new one, I think,
-  $variables['resource_type'] = _prep_resources();
+  $variables['resource_type'] = _prep_resources($group->bundle());
 
   // Get total number of resources:
   $view = Views::getView('organization_resources');
@@ -259,33 +262,40 @@ function _set_the_group_links(&$variables, $group) {
 
 // Get the resource type taxonomy tree names prepped for tabs
 // Specs changed, @ToDo replacing this with next one...
-function _get_resource_type() {
+function _get_resource_type($group_type) {
   // provide resource_type terms, for tabs in twig
   $vid = 'resource_type';
   $var = [];
   $terms =
-    \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
+    \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, NULL, TRUE);
   foreach ($terms as $term) {
-    $var[] = $term->name;
+    $associated_group_types = $term->get('field_associated_group_types')->getValue();
+    $associated_group_types = array_column($associated_group_types, 'value');
+    if (in_array($group_type, $associated_group_types)) {
+      $var[] = $term->getName();
+    }
   }
   return $var;
 }
 
-// Get the resource type taxonomy tree names & descriptions prepped for tabs
+// Get the resource type taxonomy tree names & descriptions prepped for display
 //@ToDo: needed repeatedly - could save almost nothing by caching this
-function _prep_resources() {
+function _prep_resources($group_type) {
   $vid = 'resource_type';
   $var = [];
   // in getStorage below,
   // $load_entities defaults to false = faster, not complete objects.
   // This is admin-created data, so treating it as pretty safe markup
-  $terms =
-    \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid, 0, NULL, TRUE);
   foreach ($terms as $term) {
-    $var[] = [
-      'name' => $term->name,
-      'description' =>  ['#markup' => $term->description__value]
+    $associated_group_types = $term->get('field_associated_group_types')->getValue();
+    $associated_group_types = array_column($associated_group_types, 'value');
+    if (in_array($group_type, $associated_group_types)) {
+      $var[] = [
+        'name' => $term->getName(),
+        'description' =>  ['#markup' => $term->description->value]
       ];
+    }
   }
   return $var;
 }
@@ -400,7 +410,7 @@ function spacebase_core_org_owner_submit(&$form, FormStateInterface $form_state)
  * Similar to spacebase_core_organization_join_submit, but goes to member page.
  *
  */
-function spacebase_core_organization_edit_user_submit(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function spacebase_core_organization_edit_user_submit(&$form, FormStateInterface $form_state) {
   $group_content_membership = $form_state->getFormObject()->getEntity();
   $group = $group_content_membership->getGroup();
 
@@ -424,7 +434,7 @@ function spacebase_core_user_form_submit(&$form, FormStateInterface $form_state)
  * The entity in the form is the membership "group_content"
  * that glues users to groups.
  */
-function spacebase_core_organization_join_submit(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function spacebase_core_organization_join_submit(&$form, FormStateInterface $form_state) {
   $group_content_membership = $form_state->getFormObject()->getEntity();
   $group = $group_content_membership->getGroup();
 
@@ -439,8 +449,9 @@ function spacebase_core_organization_join_submit(&$form, \Drupal\Core\Form\FormS
  */
 }
 
-
-
+/**
+ * Custom submit function for user registration
+ */
 function spacebase_core_user_registration_submit(&$form, FormStateInterface $form_state) {
   drupal_get_messages(); // dumps the existing message, use ours...
   drupal_set_message("An email has been sent to you with instructions to verify your email address and complete the sign-up process.");
@@ -448,6 +459,9 @@ function spacebase_core_user_registration_submit(&$form, FormStateInterface $for
   $form_state->setRedirectUrl($url);
 }
 
+/**
+ * Implements hook_theme().
+ */
 function spacebase_core_theme($existing, $type, $theme, $path) {
   return [
     'sb_search_page' => [
@@ -504,6 +518,7 @@ function spacebase_core_queue_content_notifications($module, $key, $node) {
   $item->key = $key;
   $queue->createItem($item);
 }
+
 /**
  * spacebase_core_queue_new_content_notifications
  *
@@ -531,12 +546,7 @@ function spacebase_core_queue_content_notification_summaries($module, $user, $ke
  * we know whether that node is part of an Organization and so email
  * Org Admins, or part of the Site and so email Site Admins.
  */
-use Drupal\Core\Queue\QueueFactory;
-use Drupal\Core\Queue\QueueInterface;
-use Drupal\Core\Datetime\DrupalDateTime;
-
-function spacebase_core_send_new_content_notifications($module, $key, $node)
-{
+function spacebase_core_send_new_content_notifications($module, $key, $node) {
   $params['node'] = $node;
   $params['module'] = $module;
 
@@ -780,10 +790,6 @@ function _get_notification_line($node, $type=null, $group=null) {
   }
 }
 
-
-
-
-
 /**
  * Implements hook_mail().
  */
@@ -837,8 +843,6 @@ function _generate_email_list($user_summary, $notification_config) {
   }
   return $list;
 }
-
-
 
 /**
  * Implements hook_cron().

@@ -14,6 +14,7 @@ use Drupal\views\Views;
 use Drupal\group\Entity\GroupContent;
 use Drupal\user\Entity\User;
 use Drupal\Component\Render\PlainTextOutput;
+use Drupal\group\Entity\Group;
 
 /**
  * Implements hook_preprocess_user().
@@ -64,8 +65,16 @@ function spacebase_theme_suggestions_page_alter(array &$suggestions, array $vari
   $path_alias = str_replace('/', '-', $path_alias);
   $suggestions[] = 'page__path_alias__'.$path_alias;
 
-  if (preg_match('/group\/\d*\/(forum|members|resources)/',$current_path)) {
-    $suggestions[] = 'page__org_profile';
+  $matches = [];
+  if (preg_match('/group\/(\d*)\/(forum|members|resources)/',$current_path, $matches)) {
+    /** @var \Drupal\group\Entity\Group $group */
+    $group = Group::Load($matches[1]);
+    if ($group->bundle() == 'organisation_group') {
+      $suggestions[] = 'page__org_profile';
+    }
+    else {
+      $suggestions[] = 'page__project_profile';
+    }
   }
 
   /** @var \Drupal\node\NodeInterface $node */
@@ -73,7 +82,15 @@ function spacebase_theme_suggestions_page_alter(array &$suggestions, array $vari
     $content_type = $node->bundle();
     if ($content_type == 'group_forum_topic') {
       //{% include "@mytheme/partials/favicons.html.twig" %}
-      $suggestions[] = 'page__org_profile';
+      /** @var \Drupal\group\Entity\Group $group */
+      $group = _group_from_node($node);
+      $group_type = $group->getEntityTypeId();
+      if ($group_type == 'organisation_group') {
+        $suggestions[] = 'page__org_profile';
+      }
+      else {
+        $suggestions[] = 'page__project_profile';
+      }
     }
     else {
       $suggestions[] = 'page__'.$content_type;
@@ -243,7 +260,7 @@ function spacebase_preprocess_views_view(&$variables) {
     $variables['title'] = $city ? t($city) : " ";
     // depend on other design if default desired
   }
-  elseif ($variables['id'] == "group_forum") {
+  elseif ($variables['id'] == "group_forum" || $variables['id'] == "project_group_forum") {
     // page_1, block_3
     /** @var \Drupal\group\Entity\Group $group */
     $group = Drupal\group\Entity\Group::load($view->args[0]);

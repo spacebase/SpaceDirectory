@@ -12,48 +12,34 @@ dependencies:
     - field.field.group.project_group.field_project_group_updates
     - group.type.project_group
   module:
-    - ds
     - image
     - smart_trim
     - spacebase_core
-third_party_settings:
-  ds:
-    layout:
-      id: ds_2col_stacked
-      library: ds/ds_2col_stacked
-      disable_css: false
-      entity_classes: all_classes
-      settings:
-        wrappers:
-          header: div
-          left: div
-          right: div
-          footer: div
-        outer_wrapper: div
-        attributes: ''
-        link_attribute: ''
-        link_custom: ''
-        classes:
-          layout_class: {  }
-    regions:
-      header:
-        - label
-        - uid
-        - field_misson
-        - field_industry_segment
-      left:
-        - field_image
-        - field_description
-      right:
-        - field_needs
-        - field_project_group_aims
-      footer:
-        - field_project_group_updates
 id: group.project_group.default
 targetEntityType: group
 bundle: project_group
 mode: default
 content:
+  changed:
+    type: timestamp
+    weight: 10
+    region: content
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+  created:
+    type: timestamp
+    weight: 9
+    region: content
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
   field_description:
     weight: 5
     label: above
@@ -70,7 +56,7 @@ content:
       trim_options: {  }
     third_party_settings: {  }
     type: smart_trim
-    region: left
+    region: content
   field_image:
     weight: 4
     label: above
@@ -79,7 +65,7 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
-    region: left
+    region: content
   field_industry_segment:
     weight: 3
     label: above
@@ -87,14 +73,14 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: header
+    region: content
   field_misson:
     weight: 2
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
-    region: header
+    region: content
   field_needs:
     weight: 6
     label: above
@@ -102,7 +88,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: right
+    region: content
   field_project_group_aims:
     weight: 7
     label: above
@@ -111,7 +97,7 @@ content:
       view_mode: default
     third_party_settings: {  }
     type: entity_reference_entity_view
-    region: right
+    region: content
   field_project_group_updates:
     weight: 8
     label: above
@@ -120,22 +106,20 @@ content:
       view_mode: default
     third_party_settings: {  }
     type: entity_reference_entity_view
-    region: footer
+    region: content
   label:
     label: hidden
     type: string
     weight: 0
-    region: header
+    region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
   uid:
     type: sb_author_names
     weight: 1
-    region: header
+    region: content
     label: inline
     settings: {  }
     third_party_settings: {  }
-hidden:
-  changed: true
-  created: true
+hidden: {  }
