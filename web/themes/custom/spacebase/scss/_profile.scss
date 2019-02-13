@@ -1,8 +1,10 @@
 
-.profile{
+.profile,
+.user--view-mode-full {
   padding-top: 170px;
   clear: both;
-  .profile-photo{
+  .profile-photo,
+  .field--name-user-picture {
     img{
       height: auto;
       width: 200px;
@@ -13,30 +15,40 @@
       margin: -135px auto 35px;
     }
   }
-  h1{
+  h1 {
     font-size: 30px;
     margin-bottom: 20px;
     font-weight: 500;
   }
-  h2.segment{
+  h2.segment {
     font-size: 16px;
     font-weight: 300;
     margin-bottom: 30px;
     line-height: 1.4em;
   }
-  .position{
+  .field--name-field-position,
+  .position {
     font-size: 18px;
     margin-bottom: 40px;
   }
-  .location{
+  .field--name-field-home-location-user,
+  .location {
     font-size: 16px;
     margin-bottom: 20px;
   }
-  .website{
+  .field--name-field-website-user,
+  .website {
     font-size: 16px;
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
+    i {
+        display: inline-block;
+        margin-right: 5px;
+    }
+    .field-website {
+        display: inline-block;
+    }
   }
-  .btn-linkedin{
+  .btn-linkedin {
     background: $brand-primary;
     color: #fff;
     display: block;
@@ -64,8 +76,10 @@
     font-size: 20px;
     position: relative;
     @media screen and (min-width: 768px) {
-      margin: -100px 0 0;
-      min-height: 100px;
+        margin-top: -100px;
+        min-height: 100px;
+        top: -30px;
+        left: -30px;
     }
     span.text{
       display: table-cell;
@@ -171,22 +185,22 @@
       }
     }
   }
-  .col-sm-4.pull-right{
-    @media screen and (max-width: 767px) {
-      float: none !important;
-    }
-  }
-  .col-sm-3.pull-right{
-    h1{
-      font-size: 24px;
-    }
-    h2.segment, .location{
-      font-size: 14px;
-    }
-    .btn{
-      font-size: 16px;
-    }
-  }
+  // .col-sm-4.pull-right{
+  //   @media screen and (max-width: 767px) {
+  //     float: none !important;
+  //   }
+  // }
+  // .col-sm-3.pull-right{
+  //   h1{
+  //     font-size: 24px;
+  //   }
+  //   h2.segment, .location{
+  //     font-size: 14px;
+  //   }
+  //   .btn{
+  //     font-size: 16px;
+  //   }
+  // }
   .claim {
     padding: 25px 0 0;
     font-size: 12px;
@@ -260,7 +274,7 @@
         margin: 0 20px 0 0;
         font-size: 13px;
         color: $text-light;
-        font-weight: 500; 
+        font-weight: 500;
       }
     }
     .membership-status{
@@ -499,9 +513,42 @@
       &:first-child{
         a{
           background: none;
-          
+
         }
       }
     }
   }
+}
+
+.user--view-mode-full {
+    .group-left,
+    .group-right {
+        padding: 35px;
+        background: #fff;
+        margin-bottom: 35px;
+        border-radius: 2px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    @include breakpoint($breakpoint-tablet) {
+        display: flex;
+        align-items: flex-start;
+        .group-left {
+            flex-basis: 33%;
+            flex-shrink: 0;
+            margin-right: 30px;
+        }
+        .group-right {
+            flex-grow: 1;
+        }
+    }
+    .field--label {
+        font-size: 26px;
+        line-height: 28px;
+        margin-bottom: 20px;
+        font-weight: 400;
+    }
+    .field {
+        margin-bottom: 30px;
+    }
+
 }

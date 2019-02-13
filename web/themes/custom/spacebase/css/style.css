@@ -7536,10 +7536,14 @@ body.nav-open {
     margin: 15px 40px;
     vertical-align: top; }
 
-.profile {
+.profile,
+.user--view-mode-full {
   padding-top: 170px;
   clear: both; }
-  .profile .profile-photo img {
+  .profile .profile-photo img,
+  .profile .field--name-user-picture img,
+  .user--view-mode-full .profile-photo img,
+  .user--view-mode-full .field--name-user-picture img {
     height: auto;
     width: 200px;
     background: #3f4147;
@@ -7547,45 +7551,72 @@ body.nav-open {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
     display: block;
     margin: -135px auto 35px; }
-  .profile h1 {
+  .profile h1,
+  .user--view-mode-full h1 {
     font-size: 30px;
     margin-bottom: 20px;
     font-weight: 500; }
-  .profile h2.segment {
+  .profile h2.segment,
+  .user--view-mode-full h2.segment {
     font-size: 16px;
     font-weight: 300;
     margin-bottom: 30px;
     line-height: 1.4em; }
-  .profile .position {
+  .profile .field--name-field-position,
+  .profile .position,
+  .user--view-mode-full .field--name-field-position,
+  .user--view-mode-full .position {
     font-size: 18px;
     margin-bottom: 40px; }
-  .profile .location {
+  .profile .field--name-field-home-location-user,
+  .profile .location,
+  .user--view-mode-full .field--name-field-home-location-user,
+  .user--view-mode-full .location {
     font-size: 16px;
     margin-bottom: 20px; }
-  .profile .website {
+  .profile .field--name-field-website-user,
+  .profile .website,
+  .user--view-mode-full .field--name-field-website-user,
+  .user--view-mode-full .website {
     font-size: 16px;
     margin-bottom: 30px; }
-  .profile .btn-linkedin {
+    .profile .field--name-field-website-user i,
+    .profile .website i,
+    .user--view-mode-full .field--name-field-website-user i,
+    .user--view-mode-full .website i {
+      display: inline-block;
+      margin-right: 5px; }
+    .profile .field--name-field-website-user .field-website,
+    .profile .website .field-website,
+    .user--view-mode-full .field--name-field-website-user .field-website,
+    .user--view-mode-full .website .field-website {
+      display: inline-block; }
+  .profile .btn-linkedin,
+  .user--view-mode-full .btn-linkedin {
     background: #325ce6;
     color: #fff;
     display: block;
     line-height: 30px;
     vertical-align: middle; }
-    .profile .btn-linkedin .icon {
+    .profile .btn-linkedin .icon,
+    .user--view-mode-full .btn-linkedin .icon {
       font-size: 30px;
       height: 30px;
       margin-right: 15px;
       vertical-align: middle; }
-    .profile .btn-linkedin .text {
+    .profile .btn-linkedin .text,
+    .user--view-mode-full .btn-linkedin .text {
       position: relative;
       top: 50%;
       -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);
       vertical-align: middle; }
-      .profile .btn-linkedin .text i.fas {
+      .profile .btn-linkedin .text i.fas,
+      .user--view-mode-full .btn-linkedin .text i.fas {
         margin-left: 5px; }
-  .profile .user-quote {
+  .profile .user-quote,
+  .user--view-mode-full .user-quote {
     display: table;
     padding: 0 0 10px 80px;
     color: #76777f;
@@ -7593,13 +7624,18 @@ body.nav-open {
     font-size: 20px;
     position: relative; }
     @media screen and (min-width: 768px) {
-      .profile .user-quote {
-        margin: -100px 0 0;
-        min-height: 100px; } }
-    .profile .user-quote span.text {
+      .profile .user-quote,
+      .user--view-mode-full .user-quote {
+        margin-top: -100px;
+        min-height: 100px;
+        top: -30px;
+        left: -30px; } }
+    .profile .user-quote span.text,
+    .user--view-mode-full .user-quote span.text {
       display: table-cell;
       vertical-align: middle; }
-    .profile .user-quote .quote-icon {
+    .profile .user-quote .quote-icon,
+    .user--view-mode-full .user-quote .quote-icon {
       color: #aeb5bd;
       display: block;
       position: absolute;
@@ -7610,79 +7646,97 @@ body.nav-open {
       line-height: 100px;
       width: 80px; }
       @media screen and (max-width: 767px) {
-        .profile .user-quote .quote-icon {
+        .profile .user-quote .quote-icon,
+        .user--view-mode-full .user-quote .quote-icon {
           height: 38px;
           line-height: 38px;
           font-size: 30px; } }
-  .profile .bio, .profile .description {
+  .profile .bio, .profile .description,
+  .user--view-mode-full .bio,
+  .user--view-mode-full .description {
     margin-bottom: 50px; }
-  .profile .links {
+  .profile .links,
+  .user--view-mode-full .links {
     border-radius: 2px;
     background: #f0f0f0;
     padding: 30px; }
-    .profile .links ul {
+    .profile .links ul,
+    .user--view-mode-full .links ul {
       list-style: none;
       margin: 0;
       padding: 0;
       column-count: 2;
       column-gap: 2em; }
-      .profile .links ul li {
+      .profile .links ul li,
+      .user--view-mode-full .links ul li {
         margin: 0 0 15px;
         padding: 0;
         font-size: 16px; }
-        .profile .links ul li a {
+        .profile .links ul li a,
+        .user--view-mode-full .links ul li a {
           color: #4e62a0;
           vertical-align: middle; }
-        .profile .links ul li .smalltext {
+        .profile .links ul li .smalltext,
+        .user--view-mode-full .links ul li .smalltext {
           font-size: 11px;
           font-weight: 300;
           line-height: 1.2em;
           word-wrap: break-word; }
-          .profile .links ul li .smalltext a {
+          .profile .links ul li .smalltext a,
+          .user--view-mode-full .links ul li .smalltext a {
             color: #3f4147; }
-  .profile .block-group-operations .btn-group {
+  .profile .block-group-operations .btn-group,
+  .user--view-mode-full .block-group-operations .btn-group {
     background: none;
     padding: 15px 0 0;
     display: block; }
-    .profile .block-group-operations .btn-group .btn {
+    .profile .block-group-operations .btn-group .btn,
+    .user--view-mode-full .block-group-operations .btn-group .btn {
       background: #3bba50;
       color: #fff;
       display: block;
       float: none;
       width: 100%; }
-      .profile .block-group-operations .btn-group .btn:active, .profile .block-group-operations .btn-group .btn:focus, .profile .block-group-operations .btn-group .btn:hover {
+      .profile .block-group-operations .btn-group .btn:active, .profile .block-group-operations .btn-group .btn:focus, .profile .block-group-operations .btn-group .btn:hover,
+      .user--view-mode-full .block-group-operations .btn-group .btn:active,
+      .user--view-mode-full .block-group-operations .btn-group .btn:focus,
+      .user--view-mode-full .block-group-operations .btn-group .btn:hover {
         background: #5dcb6f; }
-    .profile .block-group-operations .btn-group.anonymous .btn {
+    .profile .block-group-operations .btn-group.anonymous .btn,
+    .user--view-mode-full .block-group-operations .btn-group.anonymous .btn {
       background-color: #3bba50;
       border: 1px solid transparent;
       color: #fff; }
-      .profile .block-group-operations .btn-group.anonymous .btn:active, .profile .block-group-operations .btn-group.anonymous .btn:focus, .profile .block-group-operations .btn-group.anonymous .btn:hover {
+      .profile .block-group-operations .btn-group.anonymous .btn:active, .profile .block-group-operations .btn-group.anonymous .btn:focus, .profile .block-group-operations .btn-group.anonymous .btn:hover,
+      .user--view-mode-full .block-group-operations .btn-group.anonymous .btn:active,
+      .user--view-mode-full .block-group-operations .btn-group.anonymous .btn:focus,
+      .user--view-mode-full .block-group-operations .btn-group.anonymous .btn:hover {
         background-color: #5dcb6f;
         color: #fff; }
-    .profile .block-group-operations .btn-group.pending .btn {
+    .profile .block-group-operations .btn-group.pending .btn,
+    .user--view-mode-full .block-group-operations .btn-group.pending .btn {
       background-color: #bcc2c8;
       border: 1px solid transparent;
       color: #fff; }
-      .profile .block-group-operations .btn-group.pending .btn:active, .profile .block-group-operations .btn-group.pending .btn:focus, .profile .block-group-operations .btn-group.pending .btn:hover {
+      .profile .block-group-operations .btn-group.pending .btn:active, .profile .block-group-operations .btn-group.pending .btn:focus, .profile .block-group-operations .btn-group.pending .btn:hover,
+      .user--view-mode-full .block-group-operations .btn-group.pending .btn:active,
+      .user--view-mode-full .block-group-operations .btn-group.pending .btn:focus,
+      .user--view-mode-full .block-group-operations .btn-group.pending .btn:hover {
         background-color: #bcc2c8;
         color: #fff; }
-    .profile .block-group-operations .btn-group.verified .btn {
+    .profile .block-group-operations .btn-group.verified .btn,
+    .user--view-mode-full .block-group-operations .btn-group.verified .btn {
       background-color: #325ce6;
       border: 1px solid transparent;
       color: #fff; }
-      .profile .block-group-operations .btn-group.verified .btn:active, .profile .block-group-operations .btn-group.verified .btn:focus, .profile .block-group-operations .btn-group.verified .btn:hover {
+      .profile .block-group-operations .btn-group.verified .btn:active, .profile .block-group-operations .btn-group.verified .btn:focus, .profile .block-group-operations .btn-group.verified .btn:hover,
+      .user--view-mode-full .block-group-operations .btn-group.verified .btn:active,
+      .user--view-mode-full .block-group-operations .btn-group.verified .btn:focus,
+      .user--view-mode-full .block-group-operations .btn-group.verified .btn:hover {
         background-color: #5f80ec;
         color: #fff; }
-  @media screen and (max-width: 767px) {
-    .profile .col-sm-4.pull-right {
-      float: none !important; } }
-  .profile .col-sm-3.pull-right h1 {
-    font-size: 24px; }
-  .profile .col-sm-3.pull-right h2.segment, .profile .col-sm-3.pull-right .location {
-    font-size: 14px; }
-  .profile .col-sm-3.pull-right .btn {
-    font-size: 16px; }
-  .profile .claim {
+  .profile .claim,
+  .user--view-mode-full .claim {
     padding: 25px 0 0;
     font-size: 12px;
     font-weight: 500;
@@ -7941,6 +7995,21 @@ body.nav-open {
       padding-bottom: 5px; }
     .group-nav ul.menu li:first-child a {
       background: none; }
+
+.user--view-mode-full .group-left,
+.user--view-mode-full .group-right {
+  padding: 35px;
+  background: #fff;
+  margin-bottom: 35px;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
+.user--view-mode-full .field--label {
+  font-size: 26px;
+  line-height: 28px;
+  margin-bottom: 20px;
+  font-weight: 400; }
+.user--view-mode-full .field {
+  margin-bottom: 30px; }
 
 .top-bar .views-exposed-form {
   padding: 0;

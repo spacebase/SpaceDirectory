@@ -27,6 +27,7 @@ use Drupal\views\Views;
 use Drupal\group\Entity\GroupContent;
 use Drupal\user\Entity\User;
 use Drupal\Component\Render\PlainTextOutput;
+use Drupal\views\ViewExecutable;
 
 use Drupal\Core\Queue\QueueFactory;
 use Drupal\Core\Queue\QueueInterface;

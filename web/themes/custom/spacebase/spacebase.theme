@@ -11,6 +11,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\views\Views;
+use Drupal\views\ViewExecutable;
 use Drupal\group\Entity\GroupContent;
 use Drupal\user\Entity\User;
 use Drupal\Component\Render\PlainTextOutput;
@@ -27,7 +28,13 @@ function spacebase_preprocess_user(&$variables) {
 /**
  * Implements hook_views_pre_render().
  */
-function spacebase_views_pre_render(\Drupal\views\ViewExecutable $view) {
+function spacebase_views_pre_render(ViewExecutable $view) {
+
+  if (isset($view) && ($view->storage->id() == 'organizations_by_field_and_city')) {
+    // Add javascript to the chart
+    $view->element['#attached']['library'][] = 'spacebase/leaflet-gesture-handling';
+    $view->element['#attached']['library'][] = 'spacebase/chart-map-alter';
+  }
 
   // Change descriptions for empty Organization Resources
   // @Refactor, not sure, could this be combined with  _prep_resources
@@ -127,7 +134,7 @@ function spacebase_preprocess_html(&$variables) {
 
 /**
  * Implements hook_preprocess_page().
- * 
+ *
  * Send the group id to page--org-profile templates,
  * which are used often, including for things like confirming the delete
  * of a forum entry.
