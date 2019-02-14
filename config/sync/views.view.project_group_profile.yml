@@ -1,6 +1,6 @@
 uuid: 6d5cadaf-e699-4a01-8f7c-d6c52e17c5e8
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - field.storage.group.field_image
