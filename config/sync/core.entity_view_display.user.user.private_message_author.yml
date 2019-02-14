@@ -66,9 +66,11 @@ hidden:
   field_home_location_user: true
   field_intro: true
   field_last_name_user: true
+  field_last_password_reset: true
   field_linkedin_user: true
   field_metatags: true
   field_notification_prefs: true
+  field_password_expiration: true
   field_position: true
   field_tagline_user: true
   field_terms: true
