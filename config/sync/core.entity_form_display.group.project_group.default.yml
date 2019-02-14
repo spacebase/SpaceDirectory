@@ -7,8 +7,6 @@ dependencies:
     - field.field.group.project_group.field_description
     - field.field.group.project_group.field_image
     - field.field.group.project_group.field_industry_segment
-    - field.field.group.project_group.field_misson
-    - field.field.group.project_group.field_needs
     - field.field.group.project_group.field_project_group_aims
     - field.field.group.project_group.field_project_group_updates
     - field.field.group.project_group.field_project_mission
@@ -41,22 +39,6 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
-    region: content
-  field_misson:
-    weight: 7
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
-    region: content
-  field_needs:
-    weight: 9
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
     region: content
   field_project_group_aims:
     weight: 3
