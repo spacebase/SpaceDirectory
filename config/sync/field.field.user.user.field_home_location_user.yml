@@ -30,9 +30,9 @@ settings:
     organization:
       override: hidden
     addressLine1:
-      override: hidden
+      override: optional
     addressLine2:
-      override: hidden
+      override: optional
     postalCode:
       override: hidden
     sortingCode:
