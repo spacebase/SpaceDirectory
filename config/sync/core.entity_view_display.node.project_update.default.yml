@@ -25,26 +25,26 @@ third_party_settings:
         - body
         - field_project_aim_updates
     fields:
-      node_title:
-        plugin_id: node_title
-        weight: 0
+      node_post_date:
+        plugin_id: node_post_date
+        weight: 1
         label: hidden
-        formatter: default
-        settings:
-          wrapper: h3
-          class: ''
-          link: false
+        formatter: ds_post_date_short
         ft:
           id: default
           settings:
             lb: ''
             lb-col: false
             classes: {  }
-      node_post_date:
-        plugin_id: node_post_date
-        weight: 1
+      node_title:
+        plugin_id: node_title
+        weight: 0
         label: hidden
-        formatter: ds_post_date_short
+        formatter: default
+        settings:
+          wrapper: h4
+          class: ''
+          link: false
         ft:
           id: default
           settings:

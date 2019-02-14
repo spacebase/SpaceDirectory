@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.group_content.project_group-group_membership.field_organization_role
     - field.field.group_content.project_group-group_membership.group_roles
     - group.content_type.project_group-group_membership
 id: group_content.project_group-group_membership.default
@@ -10,6 +11,14 @@ targetEntityType: group_content
 bundle: project_group-group_membership
 mode: default
 content:
+  field_organization_role:
+    weight: -3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   group_roles:
     label: above
     type: entity_reference_label

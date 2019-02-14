@@ -8003,6 +8003,16 @@ body.nav-open {
   margin-bottom: 35px;
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
+@media screen and (min-width: 680px) {
+  .user--view-mode-full {
+    display: flex;
+    align-items: flex-start; }
+    .user--view-mode-full .group-left {
+      flex-basis: 33%;
+      flex-shrink: 0;
+      margin-right: 30px; }
+    .user--view-mode-full .group-right {
+      flex-grow: 1; } }
 .user--view-mode-full .field--label {
   font-size: 26px;
   line-height: 28px;
@@ -9790,7 +9800,11 @@ body.page-node-type-blog-post .text {
 
 .region-content .project-group .field--label {
   display: none; }
-.region-content .project-group .project-aims, .region-content .project-group .project-reports {
+.region-content .project-group .project-mission, .region-content .project-group .description {
   margin-bottom: 50px; }
+.region-content .project-group .project-aims, .region-content .project-group .project-reports, .region-content .project-group project-needs {
+  margin-bottom: 50px; }
+.region-content .project-group .box h4 {
+  font-size: 16px; }
 
 /*# sourceMappingURL=style.css.map */

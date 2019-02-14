@@ -27,7 +27,7 @@ third_party_settings:
         label: hidden
         formatter: default
         settings:
-          wrapper: h3
+          wrapper: h4
           class: ''
           link: false
         ft:

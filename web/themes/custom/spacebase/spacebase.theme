@@ -310,7 +310,7 @@ function spacebase_preprocess_views_view(&$variables) {
  */
 function spacebase_preprocess_views_view_fields(&$variables) {
 
-  if ($variables['view']->id() == 'group_profile') {
+  if ($variables['view']->id() == 'group_profile' || $variables['view']->id() == 'project_group_profile') {
     // Same as preprocess_views_view. Refactor? @ToDoTrivial
     $view = $variables['view'];
     /** @var \Drupal\group\Entity\Group $group */

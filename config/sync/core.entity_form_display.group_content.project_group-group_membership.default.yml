@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.group_content.project_group-group_membership.field_organization_role
     - field.field.group_content.project_group-group_membership.group_roles
     - group.content_type.project_group-group_membership
   module:
@@ -21,6 +22,14 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
+  field_organization_role:
+    weight: 32
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   group_roles:
     type: options_buttons
     weight: 31

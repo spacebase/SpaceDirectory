@@ -3,8 +3,16 @@
     .field--label {
       display: none;
     }
-    .project-aims, .project-reports {
+    .project-mission, .description {
       margin-bottom: 50px;
+    }
+    .project-aims, .project-reports, project-needs {
+      margin-bottom: 50px;
+    }
+    .box {
+      h4 {
+        font-size: 16px;
+      }
     }
   }
 }
