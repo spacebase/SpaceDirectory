@@ -1,14 +1,11 @@
 leaflet_more_maps_custom_maps:
   1:
-    map-key: First
-    layer-keys:
-      'google-satellite layer': 'google-satellite layer'
+    map-key: ''
+    layer-keys: {  }
     reverse-order: 0
   2:
-    map-key: Second
-    layer-keys:
-      'google-high-res terrain': 'google-high-res terrain'
-      'google-high-res roadmap': 'google-high-res roadmap'
+    map-key: ''
+    layer-keys: {  }
     reverse-order: 0
   3:
     map-key: ''

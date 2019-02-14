@@ -11,14 +11,10 @@
   <div class="chart-tabs">
     <ul class="tabs">
       <li><a href="#tab-orgs">Organisations</a></li>
-      <li><a href="#tab-events">Events</a></li>
     </ul>
     <div class="charts" id="tab-orgs">
     {{ drupal_view('organizations_by_field_and_city', 'views_block_filter_bpdb_1') }}
-    <p><a href="/" class="reset btn btn-block btn-small btn-black">Reset map</a></p>
-    </div>
-    <div class="charts" id="tab-events">
-      <p>Events coming soon</p>
+    <p><a href="{{ current_uri }}" class="reset btn btn-block btn-small btn-black">Reset map</a></p>
     </div>
   </div>
 </div>

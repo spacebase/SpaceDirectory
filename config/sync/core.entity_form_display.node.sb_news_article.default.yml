@@ -34,6 +34,15 @@ content:
     third_party_settings: {  }
     type: metatag_firehose
     region: content
+  field_na_author:
+    type: entity_reference_autocomplete
+    weight: 11
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_na_image:
     type: image_image
     weight: 2
@@ -103,6 +112,5 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
-  field_na_author: true
   field_na_authors: true
   field_na_post_date: true

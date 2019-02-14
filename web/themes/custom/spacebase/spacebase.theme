@@ -73,3 +73,8 @@ function spacebase_preprocess_page(&$vars) {
        $vars['title'] =$vars['page']['#title'];
     }
  }
+
+function spacebase_preprocess_block__maphome(&$vars) {
+  // Save the current uri for the "reset map" link
+  $vars['current_uri'] = \Drupal::request()->getRequestUri();
+}
