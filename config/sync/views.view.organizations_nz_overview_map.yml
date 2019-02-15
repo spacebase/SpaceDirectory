@@ -68,14 +68,12 @@ display:
               rendered: true
               rendered_strip: false
           data_source: field_map_address
-          name_field: ''
+          name_field: label
           description_field: rendered_entity
           view_mode: map_display
-          map: 'OSM Mapnik'
-          zoom: '5'
-          minZoom: '0'
-          maxZoom: '18'
+          leaflet_map: 'OSM Mapnik'
           height: '500'
+          hide_empty_map: 0
           map_position:
             force: 1
             center:
@@ -472,6 +470,7 @@ display:
       tags:
         - 'config:core.entity_view_display.group.organization_group.default'
         - 'config:core.entity_view_display.group.organization_group.map_display'
+        - 'config:core.entity_view_display.group.organization_group.search_result'
         - 'config:field.storage.group.field_map_address'
         - 'config:field.storage.group.field_website'
   page_1:
@@ -492,6 +491,7 @@ display:
       tags:
         - 'config:core.entity_view_display.group.organization_group.default'
         - 'config:core.entity_view_display.group.organization_group.map_display'
+        - 'config:core.entity_view_display.group.organization_group.search_result'
         - 'config:field.storage.group.field_map_address'
         - 'config:field.storage.group.field_website'
   views_block_filter_block_plugin_display_block_1:
@@ -500,7 +500,8 @@ display:
     display_title: 'Block Display Filter Block'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       css_class: ''
       defaults:
         css_class: false
@@ -516,5 +517,6 @@ display:
       tags:
         - 'config:core.entity_view_display.group.organization_group.default'
         - 'config:core.entity_view_display.group.organization_group.map_display'
+        - 'config:core.entity_view_display.group.organization_group.search_result'
         - 'config:field.storage.group.field_map_address'
         - 'config:field.storage.group.field_website'

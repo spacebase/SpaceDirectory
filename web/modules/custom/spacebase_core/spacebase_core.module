@@ -13,6 +13,7 @@ use Drupal\views\Views;
 use Drupal\group\Entity\GroupContent;
 use Drupal\user\Entity\User;
 use Drupal\Component\Render\PlainTextOutput;
+use Drupal\views\ViewExecutable;
 
 
 /**
@@ -145,10 +146,6 @@ function spacebase_core_preprocess_page(&$variables) {
     // The above clunky version works everywhere so far:
     $group = _group_from_node($variables['node']);
     $variables['groupid'] = $group->id();
-  } elseif ($variables['is_front']) {   /* @ToDo: this is momentarily correct, but maybe switch to views alter? */
-    // Add javascript to the chart
-    $variables['#attached']['library'][] = 'spacebase_core/leaflet-gesture-handling';
-    $variables['#attached']['library'][] = 'spacebase_core/chart-map-alter';
   }
 }
 
@@ -216,6 +213,17 @@ function spacebase_core_entity_field_access($operation, \Drupal\Core\Field\Field
   }
   return $result;
 
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function spacebase_core_views_pre_render(ViewExecutable $view) {
+  if (isset($view) && ($view->storage->id() == 'organizations_by_field_and_city')) {
+    // Add javascript to the chart
+    $view->element['#attached']['library'][] = 'spacebase_core/leaflet-gesture-handling';
+    $view->element['#attached']['library'][] = 'spacebase_core/chart-map-alter';
+  }
 }
 
 /** Implements template_preprocess_views_view(&$variables)

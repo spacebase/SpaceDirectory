@@ -1,0 +1,260 @@
+uuid: ec2ec7e7-1801-457c-a276-ba637eda6848
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.full
+    - field.field.user.user.field_bio_user
+    - field.field.user.user.field_email_user
+    - field.field.user.user.field_first_name_user
+    - field.field.user.user.field_home_location_user
+    - field.field.user.user.field_intro
+    - field.field.user.user.field_last_name_user
+    - field.field.user.user.field_last_password_reset
+    - field.field.user.user.field_linkedin_user
+    - field.field.user.user.field_metatags
+    - field.field.user.user.field_notification_prefs
+    - field.field.user.user.field_password_expiration
+    - field.field.user.user.field_position
+    - field.field.user.user.field_tagline_user
+    - field.field.user.user.field_terms
+    - field.field.user.user.field_website_user
+    - field.field.user.user.user_picture
+    - image.style.profile_photo
+  module:
+    - address
+    - ds
+    - image
+    - link
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_stacked
+      library: ds/ds_2col_stacked
+      disable_css: true
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      left:
+        - user_picture
+        - 'dynamic_token_field:user-full_name'
+        - field_position
+        - field_home_location_user
+        - field_website_user
+        - field_linkedin_user
+      right:
+        - field_tagline_user
+        - field_bio_user
+        - 'dynamic_block_field:user-user_groups'
+        - 'dynamic_block_field:user-user_content_view_block'
+        - 'dynamic_block_field:user-contributed_news_articles'
+        - 'dynamic_block_field:user-user_authored_content'
+    fields:
+      'dynamic_block_field:user-contributed_news_articles':
+        plugin_id: 'dynamic_block_field:user-contributed_news_articles'
+        weight: 10
+        label: hidden
+        formatter: default
+      'dynamic_block_field:user-user_authored_content':
+        plugin_id: 'dynamic_block_field:user-user_authored_content'
+        weight: 11
+        label: hidden
+        formatter: default
+      'dynamic_block_field:user-user_content_view_block':
+        plugin_id: 'dynamic_block_field:user-user_content_view_block'
+        weight: 9
+        label: above
+        formatter: default
+      'dynamic_block_field:user-user_groups':
+        plugin_id: 'dynamic_block_field:user-user_groups'
+        weight: 8
+        label: hidden
+        formatter: default
+      'dynamic_token_field:user-full_name':
+        plugin_id: 'dynamic_token_field:user-full_name'
+        weight: 1
+        label: hidden
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: h1
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.full
+targetEntityType: user
+bundle: user
+mode: full
+content:
+  field_bio_user:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: right
+  field_home_location_user:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: left
+  field_linkedin_user:
+    type: link
+    weight: 5
+    region: left
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  field_position:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: left
+  field_tagline_user:
+    weight: 6
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: '<div class="user-quote"><span class="quote-icon"><i class="fas fa-quote-left"></i></span>'
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: span
+            fi-cl: text
+            fi-at: ''
+            fi-def-at: true
+            suffix: '</div>'
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+    type: text_default
+    region: right
+  field_website_user:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: null
+      target: _blank
+      url_only: false
+      url_plain: false
+      rel: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: '<div class="website"><i class="fas fa-globe"></i>'
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: field-website
+            ow-at: ''
+            ow-def-at: true
+            ow-def-cl: true
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: true
+            suffix: '</div>'
+            lbw: false
+            lb-col: false
+            fis: false
+            fis-def-at: false
+            fi: false
+    type: link
+    region: left
+  user_picture:
+    type: image
+    weight: 0
+    region: left
+    settings:
+      image_style: profile_photo
+      image_link: ''
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  field_email_user: true
+  field_first_name_user: true
+  field_intro: true
+  field_last_name_user: true
+  field_last_password_reset: true
+  field_metatags: true
+  field_notification_prefs: true
+  field_password_expiration: true
+  field_terms: true
+  member_for: true
