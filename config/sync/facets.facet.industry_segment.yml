@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.default_solr_index
-    - views.view.sitewide_search
+    - search_api.index.spacebase_user_content
+    - views.view.search_3
   module:
     - search_api
 id: industry_segment
@@ -14,7 +14,7 @@ weight: 0
 min_count: 1
 show_only_one_result: false
 field_identifier: field_industry_segment
-facet_source_id: 'search_api:views_block__sitewide_search__search'
+facet_source_id: 'search_api:views_page__search_3__page_1'
 widget:
   type: checkbox
   config:
@@ -62,3 +62,4 @@ processor_configs:
     settings: {  }
 empty_behavior:
   behavior: none
+show_title: null

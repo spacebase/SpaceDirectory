@@ -1,0 +1,29 @@
+uuid: 3818aafa-6433-4c09-bcc9-cbaf59f324bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.industry_segment
+  module:
+    - facets
+    - system
+  theme:
+    - spacebase
+id: industrysegment_2
+theme: spacebase
+region: content
+weight: -19
+provider: null
+plugin: 'facet_block:industry_segment'
+settings:
+  id: 'facet_block:industry_segment'
+  label: 'Industry Segment'
+  provider: facets
+  label_display: visible
+  block_id: industrysegment_2
+visibility:
+  request_path:
+    id: request_path
+    pages: /search
+    negate: false
+    context_mapping: {  }
