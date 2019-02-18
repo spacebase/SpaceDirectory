@@ -2730,6 +2730,59 @@ display:
           entity_field: gid
           plugin_id: numeric
       fields:
+        view_user:
+          id: view_user
+          table: users
+          field: view_user
+          relationship: gc__user
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: view
+          output_url_as_text: true
+          absolute: false
+          entity_type: user
+          plugin_id: entity_link
         name:
           id: name
           table: users_field_data
@@ -3052,7 +3105,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"profile-icon\">\n{{ user_picture }}\n</div>\n<div class=\"profile-name\">\n<h3><a href=\"/u/{{ name }}\">{{ field_first_name_user }}  {{ field_last_name_user }} </a></h3>\n<div class=\"location\">\n{{ field_home_location_user_locality }}\n</div>\n</div>"
+            text: "<div class=\"profile-icon\">\r\n{{ user_picture }}\r\n</div>\r\n<div class=\"profile-name\">\r\n<h3><a href=\"{{ view_user }}\">{{ field_first_name_user }}  {{ field_last_name_user }} </a></h3>\r\n<div class=\"location\">\r\n{{ field_home_location_user_locality }}\r\n</div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
