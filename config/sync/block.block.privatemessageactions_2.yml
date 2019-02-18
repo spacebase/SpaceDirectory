@@ -9,8 +9,8 @@ dependencies:
     - spacebase
 id: privatemessageactions_2
 theme: spacebase
-region: sidebar_second
-weight: -21
+region: content
+weight: -8
 provider: null
 plugin: private_message_actions_block
 settings:
@@ -21,6 +21,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/private_message\r\n/private_message/*\r\n/private_messages\r\n/private_messages/*"
+    pages: "/private_messages\r\n/private_messages/*"
     negate: false
     context_mapping: {  }

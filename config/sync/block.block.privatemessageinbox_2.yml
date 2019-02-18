@@ -9,8 +9,8 @@ dependencies:
     - spacebase
 id: privatemessageinbox_2
 theme: spacebase
-region: sidebar_second
-weight: -20
+region: content
+weight: -6
 provider: null
 plugin: private_message_inbox_block
 settings:
@@ -24,6 +24,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/private_message\r\n/private_message/*\r\n/private_messages\r\n/private_messages/*"
+    pages: /private_messages/inbox
     negate: false
     context_mapping: {  }

@@ -12,7 +12,7 @@ dependencies:
 id: views_block__group_members_block_3
 theme: spacebase
 region: content
-weight: -13
+weight: -12
 provider: null
 plugin: 'views_block:group_members-block_3'
 settings:
