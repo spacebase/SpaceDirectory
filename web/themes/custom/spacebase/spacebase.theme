@@ -78,3 +78,8 @@ function spacebase_preprocess_block__maphome(&$vars) {
   // Save the current uri for the "reset map" link
   $vars['current_uri'] = \Drupal::request()->getRequestUri();
 }
+
+function spacebase_preprocess_private_message_notification_block(&$variables) {
+  // Update the default private message notification icon with a custom variant.
+  $variables['notification_image_path'] = base_path() . drupal_get_path('theme', 'spacebase') . '/images/private-message-notification-icon.png';
+}
