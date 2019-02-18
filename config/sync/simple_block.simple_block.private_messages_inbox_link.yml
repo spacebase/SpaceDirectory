@@ -1,0 +1,11 @@
+uuid: c196265a-3446-4372-b4d3-fb7c5ee55675
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+id: private_messages_inbox_link
+title: 'Link to private messages inbox'
+content:
+  value: "<p><a href=\"/private_messages/inbox\">Private Messages Inbox</a></p>\r\n"
+  format: basic_html

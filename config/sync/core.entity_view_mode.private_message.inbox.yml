@@ -1,0 +1,12 @@
+uuid: eb31c1cf-81f7-4726-ac2d-270bf574b130
+langcode: en
+status: true
+dependencies:
+  module:
+    - private_message
+_core:
+  default_config_hash: ZfiDSEdeDse0qMWBsb0u9YVhJ05_ySCpkBuBi_DlFd0
+id: private_message.inbox
+label: Inbox
+targetEntityType: private_message
+cache: true

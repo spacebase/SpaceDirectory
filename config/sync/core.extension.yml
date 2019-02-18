@@ -68,6 +68,8 @@ module:
   media: 0
   menu_link_attributes: 0
   menu_ui: 0
+  message: 0
+  message_notify: 0
   metatag: 0
   metatag_facebook: 0
   metatag_google_plus: 0
@@ -92,6 +94,7 @@ module:
   password_policy_length: 0
   password_policy_username: 0
   path: 0
+  private_message: 0
   publishcontent: 0
   quickedit: 0
   rdf: 0

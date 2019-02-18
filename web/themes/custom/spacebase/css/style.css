@@ -9807,4 +9807,38 @@ body.page-node-type-blog-post .text {
 .region-content .project-group .box h4 {
   font-size: 16px; }
 
+.region-navigation .block-private-message-notification-block {
+  float: right;
+  margin-top: 12px; }
+  .region-navigation .block-private-message-notification-block h2 {
+    display: none; }
+  .region-navigation .block-private-message-notification-block .private-message-page-link {
+    color: white;
+    font-weight: 700; }
+
+.block-private-message .user--view-mode-private-message-author {
+  display: inline-block; }
+
+.block-private-message-actions-block h2,
+.block-private-message-inbox-block h2 {
+  margin: 20px 0 10px; }
+
+.block-simple-blockprivate-messages-inbox-link h2 {
+  display: none; }
+
+.private-message-thread .group-header .private-message-recipients {
+  margin-bottom: 10px; }
+.private-message-thread .group-left {
+  padding-right: 10px; }
+  .private-message-thread .group-left .field--label {
+    margin-bottom: 5px; }
+  .private-message-thread .group-left .private_message_thread_delete_link_wrapper,
+  .private-message-thread .group-left .private-message-thread-delete-link-wrapper {
+    margin-top: 10px; }
+.private-message-thread .group-right {
+  padding-left: 10px; }
+  .private-message-thread .group-right label {
+    font-size: 16px;
+    font-weight: bold; }
+
 /*# sourceMappingURL=style.css.map */

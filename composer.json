@@ -114,6 +114,7 @@
         "drupal/social_api": "^2.0",
         "drupal/social_auth": "^2.0",
         "drupal/social_auth_google": "^2.0",
+        "drupal/private_message": "^2.0",
         "drupal/coffee": "^1.0@beta",
         "drupal/admin_toolbar": "^1.25",
         "drupal/ds": "^3.2",
@@ -203,7 +204,12 @@
             },
             "drupal/honeypot" : {
                 "8.x-1.29: honeypot defeated": "https://www.drupal.org/files/issues/2018-08-10/2811189-14.patch",
-                "8.x-1.29: Server side token": "https://www.drupal.org/files/issues/2018-12-13/3002022-45.patch"
+                "8.x-1.29: Server side token": "https://www.drupal.org/files/issues/2018-11-29/3002022-37.patch"
+            },
+            "drupal/private_message": {
+                "8.x-2.0-beta15: Call to undefined method": "https://www.drupal.org/files/issues/2018-07-09/private-message-2984541-0.patch",
+                "8.x-2.0-beta15: Undefined index #id": "https://www.drupal.org/files/issues/2018-07-03/private-message-2961332-2.0.patch",
+                "8.x-2.0-beta15: Inbox shows oldest threads": "https://www.drupal.org/files/issues/2018-10-05/private_message-inbox_sort-3004414-3-8.6.1.patch"
             },
             "drupal/leaflet_more_maps": {
                 "8.x-1.0-alpha3: Invalid agrument": "https://www.drupal.org/files/issues/lmm_2847024-9.patch"
