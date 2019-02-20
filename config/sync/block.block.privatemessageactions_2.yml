@@ -10,12 +10,12 @@ dependencies:
 id: privatemessageactions_2
 theme: spacebase
 region: content
-weight: -8
+weight: -7
 provider: null
 plugin: private_message_actions_block
 settings:
   id: private_message_actions_block
-  label: Actions
+  label: 'Private Message Actions'
   provider: private_message
   label_display: visible
 visibility:

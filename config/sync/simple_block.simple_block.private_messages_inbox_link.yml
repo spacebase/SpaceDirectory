@@ -3,9 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.basic_html
+    - filter.format.raw_html
 id: private_messages_inbox_link
 title: 'Link to private messages inbox'
 content:
-  value: "<p><a href=\"/private_messages/inbox\">Private Messages Inbox</a></p>\r\n"
-  format: basic_html
+  value: "<p><a href=\"/private_messages\">Private Messages Inbox</a></p>\r\n"
+  format: raw_html
