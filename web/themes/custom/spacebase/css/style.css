@@ -8020,6 +8020,8 @@ body.nav-open {
   font-weight: 400; }
 .user--view-mode-full .field {
   margin-bottom: 30px; }
+.user--view-mode-full .private_message_link_wrapper {
+  margin-bottom: 30px; }
 
 .top-bar .views-exposed-form {
   padding: 0;
@@ -9807,12 +9809,15 @@ body.page-node-type-blog-post .text {
     color: white;
     font-weight: 700; }
 
-.block-private-message .user--view-mode-private-message-author {
+.private-message-thread .user--view-mode-private-message-author {
   display: inline-block; }
 
 .block-private-message-actions-block h2,
 .block-private-message-inbox-block h2 {
   margin: 20px 0 10px; }
+
+#private-message-page h2 {
+  margin: 0 0 10px; }
 
 .block-simple-blockprivate-messages-inbox-link h2 {
   display: none; }

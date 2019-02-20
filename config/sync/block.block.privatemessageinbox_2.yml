@@ -10,20 +10,20 @@ dependencies:
 id: privatemessageinbox_2
 theme: spacebase
 region: content
-weight: -6
+weight: -8
 provider: null
 plugin: private_message_inbox_block
 settings:
   id: private_message_inbox_block
-  label: Inbox
+  label: 'Private Message Inbox'
   provider: private_message
   label_display: visible
   thread_count: 5
-  ajax_load_count: 5
-  ajax_refresh_rate: 15
+  ajax_load_count: 3
+  ajax_refresh_rate: 60
 visibility:
   request_path:
     id: request_path
-    pages: /private_messages/inbox
+    pages: "/private_messages\r\n/private_messages/*"
     negate: false
     context_mapping: {  }

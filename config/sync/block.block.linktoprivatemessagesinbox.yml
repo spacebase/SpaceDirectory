@@ -1,6 +1,6 @@
 uuid: 466057ae-e8e8-4117-9a4a-9662fcf1f047
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - simple_block.simple_block.private_messages_inbox_link
@@ -12,7 +12,7 @@ dependencies:
 id: linktoprivatemessagesinbox
 theme: spacebase
 region: content
-weight: -7
+weight: -6
 provider: null
 plugin: 'simple_block:private_messages_inbox_link'
 settings:
@@ -23,6 +23,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/private_messages\r\n/private_messages/*"
+    pages: '/private_messages/*'
     negate: false
     context_mapping: {  }
