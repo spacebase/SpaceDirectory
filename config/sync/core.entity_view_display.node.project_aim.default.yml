@@ -18,12 +18,39 @@ third_party_settings:
       settings: {  }
     regions:
       content:
+        - links
         - node_title
         - field_project_aim_description
+        - node_changed_date
+        - user
+        - node_links
     fields:
+      user:
+        plugin_id: user
+        weight: 4
+        label: inline
+        formatter: default
+        settings:
+          entity_view_mode: full_name
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+      node_links:
+        plugin_id: node_links
+        weight: 5
+        label: hidden
+        formatter: default
+      node_changed_date:
+        plugin_id: node_changed_date
+        weight: 3
+        label: inline
+        formatter: ds_post_date_full_display
       node_title:
         plugin_id: node_title
-        weight: 0
+        weight: 1
         label: hidden
         formatter: default
         settings:
@@ -42,11 +69,16 @@ bundle: project_aim
 mode: default
 content:
   field_project_aim_description:
-    weight: 1
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
-  links: true
+  private_message_link: true

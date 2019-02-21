@@ -1,19 +1,18 @@
-uuid: 6b4080c0-4ec2-475e-a616-294c115bf108
+uuid: fe81edd2-04b8-4c29-ae29-a95f95bca4a7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_project_aim_description
-    - group.type.project_group
-    - node.type.project_aim
+    - field.storage.node.body
+    - node.type.project_update
   module:
     - group
     - node
     - smart_trim
     - user
     - views_field_view
-id: project_aims_current_status
-label: 'Project Aims Current Status'
+id: project_reports_current_status
+label: 'Project Reports Current Status'
 module: views
 description: ''
 tag: ''
@@ -114,7 +113,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Aim Title'
+          label: 'Report Title'
           exclude: false
           alter:
             alter_text: false
@@ -177,7 +176,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Aim ID'
+          label: 'Report ID'
           exclude: false
           alter:
             alter_text: false
@@ -304,8 +303,39 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
-            project_aim: project_aim
+            project_update: project_update
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: node
           entity_field: type
           plugin_id: bundle
@@ -340,13 +370,13 @@ display:
       footer: {  }
       empty: {  }
       relationships:
-        reverse__group__field_project_group_aims:
-          id: reverse__group__field_project_group_aims
+        reverse__group__field_project_group_updates:
+          id: reverse__group__field_project_group_updates
           table: node_field_data
-          field: reverse__group__field_project_group_aims
+          field: reverse__group__field_project_group_updates
           relationship: none
           group_type: group
-          admin_label: field_project_group_aims
+          admin_label: field_project_group_updates
           required: false
           entity_type: node
           plugin_id: entity_reverse
@@ -355,18 +385,19 @@ display:
           id: id
           table: groups_field_data
           field: id
-          relationship: reverse__group__field_project_group_aims
+          relationship: reverse__group__field_project_group_updates
           group_type: group
           admin_label: ''
-          default_action: default
+          default_action: ignore
           exception:
             value: all
             title_enable: false
             title: All
           title_enable: false
           title: ''
-          default_argument_type: group_id_from_url
-          default_argument_options: {  }
+          default_argument_type: fixed
+          default_argument_options:
+            argument: ''
           default_argument_skip_url: false
           summary_options:
             base_path: ''
@@ -377,16 +408,11 @@ display:
             sort_order: asc
             number_of_records: 0
             format: default_summary
-          specify_validation: true
+          specify_validation: false
           validate:
-            type: 'entity:group'
-            fail: ignore
-          validate_options:
-            bundles:
-              project_group: project_group
-            operation: view
-            multiple: 0
-            access: false
+            type: none
+            fail: 'not found'
+          validate_options: {  }
           break_phrase: false
           not: false
           entity_type: group
@@ -398,7 +424,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - route
         - url
         - 'user.node_grants:view'
         - user.permissions
@@ -416,7 +441,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - route
         - url
         - 'user.node_grants:view'
         - user.permissions
@@ -429,7 +453,7 @@ display:
     display_options:
       display_extenders:
         metatag_display_extender: {  }
-      path: group/%group/project-aims
+      path: group/%group/project-updates
       style:
         type: default
         options:
@@ -577,10 +601,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_project_aim_description:
-          id: field_project_aim_description
-          table: node__field_project_aim_description
-          field: field_project_aim_description
+        body:
+          id: body
+          table: node__body
+          field: body
           relationship: none
           group_type: group
           admin_label: ''
@@ -636,6 +660,7 @@ display:
             more_link: false
             more_text: More
             more_class: more-link
+            summary_handler: full
             trim_options:
               text: false
               trim_zero: false
@@ -650,66 +675,13 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        view:
-          id: view
-          table: views
-          field: view
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: View
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          view: latest_project_aim_update_on_a_project
-          display: default
-          arguments: '{{ raw_fields.nid }}'
-          plugin_id: view
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - route
         - url
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_project_aim_description'
+        - 'config:field.storage.node.body'

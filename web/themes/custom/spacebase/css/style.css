@@ -9809,6 +9809,9 @@ body.page-node-type-blog-post .text {
 .region-content .project-group .box h4 {
   font-size: 16px; }
 
+.view-project-aims-current-status .views-row {
+  margin-top: 30px; }
+
 .region-navigation .block-private-message-notification-block {
   float: right;
   margin-top: 12px; }
