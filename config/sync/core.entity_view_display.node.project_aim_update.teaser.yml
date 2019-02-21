@@ -1,0 +1,33 @@
+uuid: c21725f1-d844-466a-9d58-b1b737c30008
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.project_aim_update.body
+    - node.type.project_aim_update
+  module:
+    - text
+    - user
+id: node.project_aim_update.teaser
+targetEntityType: node
+bundle: project_aim_update
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_project_aim_progress: true
+  field_project_aim_reference: true
+  private_message_link: true

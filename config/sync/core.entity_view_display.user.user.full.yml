@@ -47,12 +47,17 @@ third_party_settings:
         link_custom: ''
         classes:
           layout_class: {  }
+          header: {  }
+          left: {  }
+          right: {  }
+          footer: {  }
     regions:
       left:
         - user_picture
         - 'dynamic_token_field:user-full_name'
         - field_position
         - field_home_location_user
+        - private_message_link
         - field_website_user
         - field_linkedin_user
       right:
@@ -63,26 +68,6 @@ third_party_settings:
         - 'dynamic_block_field:user-contributed_news_articles'
         - 'dynamic_block_field:user-user_authored_content'
     fields:
-      'dynamic_block_field:user-contributed_news_articles':
-        plugin_id: 'dynamic_block_field:user-contributed_news_articles'
-        weight: 10
-        label: hidden
-        formatter: default
-      'dynamic_block_field:user-user_authored_content':
-        plugin_id: 'dynamic_block_field:user-user_authored_content'
-        weight: 11
-        label: hidden
-        formatter: default
-      'dynamic_block_field:user-user_content_view_block':
-        plugin_id: 'dynamic_block_field:user-user_content_view_block'
-        weight: 9
-        label: above
-        formatter: default
-      'dynamic_block_field:user-user_groups':
-        plugin_id: 'dynamic_block_field:user-user_groups'
-        weight: 8
-        label: hidden
-        formatter: default
       'dynamic_token_field:user-full_name':
         plugin_id: 'dynamic_token_field:user-full_name'
         weight: 1
@@ -115,6 +100,26 @@ third_party_settings:
             fis: false
             fis-def-at: false
             fi-def-at: false
+      'dynamic_block_field:user-contributed_news_articles':
+        plugin_id: 'dynamic_block_field:user-contributed_news_articles'
+        weight: 11
+        label: hidden
+        formatter: default
+      'dynamic_block_field:user-user_authored_content':
+        plugin_id: 'dynamic_block_field:user-user_authored_content'
+        weight: 12
+        label: hidden
+        formatter: default
+      'dynamic_block_field:user-user_content_view_block':
+        plugin_id: 'dynamic_block_field:user-user_content_view_block'
+        weight: 10
+        label: above
+        formatter: default
+      'dynamic_block_field:user-user_groups':
+        plugin_id: 'dynamic_block_field:user-user_groups'
+        weight: 9
+        label: hidden
+        formatter: default
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
 id: user.user.full
@@ -123,7 +128,7 @@ bundle: user
 mode: full
 content:
   field_bio_user:
-    weight: 7
+    weight: 8
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -138,7 +143,7 @@ content:
     region: left
   field_linkedin_user:
     type: link
-    weight: 5
+    weight: 6
     region: left
     label: hidden
     settings:
@@ -164,7 +169,7 @@ content:
     type: string
     region: left
   field_tagline_user:
-    weight: 6
+    weight: 7
     label: hidden
     settings: {  }
     third_party_settings:
@@ -199,7 +204,7 @@ content:
     type: text_default
     region: right
   field_website_user:
-    weight: 4
+    weight: 5
     label: hidden
     settings:
       trim_length: null
@@ -238,6 +243,11 @@ content:
             fi: false
     type: link
     region: left
+  private_message_link:
+    weight: 4
+    region: left
+    settings: {  }
+    third_party_settings: {  }
   user_picture:
     type: image
     weight: 0
@@ -257,4 +267,5 @@ hidden:
   field_notification_prefs: true
   field_password_expiration: true
   field_terms: true
+  linked_username: true
   member_for: true

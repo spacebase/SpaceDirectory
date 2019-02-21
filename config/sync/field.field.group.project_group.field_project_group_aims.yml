@@ -1,0 +1,28 @@
+uuid: f33d33ae-613d-4ed0-a8da-170672386a44
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_project_group_aims
+    - group.type.project_group
+    - node.type.project_aim
+id: group.project_group.field_project_group_aims
+field_name: field_project_group_aims
+entity_type: group
+bundle: project_group
+label: 'Success Metrics'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      project_aim: project_aim
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -203,3 +203,5 @@ content:
     label: hidden
 hidden:
   field_terms: true
+  linked_username: true
+  private_message_link: true

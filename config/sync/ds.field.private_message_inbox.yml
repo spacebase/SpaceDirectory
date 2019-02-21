@@ -1,0 +1,19 @@
+id: private_message_inbox
+label: 'Private message inbox'
+ui_limit: ''
+properties:
+  block: private_message_inbox_block
+  use_block_title: false
+  config:
+    id: private_message_inbox_block
+    label: ''
+    provider: private_message
+    label_display: visible
+    thread_count: 5
+    ajax_load_count: 5
+    ajax_refresh_rate: 15
+type: block
+type_label: 'Block field'
+entities:
+  private_message_thread: private_message_thread
+  user: user

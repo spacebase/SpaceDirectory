@@ -1,0 +1,57 @@
+uuid: 5036ffb7-2334-4d8a-82ff-0ad3f5c2b5c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.inline
+    - field.field.node.project_aim_update.body
+    - field.field.node.project_aim_update.field_project_aim_progress
+    - field.field.node.project_aim_update.field_project_aim_reference
+    - node.type.project_aim_update
+  module:
+    - text
+id: node.project_aim_update.inline
+targetEntityType: node
+bundle: project_aim_update
+mode: inline
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_project_aim_progress:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_project_aim_reference:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true
