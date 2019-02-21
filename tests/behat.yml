@@ -45,3 +45,12 @@ pr-254:
       api_driver: 'drush'
       drush:
         alias: 'pr-254'
+dev:
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://dev-54ta5gq-ensz4qdpjmziw.us.platform.sh/"
+    Drupal\DrupalExtension:
+      api_driver: 'drush'
+      drush:
+        alias: 'dev'
+

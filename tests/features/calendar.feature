@@ -66,7 +66,7 @@ Background:
     # This is a bit of a hickup, that javascript makes the whole thing 
     # run differently as date forms are completed:
   @javascript  
-  Scenario: Keep going, js on.
+  Scenario: Authenticated user can create and update own site-wide event and other user cannot update
     Given I am logged in as "Behat Tester"
     #Given I am logged in as a user with the "administrator" role
     Given I am on "/node/add/event"
@@ -84,14 +84,16 @@ Background:
     # Mostly looks ok?
     And I press "Save"
     Then I should see "has been created"
+
+
     #@ToDo: not sure if this tab being missing is a bug. And I follow "Edit" in the "tabs" region
     Then I visit "Test Event javascr" node
     And I fill in "Title" with "Test Event Javascript - edited"
     And I press "Save"
     And I should see "has been updated"
     And I should see "Test Event Javascript - edited"
+    And I save screenshot
 
-    # Now, how do I test access? Use a different account:
     Given I am logged in as "Behat TestJoiner"
     Then I visit "Test Event Javascript - edited" node
     And I should see "You are not authorized to access this page."
