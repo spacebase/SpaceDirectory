@@ -74,3 +74,4 @@ content:
     region: content
 hidden:
   links: true
+  private_message_link: true

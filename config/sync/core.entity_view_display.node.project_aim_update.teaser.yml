@@ -30,3 +30,4 @@ content:
 hidden:
   field_project_aim_progress: true
   field_project_aim_reference: true
+  private_message_link: true

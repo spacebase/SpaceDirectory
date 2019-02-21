@@ -10,6 +10,25 @@ dependencies:
     - ds
     - smart_trim
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes: {  }
+        wrappers:
+          content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      content:
+        - links
+        - field_project_aim_description
 id: node.project_aim.teaser
 targetEntityType: node
 bundle: project_aim

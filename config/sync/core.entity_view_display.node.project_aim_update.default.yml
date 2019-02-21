@@ -81,3 +81,4 @@ content:
     region: left
 hidden:
   links: true
+  private_message_link: true
