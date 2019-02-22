@@ -1,0 +1,19 @@
+uuid: 520a14d6-6b63-4f11-bd8b-904f4e8f47f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.project_group
+    - node.type.resources
+  module:
+    - gnode
+    - node
+id: group_content_type_35e924d9b2d20
+label: 'Project group: Group node (Resources)'
+description: 'Adds <em class="placeholder">Resources</em> content to groups both publicly and privately.'
+group_type: project_group
+content_plugin: 'group_node:resources'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false
