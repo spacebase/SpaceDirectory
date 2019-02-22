@@ -37,9 +37,10 @@ class OrgMenuBlock extends BlockBase {
       $gid  =  $group->id();
     }
     $build['#gid'] = $gid;
-    $a = $path[3];
     $active = [];
-    $active[$a] = 'active';    // @ToDo standdardize?
+    if (isset($path[3])) {
+      $active[$path[3]] = 'active';    // @ToDo standdardize?
+    }
     $build['#active'] = $active;
     return $build;
   }
