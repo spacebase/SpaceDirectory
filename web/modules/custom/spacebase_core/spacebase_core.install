@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\group\Entity\GroupContent;
+use Drupal\Core\Utility\UpdateException;
 
 /**
  * Update existing group forum and resource nodes to have public visibility.
@@ -26,6 +27,11 @@ function spacebase_core_update_8025(&$sandbox) {
 
   // Get the public taxonomy term from this vocabulary.
   $results = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => 'Public', 'vid' => 'permissions_tags']);
+
+  if (!$results) {
+    throw new UpdateException(t('Create the term "Public" in the "Permissions tags" taxonomy before running this update.'));
+  }
+
   $term = reset($results);
 
   // Get the next batch of 50 nodes.
@@ -33,7 +39,7 @@ function spacebase_core_update_8025(&$sandbox) {
     ->condition('type', $types, 'IN')
     ->condition('nid', $sandbox['last'], '>')
     ->sort('nid', 'ASC')
-    ->range(0, 20)
+    ->range(0, 50)
     ->execute();
 
   if (count($nids)) {
@@ -71,8 +77,9 @@ function spacebase_core_update_8025(&$sandbox) {
   }
   else {
     $sandbox['#finished'] = 1;
-    \Drupal::logger('spacebase')->notice(t('Updated %updated of %count nodes with public visibility',
-      ['%updated'=>$sandbox['updated'], '%count'=>$sandbox['max']]));
+    $message = t('Updated %updated of %count nodes with public visibility', ['%updated'=>$sandbox['updated'], '%count'=>$sandbox['max']]);
+    \Drupal::logger('spacebase')->notice($message);
+    return $message;
   }
 }
 
