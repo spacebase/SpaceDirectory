@@ -13,13 +13,19 @@ default:
         - IntegratedExperts\BehatScreenshotExtension\Context\ScreenshotContext
   extensions:
     Behat\MinkExtension:
-      goutte: ~
-      selenium2: ~
+      sessions:
+        default:
+          goutte: ~
+        javascript:
+          selenium2:
+            wd_host: http://chromedriver:4444/wd/hub
     Drupal\DrupalExtension:
       blackbox: ~
+      region_map: 
+        tabs: '.tabs'
       api_driver: 'drupal'
       drush:
-        alias: 'local'
+        root: '/app/web'
       drupal:
         drupal_root: '/app/web'
       selectors:
@@ -31,3 +37,20 @@ default:
       fail: true
       purge: true
     IntegratedExperts\BehatFormatProgressFail\FormatExtension: ~
+pr-254:
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://pr-254-o4syfci-ensz4qdpjmziw.us.platform.sh"
+    Drupal\DrupalExtension:
+      api_driver: 'drush'
+      drush:
+        alias: 'pr-254'
+dev:
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://dev-54ta5gq-ensz4qdpjmziw.us.platform.sh/"
+    Drupal\DrupalExtension:
+      api_driver: 'drush'
+      drush:
+        alias: 'dev'
+
