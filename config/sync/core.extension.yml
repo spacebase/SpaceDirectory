@@ -110,6 +110,7 @@ module:
   serialization: 0
   shortcut: 0
   simple_block: 0
+  simple_menu_icons: 0
   smart_trim: 0
   social_api: 0
   social_auth: 0
