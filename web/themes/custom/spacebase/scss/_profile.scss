@@ -529,7 +529,12 @@
         border-radius: 2px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
-    @include breakpoint($breakpoint-tablet) {
+
+    // @include breakpoint($breakpoint-tablet) {
+
+    @media screen and (max-width: 680px) {
+
+
         display: flex;
         align-items: flex-start;
         .group-left {
