@@ -1,0 +1,11 @@
+id: test_token_field_2
+label: 'Test Token Field 2'
+ui_limit: ''
+properties:
+  content:
+    value: 'This field only appears in the inbox display mode of private message threads.'
+    format: plain_text
+type: token
+type_label: 'Token field'
+entities:
+  private_message_thread: private_message_thread

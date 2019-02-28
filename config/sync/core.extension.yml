@@ -22,13 +22,13 @@ module:
   config: 0
   config_direct_save: 0
   contact: 0
-  contextual: 0
   core_views_facets: 0
   crop: 0
   csv_serialization: 0
   ctools: 0
   datetime: 0
   dblog: 0
+  disable_modules: 0
   dynamic_page_cache: 0
   editor: 0
   email_group_administrators: 0
@@ -96,7 +96,6 @@ module:
   path: 0
   private_message: 0
   publishcontent: 0
-  quickedit: 0
   rdf: 0
   rest: 0
   riddler: 0
