@@ -28,7 +28,6 @@ module:
   ctools: 0
   datetime: 0
   dblog: 0
-  disable_modules: 0
   dynamic_page_cache: 0
   editor: 0
   email_group_administrators: 0

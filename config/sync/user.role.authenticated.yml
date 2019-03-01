@@ -44,7 +44,6 @@ permissions:
   - 'unpublish own node type project_aim'
   - 'unpublish own node type project_aim_update'
   - 'unpublish own node type project_update'
-  - 'use private messaging system'
   - 'use text format basic_html'
   - 'view empty pages'
   - 'view own unpublished content'
