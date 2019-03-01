@@ -1,5 +1,5 @@
 @api
-Feature: Basic test of social media links. Status:main:clean.
+Feature: Test social media links
   As a visitor to the site, the social media and feedback links should work.
 
     # edit /admin/structure/block/simple-block to add IDs like "footer-facebook"
@@ -21,17 +21,12 @@ Feature: Basic test of social media links. Status:main:clean.
     Then I should see "Videos"
 
 
-    # @ToDo, low low priority, fix the LinkedIn link check
-    #Scenario: LinkedIn link
-    #Given I am on "/"
+    Scenario: LinkedIn link
+    Given I am on "/"
     # When I click "footer-linkedin"
-     # The above results in the LinkedIn authentication screen
-     #  or Page Not Found
-     #  and somehow doesn't work. 
-    # Below is pointless, not testing our site in any way...
-    #When I am on "https://www.linkedin.com/company/spacebase-nz/"
-    #
-    #Then I should see "SpaceBase is a social enterprise founded by three Edmund Hillary Fellows"
+    # The following results in the LinkedIn authentication screen
+    When I am on "https://www.linkedin.com/company/spacebase-nz/"
+    Then I should see "SpaceBase is a social enterprise founded by three Edmund Hillary Fellows"
 
 
 
