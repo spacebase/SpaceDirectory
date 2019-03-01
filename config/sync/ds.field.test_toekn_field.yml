@@ -1,0 +1,11 @@
+id: test_toekn_field
+label: 'Test token field'
+ui_limit: ''
+properties:
+  content:
+    value: 'This is a static test field (which is only rendered on the inbox display mode of messages).'
+    format: plain_text
+type: token
+type_label: 'Token field'
+entities:
+  private_message: private_message

@@ -1,0 +1,24 @@
+.region-content {
+  .project-group {
+    .field--label {
+      display: none;
+    }
+    .project-mission, .description {
+      margin-bottom: 50px;
+    }
+    .project-aims, .project-reports, project-needs {
+      margin-bottom: 50px;
+    }
+    .box {
+      h4 {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.view-project-aims-current-status {
+  .views-row {
+    margin-top: 30px;
+  }
+}

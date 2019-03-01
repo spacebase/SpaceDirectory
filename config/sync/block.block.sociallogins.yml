@@ -12,7 +12,7 @@ dependencies:
 id: sociallogins
 theme: spacebase
 region: content
-weight: -16
+weight: -20
 provider: null
 plugin: 'simple_block:social_logins'
 settings:

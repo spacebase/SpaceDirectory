@@ -1,0 +1,17 @@
+uuid: 4e319c09-3be7-473d-a936-ba85aa08d018
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Project Aim'
+type: project_aim
+description: 'For referencing from Projects and Project Aim Updates'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -27,7 +27,7 @@ class OrgPendingMembersForm extends FormBase {
     if ($gid = \Drupal::routeMatch()->getParameter('group')) {
       //$group = Drupal\group\Entity\Group::load($gid);
       $ids = \Drupal::entityQuery('group_content')
-        ->condition('type','group_content_type_569a59a77cd78')
+        ->condition('type',['group_content_type_569a59a77cd78','project_group-group_membership'], 'IN')
         ->condition('gid', $gid)
         ->condition('group_roles', NULL, 'IS NULL')
         ->execute();

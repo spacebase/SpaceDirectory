@@ -1,0 +1,22 @@
+uuid: 0c39c7ba-9076-40b6-b1c7-2dd5b74aeea5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.project_update
+  module:
+    - text
+id: node.project_update.body
+field_name: body
+entity_type: node
+bundle: project_update
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary
