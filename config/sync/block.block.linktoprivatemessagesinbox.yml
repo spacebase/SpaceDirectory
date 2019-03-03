@@ -12,7 +12,7 @@ dependencies:
 id: linktoprivatemessagesinbox
 theme: spacebase
 region: content
-weight: -6
+weight: -5
 provider: null
 plugin: 'simple_block:private_messages_inbox_link'
 settings:

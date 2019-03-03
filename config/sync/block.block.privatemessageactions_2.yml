@@ -1,6 +1,6 @@
 uuid: 36bfedb8-d147-4e5c-988e-90f1d102c432
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - private_message
@@ -10,7 +10,7 @@ dependencies:
 id: privatemessageactions_2
 theme: spacebase
 region: content
-weight: -7
+weight: -18
 provider: null
 plugin: private_message_actions_block
 settings:
