@@ -210,7 +210,9 @@
             "drupal/private_message": {
                 "8.x-2.0-beta15: Call to undefined method": "https://www.drupal.org/files/issues/2018-07-09/private-message-2984541-0.patch",
                 "8.x-2.0-beta15: Undefined index #id": "https://www.drupal.org/files/issues/2018-07-03/private-message-2961332-2.0.patch",
-                "8.x-2.0-beta15: Inbox shows oldest threads": "https://www.drupal.org/files/issues/2018-10-05/private_message-inbox_sort-3004414-3-8.6.1.patch"
+                "8.x-2.0-beta15: Inbox shows oldest threads": "https://www.drupal.org/files/issues/2018-10-05/private_message-inbox_sort-3004414-3-8.6.1.patch",
+                "8.x-2.0-beta15: Unread thread count": "https://www.drupal.org/files/issues/2019-02-05/private_message-message_count-2977310-8_0.patch",
+                "8.x-2.0-beta15: Revised inbox": "https://www.drupal.org/files/issues/2019-02-20/private_message-2985224-5.patch"
             },
             "drupal/leaflet_more_maps": {
                 "8.x-1.0-alpha3: Invalid agrument": "https://www.drupal.org/files/issues/lmm_2847024-9.patch"
