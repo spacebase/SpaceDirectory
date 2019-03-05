@@ -26,12 +26,13 @@ class OrgMenuBlock extends BlockBase {
     // These pages have either a group/gid or node/nid, from which we'll need
     // the group.
     $path = explode('/',\Drupal::service('path.current')->getPath());
-    if ($path[1] == 'group') {
+    if ($path[1] == 'group' || $path[1] == 'project-group') {
       $gid =  intval($path[2]);
     } else {
       $nid = $path[2];
       $node = Node::load($nid);
-      $group_content = array_shift(GroupContent::loadByEntity($node));
+      $group_content = GroupContent::loadByEntity($node);
+      $group_content = array_shift($group_content);
       $group = $group_content->getGroup(); // on null
       $gid  =  $group->id();
     }

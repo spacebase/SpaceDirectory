@@ -24,6 +24,8 @@
   {# drupal_region('groupmgt')#}
   {% if logged_in == false %}
     <a href="/user/register" class="btn btn-primary btn-block">Join SpaceBase</a>
+    <br/>
+    <a href="/user/login" class="btn btn-secondary btn-block">Sign in</a>
   {% elseif group_links.leave %}
     <a href="{{group_links.leave}}"  class="btn btn-primary btn-block">Leave organization</a>
     {% if group_links.pending %}

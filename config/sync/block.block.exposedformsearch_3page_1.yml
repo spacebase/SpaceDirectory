@@ -12,7 +12,7 @@ dependencies:
 id: exposedformsearch_3page_1
 theme: spacebase
 region: navigation
-weight: 0
+weight: -16
 provider: null
 plugin: 'views_exposed_filter_block:search_3-page_1'
 settings:

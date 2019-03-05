@@ -22,7 +22,6 @@ module:
   config: 0
   config_direct_save: 0
   contact: 0
-  contextual: 0
   core_views_facets: 0
   crop: 0
   csv_serialization: 0
@@ -54,6 +53,7 @@ module:
   honeypot: 0
   image: 0
   image_widget_crop: 0
+  inline_entity_form: 0
   layout_discovery: 0
   leaflet: 0
   leaflet_markercluster: 0
@@ -67,6 +67,8 @@ module:
   media: 0
   menu_link_attributes: 0
   menu_ui: 0
+  message: 0
+  message_notify: 0
   metatag: 0
   metatag_facebook: 0
   metatag_google_plus: 0
@@ -91,8 +93,8 @@ module:
   password_policy_length: 0
   password_policy_username: 0
   path: 0
+  private_message: 0
   publishcontent: 0
-  quickedit: 0
   rdf: 0
   rest: 0
   riddler: 0
@@ -139,6 +141,7 @@ module:
   video_embed_media: 0
   views_block_filter_block: 0
   views_bulk_operations: 0
+  views_field_view: 0
   views_templates: 0
   views_ui: 0
   ds: 1

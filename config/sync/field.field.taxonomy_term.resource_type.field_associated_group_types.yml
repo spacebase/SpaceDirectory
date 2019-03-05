@@ -1,0 +1,23 @@
+uuid: 4b0533ed-ddd2-4bd0-a314-44a3bff7450d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_associated_group_types
+    - taxonomy.vocabulary.resource_type
+  module:
+    - options
+id: taxonomy_term.resource_type.field_associated_group_types
+field_name: field_associated_group_types
+entity_type: taxonomy_term
+bundle: resource_type
+label: 'Associated Group Types'
+description: 'Select the group type or types that can have this resource associated.'
+required: true
+translatable: false
+default_value:
+  -
+    value: organization_group
+default_value_callback: ''
+settings: {  }
+field_type: list_string

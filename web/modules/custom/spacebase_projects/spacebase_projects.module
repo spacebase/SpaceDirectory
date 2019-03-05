@@ -7,6 +7,8 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\node\NodeInterface;
+use Drupal\Component\Render\PlainTextOutput;
+use Drupal\Core\Form\FormStateInterface;
 
 
 /**
@@ -25,24 +27,14 @@ function spacebase_projects_help($route_name, RouteMatchInterface $route_match) 
   }
 }
 
-
 /**
- * Implements hook_node_insert().
- *
- * When new content is created, queue the node in order to email
- * the appropriate Admins (Organization or Site) on next cron.
- *
+ * Implements hook_form_alter()
  */
-
-function spacebase_projects_node_insert(NodeInterface $node) {
-
-  if ($node->getType() == 'sb_project') {
-    $module = 'spacebase_projects';
-    $key = 'new_content_projects';
-    spacebase_core_queue_content_notifications($module, $key, $node);
+function spacebase_projects_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'group_project_group_add_form') {
+    $form['actions']['submit']['#value'] = t('Create Project');
   }
 }
-
 
 
 /**
@@ -54,6 +46,35 @@ function spacebase_projects_mail_edit_templates() {
     'spacebase_projects.emails' => [
       'new_content_projects_org' => t('Org admins notice: Project created in Org.'),
       'new_content_projects' => t('Site admins notice: Project created.'),
+    ],
+  ];
+}
+
+/**
+ * Implements hook_mail().
+ */
+function spacebase_projects_mail($key, &$message, $params) {
+  $token_service = \Drupal::token();
+  $language_manager = \Drupal::languageManager();
+  $langcode = $message['langcode'];
+  $variables = ['user' => $params['account'], 'group' => $params['group']];
+
+  $language = $language_manager->getLanguage($params['account']->getPreferredLangcode());
+  $original_language = $language_manager->getConfigOverrideLanguage();
+  $language_manager->setConfigOverrideLanguage($language);
+  $mail_config = \Drupal::config('spacebase_projects.mail');
+
+  $token_options = ['langcode' => $langcode, 'clear' => TRUE];
+  $message['subject'] .= PlainTextOutput::renderFromHtml($token_service->replace($mail_config->get($key . '.subject'), $variables, $token_options));
+  $message['body'][] = $token_service->replace($mail_config->get($key . '.body'), $variables, $token_options);
+
+  $language_manager->setConfigOverrideLanguage($original_language);
+}
+
+function spacebase_projects_theme($existing, $type, $theme, $path) {
+  return [
+    'projects_pending_members_form' => [
+      'render element' => 'form',
     ],
   ];
 }

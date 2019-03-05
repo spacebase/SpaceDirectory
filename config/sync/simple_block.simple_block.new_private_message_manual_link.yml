@@ -1,0 +1,11 @@
+uuid: 298f1c51-c778-4ec2-a0e0-1c4fbfb9805e
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.raw_html
+id: new_private_message_manual_link
+title: 'New Message Link'
+content:
+  value: '<a href="/private_message/create">New message</a>'
+  format: raw_html

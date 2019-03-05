@@ -72,3 +72,4 @@ hidden:
   field_na_authors: true
   field_na_post_date: true
   links: true
+  private_message_link: true

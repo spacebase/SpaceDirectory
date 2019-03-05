@@ -1,0 +1,30 @@
+uuid: 478616be-113c-4cd8-8916-604c1f15df41
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.resource_type.field_associated_group_types
+    - taxonomy.vocabulary.resource_type
+  module:
+    - options
+    - text
+id: taxonomy_term.resource_type.default
+targetEntityType: taxonomy_term
+bundle: resource_type
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_associated_group_types:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden: {  }
