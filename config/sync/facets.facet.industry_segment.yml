@@ -37,6 +37,13 @@ processor_configs:
       sort: -10
     settings:
       sort: ASC
+  count_limit:
+    processor_id: count_limit
+    weights:
+      build: -10
+    settings:
+      minimum_items: 2
+      maximum_items: null
   count_widget_order:
     processor_id: count_widget_order
     weights:
@@ -49,17 +56,24 @@ processor_configs:
       sort: -8
     settings:
       sort: ASC
+  hide_1_result_facet:
+    processor_id: hide_1_result_facet
+    weights:
+      build: 50
+    settings: {  }
   translate_entity:
     processor_id: translate_entity
     weights:
-      build: 5
+      build: -7
     settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:
       pre_query: -10
-      build: -10
+      build: -9
     settings: {  }
 empty_behavior:
-  behavior: none
-show_title: null
+  behavior: text
+  text_format: raw_html
+  text: '<style> .block-facet-blockindustry-segment {display:none;}</style>'
+show_title: true
