@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.slide.field_sl_button_url
     - field.field.node.slide.field_sl_image
     - field.field.node.slide.field_sl_text
-    - image.style.slide
+    - image.style.slide_desktop
     - node.type.slide
   module:
     - ds
@@ -39,7 +39,7 @@ content:
     weight: 3
     label: hidden
     settings:
-      image_style: slide
+      image_style: slide_desktop
       image_link: ''
     third_party_settings:
       ds:
