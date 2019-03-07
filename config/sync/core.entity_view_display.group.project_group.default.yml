@@ -14,8 +14,8 @@ dependencies:
   module:
     - ds
     - image
-    - smart_trim
     - spacebase_core
+    - text
 id: group.project_group.default
 targetEntityType: group
 bundle: project_group
@@ -44,19 +44,9 @@ content:
   field_description:
     weight: 6
     label: above
-    settings:
-      trim_length: 600
-      trim_type: chars
-      trim_suffix: ''
-      wrap_output: false
-      wrap_class: trimmed
-      more_link: false
-      more_class: more-link
-      more_text: More
-      summary_handler: full
-      trim_options: {  }
+    settings: {  }
     third_party_settings: {  }
-    type: smart_trim
+    type: text_default
     region: content
   field_image:
     weight: 5

@@ -13,5 +13,6 @@ group_type: project_group
 permissions_ui: true
 permissions:
   0: 'view group'
-  2: 'access group_node overview'
-  3: 'view group_node:group_forum_topic entity'
+  1: 'access group_node overview'
+  2: 'view group_node:group_forum_topic entity'
+  6: 'view group_node:resources entity'

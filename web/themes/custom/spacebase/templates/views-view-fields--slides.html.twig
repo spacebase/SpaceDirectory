@@ -1,4 +1,6 @@
-<div class="slide-background" style="background-image: url({{ fields.field_sl_image.content|render|striptags|trim }});"></div>
+<div class="slide-background">
+    {{ fields.field_sl_image.content }}
+</div>
 
 <div class="slide-content">
   <div class="text">{{ fields.field_sl_text.content }}</div>

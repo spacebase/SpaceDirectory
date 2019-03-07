@@ -1,0 +1,17 @@
+uuid: 5aecb53a-7c38-4276-92c9-b8c06caecfa8
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: slide_tablet
+label: 'Slideshow banner image tablet (1200x900)'
+effects:
+  ec178c5c-1d7e-4117-966a-4a5e7125f41e:
+    uuid: ec178c5c-1d7e-4117-966a-4a5e7125f41e
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 900
+      crop_type: focal_point
