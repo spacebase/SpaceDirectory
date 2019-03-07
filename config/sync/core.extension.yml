@@ -98,6 +98,7 @@ module:
   private_message: 0
   publishcontent: 0
   rdf: 0
+  responsive_image: 0
   rest: 0
   riddler: 0
   schema_article: 0
