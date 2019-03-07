@@ -1,0 +1,23 @@
+uuid: 6f717c37-de3d-4eb4-8e19-959c109c7514
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project_aim_progress
+    - node.type.project_aim_update
+id: node.project_aim_update.field_project_aim_progress
+field_name: field_project_aim_progress
+entity_type: node
+bundle: project_aim_update
+label: 'Project Aim Progress'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100
+  prefix: ''
+  suffix: '%'
+field_type: integer

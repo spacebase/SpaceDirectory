@@ -11,8 +11,12 @@
 @import 'overrides';
 
 // import breakpoint!
+<<<<<<< HEAD
 // @import "breakpoint";
 
+=======
+//@import "breakpoint";
+>>>>>>> dev
 
 // Image fix
 img {
@@ -41,4 +45,6 @@ img {
 @import 'video';
 @import 'news';
 @import 'blocks';
+@import 'projects';
+@import 'private-message';
 

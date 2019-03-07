@@ -1,0 +1,32 @@
+uuid: 36e805f9-7293-4b50-b098-aa7663b44352
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group_content.project_group-group_membership.field_organization_role
+    - field.field.group_content.project_group-group_membership.group_roles
+    - group.content_type.project_group-group_membership
+id: group_content.project_group-group_membership.default
+targetEntityType: group_content
+bundle: project_group-group_membership
+mode: default
+content:
+  field_organization_role:
+    weight: -3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  group_roles:
+    label: above
+    type: entity_reference_label
+    settings:
+      link: false
+    weight: -4
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_id: true
+  uid: true

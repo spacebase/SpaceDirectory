@@ -1,0 +1,19 @@
+uuid: 32669024-85fa-4577-be64-7812451ce9b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project_aim_description
+    - node.type.project_aim
+id: node.project_aim.field_project_aim_description
+field_name: field_project_aim_description
+entity_type: node
+bundle: project_aim
+label: 'Project Aim Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

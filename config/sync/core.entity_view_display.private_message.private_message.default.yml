@@ -1,0 +1,81 @@
+uuid: a8aa7af7-ec77-4729-8aaf-93b6fd288536
+langcode: en
+status: true
+dependencies:
+  module:
+    - ds
+    - private_message
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: ds_3col
+      library: ds/ds_3col
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          left: div
+          middle: div
+          right: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+          left: {  }
+          middle: {  }
+          right: {  }
+    regions:
+      left:
+        - owner
+      middle:
+        - message
+      right:
+        - created
+_core:
+  default_config_hash: bY60CRy-1iA05ELhvP1G7mki9KT4YbhNEoh-HzFbwAw
+id: private_message.private_message.default
+targetEntityType: private_message
+bundle: private_message
+mode: default
+content:
+  created:
+    label: hidden
+    weight: 2
+    region: right
+    settings:
+      date_format: short
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+    type: timestamp
+  message:
+    label: hidden
+    type: text_default
+    weight: 1
+    region: middle
+    settings: {  }
+    third_party_settings: {  }
+  owner:
+    type: entity_reference_label
+    weight: 0
+    region: left
+    label: hidden
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  timestamp:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

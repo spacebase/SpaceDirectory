@@ -1,0 +1,50 @@
+uuid: 8cd6449e-0f10-4558-8823-eeb2bac21a25
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.private_message.inbox
+  module:
+    - ds
+    - private_message
+third_party_settings:
+  ds:
+    layout:
+      id: ds_3col
+      library: ds/ds_3col
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          left: div
+          middle: div
+          right: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+          left: {  }
+          middle: {  }
+          right: {  }
+    regions:
+      middle:
+        - 'dynamic_token_field:private_message-test_toekn_field'
+    fields:
+      'dynamic_token_field:private_message-test_toekn_field':
+        plugin_id: 'dynamic_token_field:private_message-test_toekn_field'
+        weight: 0
+        label: hidden
+        formatter: default
+_core:
+  default_config_hash: T49nARPshtaO8dImQQbA7lsLVPomuhVyR20tprP1s7U
+id: private_message.private_message.inbox
+targetEntityType: private_message
+bundle: private_message
+mode: inbox
+content: {  }
+hidden:
+  created: true
+  message: true
+  owner: true

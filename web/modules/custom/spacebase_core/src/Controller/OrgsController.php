@@ -16,10 +16,14 @@ class OrgsController extends ControllerBase {
     if (!is_numeric($gid)) {
       new AccessDeniedHttpException();
     }
+
+    // Load the group entitiy from passed id.
+    $group = \Drupal\group\Entity\Group::load($gid);
+
     $build = [
       '#theme' => 'group_resources', // this is the theme hook
       '#group_id' => $gid,
-      '#resource_type' =>  _get_resource_type(),
+      '#resource_type' =>  _get_resource_type($group->bundle()),
     ];
     /* @ToDo (trivial): refactor? Needed some of what comes from preprocess groups:
      * cut and pasted from, now, _set_the_group_links -- but only a little
@@ -29,7 +33,6 @@ class OrgsController extends ControllerBase {
     $id = 'resources';
 
     $build['#group_links'] = [];
-    $group = \Drupal\group\Entity\Group::load($gid);
     if ($group->hasPermission("create $id entity", $account)) {
       $plugin_id = 'group_node:' . $id;
       $route_params = ['group' => $gid, 'plugin_id' => $plugin_id];
