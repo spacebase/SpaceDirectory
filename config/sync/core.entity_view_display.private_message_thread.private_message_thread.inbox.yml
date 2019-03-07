@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.private_message_thread.inbox
   module:
+    - ds
     - private_message
 _core:
   default_config_hash: bpWbY1Lst0WiDfYRrbk2HfaT0nGu3zhRzJlrfxOfX7I
@@ -13,11 +14,6 @@ targetEntityType: private_message_thread
 bundle: private_message_thread
 mode: inbox
 content:
-  last_message:
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   members:
     label: hidden
     type: private_message_thread_member_formatter
@@ -26,9 +22,37 @@ content:
     settings:
       display_type: entity
       entity_display_mode: private_message_author
-      members_prefix: 'You and'
-    third_party_settings: {  }
+      members_prefix: ''
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  private_messages:
+    type: private_message_thread_message_formatter
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      message_count: 1
+      ajax_previous_load_count: 0
+      ajax_refresh_rate: 0
+      message_order: desc
+      view_mode: inbox
+    third_party_settings:
+      ds:
+        ds_limit: '1'
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
 hidden:
   delete_link: true
+  last_message: true
   private_message_form: true
-  private_messages: true

@@ -9849,4 +9849,7 @@ body.page-node-type-blog-post .text {
     font-size: 16px;
     font-weight: bold; }
 
+.private-message-thread-inbox #load-previous-messages-button-wrapper {
+  display: none; }
+
 /*# sourceMappingURL=style.css.map */

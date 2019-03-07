@@ -15,7 +15,7 @@ mode: default
 content:
   created:
     label: hidden
-    weight: -1
+    weight: 2
     region: content
     settings:
       date_format: short
@@ -26,7 +26,7 @@ content:
   message:
     label: hidden
     type: text_default
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }

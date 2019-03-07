@@ -107,6 +107,22 @@ function spacebase_theme_suggestions_page_alter(array &$suggestions, array $vari
 }
 
 /**
+ * Implements hook_preprocess_block().
+ *
+ * Note: you'll probably want this only for certain blocks.
+ */
+function spacebase_preprocess_block(&$variables) {
+
+  $block_id = $variables['plugin_id'];
+  switch ($block_id) {
+    case 'private_message_inbox_block':
+      $variables['attributes'] = $variables['content']['#attributes'];
+      break;
+  }
+
+}
+
+/**
  * Implements hook_preprocess_node().
  *
  * Note: you'll probably want this only for certain content types.
