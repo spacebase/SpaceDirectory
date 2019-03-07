@@ -1,18 +1,18 @@
 uuid: 1310978e-0933-4223-9330-3fe205d8f416
 langcode: en
-status: true
+status: false
 dependencies:
-  module:
-    - group
-    - node
-    - search_api
-    - user
   config:
     - field.storage.node.body
     - field.storage.user.field_first_name_user
     - field.storage.user.field_last_name_user
     - field.storage.user.field_tagline_user
     - search_api.server.default_server
+  module:
+    - group
+    - node
+    - search_api
+    - user
 id: sapecebase_user_content
 name: Sapecebase_user_content
 description: ''
