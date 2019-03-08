@@ -1,5 +1,5 @@
 enable_notifications: true
-notify_by_default: true
+notify_by_default: false
 notify_when_using: 'no'
 number_of_seconds_considered_away: 120
 hide_form_filter_tips: false
