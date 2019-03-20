@@ -7054,7 +7054,7 @@ body[class*="user-reset"] {
       padding-left: 10px;
       padding-right: 10px; }
       .navbar.navbar-inverse .menu > li > a:active, .navbar.navbar-inverse .menu > li > a:focus, .navbar.navbar-inverse .menu > li > a:hover {
-        background: #2b2c30;
+        background-color: #2b2c30;
         color: #fff; }
       .navbar.navbar-inverse .menu > li > a.btn-blank {
         border: 1px solid rgba(255, 255, 255, 0.6); }
@@ -7424,7 +7424,7 @@ body.nav-open {
     position: absolute;
     top: 75px;
     right: 0;
-    width: 280px;
+    width: 320px;
     padding: 15px 0;
     z-index: 200; }
     .main-nav .region-navdropdown > nav {
@@ -7443,7 +7443,7 @@ body.nav-open {
       border-color: transparent transparent rgba(0, 0, 0, 0.6) transparent; }
     .main-nav .region-navdropdown .navbar-nav li {
       display: inline-block;
-      width: 50%;
+      width: 33%;
       float: left;
       text-align: center;
       padding: 10px; }
@@ -8312,12 +8312,60 @@ body.path-search.topbar-open .main-container {
 
 @media screen and (min-width: 980px) {
   .path-search .region-content .views-exposed-form fieldset.form-item {
-    position: absolute;
-    left: 0;
-    top: 78px;
-    width: 260px; }
+    width: 260px;
+    margin-top: 80px;
+    float: left; }
   .path-search .region-content .views-element-container {
-    margin-left: 300px; } }
+    margin-top: -232px;
+    margin-left: 30px; }
+  #block-industrysegment-2 {
+    width: 260px;
+    float: left; } }
+
+@media screen and (min-width: 480px) and (max-width: 980px) {
+  .path-search .region-content {
+    display: grid;
+    grid-template-areas: "top"  "middle"  "main"; }
+    .path-search .region-content .views-exposed-form {
+      grid-area: top; }
+      .path-search .region-content .views-exposed-form fieldset.form-item {
+        margin-top: 80px;
+        width: calc(50% - 15px); }
+    .path-search .region-content #block-industrysegment-2 {
+      grid-area: middle;
+      width: calc(50% - 15px);
+      margin-left: auto;
+      margin-top: -230px; }
+    .path-search .region-content .views-element-container {
+      grid-area: main; } }
+
+@media screen and (min-width: 980px) {
+  .path-search .region-content {
+    display: grid;
+    grid-template-areas: "top top top"  "left main main"; }
+    .path-search .region-content .views-exposed-form {
+      grid-area: top; }
+    .path-search .region-content #block-industrysegment-2 {
+      grid-area: left; }
+    .path-search .region-content .views-element-container {
+      grid-area: main; } }
+
+@media screen and (min-width: 480px) {
+  .path-search .region-content .form-item-search-api-fulltext {
+    position: absolute;
+    left: 14px;
+    width: 320px; } }
+
+.path-search .region-content .form-actions {
+  position: absolute;
+  left: 334px; }
+
+@media screen and (max-width: 480px) {
+  .path-search .region-content .form-actions {
+    top: 60px;
+    left: 0; }
+  .path-search .region-content .views-exposed-form fieldset.form-item {
+    margin-top: 80px; } }
 
 .path-search .region-content .views-exposed-form {
   margin-top: 20PX;
@@ -8333,7 +8381,7 @@ body.path-search.topbar-open .main-container {
       background: white;
       border: 0px; }
     .path-search .region-content .views-exposed-form fieldset.form-item .fieldset-wrapper {
-      padding: 0px 35px 35px 35px;
+      padding: 1px 35px 35px 35px;
       background: white; }
     .path-search .region-content .views-exposed-form fieldset.form-item .form-checkboxes .form-item {
       display: block;
@@ -8377,6 +8425,27 @@ body.path-search.topbar-open .main-container {
       -webkit-box-flex: 1;
           -ms-flex: 1 1;
               flex: 1 1; }
+
+#block-industrysegment-2 {
+  padding: 35px;
+  background: #fff;
+  margin-bottom: 35px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
+  #block-industrysegment-2 .block-title {
+    font-size: 21px;
+    font-weight: 300; }
+  #block-industrysegment-2 li.facet-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: first baseline;
+        -ms-flex-align: first baseline;
+            align-items: first baseline; }
+    #block-industrysegment-2 li.facet-item .facet-item__value {
+      font-size: 18px;
+      font-weight: 400; }
 
 .form-group {
   max-width: 100%; }

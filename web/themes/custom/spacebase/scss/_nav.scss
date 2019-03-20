@@ -45,7 +45,7 @@
           padding-left: 10px;
           padding-right: 10px;
           &:active,&:focus,&:hover{
-            background: $grey-dark;
+            background-color: $grey-dark; 
             color: #fff;
           }
           &.btn-blank{
