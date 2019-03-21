@@ -98,16 +98,15 @@ display:
           view_modes:
             'entity:group':
               organization_group: search_result
-            'entity:group_content':
-              group_content: default
+              project_group: search_result
             'entity:node':
               blog_post: search_result
               event: default
               page: search_result
               partner: search_result
               sb_news_article: search_result
-              sb_project: search_result
               sb_video: search_result
+              slide: default
             'entity:user':
               user: search_result
       fields:
