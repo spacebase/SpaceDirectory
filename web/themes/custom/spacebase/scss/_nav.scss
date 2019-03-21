@@ -492,10 +492,7 @@ body.nav-open{
     width: 320px;
     padding: 15px 0;
     z-index: 200;
-    >nav{
-      max-height: 75vh;
-      overflow-y: scroll;
-    }
+   
     &:before{
       content: '';
       display: block;

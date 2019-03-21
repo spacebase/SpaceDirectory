@@ -7427,9 +7427,6 @@ body.nav-open {
     width: 320px;
     padding: 15px 0;
     z-index: 200; }
-    .main-nav .region-navdropdown > nav {
-      max-height: 75vh;
-      overflow-y: scroll; }
     .main-nav .region-navdropdown:before {
       content: '';
       display: block;
