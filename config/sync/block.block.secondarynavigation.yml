@@ -1,6 +1,6 @@
 uuid: 426681af-34b4-4690-a235-b2dac3b01277
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.secondary-navigation

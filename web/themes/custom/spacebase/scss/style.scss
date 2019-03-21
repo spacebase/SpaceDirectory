@@ -11,7 +11,12 @@
 @import 'overrides';
 
 // import breakpoint!
+// <<<<<<< HEAD
+// @import "breakpoint";
+
+// =======
 //@import "breakpoint";
+// >>>>>>> dev
 
 // Image fix
 img {

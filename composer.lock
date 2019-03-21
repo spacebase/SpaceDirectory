@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e59ce7e8cb4fa162bdc309e5b396d8b7",
+    "content-hash": "32e2a25d34c3c934000c34ee8c71d8f3",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -6034,6 +6034,73 @@
             "homepage": "https://www.drupal.org/project/simple_block",
             "support": {
                 "source": "http://cgit.drupalcode.org/simple_block"
+            }
+        },
+        {
+            "name": "drupal/simple_menu_icons",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/simple_menu_icons",
+                "reference": "8.x-2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/simple_menu_icons-8.x-2.1.zip",
+                "reference": "8.x-2.1",
+                "shasum": "75c03856a7a83b1b788bc6693a55987cf1ace686"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.1",
+                    "datestamp": "1517693280",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "arpieb",
+                    "homepage": "https://www.drupal.org/user/533416"
+                },
+                {
+                    "name": "mcrittenden",
+                    "homepage": "https://www.drupal.org/user/420631"
+                },
+                {
+                    "name": "mrkdboyd",
+                    "homepage": "https://www.drupal.org/user/2913445"
+                },
+                {
+                    "name": "pifagor",
+                    "homepage": "https://www.drupal.org/user/2375692"
+                },
+                {
+                    "name": "pschuelke",
+                    "homepage": "https://www.drupal.org/user/1801342"
+                },
+                {
+                    "name": "tobby",
+                    "homepage": "https://www.drupal.org/user/154797"
+                }
+            ],
+            "description": "Associates icons with menu items",
+            "homepage": "https://www.drupal.org/project/simple_menu_icons",
+            "support": {
+                "source": "http://cgit.drupalcode.org/simple_menu_icons"
             }
         },
         {
