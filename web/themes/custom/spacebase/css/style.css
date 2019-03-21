@@ -7443,8 +7443,7 @@ body.nav-open {
       border-color: transparent transparent rgba(0, 0, 0, 0.6) transparent; }
     .main-nav .region-navdropdown .navbar-nav li {
       display: inline-block;
-      width: 33%;
-      float: left;
+      width: 32%;
       text-align: center;
       padding: 10px; }
       .main-nav .region-navdropdown .navbar-nav li.active a {
