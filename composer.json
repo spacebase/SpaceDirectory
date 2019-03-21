@@ -127,8 +127,10 @@
         "drupal/auto_entitylabel": "^2.1@beta",
         "drupal/inline_entity_form": "^1.0@RC",
         "drupal/riddler": "^1.1",
+        "drupal/simple_menu_icons": "^2.1",
         "drupal/views_field_view": "^1.0@beta",
         "drupal/captcha_questions": "^1.1"
+
     },
     "require-dev": {
         "behat/mink": "~1.7",

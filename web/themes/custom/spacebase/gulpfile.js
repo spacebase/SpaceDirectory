@@ -5,22 +5,22 @@ var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var importer = require('node-sass-globbing');
-var plumber = require('gulp-plumber');
+var plumber = require('gulp-plumber');  
 var browserSync = require('browser-sync').create();
 
 var sass_config = {
   importer: importer,
   includePaths: [
-    '/usr/local/lib/node_modules/breakpoint-sass/stylesheets/',
-    '/usr/local/lib/node_modules/singularitygs/stylesheets/',
-    '/usr/local/lib/node_modules/compass-mixins/lib/'
+    'node_modules/breakpoint-sass/stylesheets/',
+    'node_modules/singularitygs/stylesheets/',
+    'node_modules/compass-mixins/lib/'
   ]
 };
 
 gulp.task('browser-sync', function(done) {
     browserSync.init({
         injectChanges: true,
-        proxy: "spacebase.lndo.site:8000"
+        proxy: "spacebase.lndo.site"
     });
     gulp.watch("./scss/*.scss", gulp.task(["sass"]));
     gulp.watch(['./css/style.css']).on('change', browserSync.reload);
