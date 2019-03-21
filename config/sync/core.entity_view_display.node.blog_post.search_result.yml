@@ -111,3 +111,4 @@ hidden:
   field_bp_post_date: true
   field_metatags_blog: true
   links: true
+  private_message_link: true
