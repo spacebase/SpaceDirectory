@@ -227,9 +227,7 @@ body.path-search{
     display: grid;
     grid-template-areas: "top top top" 
                     "left main main";
-    .views-exposed-form {
-      grid-area: top;
-    }
+   
     #block-industrysegment-2 {
       grid-area: left;
     }

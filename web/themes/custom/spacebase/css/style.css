@@ -8339,8 +8339,6 @@ body.path-search.topbar-open .main-container {
   .path-search .region-content {
     display: grid;
     grid-template-areas: "top top top"  "left main main"; }
-    .path-search .region-content .views-exposed-form {
-      grid-area: top; }
     .path-search .region-content #block-industrysegment-2 {
       grid-area: left; }
     .path-search .region-content .views-element-container {
