@@ -1,0 +1,18 @@
+uuid: eb7aad10-a4df-4457-b849-c39efdcfc01e
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.project_group
+id: group.project_group.label
+field_name: label
+entity_type: group
+bundle: project_group
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

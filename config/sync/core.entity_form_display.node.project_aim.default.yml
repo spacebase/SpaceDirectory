@@ -1,0 +1,41 @@
+uuid: cf20c3d7-4a39-411c-85a6-4a868d5ce75b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.project_aim.field_project_aim_description
+    - node.type.project_aim
+id: node.project_aim.default
+targetEntityType: node
+bundle: project_aim
+mode: default
+content:
+  field_project_aim_description:
+    weight: 26
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 2
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true

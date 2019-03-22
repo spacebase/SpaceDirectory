@@ -831,12 +831,11 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
-        - group_membership.roles.permissions
         - 'languages:language_content'
         - 'languages:language_interface'
+        - route.group
         - url
         - url.query_args
-        - route.group
         - user.group_permissions
       tags:
         - 'config:field.storage.group_content.group_roles'
@@ -3127,7 +3126,8 @@ display:
     display_title: 'Members Page'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       path: group/%group/members
       menu:
         type: tab
@@ -3138,7 +3138,6 @@ display:
         weight: 20
         context: '0'
         menu_name: main
-        enabled: true
       access:
         type: role
         options:
@@ -4051,8 +4050,6 @@ display:
         - url
         - url.query_args
         - user.roles
-        - route.group
-        - user.group_permissions
       tags:
         - 'config:field.storage.group_content.field_organization_role'
         - 'config:field.storage.group_content.group_roles'

@@ -1,0 +1,17 @@
+uuid: a33580b4-7d25-42d2-975f-985d537f254a
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: slide_mobile
+label: 'Slideshow banner image mobile (800x900)'
+effects:
+  2500f511-b550-40de-87a3-a3e18ab274d8:
+    uuid: 2500f511-b550-40de-87a3-a3e18ab274d8
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 900
+      crop_type: focal_point

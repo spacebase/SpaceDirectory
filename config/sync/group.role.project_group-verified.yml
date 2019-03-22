@@ -1,0 +1,23 @@
+uuid: e5751007-f707-41fa-aa7b-e27cccc3a45d
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.project_group
+id: project_group-verified
+label: 'Accepted Member'
+weight: -10
+internal: false
+audience: member
+group_type: project_group
+permissions_ui: true
+permissions:
+  0: 'view group'
+  1: 'update own group_membership content'
+  2: 'leave group'
+  3: 'view group_membership content'
+  4: 'access group_node overview'
+  5: 'create group_node:group_forum_topic entity'
+  6: 'update own group_node:group_forum_topic entity'
+  7: 'view group_node:group_forum_topic entity'
+  16: 'view group_node:resources entity'

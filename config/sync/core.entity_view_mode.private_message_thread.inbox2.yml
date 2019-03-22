@@ -1,0 +1,10 @@
+uuid: 5e8dcecc-98d5-4952-b118-2751a2fd46b6
+langcode: en
+status: true
+dependencies:
+  module:
+    - private_message
+id: private_message_thread.inbox2
+label: inbox2
+targetEntityType: private_message_thread
+cache: true

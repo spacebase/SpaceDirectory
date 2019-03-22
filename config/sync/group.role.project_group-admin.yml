@@ -1,0 +1,50 @@
+uuid: 11e66872-7566-4c5e-bec0-b8435c9af7ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.project_group
+id: project_group-admin
+label: Admin
+weight: -9
+internal: false
+audience: member
+group_type: project_group
+permissions_ui: true
+permissions:
+  0: 'access content overview'
+  1: 'administer group'
+  2: 'delete group'
+  3: 'edit group'
+  4: 'view group'
+  5: 'administer members'
+  6: 'update own group_membership content'
+  7: 'leave group'
+  8: 'view group_membership content'
+  9: 'access group_node overview'
+  10: 'create group_node:group_forum_topic entity'
+  11: 'delete any group_node:group_forum_topic entity'
+  12: 'delete own group_node:group_forum_topic entity'
+  13: 'update any group_node:group_forum_topic entity'
+  14: 'update own group_node:group_forum_topic entity'
+  15: 'view group_node:group_forum_topic entity'
+  16: 'view unpublished group_node:group_forum_topic entity'
+  17: 'create group_node:group_forum_topic content'
+  18: 'delete any group_node:group_forum_topic content'
+  19: 'delete own group_node:group_forum_topic content'
+  20: 'update any group_node:group_forum_topic content'
+  21: 'update own group_node:group_forum_topic content'
+  22: 'view group_node:group_forum_topic content'
+  46: 'create group_node:resources entity'
+  47: 'delete any group_node:resources entity'
+  48: 'delete own group_node:resources entity'
+  49: 'update any group_node:resources entity'
+  50: 'update own group_node:resources entity'
+  51: 'view group_node:resources entity'
+  52: 'view unpublished group_node:resources entity'
+  53: 'create group_node:resources content'
+  54: 'delete any group_node:resources content'
+  55: 'delete own group_node:resources content'
+  56: 'update any group_node:resources content'
+  57: 'update own group_node:resources content'
+  58: 'view group_node:resources content'

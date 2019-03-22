@@ -12,44 +12,9 @@ use Drupal\node\NodeInterface;
 /**
  * Implements hook_theme_registry_alter()
  */
-function spacebase_events_theme_registry_alter(&$theme_registry) {
-  $theme_registry['calendar_pager']['path'] = drupal_get_path('module', 'spacebase_events') . '/templates';
-}
-
-/**
- * Implements hook_preprocess_HOOK()
- */
-function spacebase_events_preprocess_calendar_pager(&$vars) {
-  if (!$vars['exclude']) {
-    $path = array_values(array_filter(explode('/', \Drupal::service('path.current')->getPath())));
-    foreach (spacebase_events_calendar_get_key_formats() as $key => $format) {
-      if ($path[1] == $key) {
-        $arg = isset($path[2]) ? $path[2] : NULL;
-        $vars['items']['today'] = [
-          'url' => Url::fromUserInput("/events/{$key}/" . date($format)),
-        ];
-        $vars['items']['modes'] = [
-          'label' => ucfirst($key),
-          'links' => spacebase_events_get_calendar_mode_links($arg, $format),
-        ];
-        break;
-      }
-    }
-  }
-}
-
-/**
- * Creates a set of mode links for a given view
- */
-function spacebase_events_preprocess_calendar_week_overlap(&$vars) {
-  $arg = $vars['view']->args[0];
-  $date = new DateTime('now', new DateTimeZone('Pacific/Auckland'));
-  $date->setISODate(substr($arg, 0, 4), substr($arg, -2), 0);
-  foreach ($vars['day_names'] as $key => $value) {
-    $vars['day_names'][$key]['data'] = "{$date->format('D')} {$date->format('j')}";
-    $date->add(new DateInterval('P1D'));
-  }
-}
+//function spacebase_events_theme_registry_alter(&$theme_registry) {
+//  $theme_registry['calendar_pager']['path'] = drupal_get_path('module', 'spacebase_events') . '/templates';
+//}
 
 /**
  * Creates a set of mode links for a given view

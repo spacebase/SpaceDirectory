@@ -1,0 +1,30 @@
+uuid: 30c4563b-aad9-48bb-ad12-416b08b0825e
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.slide_desktop
+    - image.style.slide_mobile
+    - image.style.slide_tablet
+  theme:
+    - spacebase
+id: responsive_slide_image
+label: 'Responsive Slide Image'
+image_style_mappings:
+  -
+    breakpoint_id: spacebase.desktop
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: slide_desktop
+  -
+    breakpoint_id: spacebase.tablet
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: slide_tablet
+  -
+    breakpoint_id: spacebase.mobile
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: slide_mobile
+breakpoint_group: spacebase
+fallback_image_style: slide_mobile
