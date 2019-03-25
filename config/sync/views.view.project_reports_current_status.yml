@@ -3,12 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.body
+    - core.entity_view_mode.node.teaser
     - node.type.project_update
   module:
     - group
     - node
-    - smart_trim
     - user
     - views_field_view
 id: project_reports_current_status
@@ -52,10 +51,26 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: some
+        type: full
         options:
           items_per_page: 10
           offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       style:
         type: table
         options:
@@ -357,6 +372,20 @@ display:
           granularity: second
       title: 'Test a list of content filtered by those listed on the currently viewed group'
       header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: true
+          content:
+            value: '<h1>Reports for {{ arguments.id }}</h1>'
+            format: raw_html
+          plugin_id: text
+      footer:
         result:
           id: result
           table: views
@@ -365,9 +394,8 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          content: 'Displaying @start - @end of @total'
+          content: '@total'
           plugin_id: result
-      footer: {  }
       empty: {  }
       relationships:
         reverse__group__field_project_group_updates:
@@ -419,12 +447,16 @@ display:
           entity_field: id
           plugin_id: group_id
       display_extenders: {  }
+      use_more: true
+      use_more_always: false
+      use_more_text: more
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -432,16 +464,108 @@ display:
     display_plugin: block
     id: block_1
     display_title: Block
-    position: 1
+    position: 2
     display_options:
       display_extenders:
         metatag_display_extender: {  }
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+      defaults:
+        style: false
+        row: false
+        fields: false
+        group_by: false
+        header: false
+      row:
+        type: fields
+        options: {  }
+      fields:
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: none
+          group_type: count_distinct
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: null
+          group_columns: null
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          set_precision: false
+          precision: 0
+          decimal: .
+          format_plural: 0
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
+      group_by: false
+      header: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -453,7 +577,7 @@ display:
     display_options:
       display_extenders:
         metatag_display_extender: {  }
-      path: group/%group/project-updates
+      path: group/%group/reports
       style:
         type: default
         options:
@@ -472,11 +596,11 @@ display:
           separator: ''
           hide_empty: false
       fields:
-        nid:
-          id: nid
-          table: node_field_data
-          field: nid
-          relationship: none
+        label:
+          id: label
+          table: groups_field_data
+          field: label
+          relationship: reverse__group__field_project_group_updates
           group_type: group
           admin_label: ''
           label: ''
@@ -521,75 +645,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: node
-          entity_field: nid
-          plugin_id: field
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -600,11 +658,13 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: group
+          entity_field: label
           plugin_id: field
-        body:
-          id: body
-          table: node__body
-          field: body
+        rendered_entity:
+          id: rendered_entity
+          table: node
+          field: rendered_entity
           relationship: none
           group_type: group
           admin_label: ''
@@ -649,39 +709,51 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: smart_trim
-          settings:
-            trim_length: 300
-            trim_type: chars
-            trim_suffix: ''
-            wrap_output: false
-            wrap_class: trimmed
-            more_link: false
-            more_text: More
-            more_class: more-link
-            summary_handler: full
-            trim_options:
-              text: false
-              trim_zero: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
+          view_mode: teaser
+          entity_type: node
+          plugin_id: rendered_entity
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.body'
+        - 'config:core.entity_view_display.node.article.default'
+        - 'config:core.entity_view_display.node.article.rss'
+        - 'config:core.entity_view_display.node.article.search_index'
+        - 'config:core.entity_view_display.node.article.search_result'
+        - 'config:core.entity_view_display.node.article.teaser'
+        - 'config:core.entity_view_display.node.blog_post.default'
+        - 'config:core.entity_view_display.node.blog_post.search_result'
+        - 'config:core.entity_view_display.node.blog_post.teaser'
+        - 'config:core.entity_view_display.node.event.default'
+        - 'config:core.entity_view_display.node.event.search_result'
+        - 'config:core.entity_view_display.node.event.teaser'
+        - 'config:core.entity_view_display.node.group_forum_topic.default'
+        - 'config:core.entity_view_display.node.group_forum_topic.teaser'
+        - 'config:core.entity_view_display.node.page.default'
+        - 'config:core.entity_view_display.node.page.search_index'
+        - 'config:core.entity_view_display.node.page.search_result'
+        - 'config:core.entity_view_display.node.page.teaser'
+        - 'config:core.entity_view_display.node.partner.default'
+        - 'config:core.entity_view_display.node.partner.teaser'
+        - 'config:core.entity_view_display.node.project_aim.default'
+        - 'config:core.entity_view_display.node.project_aim.teaser'
+        - 'config:core.entity_view_display.node.project_aim_update.default'
+        - 'config:core.entity_view_display.node.project_aim_update.teaser'
+        - 'config:core.entity_view_display.node.project_update.default'
+        - 'config:core.entity_view_display.node.project_update.teaser'
+        - 'config:core.entity_view_display.node.resources.default'
+        - 'config:core.entity_view_display.node.resources.search_result'
+        - 'config:core.entity_view_display.node.resources.teaser'
+        - 'config:core.entity_view_display.node.sb_news_article.default'
+        - 'config:core.entity_view_display.node.sb_news_article.teaser'
+        - 'config:core.entity_view_display.node.sb_video.default'
+        - 'config:core.entity_view_display.node.sb_video.search_result'
+        - 'config:core.entity_view_display.node.sb_video.teaser'
+        - 'config:core.entity_view_display.node.slide.default'
+        - 'config:core.entity_view_display.node.slide.teaser'
