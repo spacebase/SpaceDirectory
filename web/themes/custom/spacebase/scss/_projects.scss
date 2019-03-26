@@ -1,4 +1,14 @@
 .region-content {
+  .views-element-container.form-group {
+      .view.view-project-aims-current-status.view-id-project_aims_current_status {
+        padding: 35px;
+        background: #fff;
+        margin-bottom: 35px;
+        border-radius: 2px;
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      }
+  }
   .project-group {
     aside {
       float: right;
@@ -28,10 +38,10 @@
 
 @media screen and (max-width: 767px){
   .region-content{
-       .project-group {
-        aside {
-          float: none !important;
-        }
+      .project-group {
+          aside {
+            float: none !important;
+          }
       }
   }
 }
@@ -40,3 +50,4 @@
     margin-top: 30px;
   }
 }
+
