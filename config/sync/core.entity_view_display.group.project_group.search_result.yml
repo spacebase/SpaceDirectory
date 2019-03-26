@@ -112,4 +112,5 @@ hidden:
   field_project_group_updates: true
   field_project_mission: true
   field_project_needs: true
+  field_project_type: true
   uid: true
