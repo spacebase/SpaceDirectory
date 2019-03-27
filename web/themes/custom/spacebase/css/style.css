@@ -19,8 +19,7 @@
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%; 
-}
+  -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0; }
@@ -7064,7 +7063,6 @@ body[class*="user-reset"] {
         padding: 15px 0;
         float: right; } }
     .navbar.navbar-inverse .menu .active > a, .navbar.navbar-inverse .menu .active > a:hover, .navbar.navbar-inverse .menu .active > a:focus {
-      background: none;
       border-bottom-color: #76777f; }
     .navbar.navbar-inverse .menu > .active > a.btn-primary {
       background: #3bba50; }
