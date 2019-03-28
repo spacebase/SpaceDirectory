@@ -1,0 +1,20 @@
+uuid: b362944b-3d27-4e20-a1f3-6c0e19b7bcfc
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+    - taxonomy
+id: group.field_project_type
+field_name: field_project_type
+entity_type: group
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 2
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

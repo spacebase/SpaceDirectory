@@ -19,7 +19,6 @@ permissions:
   - 'create project group'
   - 'create project_aim content'
   - 'create project_aim_update content'
-  - 'create project_group group'
   - 'create project_update content'
   - 'delete own event content'
   - 'delete own project_aim content'

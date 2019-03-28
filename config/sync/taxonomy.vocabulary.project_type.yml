@@ -1,0 +1,9 @@
+uuid: d4af4583-5a76-42fb-869e-83591706922a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Project Type'
+vid: project_type
+description: 'For grouping project groups'
+hierarchy: 0
+weight: 0

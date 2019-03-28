@@ -1,22 +1,22 @@
-uuid: f7ee9072-7a2d-435e-9cf6-7e1358a2ef7d
+uuid: 2059266f-abb3-4c2a-a053-23972da4b191
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.slides
+    - views.view.projects
   module:
     - system
     - views
   theme:
     - spacebase
-id: home_slides
+id: views_block__projects_block_1
 theme: spacebase
 region: content
-weight: -18
+weight: 0
 provider: null
-plugin: 'views_block:slides-home_slides'
+plugin: 'views_block:projects-block_1'
 settings:
-  id: 'views_block:slides-home_slides'
+  id: 'views_block:projects-block_1'
   label: ''
   provider: views
   label_display: '0'
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
+    pages: /projects
     negate: false
     context_mapping: {  }

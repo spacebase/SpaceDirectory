@@ -201,7 +201,7 @@ body.path-search{
     }
 }
 .path-search .region-content {
-  @media screen and (min-width: 480px) and (max-width: 980px){
+  @media screen and (min-width: 680px) and (max-width: 980px){
     display: grid;
     grid-template-areas: "top" 
                           "middle" 
