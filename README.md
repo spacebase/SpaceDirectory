@@ -1,3 +1,9 @@
+# using this codebase
+
+please have a look at https://gitlab.com/spacebase/spacebase/wikis/Local-environment-setup when setting up this codebase for the first time.
+
+
+
 # Drupal project template for Platform.sh
 
 This project provides a starter kit for Drupal 8 projects hosted on [Platform.sh](http://platform.sh). It

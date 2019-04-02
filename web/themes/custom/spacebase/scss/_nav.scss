@@ -45,7 +45,7 @@
           padding-left: 10px;
           padding-right: 10px;
           &:active,&:focus,&:hover{
-            background: $grey-dark;
+            background-color: $grey-dark; 
             color: #fff;
           }
           &.btn-blank{
@@ -59,7 +59,6 @@
       }
       .active{
         > a, > a:hover, > a:focus{
-          background: none;
           border-bottom-color: $text-light;
         }
       }
@@ -489,13 +488,10 @@ body.nav-open{
     position: absolute;
     top: 75px;
     right: 0;
-    width: 280px;
+    width: 320px;
     padding: 15px 0;
     z-index: 200;
-    >nav{
-      max-height: 75vh;
-      overflow-y: scroll;
-    }
+   
     &:before{
       content: '';
       display: block;
@@ -511,8 +507,7 @@ body.nav-open{
     .navbar-nav{
       li{
         display: inline-block;
-        width: 50%;
-        float: left;
+        width: 32%;
         text-align: center;
         padding: 10px;
         &.active{

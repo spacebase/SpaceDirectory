@@ -1,6 +1,6 @@
 display_extenders:
-  - metatag_display_extender
-skip_cache: false
+  metatag_display_extender: metatag_display_extender
+skip_cache: true
 sql_signature: false
 ui:
   show:

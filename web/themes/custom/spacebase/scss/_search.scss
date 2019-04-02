@@ -166,6 +166,7 @@ body.path-search{
 
 .facets-widget-checkbox{
   margin-bottom: 25px;
+ 
   ul{
     list-style: none;
     padding: 0 0 0 5px;
@@ -184,24 +185,84 @@ body.path-search{
     .path-search .region-content {
         .views-exposed-form {
             fieldset.form-item {
-                position: absolute;
-                left: 0;
-                top: 78px;
-                width: 260px;
+              width: 260px;
+              margin-top: 80px;
+              float: left;
             }
         }
         .views-element-container {
-            margin-left: 300px;
+          margin-top: -232px;
+          margin-left: 30px;
         }
+    }
+    #block-industrysegment-2{
+      width: 260px;
+      float: left;
     }
 }
 .path-search .region-content {
+  @media screen and (min-width: 680px) and (max-width: 980px){
+    display: grid;
+    grid-template-areas: "top" 
+                          "middle" 
+                          "main";
+        .views-exposed-form {
+          grid-area: top;
+          fieldset.form-item {
+            margin-top: 80px;
+            width: calc(50% - 15px);
+      }
+    }
+    #block-industrysegment-2 {
+      grid-area: middle;
+      width: calc(50% - 15px);
+      margin-left: auto;
+      margin-top: -230px;
+    }
+    .views-element-container {
+      grid-area: main;
+    }
+  }
+  @media screen and (min-width: 980px){
+    display: grid;
+    grid-template-areas: "top top top" 
+                    "left main main";
+   
+    #block-industrysegment-2 {
+      grid-area: left;
+    }
+    .views-element-container {
+      grid-area: main;
+    }
+  }
+  @media screen and (min-width: 480px) {
+    .form-item-search-api-fulltext{
+      position: absolute;
+      left: 14px;
+      width: 320px;
+    }
+  }
+    .form-actions{
+    position: absolute;
+    left: 334px;
+  }
+
+  @media screen and (max-width: 480px){
+    .form-actions{
+      top: 60px;
+      left: 0;
+    }   
+
+    .views-exposed-form fieldset.form-item{
+      margin-top: 80px
+    }
+  }
+    // Filters
     .views-exposed-form {
         margin-top: 20PX;
         margin-bottom: 30px;
         fieldset.form-item {
             display: block;
-
             border-radius: 2px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.2);
             legend {
@@ -211,7 +272,7 @@ body.path-search{
                 border: 0px;
             }
             .fieldset-wrapper {
-                padding: 0px 35px 35px 35px;
+                padding: 1px 35px 35px 35px;
                 background: white;
             }
             .form-checkboxes {
@@ -225,6 +286,7 @@ body.path-search{
             }
         }
     }
+    // Search results
     .views-element-container {
         padding: 35px;
         background: #fff;
@@ -267,3 +329,24 @@ body.path-search{
         }
     }
 }
+
+#block-industrysegment-2{
+  padding: 35px;
+  background: #fff;
+  margin-bottom: 35px;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  .block-title {
+    font-size: 21px;
+    font-weight: 300;
+  }
+  li.facet-item {
+    display: flex;
+    align-items: first baseline;
+    .facet-item__value {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  }
+}
+

@@ -48,6 +48,16 @@ third_party_settings:
         weight: 1
         label: hidden
         formatter: default
+        settings:
+          link: true
+          wrapper: h2
+          class: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
 id: node.blog_post.search_result
 targetEntityType: node
 bundle: blog_post
@@ -101,3 +111,4 @@ hidden:
   field_bp_post_date: true
   field_metatags_blog: true
   links: true
+  private_message_link: true

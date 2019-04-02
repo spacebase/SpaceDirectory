@@ -11,6 +11,7 @@ dependencies:
     - field.field.group.project_group.field_project_group_updates
     - field.field.group.project_group.field_project_mission
     - field.field.group.project_group.field_project_needs
+    - field.field.group.project_group.field_project_type
     - group.type.project_group
     - image.style.thumbnail
   module:
@@ -87,6 +88,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_project_type:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
     region: content
   label:
     type: string_textfield
