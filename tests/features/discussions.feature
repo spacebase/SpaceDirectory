@@ -1,5 +1,9 @@
 @api
-Feature: Test discussions
+Feature: Test discussions. Status:WIP
+  These require a forum be created. They should not, it's not reliable. 
+  It's better to create a forum, perhaps leaving a footprint, and later
+  development can delete that forum and it should be clean.
+
   As an org-member, I should be able to create and read posts in my group's discussion.
   As an org-owner, I should be able to create, read, update and delete posts in my group's discussion.
   Anonymous users can see discussions but not edit.
