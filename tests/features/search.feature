@@ -7,7 +7,8 @@ Feature: Test search. Status:main:clean-req:content
     Given I am on "/"
     And I enter "Space" for "edit-keywords"
     When I press the "edit-submit-sitewide-search" button
-    Then I should see "Search results for"
+    #Then I should see "Search results for"    Not anymore?
+    Then I should see "Displaying"
     And I should see "<strong>space</strong>"
 
 

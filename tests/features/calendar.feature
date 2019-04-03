@@ -22,7 +22,7 @@ Background:
     When I click "Events"
     Then print current URL
     Then I should see "New Zealand Space Calendar"
-    Then I break
+    #Then I break
 
   #TODO no group calendar events yet
   #Scenario: Group calendar exists
