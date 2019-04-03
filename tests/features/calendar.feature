@@ -13,14 +13,16 @@ Feature: Test calendar. Status:main:clean.
 Background:
   Given users:
     | name         | password    | username | mail           |
-    | Behat Tester | passw345534 | BehatTst | bt@example.com |
-    | Behat TestFounder | passw345534 | BehatTstTF | tf@example.com |
-    | Behat TestJoiner  | passw654891 | BehatTstJ  | tj@example.com  |
+    | Behat Tester | passw345534 | BehatTst | btx3@example.com |
+    | Behat TestFounder | passw345534 | BehatTstTF | tfx3@example.com |
+    | Behat TestJoiner  | passw654891 | BehatTstJ  | tjx3@example.com  |
 
   Scenario: Site-wide calendar exists
     Given I am on "/"
     When I click "Events"
+    Then print current URL
     Then I should see "New Zealand Space Calendar"
+    Then I break
 
   #TODO no group calendar events yet
   #Scenario: Group calendar exists
@@ -51,8 +53,9 @@ Background:
     #And I click the link containing child element "fa-plus-circle"
     Given I am on "/node/add/event"
     Then I should see "Title"
-    And I should see "Start"
     And I should not see "You are not authorized to access this page"
+
+    And I should see "START"
     ## warning: javascript on will mess up this form!
     Then I fill in the following:
       | Title     | Test Event zx |
@@ -67,8 +70,8 @@ Background:
     # run differently as date forms are completed:
   @javascript  
   Scenario: Authenticated user can create and update own site-wide event and other user cannot update
-    Given I am logged in as "Behat Tester"
-    #Given I am logged in as a user with the "administrator" role
+    #Nope, not via javascript: Given I am logged in as "Behat Tester"
+    Given I am logged in as a user with the "administrator" role
     Given I am on "/node/add/event"
     Then I should see "Title"
     And I should see "Start"

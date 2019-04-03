@@ -48,7 +48,7 @@ pr-254:
 pr-286:
   extensions:
     Behat\MinkExtension:
-       base_url: https://pr-286-wr3x6aq-ensz4qdpjmziw.us.platform.sh/
+       base_url: "https://pr-286-wr3x6aq-ensz4qdpjmziw.us.platform.sh"
     Drupal\DrupalExtension:
       api_driver: 'drush'
       drush:
