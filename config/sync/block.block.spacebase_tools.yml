@@ -13,7 +13,7 @@ _core:
 id: spacebase_tools
 theme: spacebase
 region: sidebar_first
-weight: -9
+weight: -18
 provider: null
 plugin: 'system_menu_block:tools'
 settings:

@@ -12,7 +12,7 @@ dependencies:
 id: spacebase_views_block__group_membership_page_block_1
 theme: spacebase
 region: sidebar_first
-weight: -14
+weight: -24
 provider: null
 plugin: 'views_block:group_membership_page-block_1'
 settings:

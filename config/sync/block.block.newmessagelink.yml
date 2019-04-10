@@ -12,7 +12,7 @@ dependencies:
 id: newmessagelink
 theme: spacebase
 region: content
-weight: -19
+weight: -23
 provider: null
 plugin: 'simple_block:new_private_message_manual_link'
 settings:
