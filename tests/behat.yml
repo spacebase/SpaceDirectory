@@ -53,6 +53,7 @@ pr-286:
       api_driver: 'drush'
       drush:
         alias: 'pr-286'
+        binary: '/app/vendor/drush/drush/drush'
 dev:
   extensions:
     Behat\MinkExtension:
@@ -61,4 +62,4 @@ dev:
       api_driver: 'drush'
       drush:
         alias: 'dev'
-
+        binary: '/app/vendor/drush/drush/drush'
