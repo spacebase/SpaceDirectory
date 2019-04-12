@@ -363,14 +363,6 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
         }
       }
 
-      // Remove the "N/A" entry from the public_or_private field options
-      unset($form['field_public_or_private']['widget']['#options']['_none']);
-      break;
-
-    case 'node_group_forum_topic_form':
-    case 'node_group_forum_topic_edit_form':
-      // Remove the "N/A" entry from the public_or_private field options
-      unset($form['field_public_or_private']['widget']['#options']['_none']);
       break;
 
   }
