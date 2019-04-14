@@ -8,51 +8,23 @@ dependencies:
 third_party_settings:
   ds:
     layout:
-      id: ds_2col_stacked
-      library: ds/ds_2col_stacked
+      id: layout_twocol
+      library: layout_discovery/twocol
       disable_css: false
       entity_classes: all_classes
-      settings:
-        wrappers:
-          header: div
-          left: div
-          right: div
-          footer: div
-        outer_wrapper: div
-        attributes: ''
-        link_attribute: ''
-        link_custom: ''
-        classes:
-          layout_class: {  }
-          header: {  }
-          left: {  }
-          right: {  }
-          footer: {  }
+      settings: {  }
     regions:
-      header:
-        - 'dynamic_token_field:private_message_thread-private_message_inbox_label'
-      left:
+      first:
         - 'dynamic_block_field:private_message_thread-private_message_inbox'
-        - 'dynamic_block_field:private_message_thread-private_message_actions'
-      right:
+      second:
         - members
         - private_message_form
         - private_messages
         - delete_link
     fields:
-      'dynamic_token_field:private_message_thread-private_message_inbox_label':
-        plugin_id: 'dynamic_token_field:private_message_thread-private_message_inbox_label'
-        weight: 0
-        label: hidden
-        formatter: default
-      'dynamic_block_field:private_message_thread-private_message_actions':
-        plugin_id: 'dynamic_block_field:private_message_thread-private_message_actions'
-        weight: 2
-        label: hidden
-        formatter: default
       'dynamic_block_field:private_message_thread-private_message_inbox':
         plugin_id: 'dynamic_block_field:private_message_thread-private_message_inbox'
-        weight: 1
+        weight: 0
         label: hidden
         formatter: default
 _core:
@@ -63,15 +35,15 @@ bundle: private_message_thread
 mode: default
 content:
   delete_link:
-    weight: 6
-    region: right
+    weight: 4
+    region: second
     settings: {  }
     third_party_settings: {  }
   members:
     label: above
     type: private_message_thread_member_formatter
-    weight: 3
-    region: right
+    weight: 1
+    region: second
     settings:
       display_type: entity
       entity_display_mode: private_message_author
@@ -86,14 +58,14 @@ content:
             lb-col: false
             classes: {  }
   private_message_form:
-    weight: 4
-    region: right
+    weight: 2
+    region: second
     settings: {  }
     third_party_settings: {  }
   private_messages:
     type: private_message_thread_message_formatter
-    weight: 5
-    region: right
+    weight: 3
+    region: second
     label: above
     settings:
       message_count: 5

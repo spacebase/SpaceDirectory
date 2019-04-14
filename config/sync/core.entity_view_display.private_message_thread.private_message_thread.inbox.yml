@@ -22,7 +22,7 @@ content:
     settings:
       display_type: entity
       entity_display_mode: private_message_author
-      members_prefix: ''
+      members_prefix: 'You and '
     third_party_settings:
       ds:
         ds_limit: ''

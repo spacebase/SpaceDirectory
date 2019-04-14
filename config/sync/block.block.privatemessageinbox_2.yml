@@ -1,0 +1,29 @@
+uuid: 19220acb-3cb4-4285-a5e2-aabc00a0920b
+langcode: en
+status: false
+dependencies:
+  module:
+    - private_message
+    - system
+  theme:
+    - spacebase
+id: privatemessageinbox_2
+theme: spacebase
+region: sidebar_first
+weight: 0
+provider: null
+plugin: private_message_inbox_block
+settings:
+  id: private_message_inbox_block
+  label: 'Private Message Inbox'
+  provider: private_message
+  label_display: visible
+  thread_count: 5
+  ajax_load_count: 5
+  ajax_refresh_rate: 15
+visibility:
+  request_path:
+    id: request_path
+    pages: '/private_messages*'
+    negate: false
+    context_mapping: {  }
