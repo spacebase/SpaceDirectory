@@ -9,3 +9,6 @@ _core:
 inbox_label: 'Private Messages for me'
 number_of_threads: 12
 inbox_page_label: 'Private Message Inbox'
+create_message_label: 'New conversation'
+save_message_label: 'Send message'
+autofocus_enable: true
