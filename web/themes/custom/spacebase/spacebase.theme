@@ -116,7 +116,18 @@ function spacebase_preprocess_block(&$variables) {
   $block_id = $variables['plugin_id'];
   switch ($block_id) {
     case 'private_message_inbox_block':
-      $variables['attributes'] = $variables['content']['#attributes'];
+      if (isset($variables['content']['#attributes'])) {
+        $variables['attributes'] = $variables['content']['#attributes'];
+      }
+      else {
+        $variables['attributes'] = [
+          'class' => [
+            'block',
+            'block-private-message',
+            'block-private-message-inbox-block'
+          ]
+        ];
+      }
       break;
   }
 
