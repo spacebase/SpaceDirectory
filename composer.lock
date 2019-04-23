@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "20fdeecd187c412a9151d7c314bcb72c",
+    "content-hash": "1451c3afd15011b28dbf84525d85844f",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5673,7 +5673,8 @@
                     "8.x-2.0-beta15: Late listner": "https://www.drupal.org/files/issues/2019-04-08/private_message-threads_load_late_listener-3046653-2.patch",
                     "8.x-2.0-beta15: Load previous": "https://www.drupal.org/files/issues/2019-04-09/private_message-load_previous-3041603-9.patch",
                     "8.x-2.0-beta15: Configuarable autofocus": "https://www.drupal.org/files/issues/2019-04-05/private_message-autofocus_configurable-13033494-8.patch",
-                    "8.x-2.0-beta15: Blocked users": "https://www.drupal.org/files/issues/2019-04-04/private_message-threads_with_blocked_users-3044025-13-d8.patch"
+                    "8.x-2.0-beta15: Blocked users": "https://www.drupal.org/files/issues/2019-04-04/private_message-threads_with_blocked_users-3044025-13-d8.patch",
+                    "8.x-2.0-beta15: Inbox not working": "https://www.drupal.org/files/issues/2019-04-15/private_message-3038771-inbox-not-working-6.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
