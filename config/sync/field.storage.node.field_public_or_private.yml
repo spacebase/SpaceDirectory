@@ -1,0 +1,20 @@
+uuid: 64ee68f4-1b8d-4e7e-a65e-f3f8c55400aa
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_public_or_private
+field_name: field_public_or_private
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

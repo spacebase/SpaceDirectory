@@ -1,0 +1,33 @@
+uuid: b9216cab-0786-4276-9504-530b30d38f3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_public_or_private
+    - node.type.resources
+    - taxonomy.vocabulary.permissions_tags
+  content:
+    - 'taxonomy_term:permissions_tags:98c28f59-a679-4931-8a17-ed972b68cb0f'
+id: node.resources.field_public_or_private
+field_name: field_public_or_private
+entity_type: node
+bundle: resources
+label: 'Public or Private'
+description: 'Specify wether this resource will be visible to the public or just to verified group members.'
+required: false
+translatable: true
+default_value:
+  -
+    target_uuid: 98c28f59-a679-4931-8a17-ed972b68cb0f
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      permissions_tags: permissions_tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
