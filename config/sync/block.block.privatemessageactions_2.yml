@@ -10,7 +10,7 @@ dependencies:
 id: privatemessageactions_2
 theme: spacebase
 region: content
-weight: -18
+weight: -7
 provider: null
 plugin: private_message_actions_block
 settings:
