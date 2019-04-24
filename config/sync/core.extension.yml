@@ -32,6 +32,7 @@ module:
   dynamic_page_cache: 0
   editor: 0
   email_group_administrators: 0
+  entity_reference: 0
   entity_reference_revisions: 0
   facets: 0
   facets_summary: 0
@@ -94,6 +95,7 @@ module:
   password_policy_length: 0
   password_policy_username: 0
   path: 0
+  permissions_by_term: 0
   private_message: 0
   publishcontent: 0
   rdf: 0

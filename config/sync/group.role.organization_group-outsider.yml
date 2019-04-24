@@ -12,9 +12,11 @@ audience: outsider
 group_type: organization_group
 permissions_ui: true
 permissions:
-  - 'view group'
-  - 'join group'
-  - 'access group_node overview'
-  - 'view group_node:organization entity'
-  - 'view group_node:resources entity'
-  - 'view group_node:group_forum_topic entity'
+  0: 'view group'
+  1: 'join group'
+  2: 'access group_node overview'
+  3: 'view group_node:organization entity'
+  7: 'view group_node:blog_post entity'
+  8: 'view group_node:event entity'
+  9: 'view group_node:sb_news_article entity'
+  10: 'view group_node:sb_video entity'

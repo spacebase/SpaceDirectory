@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.resources.field_important
+    - field.field.node.resources.field_public_or_private
     - field.field.node.resources.field_resource_link
     - field.field.node.resources.field_tab
     - node.type.resources
@@ -15,22 +16,28 @@ bundle: resources
 mode: default
 content:
   field_important:
-    weight: 2
+    weight: 3
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_public_or_private:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
   field_resource_link:
     type: link_default
-    weight: 1
+    weight: 2
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: (optional)
     third_party_settings: {  }
   field_tab:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -39,7 +46,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 4
+    weight: 5
     region: content
     third_party_settings: {  }
   title:

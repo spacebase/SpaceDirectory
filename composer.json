@@ -128,8 +128,8 @@
         "drupal/simple_menu_icons": "^2.1",
         "drupal/views_field_view": "^1.0@beta",
         "drupal/captcha_questions": "^1.1",
-        "drupal/leaflet": "^1.4"
-
+        "drupal/leaflet": "^1.4",
+        "drupal/permissions_by_term": "^2.6"
     },
     "require-dev": {
         "behat/mink": "~1.7",
@@ -214,6 +214,9 @@
             },
             "drupal/leaflet_more_maps": {
                 "8.x-1.0-alpha3: Invalid agrument": "https://www.drupal.org/files/issues/lmm_2847024-9.patch"
+            },
+            "drupal/permissions_by_term": {
+                "8.x-2.10: Integrate with group": "https://www.drupal.org/files/issues/2019-04-12/3041315-group-integration-2.patch"
             }
         }
     },

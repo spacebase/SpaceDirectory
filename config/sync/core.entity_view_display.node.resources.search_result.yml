@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.search_result
     - field.field.node.resources.field_important
+    - field.field.node.resources.field_public_or_private
     - field.field.node.resources.field_resource_link
     - field.field.node.resources.field_tab
     - node.type.resources
@@ -17,7 +18,7 @@ bundle: resources
 mode: search_result
 content:
   field_important:
-    weight: 104
+    weight: 4
     label: above
     settings:
       format: default
@@ -26,8 +27,16 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
+  field_public_or_private:
+    type: entity_reference_label
+    weight: 1
+    region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
   field_resource_link:
-    weight: 101
+    weight: 2
     label: above
     settings:
       trim_length: 80
@@ -39,7 +48,7 @@ content:
     type: link
     region: content
   field_tab:
-    weight: 102
+    weight: 3
     label: above
     settings:
       link: true
@@ -47,6 +56,9 @@ content:
     type: entity_reference_label
     region: content
   links:
-    weight: 100
+    weight: 0
     region: content
-hidden: {  }
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  private_message_link: true
