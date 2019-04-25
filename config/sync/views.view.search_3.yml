@@ -349,8 +349,8 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'Sorry, no results match your search.'
-            format: basic_html
+            value: "<p>Sorry, no results match your search. </p>\r\n\r\n<p>If there is an organization you expect to see here that's missing, you can <a href=\"/group/add/organization_group\">create it</a>.</p>"
+            format: raw_html
           plugin_id: text
       relationships: {  }
       arguments: {  }

@@ -12,7 +12,7 @@ dependencies:
 id: exposedformsitewide_searchsearch
 theme: spacebase
 region: sidebar_first
-weight: -13
+weight: -23
 provider: null
 plugin: 'views_exposed_filter_block:sitewide_search-search'
 settings:

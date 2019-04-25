@@ -14,7 +14,4 @@ permissions_ui: true
 permissions:
   0: 'view group'
   1: 'leave group'
-  2: 'view group_node:group_forum_topic entity'
   3: 'update own group_membership content'
-  4: 'access group_node overview'
-  10: 'view group_node:resources entity'

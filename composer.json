@@ -224,6 +224,9 @@
             },
             "drupal/leaflet_more_maps": {
                 "8.x-1.0-alpha3: Invalid agrument": "https://www.drupal.org/files/issues/lmm_2847024-9.patch"
+            },
+            "drupal/permissions_by_term": {
+                "8.x-2.10: Integrate with group": "https://www.drupal.org/files/issues/2019-04-12/3041315-group-integration-2.patch"
             }
         }
     },

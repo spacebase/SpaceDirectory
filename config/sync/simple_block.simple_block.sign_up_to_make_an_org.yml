@@ -1,0 +1,11 @@
+uuid: e9fae021-71a7-4594-8301-67724bf1af74
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.raw_html
+id: sign_up_to_make_an_org
+title: 'Sign up or log in to make an organization'
+content:
+  value: "<p>You will need to <a href=\"/user/register\">sign up</a> or <a href=\"/user/login?destination=/group/add/organization_group\">log in</a> to create a new organisation.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n"
+  format: raw_html

@@ -5,8 +5,10 @@ namespace Drupal\spacebase_orgs;
 class MemberManager {
 
   public static function rejectMembership($id, &$context){
-    $context['sandbox']['progress']++;
+    /** @var \Drupal\group\Entity\GroupContent $membership */
     $membership = \Drupal::entityTypeManager()->getStorage('group_content')->load($id);
+
+    $context['sandbox']['progress']++;
     MemberManager::notifyStatus('membership_rejected', $membership);
     $membership->delete();
     $context['message'] = "Rejected {$membership->label->value}";
@@ -14,11 +16,19 @@ class MemberManager {
   }
 
   public static function approveMembership($id, $admin = FALSE, &$context){
+    /** @var \Drupal\group\Entity\GroupContent $membership */
     $membership = \Drupal::entityTypeManager()->getStorage('group_content')->load($id);
+    /** @var \Drupal\group\Entity\Group $group */
+    $group = $membership->getGroup();
+
+    // Get the admin and verified group role labels.
+    $admin_role = $group->getGroupType()->id() . '-admin';
+    $verified_role = $group->getGroupType()->id() . '-verified';
+
     $context['sandbox']['progress']++;
-    $membership->group_roles->setValue('organization_group-verified');
+    $membership->group_roles->setValue($verified_role);
     if ($admin) {
-      $membership->group_roles->setValue(['organization_group-admin','organization_group-verified']);
+      $membership->group_roles->setValue([$admin_role, $verified_role]);
     }
     if ( $membership->save() == 2 ) {
       MemberManager::notifyStatus('membership_approved', $membership);

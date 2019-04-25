@@ -12,7 +12,7 @@ dependencies:
 id: newzealandfromabove
 theme: spacebase
 region: content
-weight: -9
+weight: -11
 provider: null
 plugin: 'simple_block:nz_sky_photo'
 settings:

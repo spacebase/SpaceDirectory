@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1451c3afd15011b28dbf84525d85844f",
+    "content-hash": "8a967d4b3e7f0b0a77efd7f2e4ada624",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5602,6 +5602,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "8.x-2.10: Integrate with group": "https://www.drupal.org/files/issues/2019-04-12/3041315-group-integration-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
