@@ -8,21 +8,6 @@ dependencies:
     - ds
     - private_message
     - smart_trim
-third_party_settings:
-  ds:
-    layout:
-      id: layout_twocol
-      library: layout_discovery/twocol
-      disable_css: false
-      entity_classes: all_classes
-      settings: {  }
-    regions:
-      first:
-        - owner
-      second:
-        - created
-      bottom:
-        - message
 _core:
   default_config_hash: T49nARPshtaO8dImQQbA7lsLVPomuhVyR20tprP1s7U
 id: private_message.private_message.inbox
@@ -33,7 +18,7 @@ content:
   created:
     label: hidden
     weight: 1
-    region: second
+    region: content
     settings:
       future_format: '@interval hence'
       past_format: '@interval ago'
@@ -50,7 +35,7 @@ content:
   message:
     type: smart_trim
     weight: 2
-    region: bottom
+    region: content
     label: hidden
     settings:
       trim_length: 100
@@ -77,7 +62,7 @@ content:
     label: hidden
     type: entity_reference_entity_view
     weight: 0
-    region: first
+    region: content
     settings:
       view_mode: full_name
       link: false

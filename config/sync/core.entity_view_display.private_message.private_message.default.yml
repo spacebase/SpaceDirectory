@@ -6,36 +6,6 @@ dependencies:
     - ds
     - private_message
     - text
-third_party_settings:
-  ds:
-    layout:
-      id: ds_2col_stacked_fluid
-      library: ds/ds_2col_stacked_fluid
-      disable_css: false
-      entity_classes: all_classes
-      settings:
-        wrappers:
-          header: div
-          left: div
-          right: div
-          footer: div
-        outer_wrapper: div
-        attributes: ''
-        link_attribute: ''
-        link_custom: ''
-        classes:
-          layout_class: {  }
-          header: {  }
-          left: {  }
-          right: {  }
-          footer: {  }
-    regions:
-      left:
-        - owner
-      right:
-        - created
-      footer:
-        - message
 _core:
   default_config_hash: bY60CRy-1iA05ELhvP1G7mki9KT4YbhNEoh-HzFbwAw
 id: private_message.private_message.default
@@ -46,7 +16,7 @@ content:
   created:
     label: hidden
     weight: 1
-    region: right
+    region: content
     settings:
       date_format: short
       custom_date_format: ''
@@ -64,13 +34,13 @@ content:
     label: hidden
     type: text_default
     weight: 2
-    region: footer
+    region: content
     settings: {  }
     third_party_settings: {  }
   owner:
     type: entity_reference_label
     weight: 0
-    region: left
+    region: content
     label: hidden
     settings:
       link: false

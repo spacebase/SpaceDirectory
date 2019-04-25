@@ -5,28 +5,6 @@ dependencies:
   module:
     - ds
     - private_message
-third_party_settings:
-  ds:
-    layout:
-      id: layout_twocol
-      library: layout_discovery/twocol
-      disable_css: false
-      entity_classes: all_classes
-      settings: {  }
-    regions:
-      first:
-        - 'dynamic_block_field:private_message_thread-private_message_inbox'
-      second:
-        - members
-        - private_message_form
-        - private_messages
-        - delete_link
-    fields:
-      'dynamic_block_field:private_message_thread-private_message_inbox':
-        plugin_id: 'dynamic_block_field:private_message_thread-private_message_inbox'
-        weight: 0
-        label: hidden
-        formatter: default
 _core:
   default_config_hash: UW70Shyu4Z_hAePqer7HsVOLh52E0vjLlb8dJaPT3hg
 id: private_message_thread.private_message_thread.default
@@ -36,14 +14,14 @@ mode: default
 content:
   delete_link:
     weight: 4
-    region: second
+    region: content
     settings: {  }
     third_party_settings: {  }
   members:
     label: above
     type: private_message_thread_member_formatter
     weight: 1
-    region: second
+    region: content
     settings:
       display_type: entity
       entity_display_mode: private_message_author
@@ -59,19 +37,19 @@ content:
             classes: {  }
   private_message_form:
     weight: 2
-    region: second
+    region: content
     settings: {  }
     third_party_settings: {  }
   private_messages:
     type: private_message_thread_message_formatter
     weight: 3
-    region: second
+    region: content
     label: above
     settings:
       message_count: 5
       ajax_previous_load_count: 5
       ajax_refresh_rate: 20
-      message_order: desc
+      message_order: asc
       view_mode: default
     third_party_settings:
       ds:
@@ -84,3 +62,4 @@ content:
             classes: {  }
 hidden:
   last_message: true
+  no_active_users: true

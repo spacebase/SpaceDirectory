@@ -1,6 +1,6 @@
 uuid: 19220acb-3cb4-4285-a5e2-aabc00a0920b
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - private_message
@@ -24,6 +24,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: '/private_messages*'
+    pages: "/private_messages\r\n/private_messages/*"
     negate: false
     context_mapping: {  }
