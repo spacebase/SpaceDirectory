@@ -1,4 +1,4 @@
 pr-286:
-  host: ensz4qdpjmziw-dev-54ta5gq--app@ssh.us.platform.sh
+  host: ensz4qdpjmziw-pr-286-wr3x6aq--app@ssh.us.platform.sh
   root: /app/web
   uri: 'http://pr-286-wr3x6aq-ensz4qdpjmziw.us.platform.sh/'
