@@ -112,7 +112,7 @@
         "drupal/social_api": "^2.0",
         "drupal/social_auth": "^2.0",
         "drupal/social_auth_google": "^2.0",
-        "drupal/private_message": "^2.0",
+        "drupal/private_message": "2.x-dev#104ecb59eb8650c22555b1c9ce9010276f5a7b9f",
         "drupal/coffee": "^1.0@beta",
         "drupal/admin_toolbar": "^1.25",
         "drupal/ds": "^3.2",
@@ -208,19 +208,10 @@
                 "8.x-1.29: Server side token": "https://www.drupal.org/files/issues/2018-11-29/3002022-37.patch"
             },
             "drupal/private_message": {
-                "8.x-2.0-beta15: Call to undefined method": "https://www.drupal.org/files/issues/2018-07-09/private-message-2984541-0.patch",
-                "8.x-2.0-beta15: Undefined index #id": "https://www.drupal.org/files/issues/2018-07-03/private-message-2961332-2.0.patch",
-                "8.x-2.0-beta15: Inbox shows oldest threads": "https://www.drupal.org/files/issues/2018-10-05/private_message-inbox_sort-3004414-3-8.6.1.patch",
-                "8.x-2.0-beta15: Unread thread count": "https://www.drupal.org/files/issues/2019-02-05/private_message-message_count-2977310-8_0.patch",
-                "8.x-2.0-beta15: Create message text": "https://www.drupal.org/files/issues/2019-04-15/new_message_text-2979054-11.patch",
-                "8.x-2.0-beta15: Broken schema": "https://www.drupal.org/files/issues/2019-03-16/private_message-schema_broken-3040703-3.patch",
-                "8.x-2.0-beta15: New message label": "https://www.drupal.org/files/issues/2019-04-05/private_message-new_message_label_configurable-3042435-5.patch",
-                "8.x-2.0-beta15: Wrong view mode": "https://www.drupal.org/files/issues/2019-03-17/private_message-wrong_default_view_mode-3040910-2.patch",
-                "8.x-2.0-beta15: Late listner": "https://www.drupal.org/files/issues/2019-04-08/private_message-threads_load_late_listener-3046653-2.patch",
-                "8.x-2.0-beta15: Load previous": "https://www.drupal.org/files/issues/2019-04-09/private_message-load_previous-3041603-9.patch",
-                "8.x-2.0-beta15: Configuarable autofocus": "https://www.drupal.org/files/issues/2019-04-05/private_message-autofocus_configurable-13033494-8.patch",
-                "8.x-2.0-beta15: Blocked users": "https://www.drupal.org/files/issues/2019-04-04/private_message-threads_with_blocked_users-3044025-13-d8.patch",
-                "8.x-2.0-beta15: Inbox not working": "https://www.drupal.org/files/issues/2019-04-15/private_message-3038771-inbox-not-working-6.patch"
+                "8.x-2.x-104ecb5: Late listner": "https://www.drupal.org/files/issues/2019-04-08/private_message-threads_load_late_listener-3046653-2.patch",
+                "8.x-2.x-104ecb5: Load previous": "https://www.drupal.org/files/issues/2019-04-23/private_message-load_previous-3041603-13.patch",
+                "8.x-2.x-104ecb5: Blocked users": "https://www.drupal.org/files/issues/2019-04-04/private_message-threads_with_blocked_users-3044025-13-d8.patch",
+                "8.x-2.x-104ecb5: Inbox not working": "https://www.drupal.org/files/issues/2019-04-26/private_message-3038771-inbox-not-working-13.patch"
             },
             "drupal/leaflet_more_maps": {
                 "8.x-1.0-alpha3: Invalid agrument": "https://www.drupal.org/files/issues/lmm_2847024-9.patch"

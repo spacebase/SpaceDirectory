@@ -10140,7 +10140,7 @@ body.page-node-type-blog-post .text {
 .region-content .project-group .box .field.field--name-node-title.field--type-ds.field--label-hidden.field--item h2 {
   margin-top: 30px; }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 767px) {
   .region-content .project-group aside {
     float: none !important; } }
 
@@ -10195,10 +10195,9 @@ body.page-node-type-blog-post .text {
 
 .private-message-container .content-row .col-sm-6.sidebar-first {
   width: 100%; }
-
-.private-message-container .content-row .box.col-sm-12 {
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0; }
+  .private-message-container .content-row .col-sm-6.sidebar-first .box.col-sm-12 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0; }
 
 /*# sourceMappingURL=style.css.map */
