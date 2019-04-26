@@ -371,6 +371,10 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
 
       break;
 
+    case 'private_message_add_form':
+      $form['message']['widget'][0]['#title'] = t('Response');
+      break;
+
   }
 
 }

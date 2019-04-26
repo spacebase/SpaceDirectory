@@ -67,3 +67,24 @@
     display: none;
   }
 }
+
+.private-message-container {
+  .content-row {
+    float: left;
+    position: relative;
+    .box.col-sm-6 {
+      width: 50%;
+      margin-left: 50%;
+      margin-right: 0;
+    }
+    .box.col-sm-12 {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .sidebar-first {
+      width: 50%;
+      margin-left: -100%;
+    }
+  }
+}

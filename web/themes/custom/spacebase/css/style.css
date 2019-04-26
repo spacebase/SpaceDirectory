@@ -9930,4 +9930,19 @@ body.page-node-type-blog-post .text {
 .private-message-thread-inbox #load-previous-messages-button-wrapper {
   display: none; }
 
+.private-message-container .content-row {
+  float: left;
+  position: relative; }
+  .private-message-container .content-row .box.col-sm-6 {
+    width: 50%;
+    margin-left: 50%;
+    margin-right: 0; }
+  .private-message-container .content-row .box.col-sm-12 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0; }
+  .private-message-container .content-row .sidebar-first {
+    width: 50%;
+    margin-left: -100%; }
+
 /*# sourceMappingURL=style.css.map */

@@ -15,11 +15,11 @@
 
 {# Main #}
 {% block main %}
-    <div role="main" class="main-container {{ container }} js-quickedit-main-content">
+    <div role="main" class="main-container private-message-container {{ container }} js-quickedit-main-content">
 
         {# Header #}
         {% if page.header %}
-            <div class="row">
+            <div class="row header-row">
                 {% block header %}
                     <div class="col-sm-12" role="heading">
                         {{ page.header }}
@@ -27,25 +27,17 @@
                 {% endblock %}
             </div>
         {% endif %}
-        <div class="row">
-
-            {# Sidebar First #}
-            {% if page.sidebar_first %}
-                {% block sidebar_first %}
-                    <aside class="col-sm-6" role="complementary">
-                        {{ page.sidebar_first }}
-                    </aside>
-                {% endblock %}
-            {% endif %}
+        <div class="row content-row">
 
             {# Content #}
             {%
                 set content_classes = [
                 page.sidebar_first ? 'col-sm-6',
-                page.sidebar_first is empty ? 'col-sm-12'
+                page.sidebar_first is empty ? 'col-sm-12',
+                'box'
             ]
             %}
-            <section{{ content_attributes.addClass(content_classes).addClass('box') }}>
+            <section{{ content_attributes.addClass(content_classes) }}>
 
                 {# Highlighted #}
                 {% if page.highlighted %}
@@ -67,6 +59,15 @@
                     {{ page.content }}
                 {% endblock %}
             </section>
+
+            {# Sidebar First - needs to come after content for private_message #}
+            {% if page.sidebar_first %}
+                {% block sidebar_first %}
+                    <aside class="col-sm-6 sidebar-first" role="complementary">
+                        {{ page.sidebar_first }}
+                    </aside>
+                {% endblock %}
+            {% endif %}
 
         </div>
     </div>
