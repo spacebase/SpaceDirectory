@@ -6936,8 +6936,6 @@ img {
             box-shadow: 0 5px 40px rgba(0, 0, 0, 0.8);
     border: 10px solid #325ce6;
     border-radius: 4px; }
-  .box h4 {
-    margin-top: 1em; }
   .box .more-link .btn {
     font-size: 14px;
     font-weight: 500;
@@ -10142,7 +10140,7 @@ body.page-node-type-blog-post .text {
 .region-content .project-group .box .field.field--name-node-title.field--type-ds.field--label-hidden.field--item h2 {
   margin-top: 30px; }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 680px) {
   .region-content .project-group aside {
     float: none !important; } }
 
@@ -10191,19 +10189,16 @@ body.page-node-type-blog-post .text {
 .private-message-thread-inbox #load-previous-messages-button-wrapper {
   display: none; }
 
-.private-message-container .content-row {
-  float: left;
-  position: relative; }
-  .private-message-container .content-row .box.col-sm-6 {
-    width: 50%;
-    margin-left: 50%;
-    margin-right: 0; }
-  .private-message-container .content-row .box.col-sm-12 {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0; }
-  .private-message-container .content-row .sidebar-first {
-    width: 50%;
-    margin-left: -100%; }
+.private-message-container .content-row .col-sm-6.box {
+  width: 100%;
+  margin-left: 0; }
+
+.private-message-container .content-row .col-sm-6.sidebar-first {
+  width: 100%; }
+
+.private-message-container .content-row .box.col-sm-12 {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0; }
 
 /*# sourceMappingURL=style.css.map */
