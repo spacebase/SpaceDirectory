@@ -5,7 +5,7 @@ Feature: Test user profiles
   view profile, edit profile, check profile, anonymous user cannot edit, but can view.
   Other logged in users cannot edit, but can view.
 
-  # Not sure the email is taking. Not important yet, but watch for problems.
+# Not sure the email is taking. Not important yet, but watch for problems.
 Background:
   Given users:
     | name              | password    | username   | mail          |
@@ -29,15 +29,13 @@ Background:
     #the following presumes this user already exists... created above
     #And presumes they are in the search index, would they be?
     #Seems to work where search works, not on localhost. @ToDo, known bug?
+
     And I am on "https://spacebase.lndo.site/search?keywords=testfounder"
     Then I should see "Behat TestFounder"
-
     
     #  Scenario: See Bio page
     #Given I am logged in as a user with the "Authenticated user" role
     #And I am on "https://spacebase.lndo.site/search?keywords=UserAtest"
-
-
 
   Scenario: Edit own profile
     # this user should already exist in the environment
