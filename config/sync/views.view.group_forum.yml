@@ -339,7 +339,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ title }} ({{ field_public_or_private }})'
+            text: '<h3>{{ title }}</h3> ({{ field_public_or_private }})'
             make_link: false
             path: ''
             absolute: false
@@ -364,7 +364,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: h3
+          element_type: ''
           element_class: ''
           element_label_type: '0'
           element_label_class: ''
