@@ -58,8 +58,14 @@ function spacebase_core_help($route_name, RouteMatchInterface $route_match) {
  */
 function _group_from_node($node) {
 
-  $group_content = array_values(GroupContent::loadByEntity($node))[0];
-  return $group_content->getGroup();
+  if ($node) {
+    $group_content = GroupContent::loadByEntity($node);
+    if (is_array($group_content)) {
+      $group_content = reset($group_content);
+      return $group_content->getGroup();
+    }
+  }
+  return NULL;
 }
 
 /**
@@ -363,6 +369,10 @@ function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form
         }
       }
 
+      break;
+
+    case 'private_message_add_form':
+      $form['message']['widget'][0]['#title'] = t('Response');
       break;
 
   }

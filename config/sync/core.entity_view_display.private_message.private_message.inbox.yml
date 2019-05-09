@@ -7,44 +7,71 @@ dependencies:
   module:
     - ds
     - private_message
-third_party_settings:
-  ds:
-    layout:
-      id: ds_3col
-      library: ds/ds_3col
-      disable_css: false
-      entity_classes: all_classes
-      settings:
-        wrappers:
-          left: div
-          middle: div
-          right: div
-        outer_wrapper: div
-        attributes: ''
-        link_attribute: ''
-        link_custom: ''
-        classes:
-          layout_class: {  }
-          left: {  }
-          middle: {  }
-          right: {  }
-    regions:
-      middle:
-        - 'dynamic_token_field:private_message-test_toekn_field'
-    fields:
-      'dynamic_token_field:private_message-test_toekn_field':
-        plugin_id: 'dynamic_token_field:private_message-test_toekn_field'
-        weight: 0
-        label: hidden
-        formatter: default
+    - smart_trim
 _core:
   default_config_hash: T49nARPshtaO8dImQQbA7lsLVPomuhVyR20tprP1s7U
 id: private_message.private_message.inbox
 targetEntityType: private_message
 bundle: private_message
 mode: inbox
-content: {  }
-hidden:
-  created: true
-  message: true
-  owner: true
+content:
+  created:
+    label: hidden
+    weight: 1
+    region: content
+    settings:
+      future_format: '@interval hence'
+      past_format: '@interval ago'
+      granularity: 2
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: timestamp_ago
+  message:
+    type: smart_trim
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      trim_length: 100
+      trim_type: chars
+      trim_suffix: ...
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      wrap_output: false
+      more_link: false
+      trim_options:
+        text: false
+        trim_zero: false
+      summary_handler: full
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  owner:
+    label: hidden
+    type: entity_reference_entity_view
+    weight: 0
+    region: content
+    settings:
+      view_mode: full_name
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+hidden: {  }

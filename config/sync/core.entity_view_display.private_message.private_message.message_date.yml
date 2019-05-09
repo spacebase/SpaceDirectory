@@ -5,28 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.private_message.message_date
   module:
-    - ds
     - private_message
-third_party_settings:
-  ds:
-    layout:
-      id: ds_1col
-      library: null
-      disable_css: false
-      entity_classes: all_classes
-      settings:
-        wrappers:
-          ds_content: div
-        outer_wrapper: div
-        attributes: ''
-        link_attribute: ''
-        link_custom: ''
-        classes:
-          layout_class: {  }
-          ds_content: {  }
-    regions:
-      ds_content:
-        - created
 _core:
   default_config_hash: bY60CRy-1iA05ELhvP1G7mki9KT4YbhNEoh-HzFbwAw
 id: private_message.private_message.message_date
@@ -37,7 +16,7 @@ content:
   created:
     label: hidden
     weight: 0
-    region: ds_content
+    region: content
     settings:
       date_format: short
       custom_date_format: ''
