@@ -1,0 +1,9 @@
+uuid: c5cdd1b2-f10f-4ac8-9c91-91117077ce28
+langcode: en
+status: true
+dependencies: {  }
+name: 'Permissions tags'
+vid: permissions_tags
+description: 'Taxonomy terms for use with the permissions by term module'
+hierarchy: 0
+weight: 0

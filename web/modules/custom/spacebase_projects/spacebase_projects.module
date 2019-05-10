@@ -31,9 +31,38 @@ function spacebase_projects_help($route_name, RouteMatchInterface $route_match) 
  * Implements hook_form_alter()
  */
 function spacebase_projects_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if ($form_id == 'group_project_group_add_form') {
-    $form['actions']['submit']['#value'] = t('Create Project');
+
+  switch ($form_id) {
+    case 'group_project_group_add_form':
+      $form['actions']['submit']['#value'] = t('Create Project');
+      break;
+
+    case 'node_group_forum_topic_form':
+    case 'node_resources_form':
+      // Remove the "N/A" entry from the public_or_private field options
+      unset($form['field_public_or_private']['widget']['#options']['_none']);
+      break;
+
+    case 'node_group_forum_topic_edit_form':
+    case 'node_resources_edit_form':
+      $user = \Drupal::currentUser();
+      if (!$user->hasPermission('bypass node access')) {
+        // Remove all options except existing default unless user has bypass
+        // node access permission.
+        foreach ($form['field_public_or_private']['widget']['#options'] as $key => $value) {
+          if ($key != $form['field_public_or_private']['widget']['#default_value']) {
+            unset($form['field_public_or_private']['widget']['#options'][$key]);
+          }
+        }
+      }
+      else {
+        // Remove the "N/A" entry from the public_or_private field options
+        unset($form['field_public_or_private']['widget']['#options']['_none']);
+      }
+      break;
+
   }
+
 }
 
 

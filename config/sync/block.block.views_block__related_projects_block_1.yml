@@ -12,7 +12,7 @@ dependencies:
 id: views_block__related_projects_block_1
 theme: spacebase
 region: content
-weight: 0
+weight: -3
 provider: null
 plugin: 'views_block:related_projects-block_1'
 settings:
