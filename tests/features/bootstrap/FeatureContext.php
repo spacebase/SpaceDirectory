@@ -180,4 +180,16 @@ public function iVisitNodeTabOfType($title, $tab, $type) {
       throw new Exception("Failed to fill in the date");
     }
   }
+
+
+
+
+  /**
+   * Print message to use, more generic than existing Print
+   *
+   * @When /^(?:|I )printDebug "([^"]*)"/
+   */
+  public static function printDebug($string) {
+    print "$string\n";
+  }
 }
