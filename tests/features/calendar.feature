@@ -70,7 +70,7 @@ Background:
     # run differently as date forms are completed:
   @javascript  
   Scenario: Authenticated user can create and update own site-wide event and other user cannot update
-    #Nope, not via javascript: Given I am logged in as "Behat Tester"
+    Then print "Currently, automatic log-in in via javascript driver while using drush is expected to fail as-is"
     Given I am logged in as a user with the "administrator" role
     Given I am on "/node/add/event"
     Then I should see "Title"
