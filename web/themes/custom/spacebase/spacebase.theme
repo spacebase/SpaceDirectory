@@ -59,7 +59,7 @@ function spacebase_views_pre_render(ViewExecutable $view) {
 }
 
 /**
- * Implements hook_theme_suggestions_alter().
+ * Implements hook_theme_suggestions_page_alter().
  *
  * The Org-Profile sub-pages (forum, members, and resources for now)
  * use this page template. So do the group forum nodes.
@@ -102,6 +102,52 @@ function spacebase_theme_suggestions_page_alter(array &$suggestions, array $vari
     else {
       $suggestions[] = 'page__'.$content_type;
     }
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_block().
+ *
+ * Note: you'll probably want this only for certain blocks.
+ */
+function spacebase_preprocess_block(&$variables) {
+
+  $block_id = $variables['plugin_id'];
+  switch ($block_id) {
+    case 'private_message_inbox_block':
+      if (isset($variables['content']['#attributes'])) {
+        $variables['attributes'] = $variables['content']['#attributes'];
+      }
+      else {
+        $variables['attributes'] = [
+          'class' => [
+            'block',
+            'block-private-message',
+            'block-private-message-inbox-block'
+          ]
+        ];
+      }
+      break;
+  }
+
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ *
+ * The private_message inbox uses this function.
+ */
+function spacebase_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+
+  $current_path = \Drupal::service('path.current')->getPath();
+
+  $matches = [];
+  if (preg_match('/private_messages(\/(\d*))?/', $current_path, $matches)) {
+    if (isset($matches[2])) {
+      $thread_id = $matches[2];
+    }
+    //$suggestions[] = 'block__private_message_inbox';
   }
 
 }

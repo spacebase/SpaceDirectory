@@ -7,12 +7,14 @@ dependencies:
     - field.field.node.group_forum_topic.body
     - field.field.node.group_forum_topic.field_image
     - field.field.node.group_forum_topic.field_pin_to_top
+    - field.field.node.group_forum_topic.field_public_or_private
     - field.field.node.group_forum_topic.field_reply
     - image.style.forum_full
     - node.type.group_forum_topic
   module:
     - colorbox
     - comment
+    - ds
     - text
     - toggle_editable_fields
     - user
@@ -24,7 +26,7 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -57,8 +59,23 @@ content:
     third_party_settings: {  }
     type: toggle_editable_formatter
     region: content
+  field_public_or_private:
+    weight: 2
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: entity_reference_label
+    region: content
   field_reply:
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       view_mode: default
@@ -68,3 +85,4 @@ content:
     region: content
 hidden:
   links: true
+  private_message_link: true

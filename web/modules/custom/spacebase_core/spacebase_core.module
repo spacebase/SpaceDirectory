@@ -58,8 +58,14 @@ function spacebase_core_help($route_name, RouteMatchInterface $route_match) {
  */
 function _group_from_node($node) {
 
-  $group_content = array_values(GroupContent::loadByEntity($node))[0];
-  return $group_content->getGroup();
+  if ($node) {
+    $group_content = GroupContent::loadByEntity($node);
+    if (is_array($group_content)) {
+      $group_content = reset($group_content);
+      return $group_content->getGroup();
+    }
+  }
+  return NULL;
 }
 
 /**
@@ -305,62 +311,72 @@ function _prep_resources($group_type) {
  * Implements hook_form_alter() on behalf of spacebase_core.module.
  */
 function spacebase_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if ($form_id == 'user_register_form') {
-    $form['actions']['submit']['#submit'][] = 'spacebase_core_user_registration_submit';
-  }
-  else if ($form['#id'] == 'user-form' ) {
-    $form['actions']['submit']['#submit'][] = 'spacebase_core_user_form_submit';
-  }
-  // Add a new member to an Organization / Edit
-  // for Org admin editing an Org-Member or Applicant
-  else if ($form['#id'] == 'group-content-group-content-type-569a59a77cd78-add-form' ||
-           $form['#id'] == "group-content-group-content-type-569a59a77cd78-edit-form") {
-    $form['org-owner'] = array(
-      '#type' => 'checkbox',
-      '#title' => t("Make this user the org's owner."),
-      '#required' => FALSE,
-      '#access' => \Drupal::currentUser()->hasPermission('bypass group access')
-    );
-    $form['path']['#access'] = false;
-    // Can't edit Admin, Verified, etc. This might come back?
-    //$form['group_roles']['#access'] = FALSE;
-    $form['actions']['submit']['#submit'][] = 'spacebase_core_org_owner_submit';
-    $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_edit_user_submit';
+  switch ($form_id) {
+    case 'user_register_form':
+      $form['actions']['submit']['#submit'][] = 'spacebase_core_user_registration_submit';
+      break;
 
+    case 'user-form':
+      $form['actions']['submit']['#submit'][] = 'spacebase_core_user_form_submit';
+      break;
 
-  }
-  else if ($form['#id'] == 'group-content-group-content-type-569a59a77cd78-group-join-form' ) {
-    $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_join_submit';
-  }
+    case 'group-content-group-content-type-569a59a77cd78-add-form':
+    case 'group-content-group-content-type-569a59a77cd78-edit-form':
+      // Add a new member to an Organization / Edit
+      // for Org admin editing an Org-Member or Applicant
+      $form['org-owner'] = array(
+        '#type' => 'checkbox',
+        '#title' => t("Make this user the org's owner."),
+        '#required' => FALSE,
+        '#access' => \Drupal::currentUser()->hasPermission('bypass group access')
+      );
+      $form['path']['#access'] = false;
+      // Can't edit Admin, Verified, etc. This might come back?
+      //$form['group_roles']['#access'] = FALSE;
+      $form['actions']['submit']['#submit'][] = 'spacebase_core_org_owner_submit';
+      $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_edit_user_submit';
+      break;
 
-  // The confirmation page mid- deleting a user. Just changing message (description)
-  else if ($form_id == "group_content_group_content_type_569a59a77cd78_delete_form") {
-    // module is not a class, so stick with t()
-    $uid = $form_state->getFormObject()->getEntity()->entity_id->target_id;
-    $user = \Drupal\user\Entity\User::load($uid)->label();
-    $gid = $form_state->getFormObject()->getEntity()->gid->target_id;
-    $group = \Drupal\group\Entity\Group::load($gid)->label();
-    $form['description']['#markup'] = t("Are you sure you want to delete <em>@user</em> from <em>@group?</em>",
-      ['@user' => $user, '@group'=>$group]);
-  }
-  else if ($form_id == 'node_resources_edit_form' ||
-      $form_id == 'node_resources_form') {
+    case 'group-content-group-content-type-569a59a77cd78-group-join-form':
+      $form['actions']['submit']['#submit'][] = 'spacebase_core_organization_join_submit';
+      break;
 
-    $form['revision_information']['#access'] = FALSE;
-    $form['actions']['submit']['#submit'][] = 'spacebase_core_resources_tab_redirect';
+    case 'group_content_group_content_type_569a59a77cd78_delete_form':
+      // The confirmation page mid- deleting a user. Just changing message (description)
+      $uid = $form_state->getFormObject()->getEntity()->entity_id->target_id;
+      $user = \Drupal\user\Entity\User::load($uid)->label();
+      $gid = $form_state->getFormObject()->getEntity()->gid->target_id;
+      $group = \Drupal\group\Entity\Group::load($gid)->label();
+      // module is not a class, so stick with t()
+      $form['description']['#markup'] = t("Are you sure you want to delete <em>@user</em> from <em>@group?</em>",
+        ['@user' => $user, '@group'=>$group]);
+      break;
 
-    // Add a description to the Resource-type Tabs:
-    foreach ($form['field_tab']['widget']['#options'] as $tid => $value) {
-      //kint($value); // This is an object, being replaced with
-      // a string. @ToRefactor, possibly instead use:
-      // function hook_options_list_alter
-      $term =  \Drupal\taxonomy\Entity\Term::load($tid);
-      if ($descrip = $term->getDescription()) {
-        $form['field_tab']['widget']['#options'][$tid] =
-          $value . " <span class='descrip'>$descrip</span>";
+    case 'node_resources_edit_form':
+    case 'node_resources_form':
+      $form['revision_information']['#access'] = FALSE;
+      $form['actions']['submit']['#submit'][] = 'spacebase_core_resources_tab_redirect';
+
+      // Add a description to the Resource-type Tabs:
+      foreach ($form['field_tab']['widget']['#options'] as $tid => $value) {
+        //kint($value); // This is an object, being replaced with
+        // a string. @ToRefactor, possibly instead use:
+        // function hook_options_list_alter
+        $term =  \Drupal\taxonomy\Entity\Term::load($tid);
+        if ($descrip = $term->getDescription()) {
+          $form['field_tab']['widget']['#options'][$tid] =
+            $value . " <span class='descrip'>$descrip</span>";
+        }
       }
-    }
+
+      break;
+
+    case 'private_message_add_form':
+      $form['message']['widget'][0]['#title'] = t('Response');
+      break;
+
   }
+
 }
 
 /** Submit function to redirect to resources to specific Tab

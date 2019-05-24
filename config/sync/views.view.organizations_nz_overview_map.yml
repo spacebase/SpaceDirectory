@@ -60,7 +60,7 @@ display:
         options:
           offset: 0
       style:
-        type: leafet_map
+        type: leaflet_map
         options:
           grouping:
             -
@@ -74,6 +74,11 @@ display:
           leaflet_map: 'OSM Mapnik'
           height: '500'
           hide_empty_map: 0
+          disable_wheel: 1
+          fullscreen_control: 1
+          reset_map:
+            control: 1
+            position: bottomleft
           map_position:
             force: 1
             center:
@@ -91,12 +96,19 @@ display:
             iconAnchor:
               x: ''
               'y': ''
+            shadowSize:
+              x: ''
+              'y': ''
             shadowAnchor:
               x: ''
               'y': ''
             popupAnchor:
               x: ''
               'y': ''
+          leaflet_markercluster:
+            control: 1
+            options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds":false}'
+          path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2"}'
       row:
         type: fields
       fields:
@@ -355,7 +367,7 @@ display:
           exclude: false
           alter:
             alter_text: false
-            text: "{{ label }}\n{{ rendered_entity }}"
+            text: "{{ label }}\r\n{{ rendered_entity }}"
             make_link: false
             path: ''
             absolute: false
@@ -471,6 +483,8 @@ display:
         - 'config:core.entity_view_display.group.organization_group.default'
         - 'config:core.entity_view_display.group.organization_group.map_display'
         - 'config:core.entity_view_display.group.organization_group.search_result'
+        - 'config:core.entity_view_display.group.project_group.default'
+        - 'config:core.entity_view_display.group.project_group.search_result'
         - 'config:field.storage.group.field_map_address'
         - 'config:field.storage.group.field_website'
   page_1:
@@ -479,7 +493,8 @@ display:
     display_title: Page
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       path: nz-map
     cache_metadata:
       max-age: -1
@@ -492,6 +507,8 @@ display:
         - 'config:core.entity_view_display.group.organization_group.default'
         - 'config:core.entity_view_display.group.organization_group.map_display'
         - 'config:core.entity_view_display.group.organization_group.search_result'
+        - 'config:core.entity_view_display.group.project_group.default'
+        - 'config:core.entity_view_display.group.project_group.search_result'
         - 'config:field.storage.group.field_map_address'
         - 'config:field.storage.group.field_website'
   views_block_filter_block_plugin_display_block_1:
@@ -518,5 +535,7 @@ display:
         - 'config:core.entity_view_display.group.organization_group.default'
         - 'config:core.entity_view_display.group.organization_group.map_display'
         - 'config:core.entity_view_display.group.organization_group.search_result'
+        - 'config:core.entity_view_display.group.project_group.default'
+        - 'config:core.entity_view_display.group.project_group.search_result'
         - 'config:field.storage.group.field_map_address'
         - 'config:field.storage.group.field_website'

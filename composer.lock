@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5fc643d27d8be6f919fb88e6cbf529f9",
+    "content-hash": "c660cfb0dba1e74f1181867190ff5418",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5116,17 +5116,17 @@
         },
         {
             "name": "drupal/leaflet",
-            "version": "1.0.0-beta15",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/leaflet.git",
-                "reference": "8.x-1.0-beta15"
+                "reference": "8.x-1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/leaflet-8.x-1.0-beta15.zip",
-                "reference": "8.x-1.0-beta15",
-                "shasum": "4596a7b54a3f3337e680baeb9e802af15412785a"
+                "url": "https://ftp.drupal.org/files/projects/leaflet-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "70ae22535b67a2f0370ec1ad0d7285a4c0528650"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -5138,11 +5138,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta15",
-                    "datestamp": "1538370781",
+                    "version": "8.x-1.4",
+                    "datestamp": "1554885181",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -5187,58 +5187,6 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/leaflet",
                 "issues": "https://www.drupal.org/project/issues/leaflet"
-            }
-        },
-        {
-            "name": "drupal/leaflet_markercluster",
-            "version": "1.0.0-alpha2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/leaflet_markercluster.git",
-                "reference": "8.x-1.0-alpha2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/leaflet_markercluster-8.x-1.0-alpha2.zip",
-                "reference": "8.x-1.0-alpha2",
-                "shasum": "b3a21debe5ee38d3395ab49cb1a6ac53694db26f"
-            },
-            "require": {
-                "drupal/core": "~8.0",
-                "drupal/leaflet": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-alpha2",
-                    "datestamp": "1456186439",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "RdeBoer",
-                    "homepage": "https://www.drupal.org/user/404007"
-                },
-                {
-                    "name": "pvhee",
-                    "homepage": "https://www.drupal.org/user/108811"
-                }
-            ],
-            "description": "Extends Leaflet with the Markercluster library.",
-            "homepage": "https://www.drupal.org/project/leaflet_markercluster",
-            "support": {
-                "source": "http://cgit.drupalcode.org/leaflet_markercluster"
             }
         },
         {
@@ -6331,21 +6279,71 @@
             }
         },
         {
-            "name": "drupal/private_message",
-            "version": "2.0.0-beta15",
+            "name": "drupal/permissions_by_term",
+            "version": "2.10.0",
             "source": {
                 "type": "git",
-                "url": "https://git.drupalcode.org/project/private_message.git",
-                "reference": "8.x-2.0-beta15"
+                "url": "https://git.drupalcode.org/project/permissions_by_term.git",
+                "reference": "8.x-2.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/private_message-8.x-2.0-beta15.zip",
-                "reference": "8.x-2.0-beta15",
-                "shasum": "7cb75474946d4db99ea4fefc6a32ba84dcdd439b"
+                "url": "https://ftp.drupal.org/files/projects/permissions_by_term-8.x-2.10.zip",
+                "reference": "8.x-2.10",
+                "shasum": "e23b500de3645b42416652830b1300f37a68c5df"
+            },
+            "require": {
+                "drupal/core": "^8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.10",
+                    "datestamp": "1552509784",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "patches_applied": {
+                    "8.x-2.10: Integrate with group": "https://www.drupal.org/files/issues/2019-04-12/3041315-group-integration-2.patch"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Peter Majmesku",
+                    "homepage": "https://www.drupal.org/user/786132",
+                    "email": "p.majmesku@gmail.com"
+                },
+                {
+                    "name": "SaschaHannes",
+                    "homepage": "https://www.drupal.org/user/3536189"
+                }
+            ],
+            "description": "Restricts access to nodes by taxonomy terms in relation to users and their roles.",
+            "homepage": "https://www.drupal.org/project/permissions_by_term",
+            "support": {
+                "source": "https://git.drupalcode.org/project/permissions_by_term"
+            }
+        },
+        {
+            "name": "drupal/private_message",
+            "version": "dev-2.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/private_message.git",
+                "reference": "104ecb59eb8650c22555b1c9ce9010276f5a7b9f"
             },
             "require": {
                 "drupal/core": "*",
+                "drupal/message": "*",
                 "drupal/message_notify": "^1.0"
             },
             "type": "drupal-module",
@@ -6354,11 +6352,11 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-beta15",
-                    "datestamp": "1529893424",
+                    "version": "8.x-2.0-beta13+16-dev",
+                    "datestamp": "1556214485",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 },
                 "drush": {
@@ -6367,9 +6365,10 @@
                     }
                 },
                 "patches_applied": {
-                    "8.x-2.0-beta15: Call to undefined method": "https://www.drupal.org/files/issues/2018-07-09/private-message-2984541-0.patch",
-                    "8.x-2.0-beta15: Undefined index #id": "https://www.drupal.org/files/issues/2018-07-03/private-message-2961332-2.0.patch",
-                    "8.x-2.0-beta15: Inbox shows oldest threads": "https://www.drupal.org/files/issues/2018-10-05/private_message-inbox_sort-3004414-3-8.6.1.patch"
+                    "8.x-2.x-104ecb5: Late listner": "https://www.drupal.org/files/issues/2019-04-08/private_message-threads_load_late_listener-3046653-2.patch",
+                    "8.x-2.x-104ecb5: Load previous": "https://www.drupal.org/files/issues/2019-04-23/private_message-load_previous-3041603-13.patch",
+                    "8.x-2.x-104ecb5: Blocked users": "https://www.drupal.org/files/issues/2019-04-04/private_message-threads_with_blocked_users-3044025-13-d8.patch",
+                    "8.x-2.x-104ecb5: Inbox not working": "https://www.drupal.org/files/issues/2019-04-26/private_message-3038771-inbox-not-working-13.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -6396,7 +6395,8 @@
             "support": {
                 "source": "https://cgit.drupalcode.org/private_message",
                 "issues": "https://drupal.org/project/issues/private_message"
-            }
+            },
+            "time": "2019-04-25T18:20:46+00:00"
         },
         {
             "name": "drupal/publishcontent",
@@ -11824,11 +11824,6 @@
         {
             "name": "webflo/drupal-core-strict",
             "version": "8.0.0-beta15",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webflo/drupal-core-strict.git",
-                "reference": "1eb044b722ebe44bc6af86a03888415d7f31c057"
-            },
             "type": "metapackage",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -12909,7 +12904,7 @@
             "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://git.drupalcode.org/project/file_mdm.git",
+                "url": "https://git.drupal.org/project/file_mdm",
                 "reference": "8.x-1.1"
             },
             "dist": {
@@ -13042,7 +13037,7 @@
             "version": "2.1.0",
             "source": {
                 "type": "git",
-                "url": "https://git.drupalcode.org/project/image_effects.git",
+                "url": "https://git.drupal.org/project/image_effects",
                 "reference": "8.x-2.1"
             },
             "dist": {
@@ -14647,13 +14642,12 @@
         "drupal/calendar": 20,
         "drupal/mail_edit": 20,
         "drupal/stage_file_proxy": 15,
-        "drupal/leaflet": 10,
         "drupal/geocoder": 10,
         "drupal/geofield": 10,
         "drupal/charts": 15,
         "drupal/leaflet_more_maps": 15,
-        "drupal/leaflet_markercluster": 15,
         "drupal/nocaptcha_recaptcha": 20,
+        "drupal/private_message": 20,
         "drupal/coffee": 10,
         "drupal/better_exposed_filters": 15,
         "drupal/password_policy": 20,

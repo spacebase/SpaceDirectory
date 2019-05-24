@@ -5,6 +5,6 @@ dependencies:
   module:
     - private_message
 id: private_message.message_date
-label: 'message date'
+label: 'Message date'
 targetEntityType: private_message
 cache: true
