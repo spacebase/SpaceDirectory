@@ -3,8 +3,6 @@ recipe: drupal8
 proxy:
   mailhog:
     - mail.lemp.lndo.site
-  solrserver:
-    - solr.space-base.lndo.site:8983
 services:
   appserver:
     xdebug: true
@@ -15,14 +13,10 @@ services:
     overrides:
           services:
             environment:
+              # Support debugging Drush with XDEBUG. Use lando drush to debug.
+              PHP_IDE_CONFIG: "serverName=appserver"
               BEHAT_PARAMS: >-
                 {"extensions":{"Behat\\MinkExtension":{"base_url":"http://nginx/"},"Drupal\\DrupalExtension":{"drush":{"root":"/app/web"}}}}
-  solrserver:
-    type: solr:6.6
-    portforward: true
-    core: drupal
-    config:
-      conf: .platform/solr-conf
   mailhog:
     type: mailhog
     hogfrom:
@@ -55,3 +49,4 @@ config:
   via: nginx
   webroot: web
   database: mariadb:10.1
+  drush: path:/app/vendor/bin/drush

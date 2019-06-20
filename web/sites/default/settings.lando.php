@@ -11,10 +11,12 @@ if ($_SERVER['LANDO'] == 'ON') {
     'port' => $lando_info['database']['internal_connection']['port'],
   ];
 
+/*
   $config['search_api.server.default_solr_server']['backend_config']['connector_config']['core'] = 'drupal';
   $config['search_api.server.default_solr_server']['backend_config']['connector_config']['path'] = '/solr';
   $config['search_api.server.default_solr_server']['backend_config']['connector_config']['host'] = 'solrserver';
   $config['search_api.server.default_solr_server']['backend_config']['connector_config']['port'] = '8983';
+*/
 
   $settings['hash_salt'] = md5(getenv('LANDO_HOST_IP'));
 

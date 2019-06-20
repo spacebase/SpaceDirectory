@@ -16,7 +16,7 @@ type: 'php:7.1'
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
     database: 'mysqldb:mysql'
-    solr: 'solrsearch:main'
+#    solr: 'solrsearch:main'
 #    redis: 'rediscache:redis'
 
 # The size of the persistent disk of the application (in MB).
@@ -112,3 +112,8 @@ crons:
     drupal:
         spec: '*/20 * * * *'
         cmd: 'cd web ; drush core-cron'
+
+# Added per newrelic instructions
+runtime:
+    extensions:
+        - newrelic
