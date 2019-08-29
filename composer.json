@@ -94,7 +94,7 @@
         "drupal/mail_edit": "1.x-dev",
         "drupal/stage_file_proxy": "^1.0@alpha",
         "drupal/views_bulk_operations": "^2.3",
-        "drupal/publishcontent": "^1.0",
+        "drupal/publishcontent": "1.1",
         "drupal/image_widget_crop": "^2.1",
         "drupal/geocoder": "^2.0@beta",
         "drupal/geofield": "^1.0@beta",

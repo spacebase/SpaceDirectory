@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c660cfb0dba1e74f1181867190ff5418",
+    "content-hash": "c4530455aef4f0994c0de9a0ab4d5fdf",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -163,9 +163,7 @@
             "version": "v0.4.18",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/c3js/c3/archive/v0.4.18.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/c3js/c3/archive/v0.4.18.zip"
             },
             "type": "drupal-library",
             "extra": {
@@ -1371,9 +1369,7 @@
             "version": "v3.5.17",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/d3/d3/archive/v3.5.17.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/d3/d3/archive/v3.5.17.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -3118,7 +3114,7 @@
             "version": "8.3.1",
             "source": {
                 "type": "git",
-                "url": "https://git.drupal.org/project/coder.git",
+                "url": "https://git.drupalcode.org/project/coder.git",
                 "reference": "29a25627e7148b3119c84f18e087fc3b8c85b959"
             },
             "require": {
@@ -6400,20 +6396,20 @@
         },
         {
             "name": "drupal/publishcontent",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/publishcontent.git",
-                "reference": "8.x-1.0"
+                "reference": "8.x-1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/publishcontent-8.x-1.0.zip",
-                "reference": "8.x-1.0",
-                "shasum": "903f1dd106dd5082d07e1a927fd3e8f8e7741e52"
+                "url": "https://ftp.drupal.org/files/projects/publishcontent-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "95a45602553d7bd5303ec69105cc4faac385815c"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8.6.0"
             },
             "type": "drupal-module",
             "extra": {
@@ -6421,8 +6417,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1473318539",
+                    "version": "8.x-1.1",
+                    "datestamp": "1564430881",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6435,12 +6431,12 @@
             ],
             "authors": [
                 {
-                    "name": "Simon Georges",
-                    "homepage": "https://www.drupal.org/user/172312"
+                    "name": "AaronBauman",
+                    "homepage": "https://www.drupal.org/user/384578"
                 },
                 {
-                    "name": "aaronbauman",
-                    "homepage": "https://www.drupal.org/user/384578"
+                    "name": "Simon Georges",
+                    "homepage": "https://www.drupal.org/user/172312"
                 },
                 {
                     "name": "jacobroufa",
@@ -6453,12 +6449,16 @@
                 {
                     "name": "malaussene",
                     "homepage": "https://www.drupal.org/user/79249"
+                },
+                {
+                    "name": "rodrigoaguilera",
+                    "homepage": "https://www.drupal.org/user/408170"
                 }
             ],
             "description": "Adds a 'Publish' or 'Unpublish' link on the node edit/view pages, and a 'Publish Link' field if the Views module is enabled.",
             "homepage": "https://www.drupal.org/project/publishcontent",
             "support": {
-                "source": "http://cgit.drupalcode.org/publishcontent"
+                "source": "https://git.drupalcode.org/project/publishcontent"
             }
         },
         {
@@ -11824,6 +11824,17 @@
         {
             "name": "webflo/drupal-core-strict",
             "version": "8.0.0-beta15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webflo/drupal-core-strict.git",
+                "reference": "1eb044b722ebe44bc6af86a03888415d7f31c057"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webflo/drupal-core-strict/zipball/1eb044b722ebe44bc6af86a03888415d7f31c057",
+                "reference": "1eb044b722ebe44bc6af86a03888415d7f31c057",
+                "shasum": ""
+            },
             "type": "metapackage",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
