@@ -1,0 +1,58 @@
+uuid: de91e37a-8249-4997-a91d-0fa7215084b0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access shortcuts'
+  - 'access site-wide contact form'
+  - 'access user profiles'
+  - 'create event content'
+  - 'create organization_group group'
+  - 'create project group'
+  - 'create project_aim content'
+  - 'create project_aim_update content'
+  - 'create project_update content'
+  - 'delete own event content'
+  - 'delete own project_aim content'
+  - 'delete own project_aim_update content'
+  - 'delete own project_update content'
+  - 'edit own article content'
+  - 'edit own blog_post content'
+  - 'edit own event content'
+  - 'edit own group_forum_topic content'
+  - 'edit own page content'
+  - 'edit own partner content'
+  - 'edit own project_aim content'
+  - 'edit own project_aim_update content'
+  - 'edit own project_update content'
+  - 'edit own resources content'
+  - 'edit own sb_news_article content'
+  - 'edit own sb_video content'
+  - 'edit own slide content'
+  - 'post comments'
+  - 'publish editable node type project_aim'
+  - 'publish editable node type project_aim_update'
+  - 'publish editable node type project_update'
+  - 'publish own node type project_aim'
+  - 'publish own node type project_aim_update'
+  - 'publish own node type project_update'
+  - 'search content'
+  - 'skip comment approval'
+  - 'unpublish editable node type project_aim'
+  - 'unpublish editable node type project_aim_update'
+  - 'unpublish editable node type project_update'
+  - 'unpublish own node type project_aim'
+  - 'unpublish own node type project_aim_update'
+  - 'unpublish own node type project_update'
+  - 'use private messaging system'
+  - 'use text format basic_html'
+  - 'view empty pages'
+  - 'view own unpublished content'

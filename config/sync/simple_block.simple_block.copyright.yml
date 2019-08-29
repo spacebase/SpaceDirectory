@@ -1,0 +1,11 @@
+uuid: 6fe9b01e-99ed-4617-8a3e-dc8860dab30e
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+id: copyright
+title: Copyright
+content:
+  value: "<p>Copyright © 2018 SpaceBase Limited. All Rights Reserved.&nbsp; Images courtesy of NASA, Kieran Fanning and Simon Moffatt</span></p>\r\n"
+  format: basic_html

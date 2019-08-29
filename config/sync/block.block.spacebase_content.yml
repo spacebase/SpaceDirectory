@@ -1,0 +1,22 @@
+uuid: 025cdb57-34b5-419b-88c3-c7f4a4d59806
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - spacebase
+_core:
+  default_config_hash: fNNLN48MSGSLiqwIFywCuxH2Dk_IxDbaP0kYhg_IPrg
+id: spacebase_content
+theme: spacebase
+region: content
+weight: -19
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

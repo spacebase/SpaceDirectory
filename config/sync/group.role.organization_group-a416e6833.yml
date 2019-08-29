@@ -1,0 +1,17 @@
+uuid: 707230bf-1e71-481b-9e81-7d6258491364
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.organization_group
+  enforced:
+    config:
+      - user.role.administrator
+id: organization_group-a416e6833
+label: Administrator
+weight: 2
+internal: true
+audience: outsider
+group_type: organization_group
+permissions_ui: false
+permissions: {  }

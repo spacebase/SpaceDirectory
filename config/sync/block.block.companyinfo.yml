@@ -1,0 +1,22 @@
+uuid: fb9992a0-1c46-41c1-8424-4efc861a5d83
+langcode: en
+status: true
+dependencies:
+  config:
+    - simple_block.simple_block.company_footer
+  module:
+    - simple_block
+  theme:
+    - spacebase
+id: companyinfo
+theme: spacebase
+region: footer_top_4
+weight: -9
+provider: null
+plugin: 'simple_block:company_footer'
+settings:
+  id: 'simple_block:company_footer'
+  label: 'Company Info'
+  provider: simple_block
+  label_display: '0'
+visibility: {  }

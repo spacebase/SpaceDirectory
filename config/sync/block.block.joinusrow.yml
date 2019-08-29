@@ -1,0 +1,39 @@
+uuid: f2a48712-3932-4c27-bbec-68185e47ba6c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:call_to_action_row:fe604a33-62d5-4d83-bc01-c13f5a3f9da0'
+  module:
+    - block_content
+    - system
+    - user
+  theme:
+    - spacebase
+id: joinusrow
+theme: spacebase
+region: content
+weight: -15
+provider: null
+plugin: 'block_content:fe604a33-62d5-4d83-bc01-c13f5a3f9da0'
+settings:
+  id: 'block_content:fe604a33-62d5-4d83-bc01-c13f5a3f9da0'
+  label: 'Join Us Row'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

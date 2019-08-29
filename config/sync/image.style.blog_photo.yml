@@ -1,0 +1,25 @@
+uuid: db63a06a-3ce0-4649-9059-90cf6d684239
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.event_and_blog_header
+  module:
+    - crop
+name: blog_photo
+label: 'Blog Photo'
+effects:
+  df512c56-aa6f-4b7e-91a8-a0542b5ea223:
+    uuid: df512c56-aa6f-4b7e-91a8-a0542b5ea223
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: event_and_blog_header
+  3dc2054e-47d1-4bd0-b635-8b4b88c04a4d:
+    uuid: 3dc2054e-47d1-4bd0-b635-8b4b88c04a4d
+    id: image_scale
+    weight: 2
+    data:
+      width: 1100
+      height: null
+      upscale: false

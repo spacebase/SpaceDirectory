@@ -1,0 +1,11 @@
+uuid: ae396a31-4f89-4731-8fb9-8d08ecfca705
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.raw_html
+id: map_home
+title: 'Map Home'
+content:
+  value: 'map block'
+  format: raw_html

@@ -1,0 +1,9 @@
+uuid: 63ee0c13-3dc9-48df-b7b1-fabda3d65d22
+langcode: en
+status: true
+dependencies: {  }
+name: 'Resource Type'
+vid: resource_type
+description: 'Tabs for Organization Resource Pages'
+hierarchy: 0
+weight: 0

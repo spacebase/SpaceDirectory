@@ -1,0 +1,90 @@
+uuid: 0a682d87-b46a-4407-9058-9d93f4a4466b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.organization_group.field_description
+    - field.field.group.organization_group.field_headquarters_location
+    - field.field.group.organization_group.field_image
+    - field.field.group.organization_group.field_industry_segment
+    - field.field.group.organization_group.field_linkedin
+    - field.field.group.organization_group.field_map_address
+    - field.field.group.organization_group.field_metatags
+    - field.field.group.organization_group.field_website
+    - group.type.organization_group
+    - image.style.thumbnail
+  module:
+    - address
+    - image
+    - link
+    - metatag
+    - text
+id: group.organization_group.default
+targetEntityType: group
+bundle: organization_group
+mode: default
+content:
+  field_description:
+    weight: 2
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_headquarters_location:
+    weight: 3
+    settings:
+      default_country: null
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_image:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_industry_segment:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_linkedin:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_metatags:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
+  field_website:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  field_map_address: true
+  path: true
+  uid: true

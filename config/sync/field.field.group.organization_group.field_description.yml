@@ -1,0 +1,22 @@
+uuid: 17110c4d-d826-4550-90c0-e48fa0a547e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_description
+    - group.type.organization_group
+  module:
+    - text
+id: group.organization_group.field_description
+field_name: field_description
+entity_type: group
+bundle: organization_group
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

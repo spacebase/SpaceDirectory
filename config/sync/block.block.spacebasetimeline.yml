@@ -1,0 +1,28 @@
+uuid: 2f8e7df5-0e12-42b9-92e2-7b380ab8c351
+langcode: en
+status: true
+dependencies:
+  config:
+    - simple_block.simple_block.spacebase_timeline
+  module:
+    - simple_block
+    - system
+  theme:
+    - spacebase
+id: spacebasetimeline
+theme: spacebase
+region: content
+weight: -10
+provider: null
+plugin: 'simple_block:spacebase_timeline'
+settings:
+  id: 'simple_block:spacebase_timeline'
+  label: 'SpaceBase Timeline'
+  provider: simple_block
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /about
+    negate: false
+    context_mapping: {  }

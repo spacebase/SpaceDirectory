@@ -1,0 +1,114 @@
+uuid: 9308c6e9-0034-45bc-bea5-843888e25dcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.blog_post.body
+    - field.field.node.blog_post.field_bp_authors
+    - field.field.node.blog_post.field_bp_image
+    - field.field.node.blog_post.field_bp_medium
+    - field.field.node.blog_post.field_bp_post_date
+    - field.field.node.blog_post.field_metatags_blog
+    - image.style.search_results
+    - node.type.blog_post
+  module:
+    - ds
+    - image
+    - smart_trim
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_stacked
+      library: ds/ds_2col_stacked
+      disable_css: true
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      left:
+        - field_bp_image
+      right:
+        - node_title
+        - body
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h2
+          class: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+id: node.blog_post.search_result
+targetEntityType: node
+bundle: blog_post
+mode: search_result
+content:
+  body:
+    label: hidden
+    type: smart_trim
+    weight: 2
+    settings:
+      trim_length: 300
+      trim_type: chars
+      trim_suffix: ''
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      summary_handler: full
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: right
+  field_bp_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: search_results
+      image_link: content
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: image
+    region: left
+hidden:
+  field_bp_authors: true
+  field_bp_medium: true
+  field_bp_post_date: true
+  field_metatags_blog: true
+  links: true
+  private_message_link: true

@@ -1,0 +1,26 @@
+uuid: a3a915dc-fe38-4065-a4ca-0d55646c0ab7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.event
+  module:
+    - user
+id: node.event.teaser
+targetEntityType: node
+bundle: event
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_evt_description: true
+  field_evt_end: true
+  field_evt_image: true
+  field_evt_links: true
+  field_evt_location: true
+  field_evt_registration: true
+  field_evt_start: true
+  field_metatags: true

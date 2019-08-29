@@ -1,0 +1,9 @@
+membership_approved:
+  body: "[user:display-name],\n\nWelcome to [group:title]. Your request to join was accepted."
+  subject: 'Your application to [group:title] at [site:name] was accepted.'
+membership_rejected:
+  body: "[user:display-name],\n\nYour request to join [group:title] was declined."
+  subject: 'Sorry, your application to [group:title] at [site:name] was declined.'
+langcode: en
+_core:
+  default_config_hash: s3dM4FCNmAj0aLF7RIRGbFHskXM2u1_BKeOhvWWvP6U

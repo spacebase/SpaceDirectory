@@ -1,0 +1,116 @@
+uuid: 5b5c5c57-bc8d-48fd-8bb4-583e744fe26c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.sb_news_article.field_metatags_news
+    - field.field.node.sb_news_article.field_na_author
+    - field.field.node.sb_news_article.field_na_authors
+    - field.field.node.sb_news_article.field_na_image
+    - field.field.node.sb_news_article.field_na_link
+    - field.field.node.sb_news_article.field_na_post_date
+    - field.field.node.sb_news_article.field_summary
+    - image.style.thumbnail
+    - node.type.sb_news_article
+  module:
+    - image
+    - link
+    - metatag
+    - path
+id: node.sb_news_article.default
+targetEntityType: node
+bundle: sb_news_article
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_metatags_news:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
+  field_na_author:
+    type: entity_reference_autocomplete
+    weight: 11
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_na_image:
+    type: image_image
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_na_link:
+    type: link_default
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_summary:
+    weight: 3
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 8
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  field_na_authors: true
+  field_na_post_date: true

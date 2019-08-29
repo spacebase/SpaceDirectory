@@ -1,0 +1,30 @@
+uuid: f7ee9072-7a2d-435e-9cf6-7e1358a2ef7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.slides
+  module:
+    - system
+    - views
+  theme:
+    - spacebase
+id: home_slides
+theme: spacebase
+region: content
+weight: -22
+provider: null
+plugin: 'views_block:slides-home_slides'
+settings:
+  id: 'views_block:slides-home_slides'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,33 @@
+uuid: 5712d733-d063-4540-82ca-aef00b79af26
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.related_projects
+  module:
+    - ctools
+    - views
+  theme:
+    - spacebase
+id: views_block__related_projects_block_1
+theme: spacebase
+region: content
+weight: -3
+provider: null
+plugin: 'views_block:related_projects-block_1'
+settings:
+  id: 'views_block:related_projects-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  'entity_bundle:group':
+    id: 'entity_bundle:group'
+    bundles:
+      project_group: project_group
+    negate: false
+    context_mapping:
+      group: '@group.group_route_context:group'

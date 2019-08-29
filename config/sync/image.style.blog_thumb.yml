@@ -1,0 +1,25 @@
+uuid: 23f788b6-bf62-4d3d-98da-27d240ef76fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.event_and_blog_header
+  module:
+    - crop
+name: blog_thumb
+label: 'Blog Thumb'
+effects:
+  4573ef1c-c389-4757-9c67-ec4caaa79f13:
+    uuid: 4573ef1c-c389-4757-9c67-ec4caaa79f13
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: event_and_blog_header
+  9d910b6e-13ba-40f6-825a-77f4f1749299:
+    uuid: 9d910b6e-13ba-40f6-825a-77f4f1749299
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 360
+      height: 162
+      anchor: center-center

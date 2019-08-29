@@ -1,0 +1,11 @@
+uuid: ce72b83a-9b75-4052-be4c-55541926c280
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.raw_html
+id: call_to_action_join
+title: 'Join SpaceBase to add event'
+content:
+  value: "<div class=\"join-login\">\r\n<div class=\"cta-join\">To contribute an event:</div>\r\n<a href=\"/user/login\" class=\"btn btn-secondary btn-xsmall\">Sign In</a>\r\n<a href=\"/user/register\" class=\"btn btn-primary btn-xsmall\">Join</a>\r\n</div>"
+  format: raw_html

@@ -1,0 +1,21 @@
+uuid: 9bd29595-27cd-4756-993f-e8440ab3f355
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_evt_start
+    - node.type.event
+  module:
+    - datetime
+id: node.event.field_evt_start
+field_name: field_evt_start
+entity_type: node
+bundle: event
+label: Start
+description: 'Please enter the NZST local date time.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,11 @@
+uuid: 81c7fa9d-9615-4843-9bc4-8656a7f454b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.raw_html
+id: spacebase_timeline
+title: 'SpaceBase Timeline'
+content:
+  value: "<div class=\"sb-timeline row\">\r\n<div class=\"col-md-4\">\r\n<h3>Our History</h3>\r\n<p>\r\nSpaceBase was founded in 2016 by Emeline Paat-Dahlstrom and Eric Dahlstrom.\_ In 2017, Rich Bodo signed on, the team joined the first cohort of the Edmund Hillary Fellowship, and SpaceBase Limited was founded.</p>\r\n<p>\r\nWhen we established SpaceBase, we didn't see an idea legal structure out there for it.\_ We legally formed SpaceBase as an LLC, but we run it as an impact organization.\_ Our success is not measured as profit.\_ We will be releasing our mission statement and reporting metrics in 2018.</p>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<h3>Today</h3>\r\n<p>\r\nToday we are collaborating with the space community in New Zealand to:</p>\r\n<ul>\r\n<li>Build our directory system.\_ This will allow us, together, to take an inventory of where we are, connect with one another, collect feedback, and plan out our next steps.\_</li>\r\n<li>Establish educational programs that we can iterate on and improve.\_ The New Zealand Space Challenge is an example of that.\_ We are active in promoting relevant gatherings and activities countrywide.</li>\r\n</ul>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<h3>Roadmap</h3>\r\n<p>\r\nWe will release our 2018 roadmap shortly, describing our next collaborations.\_</p>\r\n<p>\r\nWe would love to write more, but, honestly, there is a lot of work to do.\_ Reach us at feedback@spacebase.co. We're looking forward to hearing from you.</p>\r\n</div>\r\n\r\n</div>"
+  format: raw_html

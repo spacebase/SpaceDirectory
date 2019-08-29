@@ -1,0 +1,29 @@
+uuid: 5c74a398-e5ae-4497-805b-c9da6e853c24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_na_authors
+    - node.type.sb_news_article
+id: node.sb_news_article.field_na_authors
+field_name: field_na_authors
+entity_type: node
+bundle: sb_news_article
+label: Authors
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: false
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: field_last_name_user
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

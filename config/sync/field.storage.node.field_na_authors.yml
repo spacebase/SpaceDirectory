@@ -1,0 +1,20 @@
+uuid: 710650a9-7674-41b3-9535-24f3ab19ba59
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - user
+id: node.field_na_authors
+field_name: field_na_authors
+entity_type: node
+type: entity_reference
+settings:
+  target_type: user
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

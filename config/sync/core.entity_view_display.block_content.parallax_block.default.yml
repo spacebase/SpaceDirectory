@@ -1,0 +1,33 @@
+uuid: ebaeeb08-bca6-4e37-96cd-8fa558d44b52
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.parallax_block
+    - field.field.block_content.parallax_block.body
+    - field.field.block_content.parallax_block.field_background_image
+  module:
+    - image
+    - text
+id: block_content.parallax_block.default
+targetEntityType: block_content
+bundle: parallax_block
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_background_image:
+    type: image
+    weight: 1
+    region: content
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,30 @@
+uuid: 350fc94b-42b2-4deb-896b-8219fa9b86d2
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.organizations_by_field_and_city
+  module:
+    - system
+    - views
+  theme:
+    - spacebase
+id: views_block__organizations_by_field_and_city_views_bpdb_1
+theme: spacebase
+region: content
+weight: -4
+provider: null
+plugin: 'views_block:organizations_by_field_and_city-views_block_filter_bpdb_1'
+settings:
+  id: 'views_block:organizations_by_field_and_city-views_block_filter_bpdb_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

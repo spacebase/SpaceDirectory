@@ -1,0 +1,81 @@
+uuid: e167d0a2-f532-4cf3-8e12-9a3a1023502b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.slide.field_sl_button_text
+    - field.field.node.slide.field_sl_button_url
+    - field.field.node.slide.field_sl_image
+    - field.field.node.slide.field_sl_text
+    - image.style.medium
+    - node.type.slide
+  module:
+    - focal_point
+    - text
+id: node.slide.default
+targetEntityType: node
+bundle: slide
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_sl_button_text:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_sl_button_url:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_sl_image:
+    weight: 2
+    settings:
+      preview_image_style: medium
+      offsets: '50,50'
+      progress_indicator: throbber
+      preview_link: false
+    third_party_settings: {  }
+    type: image_focal_point
+    region: content
+  field_sl_text:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  path: true
+  promote: true
+  status: true
+  sticky: true

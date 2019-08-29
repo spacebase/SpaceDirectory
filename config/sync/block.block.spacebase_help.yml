@@ -1,0 +1,22 @@
+uuid: 69b20906-55bf-41ef-aa84-3c75e77c71ba
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - spacebase
+_core:
+  default_config_hash: MhtNdV__HKRTab0ZPjkPNfYL4Ng4UPBucDLoC7Rg5Eo
+id: spacebase_help
+theme: spacebase
+region: help
+weight: -24
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

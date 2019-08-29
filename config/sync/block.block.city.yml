@@ -1,0 +1,28 @@
+uuid: daf930ff-41c6-4141-a9b9-b91394145dec
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.city
+  module:
+    - facets
+    - system
+  theme:
+    - spacebase
+id: city
+theme: spacebase
+region: sidebar_first
+weight: -22
+provider: null
+plugin: 'facet_block:city'
+settings:
+  id: 'facet_block:city'
+  label: City
+  provider: facets
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: /search/organizations
+    negate: false
+    context_mapping: {  }

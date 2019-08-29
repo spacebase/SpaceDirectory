@@ -1,0 +1,10 @@
+uuid: c4a410ff-596c-42e4-a7b6-f113dbbdb10b
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.member_of_organizations
+label: 'Member of Organizations'
+targetEntityType: user
+cache: true

@@ -1,0 +1,11 @@
+uuid: f86ff00a-0af0-4d3d-bd6e-29665218bbb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.raw_html
+id: footer_social
+title: 'Social Links'
+content:
+  value: "<a href=\"https://www.facebook.com/groups/SpaceBaseNZ/\" target=\"_blank\" id=\"footer-facebook\"><i class=\"fab fa-facebook\"></i></a>\r\n<a href=\"https://twitter.com/SpaceBaseNZ\" target=\"_blank\" id=\"footer-twitter\"><i class=\"fab fa-twitter\"></i></a>\r\n<a href=\"https://www.youtube.com/channel/UCU7P6XYXBtQxgUXNwqlnXTg\" target=\"_blank\" id=\"footer-youtube\"><i class=\"fab fa-youtube\"></i></a>\r\n<a href=\"https://www.linkedin.com/company/spacebase-nz/\" target=\"_blank\" id=\"footer-linkedin\"><i class=\"fab fa-linkedin\"></i></a>"
+  format: raw_html

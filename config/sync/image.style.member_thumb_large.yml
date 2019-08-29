@@ -1,0 +1,15 @@
+uuid: bc284ad0-df50-4503-870d-16b0b87bfb6e
+langcode: en
+status: true
+dependencies: {  }
+name: member_thumb_large
+label: 'Member Thumb Large'
+effects:
+  ffcf02a9-2e91-4ef9-b4d0-e17e2adb9319:
+    uuid: ffcf02a9-2e91-4ef9-b4d0-e17e2adb9319
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 170
+      height: 170
+      anchor: center-center

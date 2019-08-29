@@ -1,0 +1,10 @@
+uuid: 989963f2-7c2b-4576-97a7-71ecef25ac28
+langcode: en
+status: true
+dependencies:
+  module:
+    - private_message
+id: private_message.message_date
+label: 'Message date'
+targetEntityType: private_message
+cache: true

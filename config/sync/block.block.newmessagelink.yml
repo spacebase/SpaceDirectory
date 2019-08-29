@@ -1,0 +1,28 @@
+uuid: 8656a4cb-64e6-4275-bd6d-3f67a6e7ba29
+langcode: en
+status: true
+dependencies:
+  config:
+    - simple_block.simple_block.new_private_message_manual_link
+  module:
+    - simple_block
+    - system
+  theme:
+    - spacebase
+id: newmessagelink
+theme: spacebase
+region: content
+weight: -23
+provider: null
+plugin: 'simple_block:new_private_message_manual_link'
+settings:
+  id: 'simple_block:new_private_message_manual_link'
+  label: 'New Message Link'
+  provider: simple_block
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/private_messages*'
+    negate: false
+    context_mapping: {  }

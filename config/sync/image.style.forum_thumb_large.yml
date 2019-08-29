@@ -1,0 +1,15 @@
+uuid: 0abcc963-b28c-4cd9-8fee-fab61235be19
+langcode: en
+status: true
+dependencies: {  }
+name: forum_thumb_large
+label: 'Forum Thumb Large'
+effects:
+  8333cdb7-e69a-491e-845a-1e86b662011f:
+    uuid: 8333cdb7-e69a-491e-845a-1e86b662011f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 80
+      height: 80
+      anchor: center-center

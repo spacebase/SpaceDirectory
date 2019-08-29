@@ -1,0 +1,13 @@
+api_key: key-a7275d90a1c6145cab1659443d2951b0
+working_domain: sandbox35e5e50d73a0477cbe0bf547f77ccb50.mailgun.org
+debug_mode: false
+test_mode: false
+tracking_opens: ''
+tracking_clicks: ''
+tracking_exception: ''
+format_filter: email
+use_queue: false
+use_theme: false
+tagging_mailkey: false
+_core:
+  default_config_hash: bMOl3jD7ZuzZMuaUYzyqadr56G486ldo28NYIkK_54g

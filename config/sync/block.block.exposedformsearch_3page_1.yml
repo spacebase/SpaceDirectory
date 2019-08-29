@@ -1,0 +1,29 @@
+uuid: 9e73d5f4-ba24-4c26-8706-6d8a6e72c15d
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search_3
+  module:
+    - system
+    - views
+  theme:
+    - spacebase
+id: exposedformsearch_3page_1
+theme: spacebase
+region: navigation
+weight: -16
+provider: null
+plugin: 'views_exposed_filter_block:search_3-page_1'
+settings:
+  id: 'views_exposed_filter_block:search_3-page_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: '/search*'
+    negate: true
+    context_mapping: {  }

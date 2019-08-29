@@ -1,0 +1,32 @@
+uuid: 59514b56-94b4-42f8-a5b4-7c23a7cdf1b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group_content.group_content_type_569a59a77cd78.field_organization_role
+    - field.field.group_content.group_content_type_569a59a77cd78.group_roles
+    - group.content_type.group_content_type_569a59a77cd78
+id: group_content.group_content_type_569a59a77cd78.default
+targetEntityType: group_content
+bundle: group_content_type_569a59a77cd78
+mode: default
+content:
+  field_organization_role:
+    weight: -3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  group_roles:
+    label: above
+    type: entity_reference_label
+    settings:
+      link: false
+    weight: -4
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_id: true
+  uid: true

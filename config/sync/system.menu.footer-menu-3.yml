@@ -1,0 +1,8 @@
+uuid: 110d1ed1-02c0-4f93-9c32-f166415c1ded
+langcode: en
+status: true
+dependencies: {  }
+id: footer-menu-3
+label: 'Footer Menu 3'
+description: 'Menu for column 3'
+locked: false

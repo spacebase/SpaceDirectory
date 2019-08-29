@@ -1,0 +1,47 @@
+uuid: 75a88b6b-a192-491d-8e00-5f1f0dab9fe0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_home_location_user
+  module:
+    - address
+    - user
+id: user.user.field_home_location_user
+field_name: field_home_location_user
+entity_type: user
+bundle: user
+label: 'Home Location'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_countries: {  }
+  langcode_override: ''
+  field_overrides:
+    givenName:
+      override: hidden
+    additionalName:
+      override: hidden
+    familyName:
+      override: hidden
+    organization:
+      override: hidden
+    addressLine1:
+      override: optional
+    addressLine2:
+      override: optional
+    postalCode:
+      override: hidden
+    sortingCode:
+      override: hidden
+    dependentLocality:
+      override: hidden
+    locality:
+      override: optional
+    administrativeArea:
+      override: optional
+  fields: {  }
+field_type: address

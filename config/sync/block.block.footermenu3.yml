@@ -1,0 +1,24 @@
+uuid: e22e59c7-7c2b-43d7-b0d4-3a4ce6984d92
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-menu-3
+  module:
+    - system
+  theme:
+    - spacebase
+id: footermenu3
+theme: spacebase
+region: footer_top_3
+weight: -24
+provider: null
+plugin: 'system_menu_block:footer-menu-3'
+settings:
+  id: 'system_menu_block:footer-menu-3'
+  label: 'About SpaceBase'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

@@ -1,0 +1,12 @@
+uuid: e3b456a0-fc94-4e9d-8bca-13479fbc1898
+langcode: en
+status: true
+dependencies: {  }
+label: 'Event and Blog Header'
+id: event_and_blog_header
+description: ''
+aspect_ratio: ''
+soft_limit_width: null
+soft_limit_height: 500
+hard_limit_width: 1100
+hard_limit_height: 300

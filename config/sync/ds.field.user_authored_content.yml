@@ -1,0 +1,19 @@
+id: user_authored_content
+label: 'User authored content'
+ui_limit: ''
+properties:
+  block: 'views_block:user_authored_content-block_1'
+  use_block_title: false
+  add_block_wrappers: false
+  config:
+    id: 'views_block:user_authored_content-block_1'
+    label: ''
+    provider: views
+    label_display: visible
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+type: block
+type_label: 'Block field'
+entities:
+  user: user

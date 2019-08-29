@@ -1,0 +1,16 @@
+uuid: 3aeb741c-8ff9-4309-930f-4ee08d533c61
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.project_group
+id: project_group-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: project_group
+permissions_ui: true
+permissions:
+  - 'view group'
+  - 'join group'

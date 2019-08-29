@@ -1,0 +1,27 @@
+uuid: 24004fb9-8b55-4e34-8ff0-93157480b20d
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - user
+id: user.field_notification_prefs
+field_name: field_notification_prefs
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: now
+      label: 'Send immediately'
+    -
+      value: daily
+      label: 'Daily summary'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,11 @@
+uuid: 42610263-3030-427a-b193-663798fa14ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+id: introduction
+title: 'About SpaceBase'
+content:
+  value: "<h1>About SpaceBase</h1>\r\n\r\n<p>SpaceBase is co-creating a global Space Ecosystem to serve entrepreneurs in emerging space industries - starting in New Zealand.</p>\r\n\r\n<p>Our goal is to provide access to training, networking, technical services, and investment opportunities where they are needed most.</p>\r\n\r\n<p>SpaceBase was founded in 2016 by <a href=\"https://stories.ehf.org/ehf-fellow-emeline-paat-dahlstrom-3b4548fc4f20\">Emeline Paat-Dahlstrom</a> and <a href=\"https://stories.ehf.org/ehf-fellow-eric-dahlstrom-fcd977e44aff\">Eric Dahlstrom</a>.&nbsp; In 2017, <a href=\"https://stories.ehf.org/ehf-fellow-rich-bodo-e9d6cd65c791\">Rich Bodo</a> signed on, and the team joined the first cohort of the <a href=\"https://www.ehf.org/about-us\">Edmund Hillary Fellowship</a>.</p>\r\n\r\n<p>More to come...</p>\r\n"
+  format: full_html

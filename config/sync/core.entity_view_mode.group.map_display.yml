@@ -1,0 +1,10 @@
+uuid: a1ea483a-3a9a-440c-997f-06cc1db11844
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+id: group.map_display
+label: 'Map Display'
+targetEntityType: group
+cache: true

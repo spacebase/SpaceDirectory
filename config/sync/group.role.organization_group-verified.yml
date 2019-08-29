@@ -1,0 +1,35 @@
+uuid: f4bb0563-dd02-40ab-8786-c49b753db387
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.organization_group
+id: organization_group-verified
+label: 'Accepted Member'
+weight: -10
+internal: false
+audience: member
+group_type: organization_group
+permissions_ui: true
+permissions:
+  0: 'view group'
+  1: 'update own group_membership content'
+  2: 'leave group'
+  3: 'view group_membership content'
+  4: 'access group_node overview'
+  5: 'view group_node:resources entity'
+  6: 'create group_node:group_forum_topic entity'
+  7: 'update own group_node:group_forum_topic entity'
+  8: 'view group_node:group_forum_topic entity'
+  14: 'create group_node:blog_post entity'
+  15: 'update own group_node:blog_post entity'
+  16: 'view group_node:blog_post entity'
+  17: 'create group_node:event entity'
+  18: 'update own group_node:event entity'
+  19: 'view group_node:event entity'
+  23: 'create group_node:sb_news_article entity'
+  24: 'update own group_node:sb_news_article entity'
+  25: 'view group_node:sb_news_article entity'
+  27: 'create group_node:sb_video entity'
+  28: 'update own group_node:sb_video entity'
+  29: 'view group_node:sb_video entity'

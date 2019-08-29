@@ -1,0 +1,23 @@
+uuid: 0295665c-7e23-4a73-82ef-eb8007fbdaf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_linkedin
+    - group.type.organization_group
+  module:
+    - link
+id: group.organization_group.field_linkedin
+field_name: field_linkedin
+entity_type: group
+bundle: organization_group
+label: LinkedIn
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

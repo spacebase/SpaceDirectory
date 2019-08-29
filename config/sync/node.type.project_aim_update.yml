@@ -1,0 +1,17 @@
+uuid: a5d7bed6-b2ef-49b0-be1c-11a16d83f0c3
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Project Aim Update'
+type: project_aim_update
+description: 'For referencing on Project Update entities. They must reference a Project Aim which is referenced on the Project referencing the Project Update.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

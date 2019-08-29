@@ -1,0 +1,16 @@
+uuid: c1e09e74-a33b-4a25-a2c8-5dadf40dab80
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rpwvgyEURXLz_JjgMCrkS1rUv-0k3L79BpO-ReN7fDI
+id: node
+label: Content
+tags:
+  title: '[node:title] | [site:name]'
+  canonical_url: '[node:url]'
+  description: '[node:summary]'
+  article_modified_time: '[node:changed]'
+  article_published_time: '[node:created]'
+  article_author: '[node:author]'
+  og_title: '[current-page:title]'

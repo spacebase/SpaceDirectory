@@ -1,0 +1,19 @@
+uuid: d9f51d01-5fdd-470b-834e-aafc62290028
+langcode: en
+status: true
+dependencies:
+  module:
+    - address
+    - group
+id: group.field_headquarters_location
+field_name: field_headquarters_location
+entity_type: group
+type: address
+settings: {  }
+module: address
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

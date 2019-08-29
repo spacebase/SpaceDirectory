@@ -1,0 +1,21 @@
+uuid: b8fb18c9-9cd7-48bc-b091-370b3a0197ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sl_text
+    - node.type.slide
+  module:
+    - text
+id: node.slide.field_sl_text
+field_name: field_sl_text
+entity_type: node
+bundle: slide
+label: Text
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

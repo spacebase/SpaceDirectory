@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 
 /**
  * Load services definition file.
@@ -36,3 +37,17 @@ if (file_exists($local_settings)) {
  * modifying settings.php.
  */
 $settings['install_profile'] = 'standard';
+
+
+/**    ################### Old Platform Notes ####################
+ * @file
+ * Platform.sh example settings.php file for Drupal 8.
+ * A few here for review purposes:
+ */
+
+# @ToDo: where is the config directory placed in the Pantheon code?
+#$config_directories[CONFIG_SYNC_DIRECTORY] = '../config/sync';
+
+
+// Automatic Lando settings. (removed, might reconsider?)
+
