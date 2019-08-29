@@ -197,9 +197,6 @@
                 "ISO-8601 Week and Year": "https://www.drupal.org/files/issues/2018-06-11/iso_8601_week_and_year-2917145-4.patch",
                 "Timezones": "https://www.drupal.org/files/issues/2018-03-20/2604546-26.patch"
             },
-            "drupal/search_api" : {
-                "Facets are lost by Views on keyword search": "https://www.drupal.org/files/issues/facets-lost-by-keyword-search-2378945-8.x-19.patch"
-            },
             "drupal/nocaptcha_recaptcha" : {
                 "Validator has json_decode error": "./web/validator_json_decode_error-2981948-1.patch"
             },
