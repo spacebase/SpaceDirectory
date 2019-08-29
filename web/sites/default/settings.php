@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 
 /**
  * Load services definition file.
