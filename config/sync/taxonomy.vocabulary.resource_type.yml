@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Resource Type'
 vid: resource_type
 description: 'Tabs for Organization Resource Pages'
-hierarchy: 0
 weight: 0

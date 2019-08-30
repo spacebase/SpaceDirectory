@@ -8,10 +8,16 @@ dependencies:
     - field.field.user.user.field_email_user
     - field.field.user.user.field_first_name_user
     - field.field.user.user.field_home_location_user
+    - field.field.user.user.field_intro
     - field.field.user.user.field_last_name_user
+    - field.field.user.user.field_last_password_reset
     - field.field.user.user.field_linkedin_user
+    - field.field.user.user.field_metatags
+    - field.field.user.user.field_notification_prefs
+    - field.field.user.user.field_password_expiration
     - field.field.user.user.field_position
     - field.field.user.user.field_tagline_user
+    - field.field.user.user.field_terms
     - field.field.user.user.field_website_user
     - field.field.user.user.user_picture
     - image.style.thumbnail
@@ -39,9 +45,18 @@ hidden:
   field_email_user: true
   field_first_name_user: true
   field_home_location_user: true
+  field_intro: true
   field_last_name_user: true
+  field_last_password_reset: true
   field_linkedin_user: true
+  field_metatags: true
+  field_notification_prefs: true
+  field_password_expiration: true
   field_position: true
   field_tagline_user: true
+  field_terms: true
   field_website_user: true
+  linked_username: true
   member_for: true
+  private_message_link: true
+  search_api_excerpt: true

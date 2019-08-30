@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.sb_news_article.field_na_image
     - field.field.node.sb_news_article.field_na_link
     - field.field.node.sb_news_article.field_na_post_date
+    - field.field.node.sb_news_article.field_summary
     - node.type.sb_news_article
   module:
     - user
@@ -29,3 +30,5 @@ hidden:
   field_na_link: true
   field_na_post_date: true
   field_summary: true
+  private_message_link: true
+  search_api_excerpt: true

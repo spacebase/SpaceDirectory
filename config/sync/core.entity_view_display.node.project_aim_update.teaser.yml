@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.project_aim_update.body
+    - field.field.node.project_aim_update.field_project_aim_progress
+    - field.field.node.project_aim_update.field_project_aim_reference
     - node.type.project_aim_update
   module:
     - text
@@ -31,3 +33,4 @@ hidden:
   field_project_aim_progress: true
   field_project_aim_reference: true
   private_message_link: true
+  search_api_excerpt: true

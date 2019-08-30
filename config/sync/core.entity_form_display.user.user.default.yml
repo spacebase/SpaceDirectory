@@ -159,6 +159,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  private_messages:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   timezone:
     weight: 3
     region: content

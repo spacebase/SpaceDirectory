@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.sb_video.body
+    - field.field.node.sb_video.field_metatags_video
+    - field.field.node.sb_video.field_sb_video
     - node.type.sb_video
   module:
     - text
@@ -28,3 +30,5 @@ content:
 hidden:
   field_metatags_video: true
   field_sb_video: true
+  private_message_link: true
+  search_api_excerpt: true

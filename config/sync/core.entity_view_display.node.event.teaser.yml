@@ -4,6 +4,14 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.event.field_evt_description
+    - field.field.node.event.field_evt_end
+    - field.field.node.event.field_evt_image
+    - field.field.node.event.field_evt_links
+    - field.field.node.event.field_evt_location
+    - field.field.node.event.field_evt_registration
+    - field.field.node.event.field_evt_start
+    - field.field.node.event.field_metatags
     - node.type.event
   module:
     - user
@@ -24,3 +32,5 @@ hidden:
   field_evt_registration: true
   field_evt_start: true
   field_metatags: true
+  private_message_link: true
+  search_api_excerpt: true
