@@ -2,10 +2,6 @@ uuid: 37f14c6f-0ff9-4759-bff5-8e2725a383b8
 langcode: en
 status: true
 dependencies:
-  config:
-    - views.view.spacebase_users_search_page
-  module:
-    - views
   theme:
     - bootstrap
 id: exposedform_spacebase_users_search_page

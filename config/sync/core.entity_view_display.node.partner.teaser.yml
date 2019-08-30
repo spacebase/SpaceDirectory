@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.partner.field_partner_logo
+    - field.field.node.partner.field_partner_url
     - node.type.partner
   module:
     - user
@@ -19,3 +20,5 @@ content:
 hidden:
   field_partner_logo: true
   field_partner_url: true
+  private_message_link: true
+  search_api_excerpt: true

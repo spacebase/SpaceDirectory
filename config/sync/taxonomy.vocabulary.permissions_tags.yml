@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Permissions tags'
 vid: permissions_tags
 description: 'Taxonomy terms for use with the permissions by term module'
-hierarchy: 0
 weight: 0
