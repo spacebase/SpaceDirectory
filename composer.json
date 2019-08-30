@@ -165,6 +165,8 @@
             "composer install --optimize-autoloader --no-dev"
         ],
         "lint": "find web/modules/custom web/themes/custom -name '*.php' -exec php -l {} \\;",
+        "code-sniff": [
+        ],
         "unit-test": "echo 'No unit test step defined.'",
         "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
         "prepare-for-pantheon": "DrupalProject\\composer\\ScriptHandler::prepareForPantheon",
