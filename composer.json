@@ -1,5 +1,5 @@
 {
-    "name": "spacebase/for-pantheon-composer",
+    "name": "pantheon-systems/example-drops-8-composer",
     "description": "Merge of SpaceBase code intended to run on Pantheon, using install drops-8 with Composer on Pantheon.",
     "type": "project",
     "license": "MIT",
