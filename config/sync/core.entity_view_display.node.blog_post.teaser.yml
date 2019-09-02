@@ -5,6 +5,11 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.blog_post.body
+    - field.field.node.blog_post.field_bp_authors
+    - field.field.node.blog_post.field_bp_image
+    - field.field.node.blog_post.field_bp_medium
+    - field.field.node.blog_post.field_bp_post_date
+    - field.field.node.blog_post.field_metatags_blog
     - node.type.blog_post
   module:
     - text
@@ -31,3 +36,5 @@ hidden:
   field_bp_medium: true
   field_bp_post_date: true
   field_metatags_blog: true
+  private_message_link: true
+  search_api_excerpt: true

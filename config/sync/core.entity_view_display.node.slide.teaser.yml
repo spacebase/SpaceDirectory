@@ -4,6 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.slide.field_sl_button_text
+    - field.field.node.slide.field_sl_button_url
+    - field.field.node.slide.field_sl_image
+    - field.field.node.slide.field_sl_text
     - node.type.slide
   module:
     - user
@@ -20,3 +24,5 @@ hidden:
   field_sl_button_url: true
   field_sl_image: true
   field_sl_text: true
+  private_message_link: true
+  search_api_excerpt: true

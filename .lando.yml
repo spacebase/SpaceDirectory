@@ -1,4 +1,4 @@
-name: space-base
+name: spacebase
 recipe: drupal8
 proxy:
   mailhog:
@@ -11,12 +11,11 @@ services:
       - "curl -fsSL -o /var/www/.platformsh/bin/platform https://github.com/platformsh/platformsh-cli/releases/download/v3.26.0/platform.phar"
       - "chmod ug+x /var/www/.platformsh/bin/platform"
     overrides:
-          services:
-            environment:
-              # Support debugging Drush with XDEBUG. Use lando drush to debug.
-              PHP_IDE_CONFIG: "serverName=appserver"
-              BEHAT_PARAMS: >-
-                {"extensions":{"Behat\\MinkExtension":{"base_url":"http://nginx/"},"Drupal\\DrupalExtension":{"drush":{"root":"/app/web"}}}}
+      environment:
+        # Support debugging Drush with XDEBUG. Use lando drush to debug.
+        PHP_IDE_CONFIG: "serverName=appserver"
+        BEHAT_PARAMS: >-
+          {"extensions":{"Behat\\MinkExtension":{"base_url":"http://nginx/"},"Drupal\\DrupalExtension":{"drush":{"root":"/app/web"}}}}
   mailhog:
     type: mailhog
     hogfrom:
