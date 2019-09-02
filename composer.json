@@ -5,6 +5,10 @@
     "license": "MIT",
     "repositories": [
         {
+            "type": "vcs",
+            "url": "https://github.com/stephencataldo/spacebase2"
+        },
+        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
