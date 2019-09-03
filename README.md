@@ -1,12 +1,18 @@
-Merge Pantheon CI tools...
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+This code, which at the moment is not really ready to share,
+
+Merges Pantheon CI tools...
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 [![CircleCI](https://circleci.com/gh/StephenCataldo/spacebase2.svg?style=shield)](https://circleci.com/gh/StephenCataldo/spacebase2)
 [![Dashboard spacebase2](https://img.shields.io/badge/dashboard-spacebase2-yellow.svg)](https://dashboard.pantheon.io/sites/a66b1f7f-59d8-4b58-af22-497644a6b053#dev/code)
 [![Dev Site spacebase2](https://img.shields.io/badge/site-spacebase2-blue.svg)](http://dev-spacebase2.pantheonsite.io/)
 
-... With SpaceBase code base developed for Platform
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# using this codebase
+... With SpaceBase code base originally developed using Platform
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+So, almost all the information below here is out of date, anything mentioning
+Platform.sh is not relevant to setting up on Pantheon, just hasn't been 
+cleaned out yet:
+
 
 please have a look at https://gitlab.com/spacebase/spacebase/wikis/Local-environment-setup when setting up this codebase for the first time.
 
