@@ -35,13 +35,24 @@ https://pantheon.io/docs/migrate-manual  Used to integrate our code and Pantheon
 
 ## Quick Start 
 
-### Step 1: Create accounts and get access tokens. [ Easy / setup ]
-In this step you will create accounts on Pantheon.io, Github.com, and CircleCI, getting access tokens and installing Composer and Pantheon’s terminus.
+### Step 1: Clone this repository
 
+`git@github.com:spacebase/spacebasepantheon.git`
+`cd spacebasepantheon`
+
+### Step 2: Create accounts and get access tokens.
+
+In this step you will create accounts on Pantheon.io and CircleCI.com, getting access tokens and installing Composer and Pantheon’s terminus.
+
+Follow this document:
 
 https://pantheon.io/docs/guides/build-tools#before-you-begin 
 
-This should guide you to install composer (there is an easier set of instructions for mac users here); install Terminus; add your SSH public key to Pantheon; get keys for CircleCI and GitHub.
+That document should guide you to install composer (there is an easier set of instructions for mac users here); install Terminus; add your SSH public key to Pantheon; get keys for CircleCI and GitHub.
+
+That document will tell you what permissions to give each access key - you need both a github and a circle-ci key.
+
+### Step 3: Add the access tokens to your current local environment
 
 Once you have the access tokens, enter them into your shell/terminal window:
 
