@@ -1,8 +1,8 @@
-# SpaceBase Template Drupal Composer Pantheon
+# SpaceBas eTemplate Drupal Composer Pantheon
 
 These badges need rebuilding:
 
-[![CircleCI](https://circleci.com/gh/pantheon-systems/example-drops-8-composer.svg?style=shield)](https://circleci.com/gh/pantheon-systems/example-drops-8-composer)
+[![CircleCI](https://circleci.com/gh/spacebase/spacebasepantheon.svg?style=shield)](https://circleci.com/gh/spacebase/spacebasepantheon)
 [![Pantheon example-drops-8-composer](https://img.shields.io/badge/dashboard-drops_8-yellow.svg)](https://dashboard.pantheon.io/sites/c401fd14-f745-4e51-9af2-f30b45146a0c#dev/code)
 [![Dev Site example-drops-8-composer](https://img.shields.io/badge/site-drops_8-blue.svg)](http://dev-example-drops-8-composer.pantheonsite.io/)
 
@@ -46,9 +46,9 @@ This should guide you to install composer (there is an easier set of instruction
 Once you have the access tokens, enter them into your shell/terminal window:
 
 ```
-export GITHUB_TOKEN= yourtoken`
-export CIRCLE_TOKEN=yourtoken`
-export SITENAME=choose-your-sitename`
+export GITHUB_TOKEN= yourtoken
+export CIRCLE_TOKEN=yourtoken
+export SITENAME=choose-your-sitename
 ```
 (Avoid capitals!)
 
