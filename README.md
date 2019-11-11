@@ -33,7 +33,7 @@ https://pantheon.io/docs/guides/drupal-8-commerce = Tutorial showing how to use 
 https://pantheon.io/docs/migrate-manual  Used to integrate our code and Pantheon code, while keeping our git history.
 
 
-## Quick Start tp 
+## Quick Start 
 
 ### Step 1: Create accounts and get access tokens. [ Easy / setup ]
 In this step you will create accounts on Pantheon.io, Github.com, and CircleCI, getting access tokens and installing Composer and Pantheon’s terminus.
@@ -45,9 +45,11 @@ This should guide you to install composer (there is an easier set of instruction
 
 Once you have the access tokens, enter them into your shell/terminal window:
 
-`export GITHUB_TOKEN= yourtoken`
-`export CIRCLE_TOKEN=yourtoken`
-`export SITENAME=choose-your-sitename`
+```
+export GITHUB_TOKEN= yourtoken`
+export CIRCLE_TOKEN=yourtoken`
+export SITENAME=choose-your-sitename`
+```
 (Avoid capitals!)
 
 ### Step 2:  Create Your SpaceBase Clone [Cut & Paste, hopefully]
@@ -85,7 +87,7 @@ To create a working localhost, clone your new repository that terminus created f
 
 You can get that code running however you prefer on your localhost — or ignore localhost if you are simply checking out our site on a Pantheon demo. Make changes, commit, push to GitHub master branch— and then CircleCI is already set up to move your changes to Pantheon.
 
-### Local Development
+### Local Development with Lando [Optional]
 
 Bonus:  We used lando as our local dev environment. If you’d like to, we left the .lando.yml file for easy set up:
 
@@ -97,6 +99,10 @@ lando start
 curl -O  http://demo1.spacebase.co/dumpfile_less_content.sql
 	(Or perhaps this will have moved … get the current database file.)
 lando db-import dumpfile_less_content.sql
+
+Now you should have a local development environment that upgrades your code via
+CircleCI whenever you push your master branch to origin at Github. Have fun!
+
 
 #### Commands we found useful
 
@@ -204,11 +210,6 @@ here in the ReadMe are from Pantheon's setup.
 ## Updating your Pantheon site
 
 When using this repository to manage your Drupal site, you will no longer use the Pantheon dashboard to update your Drupal version. Instead, you will manage your updates using Composer. Ensure your site is in Git mode, clone it locally, and then run composer commands from there.  Commit and push your files back up to Pantheon as usual.
-
-## Lando
-
-This repository contains lando yml files, if you would like to use Lando as
-your local development environment.
 
 
 ## Overal approach to Drupal setup
