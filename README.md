@@ -72,6 +72,7 @@ export SITENAME=choose-your-sitename`
 
 That command should do a lot: create a new GitHub repository and a new Pantheon demo site, integrated by CircleCI. (If not, run again with option  `-vvv` to debug.)
 
+The last lines of text should point you at your new github repository.
 
 #### Load the database at Pantheon and start using Drupal [ Easy Drupal ]
 
