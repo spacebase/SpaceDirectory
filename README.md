@@ -1,39 +1,3 @@
-# SpaceBase Template Drupal Composer Pantheon
-
-These badges need rebuilding:
-
-[![CircleCI](https://circleci.com/gh/pantheon-systems/example-drops-8-composer.svg?style=shield)](https://circleci.com/gh/pantheon-systems/example-drops-8-composer)
-[![Pantheon example-drops-8-composer](https://img.shields.io/badge/dashboard-drops_8-yellow.svg)](https://dashboard.pantheon.io/sites/c401fd14-f745-4e51-9af2-f30b45146a0c#dev/code)
-[![Dev Site example-drops-8-composer](https://img.shields.io/badge/site-drops_8-blue.svg)](http://dev-example-drops-8-composer.pantheonsite.io/)
-
-
-This repository merges SpaceBase code for a Drupal-based community website with
-Pantheon's tools for integrating GitHub, Circle CI and Pantheon hosting. It is
-intended to allow you to launch a useable and extendible demo site of the
-SpaceBase code on Pantheon servers, with a good basic development workflow,
-very quickly and largely cut-and-paste. 
-
-Please follow the "Quick Start" below — this repository should be cloned using
-Terminus, not `git clone.`
-
-
-## Goals and Key Resources
-
-SpaceBase is a website for communities to collaborate  on local content, and impact programs, and reports. The original site is https://SpaceBase.co
-
-Within your community, internal groups will have their own presence, own resources and members.
-
-We hope to make this very quickly available to anyone who’d like to use it: this repository aims to help you launch on a Pantheon test server with your own GitHub repository and a functional development workflow, right now, just by creating some accounts and cut-and-pasting commands.
-
-History: The code is not locked to Pantheon, GitHub or CircleCI — SpaceBase started with GitLab, Platform.sh and Lando.
-
-#### The resources we used:
-
-https://pantheon.io/docs/guides/drupal-8-commerce = Tutorial showing how to use Pantheon’s template to create a Drupal site on Pantheon, creating your own GitHub repsitory linked to your Pantheon site via Circle CI. For our public site generation, we’re trying to get the same thing to happen with a template we maintain.
-https://pantheon.io/docs/migrate-manual  Used to integrate our code and Pantheon code, while keeping our git history.
-
-
-## Quick Start 
 
 ### Step 1: Clone this repository
 
@@ -42,35 +6,45 @@ https://pantheon.io/docs/migrate-manual  Used to integrate our code and Pantheon
 
 ### Step 2: Create accounts and get access tokens.
 
-In this step you will create accounts on Pantheon.io and CircleCI.com, getting access tokens and installing Composer and Pantheon’s terminus.
+In this step you will create accounts on Pantheon.io and CircleCI.com, installing Composer and Pantheon’s terminus, and getting access tokens to Github and CircleCI.
 
-Follow this document:
+Follow this document precisely until you get to the point where you have access tokens:
 
 https://pantheon.io/docs/guides/build-tools#before-you-begin 
 
 That document should guide you to install composer (there is an easier set of instructions for mac users here); install Terminus; add your SSH public key to Pantheon; get keys for CircleCI and GitHub.
 
-That document will tell you what permissions to give each access key - you need both a github and a circle-ci key.
+That document will tell you what permissions to give each access token - you need both a github token and a circle-ci token.
 
 ### Step 3: Add the access tokens to your current local environment
 
-Once you have the access tokens, enter them into your shell/terminal window:
+You will now choose a sitename for your site and set up a few environment variables.
+
+Once you have the access tokens, enter them into your shell/terminal window.  NOTE: You cannot use capital letters in the SITENAME - pantheon will create a website for you and it doesn't like Capital letters in the sitename.  Your site might be "spacebase-test" or something like that.
+
+Replace the your-thing strings with your tokens and sitename and run the following:
 
 ```
-export GITHUB_TOKEN= yourtoken`
+export GITHUB_TOKEN=yourtoken`
 export CIRCLE_TOKEN=yourtoken`
 export SITENAME=choose-your-sitename`
 ```
-(Avoid capitals!)
 
-### Step 2:  Create Your SpaceBase Clone [Cut & Paste, hopefully]
+#### Step 4: Use `terminus` to clone our repository onto Pantheon so you can launch your Drupal site.
+
+Run exactly this command:
+
+`terminus build:project:create --stability dev spacebase/spacebasepantheon $SITENAME 2>&1 | tee terminiuslog.txt`
+
+That command should do a lot: create a new GitHub repository and a new Pantheon demo site, integrated by CircleCI.
+
+Visit CircleCI - you should have a workflow now.
+Visit Github.com - you should have a repo with your sitename
+Visit Dashboard.pantheon.io - you should have a new pantheon site
+
+If you don't have all of those, read through terminuslog.txt to find where things went sideways, or run it again with option  `-vvv` to get more debug info.
 
 
-#### Use `terminus` to clone our repository onto Pantheon so you can launch your Drupal site.
-
-`terminus build:project:create --stability dev spacebase/spacebasepantheon $SITENAME`
-
-That command should do a lot: create a new GitHub repository and a new Pantheon demo site, integrated by CircleCI. (If not, run again with option  `-vvv` to debug.)
 
 
 #### Load the database at Pantheon and start using Drupal [ Easy Drupal ]
@@ -270,3 +244,41 @@ git push
 2. The `settings.php` and `settings.platformsh.php` files are provided by
    default. The `settings.platformsh.php` file automatically sets up the database connection on Platform.sh, and allows controlling Drupal configuration from environment variables.
 
+NOTES:
+
+# SpaceBase Template Drupal Composer Pantheon
+
+These badges need rebuilding:
+
+[![CircleCI](https://circleci.com/gh/pantheon-systems/example-drops-8-composer.svg?style=shield)](https://circleci.com/gh/pantheon-systems/example-drops-8-composer)
+[![Pantheon example-drops-8-composer](https://img.shields.io/badge/dashboard-drops_8-yellow.svg)](https://dashboard.pantheon.io/sites/c401fd14-f745-4e51-9af2-f30b45146a0c#dev/code)
+[![Dev Site example-drops-8-composer](https://img.shields.io/badge/site-drops_8-blue.svg)](http://dev-example-drops-8-composer.pantheonsite.io/)
+
+
+This repository merges SpaceBase code for a Drupal-based community website with
+Pantheon's tools for integrating GitHub, Circle CI and Pantheon hosting. It is
+intended to allow you to launch a useable and extendible demo site of the
+SpaceBase code on Pantheon servers, with a good basic development workflow,
+very quickly and largely cut-and-paste. 
+
+Please follow the "Quick Start" below — this repository should be cloned using
+Terminus, not `git clone.`
+
+
+## Goals and Key Resources
+
+SpaceBase is a website for communities to collaborate  on local content, and impact programs, and reports. The original site is https://SpaceBase.co
+
+Within your community, internal groups will have their own presence, own resources and members.
+
+We hope to make this very quickly available to anyone who’d like to use it: this repository aims to help you launch on a Pantheon test server with your own GitHub repository and a functional development workflow, right now, just by creating some accounts and cut-and-pasting commands.
+
+History: The code is not locked to Pantheon, GitHub or CircleCI — SpaceBase started with GitLab, Platform.sh and Lando.
+
+#### The resources we used:
+
+https://pantheon.io/docs/guides/drupal-8-commerce = Tutorial showing how to use Pantheon’s template to create a Drupal site on Pantheon, creating your own GitHub repsitory linked to your Pantheon site via Circle CI. For our public site generation, we’re trying to get the same thing to happen with a template we maintain.
+https://pantheon.io/docs/migrate-manual  Used to integrate our code and Pantheon code, while keeping our git history.
+
+
+## Quick Start 
