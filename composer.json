@@ -1,13 +1,9 @@
 {
     "name": "spacebase/spacebasepantheon",
     "description": "Merge of SpaceBase code intended to run on Pantheon, using install drops-8 with Composer on Pantheon. From package pantheon-systems/example-drops-8-composer",
-    "type": "project",
-    "license": "MIT",
+    "type": "package",
+    "license": "GPL-2.0+",
     "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/stephencataldo/spacebase2"
-        },
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
