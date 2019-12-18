@@ -1,7 +1,11 @@
-## SpaceBase's Community Directory OSS Release
+## SpaceDirectory
 
-This opensource release is based on the work we did to create the <a
+This Open-Source project is a Directory site based on Drupal 8.
+
+It is based on the work we did to create the <a
 href="https://spacebase.co">New Zealand Space Directory</a>: SpaceBase is a website for communities to collaborate on local content, and impact programs, and reports. 
+
+We hope that it finds applicability for any project that might need a similar base of functionality.
 
 Within your community, internal groups will have their own presence, own resources and members. SpaceDirectory is built with Drupal 8, using composer, largely built around the Group module. 
 
@@ -19,9 +23,6 @@ History: The code is not locked to Pantheon, GitHub or CircleCI — SpaceBase st
 Please follow the "Quick Start" below to use our default
 Pantheon/GitHub/CircleCI tooling, in which case this repository 
 should be cloned using Terminus and not `git clone.` 
-
-
-
 
 See the original site: https://spacebase.co
 A linux-hosted demo: http://demo1.spacebase.co/
