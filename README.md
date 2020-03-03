@@ -3,32 +3,29 @@
 This Open-Source project is a Directory site based on Drupal 8.
 
 It is based on the work we did to create the <a
-href="https://spacebase.co">New Zealand Space Directory</a>: SpaceBase is a website for communities to collaborate on local content, and impact programs, and reports. 
+href="https://spacebase.co">New Zealand Space Directory</a>: SpaceBase is a website for communities to collaborate on directories of local content, regional data, projects, and reports. 
 
 We hope that it finds applicability for any project that might need a similar base of functionality.
 
 Within your community, internal groups will have their own presence, own resources and members. SpaceDirectory is built with Drupal 8, using composer, largely built around the Group module. 
 
-This repository merges SpaceBase with
-Pantheon's tools for integrating GitHub, Circle CI and Pantheon hosting. It is
-intended to allow you to launch a useable and extendible demo site of the
+This repository will help you get SpaceDirectory up quickly using GitHub, Circle CI and Pantheon. We tried to make it easy for you to spin up a demo site of the
 SpaceBase code on Pantheon servers, with a good basic development workflow, and
 optionally using lando as your localhost environment —
-following quick and largely cut-and-paste set-up instructions. 
+following these quick and largely cut-and-paste set-up instructions. 
 
-We hope to make this very quickly available to anyone who’d like to use it: this repository aims to help you launch on a Pantheon test server with your own GitHub repository and a functional development workflow, right now, just by creating some accounts and cut-and-pasting commands.
-
-History: The code is not locked to Pantheon, GitHub or CircleCI — SpaceBase started with GitLab, Platform.sh and Lando.
+Note: The code is not locked to Pantheon, GitHub or CircleCI — SpaceBase started with GitLab, Platform.sh and Lando.  We have instructions for other platforms and bare linux virts as well.
 
 Please follow the "Quick Start" below to use our default
-Pantheon/GitHub/CircleCI tooling, in which case this repository 
-should be cloned using Terminus and not `git clone.` 
+Pantheon/GitHub/CircleCI tooling.  To set up using Pantheon, this repository should be cloned using Terminus and not `git clone.` 
 
-See the original site: https://spacebase.co
+References:
+
+See the original spacebase site: https://spacebase.co
 A linux-hosted demo: http://demo1.spacebase.co/
-Or launch your own demo/site on Pantheon:
+A pantheon-hosted demo of this repo:
 
-## Quick Start 
+## Quick Start - Make a demo site on Pantheon
 
 ### Step 1: Create accounts and get access tokens.
 
