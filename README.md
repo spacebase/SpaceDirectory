@@ -29,7 +29,7 @@ A pantheon-hosted demo of this repo:
 
 ### Step 1: Create accounts and get access tokens.
 
-In this step you will create accounts on Pantheon.io and CircleCI.com and GitHub.com as needed, then you will install Composer and Pantheon’s terminus, and get access tokens for Github and CircleCI.
+In this step you will create accounts on Pantheon.io and CircleCI.com and GitHub.com as needed, then you will install Composer and Pantheon’s terminus, and get access tokens for Github and CircleCI. Make sure to install Composer globally rather than locally, otherwise you'll run into errors later.
 
 Follow this document precisely until you get to the point where you have access tokens:
 
