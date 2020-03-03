@@ -118,16 +118,26 @@ Bonus:  We used lando as our local dev environment. If you’d like to, we left 
 Install lando: https://docs.lando.dev/basics/installation.html
 
 Then continuing from above:
+
 `git clone https://github.com/yourname/$SITENAME.git`
+
 `cd $SITENAME`
+
 `cd web/sites/default`
+
 This step is one of multiple options and might be not necessary:
+
 `cp settings.lando.php settings.local.php`
-lando start
-lando composer install
-curl -O  http://demo1.spacebase.co/dumpfile_less_content.sql
-	(Or perhaps this will have moved … get the current database file.)
-lando db-import dumpfile_less_content.sql
+
+`lando start`
+
+`lando composer install`
+
+`curl -O  http://demo1.spacebase.co/dumpfile_less_content.sql`
+
+(Or perhaps this will have moved … get the current database file.)
+
+`lando db-import dumpfile_less_content.sql`
 
 Now you should now have a local development environment that updates your 
 Pantheon dev environment via
