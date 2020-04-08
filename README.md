@@ -41,19 +41,15 @@ Run exactly this terminus command:
 
 `terminus build:project:create --stability dev spacebase/SpaceDirectory $SITENAME 2>&1 | tee terminuslog.txt`
 
-[ Note: We can hack the terminus program to keep the git history. Get the version of terminus stephen is using, then add `--preserve-local-repository`to above command. Solution is still under consideration.]  
+*[ Note: We can hack the terminus program to keep the git history. Get the version of terminus stephen is using, then add `--preserve-local-repository`to above command. Solution is still under consideration.]*
 
-*That command should do a lot:*
-
-1) create a new GitHub repository and a new Pantheon demo site, integrated by CircleCI.
+**That command should do a lot:** creates a new GitHub repository and a new Pantheon demo site, integrated by CircleCI.
 
 Visit CircleCI - you should have a workflow now.
 Visit Github.com - you should have a repo with your sitename
 Visit Dashboard.pantheon.io - you should have a new pantheon site (unless you ran out of sandboxes)
 
 If you don't have all of those, read through terminuslog.txt to find where things went sideways, or run it again with option  `-vvv` to get more debug info.
-
-
 
 The last lines of text should point you at your new github repository.
 
@@ -64,21 +60,24 @@ http://demo1.spacebase.co/dumpfile_less_content.sql
 @ToDy: further prep demo1 content.
 
 Import our database either in in Pantheon panel, or try terminus (we had problems w/ command line):
-terminus import:database $SITENAME.dev http://demo1.spacebase.co/dumpfile_less_content.sql
+`terminus import:database $SITENAME.dev http://demo1.spacebase.co/dumpfile_less_content.sql`
 
 Possibly useful commands:
 `terminus drush $SITENAME.dev cr`
 `terminus drush $SITENAME.dev uli`
 `terminus drush $SITENAME.dev updatedb`
 
-You’ve now got your working copy of the SpaceBase distribution. 
+You’ve now got your working copy of the SpaceBase distribution.
 
-Since our database is likely a bit date, you might want to set up your local dev environment and run composer update. Detailed instructs in the 'Lando' section
+Since our database is likely a bit dated, you might want to set up your local dev environment and run composer update. Detailed instructs in the 'Lando' section
 below, which can act as a tutorial for other development work.
 
-PS: On GitHub, the top of the README.md should have your CircleCI, Pantheon dashboard and site (“dev” at Pantheon, use Pantheon tools to make it live.)
+The top of the README.md on Github should have your CircleCI, Pantheon dashboard and site (“dev” at Pantheon, use Pantheon tools to make it live.)
 
-So far you’ve created a new github repository in your personal account based on the config you exported into the shell, AND fired up a site at Pantheon. To do further work, you  need to clone your site on GitHub to a local environment.
+
+
+
+
 
 ### Local Development
 
