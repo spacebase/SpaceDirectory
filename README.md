@@ -1,51 +1,28 @@
 ## SpaceDirectory
 
-This Open-Source project is a Directory site based on Drupal 8.
+SpaceDirectory is an Open-Source directory based on <a href="https://spacebase.co">Spacebase.co</a>. SpaceBase is a directory of local content, regional data, projects, and reports. 
 
-It is based on the work we did to create the <a
-href="https://spacebase.co">New Zealand Space Directory</a>: SpaceBase is a website for communities to collaborate on directories of local content, regional data, projects, and reports. 
+SpaceDirectory is built with Drupal 8, using composer, largely built around the Group module. This repository will help you get SpaceDirectory up using Circle CI, Lando and Pantheon. The code is not locked to Pantheon, GitHub or CircleCI — SpaceBase started with GitLab, Platform.sh and Lando.
 
-We hope that it finds applicability for any project that might need a similar base of functionality.
+To set up using Pantheon, this repository should be cloned using Terminus and not `git clone.` 
 
-Within your community, internal groups will have their own presence, own resources and members. SpaceDirectory is built with Drupal 8, using composer, largely built around the Group module. 
-
-This repository will help you get SpaceDirectory up quickly using GitHub, Circle CI and Pantheon. We tried to make it easy for you to spin up a demo site of the
-SpaceBase code on Pantheon servers, with a good basic development workflow, and
-optionally using lando as your localhost environment —
-following these quick and largely cut-and-paste set-up instructions. 
-
-Note: The code is not locked to Pantheon, GitHub or CircleCI — SpaceBase started with GitLab, Platform.sh and Lando.  We have instructions for other platforms and bare linux virts as well.
-
-Please follow the "Quick Start" below to use our default
-Pantheon/GitHub/CircleCI tooling.  To set up using Pantheon, this repository should be cloned using Terminus and not `git clone.` 
-
-References:
-
-See the original spacebase site: https://spacebase.co
 A linux-hosted demo: http://demo1.spacebase.co/
-A pantheon-hosted demo of this repo:
+
 
 ## Quick Start - Make a demo site on Pantheon
 
 ### Step 1: Create accounts and get access tokens.
 
-In this step you will create accounts on Pantheon.io and CircleCI.com and GitHub.com as needed, then you will install Composer and Pantheon’s terminus, and get access tokens for Github and CircleCI. Make sure to install Composer globally rather than locally, otherwise you'll run into errors later.
-
 Follow this document precisely until you get to the point where you have access tokens:
 
-https://pantheon.io/docs/guides/build-tools#before-you-begin 
+https://pantheon.io/docs/guides/build-tools#before-you-begin  [should probably backup that document in case it changes...]
 
-That document should guide you to install composer ([there is an easier set of instructions for mac users here]()); install Terminus; add your SSH public key to Pantheon; get keys for CircleCI and GitHub.
+Make sure to install Composer globally rather than locally, otherwise you'll run into errors later.
 
-That document will tell you what permissions to give each access token - you need both a github token and a circle-ci token.
 
 ### Step 2: Add the access tokens to your current local environment
 
-You will now choose a sitename for your site and set up a few environment variables.
-
-Once you have the access tokens, enter them into your shell/terminal window.  NOTE: You cannot use capital letters in the SITENAME - pantheon will create a website for you and it doesn't like Capital letters in the sitename.  Your sitename has to be unique on all of pantheon.
-
-Replace the your-thing strings with your tokens and sitename and run the following:
+Replace the your-thing strings with your tokens and sitename and run the following (NOTE: Pantheon doesn't allow capital letters in the SITENAME. Also, your sitename has to be unique on all of Pantheon.):
 
 ```
 export GITHUB_TOKEN=yourtoken`
@@ -66,7 +43,7 @@ Run exactly this terminus command:
 
 [ Note: We can hack the terminus program to keep the git history. Get the version of terminus stephen is using, then add `--preserve-local-repository`to above command. Solution is still under consideration.]  
 
-That command should do a lot: 
+*That command should do a lot:*
 
 1) create a new GitHub repository and a new Pantheon demo site, integrated by CircleCI.
 
