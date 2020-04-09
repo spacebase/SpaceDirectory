@@ -76,53 +76,6 @@ The top of the README.md on Github should have your CircleCI, Pantheon dashboard
 
 
 
+And that's the quick start! Even more notes available on the [wiki](https://github.com/spacebase/SpaceDirectory/wiki)
 
-
-
-### Local Development
-
-#### Clone, edit, commit, push — and CircleCI   [ Drupal devel and Git ]
-
-To create a working localhost, clone your new repository that terminus created for you on GitHub (not on our template!)
-
-You can get that code running however you prefer on your localhost — or ignore localhost if you are simply checking out our site on a Pantheon demo. Make changes, commit, push to GitHub master branch— and then CircleCI is already set up to move your changes to Pantheon.
-
-#### Local Development with Lando [Optional]
-
-Bonus:  We used lando as our local dev environment. If you’d like to, we left the .lando.yml file for easy set up:
-
-Install lando: https://docs.lando.dev/basics/installation.html
-
-Then continuing from above:
-
-`git clone https://github.com/yourname/$SITENAME.git`
-
-`cd $SITENAME`
-
-`cd web/sites/default`
-
-This step is one of multiple options and might be not necessary:
-
-`cp settings.lando.php settings.local.php`
-
-`lando start`
-
-`lando composer install`
-
-`curl -O  http://demo1.spacebase.co/dumpfile_less_content.sql`
-
-(Or perhaps this will have moved … get the current database file.)
-
-`lando db-import dumpfile_less_content.sql`
-
-Now you should now have a local development environment that updates your 
-Pantheon dev environment via
-CircleCI whenever you push your master branch to origin at Github. Have fun!
-
-Since our database is likely a bit dated, you might want to start by running a
-composer update:
-`lando composer update`, commit the lock file `git add composer.lock`, commit, and push your master branch to origin at github.com. `git push origin master` goes to GitHub, where CircleCI will automatically do a composer install with your new composer.lock file and send to Pantheon.
-
-
-And that's the quick start. Even more notes available on the [wiki](https://github.com/spacebase/SpaceDirectory/wiki)
 
